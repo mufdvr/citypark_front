@@ -1,0 +1,238 @@
+.column {
+	position:relative;
+	width:375px;
+	float:right;
+}
+
+.header {
+	position:relative;
+	display:block;
+	width:100%;
+	height:700px;
+	overflow:hidden;
+	border-bottom:1px solid #d4b58e;
+}
+
+.h_column {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #e0caa7 url("/images/sidebar/c_bg.png");
+}
+
+.leaf {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("/images/sidebar/leaf.png") no-repeat left 75px;
+}
+
+.slogan {
+    position: absolute;
+    text-align: center;
+    width: 280px;
+    margin-left: 50%;
+    left: -140px;
+    bottom: 150px;
+}
+
+.h_title {
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    bottom: 50px;
+    background: #45312b;
+}
+
+.h_title_bg {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: url("/images/sidebar/pattern.png") right;
+}
+
+.r_grad {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* overflow: hidden; */
+    background: url("/images/sidebar/rg.png") repeat-y right;
+}
+
+.h_title_right {
+    background: url("/images/sidebar/shade.png") left top repeat-y;
+}
+
+.h_img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.partbody {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.shade, .light {
+	display:block;
+	overflow:hidden;
+}
+
+.light {
+	padding:37px 25px 50px 0;
+	margin-left:50px;
+}
+
+.shade {
+	padding:37px 0 50px 25px;
+	margin-right:50px;
+}
+
+.deliver_block {
+    position: relative;
+    display: block;
+    width: 298px;
+    height: 175px;
+    overflow: hidden;
+    background: #45312b;
+    border: 1px solid #d4b58e;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.deliver-img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    backgrount-position: center;
+    animation-duration: 0.5s;
+}
+
+.d_title {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    background: rgba(69,49,43,0.7);
+    font-family: 'PT Serif', serif;
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+    color: #d4b58e;
+}
+
+.rest_contacts {
+    position: relative;
+    background: #d4b58e;
+    font-family: 'PT Serif', serif;
+    text-align: center;
+    color: #45312b;
+    font-size: 22px;
+    line-height: 22px;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.news_block {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.news_title {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 35px;
+    background: #d4b58e;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.new {
+    position: relative;
+    clear: both;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.n_foto {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: #933;
+    border: 1px solid #d4b58e;
+    border-radius: 5px;
+    float: left;
+    overflow: hidden;
+}
+
+.n_body {
+    margin-left: 120px;
+}
+
+.n_date {
+    position: absolute;
+    height: 27px;
+    width: 100px;
+    top: 110px;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    color: #ffc5af;
+    text-align: center;
+}
+
+.n_title {
+    position: relative;
+    font-family: 'PT Serif', serif;
+    font-size: 24px;
+    line-height: 24px;
+    color: #f6dfc4;
+    margin-bottom: 8px;
+}
+
+.n_ttx {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFF;
+}
+
+.room_catalog {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.ost_rooms {
+    position: relative;
+    display: block;
+    clear: both;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    margin-bottom: 20px;
+}
+
+.hotel_contacts {
+    position: relative;
+    font-family: 'PT Serif', serif;
+    text-align: center;
+    color: #efdec4;
+    font-size: 28px;
+    line-height: 30px;
+    border-radius: 5px;
+}
