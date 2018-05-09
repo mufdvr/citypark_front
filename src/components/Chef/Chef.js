@@ -12,7 +12,11 @@ export default () =>
          height: "220px"
        }}>
         <div className="povar_info">
-          <img src="/images/chef/povar.png" className="povar_ava" />
+          <img
+            alt="pic"
+            src="/images/chef/povar.png"
+            className="povar_ava"
+          />
           <div className="povar_txt">
             <a href="rest/shefblog/">Блог шеф-повара</a>
             Блог нашего шеф-повара Дениса Троицкого
@@ -20,7 +24,10 @@ export default () =>
         </div>
         <div className="povar_bludo">
           <div className="pb_img">
-            <img src="/images/chef/2CAM4538rer.jpg" />
+            <img
+               alt="pic" 
+              src="/images/chef/2CAM4538rer.jpg"
+            />
             <div className="pb_img_l"></div>
             <div className="pb_img_r"></div>
           </div>

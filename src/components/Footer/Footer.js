@@ -4,11 +4,17 @@ export default () =>
   <div>
     <div className="map_block">
       <div className="m_photo">
-        <img src="/images/footer/3.jpg" />
+        <img
+          alt="pic"
+          src="/images/footer/3.jpg"
+        />
       </div>
       <div className="map">
         <a href="https://goo.gl/maps/XLYXH" target="blank">
-          <img src="/images/footer/map.jpg" />
+          <img
+            alt="pic"
+            src="/images/footer/map.jpg"
+          />
         </a>
       </div>
       <div className="adress">
@@ -22,7 +28,7 @@ export default () =>
 
     <div className="footer">
       <div className="social">
-        <a href="http://vk.com/cityparkvip" className="soc vk"></a>
+        <a href="http://vk.com/cityparkvip" className="soc vk" />
         <a href="http://ok.ru/group/53650509856994" className="soc ok"></a>
         <a href="https://www.instagram.com/cityparkvipru/" className="soc ig"></a>
       </div>
