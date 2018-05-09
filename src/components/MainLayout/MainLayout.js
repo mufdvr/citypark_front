@@ -2,10 +2,10 @@ import React from 'react'
 
 import SideBar from '../SideBar'
 import Header from '../Header'
-import MainMenu from '../MainMenu'
+import MainMenu from '../NavigationBar'
 import Home from 'features/Home'
 import Footer from '../Footer'
-import ChefCooker from 'features/ChefCooker'
+import ChefCooker from '../Chef'
 
 export default () =>
   <div className="body">
