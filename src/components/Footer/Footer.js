@@ -28,9 +28,15 @@ export default () =>
 
     <div className="footer">
       <div className="social">
-        <a href="http://vk.com/cityparkvip" className="soc vk" />
-        <a href="http://ok.ru/group/53650509856994" className="soc ok"></a>
-        <a href="https://www.instagram.com/cityparkvipru/" className="soc ig"></a>
+        <a href="http://vk.com/cityparkvip">
+          <div className="soc vk" />
+        </a>
+        <a href="http://ok.ru/group/53650509856994">
+          <div className="soc ok" />
+        </a>
+        <a href="https://www.instagram.com/cityparkvipru/">
+          <div className="soc ig" />
+        </a>
       </div>
       <div className="inn">
         <div>
@@ -38,7 +44,9 @@ export default () =>
         </div>
       </div>
       <div className="evrika">
-        <p>Разработка сайта</p><a href="http://evrikapr.ru" className="evrikalogo"></a>
+        <p>Разработка сайта</p><a href="http://evrikapr.ru">
+          <div className="evrikalogo" />
+        </a>
       </div>
     </div>
   </div>

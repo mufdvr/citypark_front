@@ -71,7 +71,7 @@
   text-align: center;
 }
 
-a.soc {
+.soc {
   position: relative;
   display: block;
   width: 40px;
@@ -80,7 +80,7 @@ a.soc {
   float: left;
 }
 
-a.soc:hover {
+.soc:hover {
   background-position: center -40px !important;
 }
 
