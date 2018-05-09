@@ -6,7 +6,6 @@ import RestarauntContacts from '../RestarauntContacts'
 
 export default () =>
   <div>
-    <div className="logo"></div>
     <div className="part">
       <div className="header">
         <div className="h_img" style={{backgroundImage: "url(/images/1.jpg)"}}>
