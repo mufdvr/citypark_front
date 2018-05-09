@@ -1,0 +1,69 @@
+.header {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  border-bottom: 1px solid #d4b58e;
+}
+
+.h_img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-size: auto 701px cover;
+  background-position: center;
+}
+
+.h_img img {
+  position: absolute;
+  margin-left: 50%;
+  left: -960px;
+  height: 100%;
+}
+
+.h_title {
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  bottom: 50px;
+  background: #45312b;
+}
+
+.h_title_bg {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 550px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: url(/images/pattern.png) right;
+}
+
+.h_title_left, .h_title_right {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'PT Serif', serif;
+  color: #f6dfc4;
+  font-size: 35px;
+  line-height: 75px;
+  text-shadow: -2px -2px 0 #45312b;
+}
+
+.h_title_left {
+  background: url(/images/light.png) right top repeat-y;
+}
+
+.h_title_right {
+  background: url(/images/shade.png) left top repeat-y;
+}
+
+.h_title_left:hover, .h_title_right:hover {
+  color: #fff;
+}

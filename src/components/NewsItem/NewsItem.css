@@ -1,0 +1,66 @@
+.new {
+  position: relative;
+  clear: both;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.n_foto {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 150px;
+  background: #933;
+  border: 1px solid #d4b58e;
+  border-radius: 5px;
+  float: left;
+  margin-right: 25px;
+  overflow: hidden;
+}
+
+.n_body {
+
+}
+
+.n_date {
+  position: relative;
+  height: 27px;
+  background: url(/images/ds.png) repeat-y right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  color: #ffc5af;
+  text-align: right;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.n_title {
+  position: relative;
+  font-family: 'PT Serif', serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: #f6dfc4;
+  margin-bottom: 8px;
+}
+
+.n_title a {
+  font-family: 'PT Serif', serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: #f6dfc4;
+  text-decoration: underline;
+}
+
+.n_title a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.n_ttx {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFF;
+}

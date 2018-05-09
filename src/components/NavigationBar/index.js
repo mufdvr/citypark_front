@@ -1,4 +1,4 @@
 import NavigationBar from './NavigationBar'
-//import './MainMenu.css'
+import './NavigationBar.css'
 
 export default NavigationBar

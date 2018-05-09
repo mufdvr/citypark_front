@@ -4,16 +4,16 @@ export default () =>
   <div>
     <div className="map_block">
       <div className="m_photo">
-        <img src="/images/3.jpg" />
+        <img src="/images/footer/3.jpg" />
       </div>
       <div className="map">
         <a href="https://goo.gl/maps/XLYXH" target="blank">
-          <img src="/images/map.jpg" />
+          <img src="/images/footer/map.jpg" />
         </a>
       </div>
       <div className="adress">
-        <div className="p1"></div>
-        <div className="p2"></div>
+        <div className="p1" />
+        <div className="p2" />
         <div className="adr_txt">
           Ресторанно-гостиничный комплекс City Park, г. Белореченск, ул. Гоголя, 61.
         </div>

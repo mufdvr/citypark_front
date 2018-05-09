@@ -1,0 +1,40 @@
+.room_catalog {
+  position: relative;
+}
+
+.ost_rooms {
+  position: relative;
+  display: block;
+  clear: both;
+  font-size: 46px;
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'PT Serif', serif;
+}
+
+.ost_end {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 43px;
+  margin-top: 10px;
+  border-top: 1px solid #f6dfc4;
+  background: url(/images/bottom_shade_r.png) no-repeat;
+}
+
+.rn {
+  position: relative;
+  display: inline-block;
+  font-size: 130px;
+  line-height: 55px;
+  color: #eaae93;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.rntxt {
+  position: relative;
+  display: inline-block;
+  line-height: 45px;
+  color: #f6dfc4;
+}

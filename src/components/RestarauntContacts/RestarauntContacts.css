@@ -1,0 +1,25 @@
+.rest_contacts {
+  position: relative;
+  margin-top: 30px;
+  background: #45312b;
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  color: #d4b58e;
+  font-size: 42px;
+  line-height: 38px;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.rest_contacts div {
+  position: relative;
+  display: block;
+  font-size: 58px;
+  line-height: 70px;
+}
+
+.rest_contacts span {
+  display: block;
+  font-size: 34px;
+  padding-bottom: 15px;
+}

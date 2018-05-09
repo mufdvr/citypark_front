@@ -1,0 +1,33 @@
+.hotel_contacts {
+  position: relative;
+  margin-top: 5px;
+  background: #d4b58e;
+  font-family: 'PT Serif', serif;
+  text-align: center;
+  color: #45312b;
+  font-size: 42px;
+  line-height: 38px;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.hotel_contacts div {
+  position: relative;
+  display: block;
+  font-size: 58px;
+  line-height: 70px;
+}
+
+.hotel_contacts span {
+  display: block;
+  font-size: 24px;
+  color: #7a5b4e;
+  line-height: 24px;
+}
+
+.c8800 {
+  position: relative;
+  margin-top: 10px;
+  border-top: 1px solid #7a5b4e;
+  color: #7a5b4e;
+}

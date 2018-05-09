@@ -1,0 +1,139 @@
+.povar_block {
+  position: relative;
+  display: block;
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.povar_line {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 220px;
+  margin-top: 65px;
+  background: #45312b;
+  overflow: visible;
+}
+
+.povar_info {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 40%;
+  max-width: 700px;
+  right: 60%;
+  overflow: visible;
+  background: url(/images/chef/povar_light.png) no-repeat left bottom;
+}
+
+.povar_ava {
+  position: relative;
+  float: left;
+  margin-top: -65px;
+  margin-left: 50px;
+}
+
+.povar_txt {
+  margin: 20px 0 20px 10px;
+  color: #FFF;
+  font-size: 18px;
+}
+
+.povar_txt a {
+  display: block;
+  font-family: 'PT Serif', serif;
+  color: #d4b58e;
+  font-size: 34px;
+  line-height: 34px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.povar_txt a:hover {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.povar_bludo {
+  position: absolute;
+  display: block;
+  width: 60%;
+  max-width: 800px;
+  height: 100%;
+  left: 40%;
+}
+
+.pb_img {
+  position: relative;
+  display: block;
+  width: 330px;
+  height: 220px;
+  float: left;
+  background: #933;
+}
+
+.pb_img_l {
+  position: absolute;
+  display: block;
+  width: 69px;
+  height: 220px;
+  top: 0;
+  left: 0;
+  background: url(/images/chef/shef_igol_1.png) no-repeat;
+}
+
+.pb_img_r {
+  position: absolute;
+  display: block;
+  width: 69px;
+  height: 220px;
+  top: 0;
+  right: 0;
+  background: url(/images/chef/shef_igol_2.png) no-repeat;
+}
+
+.pb_txt {
+  color: #000;
+  font-size: 18px;
+  position: relative;
+  height: 100%;
+  margin-left: 330px;
+  margin-right: 99px;
+  background: -moz-linear-gradient(left, #dabf9d, #f9f5ef);
+  background: -webkit-linear-gradient(left, #dabf9d, #f9f5ef);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#dabf9d', endColorstr='#f9f5ef', GradientType=0);
+  zoom: 1;
+  background: linear-gradient(left, #dabf9d, #f9f5ef);
+}
+
+.pb_txt div {
+  padding: 20px 0 20px 10px;
+}
+
+.pb_txt a {
+  display: block;
+  font-family: 'PT Serif', serif;
+  color: #45312b;
+  font-size: 34px;
+  line-height: 34px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.pb_txt a:hover {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.pb_end {
+  position: relative;
+  display: block;
+  width: 98px;
+  height: 220px;
+  float: right;
+  margin-right: 10px;
+  background: url(/images/chef/shef_igol_3.png) no-repeat;
+}
