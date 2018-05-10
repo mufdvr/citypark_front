@@ -7,14 +7,6 @@
   float: left;
 }
 
-.partbody {
-  position: relative;
-  display: block;
-  width: 100%;
-  max-width: 640px;
-  overflow: hidden;
-}
-
 .logo {
   position: absolute;
   display: block;

@@ -21,11 +21,11 @@ const RoomItem = ({ bannerUrl, cost, link, title, description}) =>
   </div>
 
 RoomItem.propTypes = {
-  bannerUrl: PropTypes.string.isRequired,
+  bannerUrl: PropTypes.string,
   cost: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string
 }
 
 export default RoomItem

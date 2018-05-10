@@ -102,11 +102,9 @@
   height: 100%;
   margin-left: 330px;
   margin-right: 99px;
-  background: -moz-linear-gradient(left, #dabf9d, #f9f5ef);
-  background: -webkit-linear-gradient(left, #dabf9d, #f9f5ef);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#dabf9d', endColorstr='#f9f5ef', GradientType=0);
   zoom: 1;
-  background: linear-gradient(to left, #dabf9d, #f9f5ef);
+  background: linear-gradient(left, #dabf9d, #f9f5ef);
 }
 
 .pb_txt div {

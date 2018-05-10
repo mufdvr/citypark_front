@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default class NavigationBar extends React.Component {
   constructor(props) {
@@ -28,7 +29,9 @@ export default class NavigationBar extends React.Component {
             <a href="http://cityparkvip.ru/" className="first active">Главная</a>
           </li>
           <li onMouseOver={this.handleHover.bind(null, 0)} onMouseOut={this.handleHover.bind(null, 0)}>
-            <a href="rest/">Ресторан и летнее кафе</a>
+            <Link to="/restaraunt">
+              Ресторан и летнее каф
+            </Link>
             <ul className={`sub ${this.state.subMenuVisible[0] ? "fade-in" : "fade-out"}`}>
               <li>
                 <a href="rest/restaurant.html" className="first">Ресторан</a>

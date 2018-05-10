@@ -1,143 +1,81 @@
 .column {
-	position:relative;
-	width:375px;
-	float:right;
-}
-
-#logo {
-    position: absolute;
-    display: block;
-    width: 297px;
-    height: 247px;
-    margin-left: 50%;
-    left: -148px;
-    top: 115px;
-    background: url("/images/sidebar/pagelogo.png") no-repeat;
-}
-
-.h_column {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #e0caa7 url("/images/sidebar/c_bg.png");
-}
-
-.h_column {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #e0caa7 url("/images/sidebar/c_bg.png");
-}
-
-.h_title_right {
-    background: url("/images/sidebar/shade.png") left top repeat-y;
-}
-
-.leaf {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: url("/images/sidebar/leaf.png") no-repeat left 75px;
+  position: relative;
+  width: 375px;
+  float: right;
 }
 
 .slogan {
-    position: absolute;
-    text-align: center;
-    width: 280px;
-    margin-left: 50%;
-    left: -140px;
-    bottom: 150px;
+  position: absolute;
+  text-align: center;
+  width: 280px;
+  margin-left: 50%;
+  left: -140px;
+  bottom: 150px;
 }
 
-.rest_contacts {
-    position: relative;
-    background: #d4b58e;
-    font-family: 'PT Serif', serif;
-    text-align: center;
-    color: #45312b;
-    font-size: 22px;
-    line-height: 22px;
-    padding: 10px 0;
-    border-radius: 5px;
-    margin-bottom: 30px;
+.slogan a {
+  position: relative;
+  display: block;
+  font-size: 28px;
+  line-height: 42px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-decoration: none;
+  color: #46322b;
+  text-shadow: 1px 1px 0 #ffe5d0;
 }
 
-.new {
-    position: relative;
-    clear: both;
-    margin-bottom: 20px;
-    overflow: hidden;
+.slogan a:hover {
+  color: #000;
 }
 
-.n_foto {
-    position: relative;
-    display: block;
-    width: 100px;
-    height: 100px;
-    background: #933;
-    border: 1px solid #d4b58e;
-    border-radius: 5px;
-    float: left;
-    overflow: hidden;
+
+.h_column {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #e0caa7 url(/images/sidebar/c_bg.png);
 }
 
-.n_body {
-    margin-left: 120px;
+.leaf {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/images/sidebar/leaf.png) no-repeat left 75px;
 }
 
-.n_date {
-    position: absolute;
-    height: 27px;
-    width: 100px;
-    top: 110px;
-    left: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    line-height: 27px;
-    color: #ffc5af;
-    text-align: center;
+.slogan {
+  position: absolute;
+  text-align: center;
+  width: 280px;
+  margin-left: 50%;
+  left: -140px;
+  bottom: 150px;
 }
 
-.n_title {
-    position: relative;
-    font-family: 'PT Serif', serif;
-    font-size: 24px;
-    line-height: 24px;
-    color: #f6dfc4;
-    margin-bottom: 8px;
+.slogan a {
+  position: relative;
+  display: block;
+  font-size: 28px;
+  line-height: 42px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-decoration: none;
+  color: #46322b;
+  text-shadow: 1px 1px 0 #ffe5d0;
 }
 
-.n_ttx {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 18px;
-    color: #FFF;
+.slogan a:hover {
+  color: #000;
 }
 
-.room_catalog {
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.ost_rooms {
-    position: relative;
-    display: block;
-    clear: both;
-    font-size: 30px;
-    text-align: center;
-    font-family: 'PT Serif', serif;
-    margin-bottom: 20px;
-}
-
-.hotel_contacts {
-    position: relative;
-    font-family: 'PT Serif', serif;
-    text-align: center;
-    color: #efdec4;
-    font-size: 28px;
-    line-height: 30px;
-    border-radius: 5px;
+#logo {
+  position: absolute;
+  display: block;
+  width: 297px;
+  height: 247px;
+  margin-left: 50%;
+  left: -148px;
+  top: 115px;
+  background: url(/images/sidebar/pagelogo.png) no-repeat;
 }

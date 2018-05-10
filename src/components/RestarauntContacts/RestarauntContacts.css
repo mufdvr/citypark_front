@@ -1,25 +1,52 @@
 .rest_contacts {
   position: relative;
-  margin-top: 30px;
-  background: #45312b;
   font-family: 'PT Serif', serif;
   text-align: center;
+  border-radius: 5px;
+}
+
+.rest_contacts_home {
+  margin-top: 30px;
+  background: #45312b;
   color: #d4b58e;
   font-size: 42px;
   line-height: 38px;
   padding: 20px 0;
-  border-radius: 5px;
+}
+
+.rest_contacts_side {
+  background: #d4b58e;
+  color: #45312b;
+  font-size: 22px;
+  line-height: 22px;
+  padding: 10px 0;
+  margin-bottom: 30px;
 }
 
 .rest_contacts div {
   position: relative;
   display: block;
+}
+
+.rest_contacts_home div {
   font-size: 58px;
   line-height: 70px;
 }
 
+.rest_contacts_side div {
+  font-size: 32px;
+  line-height: 36px;
+}
+
 .rest_contacts span {
   display: block;
+}
+
+.rest_contacts_home span {
   font-size: 34px;
   padding-bottom: 15px;
+}
+.rest_contacts_side span {
+  font-size: 18px;
+  padding-bottom: 10px;
 }
