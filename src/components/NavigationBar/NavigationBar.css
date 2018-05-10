@@ -100,7 +100,7 @@ ul.mmenu li a:hover {
 }
 
 ul.sub {
-  display: none;
+  display: block;
   position: absolute;
   padding: 10px;
   list-style: none;
@@ -109,6 +109,28 @@ ul.sub {
   border-bottom: 1px solid #f0d8be;
   border-left: 1px solid #f0d8be;
   border-right: 1px solid #f0d8be;
+}
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.fade-in {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+    10% { display: none; }
 }
 
 ul.sub li {
