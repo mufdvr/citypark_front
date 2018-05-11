@@ -1,8 +1,10 @@
 import * as components from './components'
 
+export const MAIN = '/restaurant'
+
 const routes = [
   {
-    path: '/restaurant',
+    path: MAIN,
     component: components.Main
   }
 ]

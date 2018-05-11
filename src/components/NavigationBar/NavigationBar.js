@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Restaurant from 'features/Restaurant'
+
 export default class NavigationBar extends React.Component {
   constructor(props) {
     super(props)
@@ -29,7 +31,7 @@ export default class NavigationBar extends React.Component {
             <a href="http://cityparkvip.ru/" className="first active">Главная</a>
           </li>
           <li onMouseOver={this.handleHover.bind(null, 0)} onMouseOut={this.handleHover.bind(null, 0)}>
-            <Link to="/restaurant">
+            <Link to={Restaurant.links.MAIN}>
               Ресторан и летнее каф
             </Link>
             <ul className={`sub ${this.state.subMenuVisible[0] ? "fade-in" : "fade-out"}`}>
