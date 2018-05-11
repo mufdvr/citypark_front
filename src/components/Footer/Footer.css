@@ -40,7 +40,6 @@
   width: 100%;
   overflow: hidden;
   top: 25px;
-  background: url(/images/pattern.png);
 }
 
 .adr_txt {
@@ -82,34 +81,6 @@
 
 .soc:hover {
   background-position: center -40px !important;
-}
-
-.tw {
-  background: url(/images/footer/tw.png) no-repeat top;
-}
-
-.vk {
-  background: url(/images/footer/vk.png) no-repeat top;
-}
-
-.fb {
-  background: url(/images/footer/fb.png) no-repeat top;
-}
-
-.ig {
-  background: url(/images/footer/ig.png) no-repeat top;
-}
-
-.gp {
-  background: url(/images/footer/g+.png) no-repeat top;
-}
-
-.ok {
-  background: url(/images/footer/ok.png) no-repeat top;
-}
-
-.yt {
-  background: url(/images/footer/yt.png) no-repeat top;
 }
 
 .inn {

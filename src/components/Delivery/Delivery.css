@@ -31,12 +31,11 @@
 }
 
 .deliver-img_home {
-  /*height:100%;*/
+
 }
 
 .deliver-img_side {
   height: 100%;
-  backgrount-position: center;
   animation-duration: 0.5s;
 }
 

@@ -39,7 +39,7 @@
   min-width: 550px;
   margin: 0 auto;
   overflow: hidden;
-  background: url(/images/pattern.png) right;
+  background-position-x: right;
 }
 
 .h_title_left, .h_title_right {
@@ -54,14 +54,6 @@
   font-size: 35px;
   line-height: 75px;
   text-shadow: -2px -2px 0 #45312b;
-}
-
-.h_title_left {
-  background: url(/images/light.png) right top repeat-y;
-}
-
-.h_title_right {
-  background: url(/images/shade.png) left top repeat-y;
 }
 
 .h_title_left:hover, .h_title_right:hover {

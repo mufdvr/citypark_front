@@ -40,7 +40,6 @@ document, body {
   bottom: 0;
   right: 0;
   left: 0;
-  background: url(/images/lg.png) repeat-y left;
 }
 
 .p2 {
@@ -49,7 +48,6 @@ document, body {
   bottom: 0;
   right: 0;
   left: 0;
-  background: url(/images/rg.png) repeat-y right;
 }
 
 .l_grad {
@@ -58,7 +56,6 @@ document, body {
   height: 100%;
   display: block;
   /*overflow:hidden;*/
-  background: url(/images/lg.png) repeat-y left;
 }
 
 .r_grad {
@@ -67,7 +64,6 @@ document, body {
   height: 100%;
   display: block;
   /*overflow:hidden;*/
-  background: url(/images/rg.png) repeat-y right;
 }
 
 .shade, .light {
@@ -83,25 +79,6 @@ document, body {
 .shade {
   padding: 37px 0 50px 25px;
   margin-right: 50px;
-}
-
-.fold {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-repeat: no-repeat;
-  background-position-y: 700px;
-}
-
-.fold_home {
-  right: 0;
-  background-position-x: center;
-}
-
-.fold_side {
-  right: -193px;
-  background-position-x: right;
 }
 
 .off {

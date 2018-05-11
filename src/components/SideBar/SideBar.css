@@ -34,7 +34,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: #e0caa7 url(/images/sidebar/c_bg.png);
 }
 
 .leaf {
@@ -42,7 +41,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: url(/images/sidebar/leaf.png) no-repeat left 75px;
 }
 
 .slogan {
@@ -77,5 +75,4 @@
   margin-left: 50%;
   left: -148px;
   top: 115px;
-  background: url(/images/sidebar/pagelogo.png) no-repeat;
 }

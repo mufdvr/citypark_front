@@ -6,5 +6,23 @@
   min-width: 900px;
   overflow: hidden;
   margin: 0 auto;
-  background: url(/images/pattern.png);
+}
+
+.fold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position-y: 700px;
+}
+
+.fold_home {
+  right: 0;
+  background-position-x: center;
+}
+
+.fold_side {
+  right: -193px;
+  background-position-x: right;
 }
