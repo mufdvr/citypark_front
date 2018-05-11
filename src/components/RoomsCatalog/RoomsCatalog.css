@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.room_catalog_side {
+	margin-bottom:10px;
+}
+
 .ost_rooms {
   position: relative;
   display: block;

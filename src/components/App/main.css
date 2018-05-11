@@ -92,18 +92,21 @@ a:hover {}
 .fold {
   position: absolute;
   top: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  background-image: url(/images/fold.png);
+  background-repeat: no-repeat;
+  background-position-y: 700px;
 }
 
 .fold_home {
   right: 0;
-  background: url(/images/fold.png) no-repeat center 700px;
+  background-position-x: center; 
 }
 
 .fold_side {
   right: -193px;
-  background: url(/images/fold.png) no-repeat right 700px;
+  background-position-x: right;
 }
 
 .off {

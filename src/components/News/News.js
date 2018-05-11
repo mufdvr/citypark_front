@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const News = ({ children }) =>
-  <div className="news_block">
-    <div className="news_title">
+const News = ({ children, displayType }) =>
+  <div className={`news_block news_block_${displayType}`}>
+    <div className={`news_title news_title_${displayType}`}>
       <a href="rest/news/">Новости и мероприятия</a>
     </div>
     { children }
@@ -11,7 +11,8 @@ const News = ({ children }) =>
   </div>
 
 News.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  displayType: PropTypes.string.isRequired
 }
 
 export default News

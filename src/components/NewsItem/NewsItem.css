@@ -8,32 +8,56 @@
 .n_foto {
   position: relative;
   display: block;
-  width: 150px;
-  height: 150px;
   background: #933;
   border: 1px solid #d4b58e;
   border-radius: 5px;
   float: left;
-  margin-right: 25px;
   overflow: hidden;
 }
 
-.n_body {
+.n_foto_home {
+  width: 150px;
+  height: 150px;
+  margin-right: 25px;
+}
 
+.n_foto_side {
+  width: 100px;
+  height: 100px;
+}
+
+.n_body_home {}
+
+.n_body_side {
+  margin-left: 120px;
 }
 
 .n_date {
-  position: relative;
   height: 27px;
-  background: url(/images/ds.png) repeat-y right;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 27px;
   color: #ffc5af;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.n_date_home {
+  position: relative;
+  background: url(/images/ds.png) repeat-y right;
   text-align: right;
   padding-right: 5px;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+
+.n_date_side {
+  position: absolute;
+  width: 100px;
+  top: 110px;
+  left: 0;
+  text-align: center;
 }
 
 .n_title {

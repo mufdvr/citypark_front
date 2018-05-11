@@ -1,6 +1,13 @@
 .news_block {
   position: relative;
+}
+
+.news_block_home {
   margin-top: 40px;
+}
+
+.news_block_side {
+  margin-bottom:30px;
 }
 
 .news_title {
@@ -12,6 +19,14 @@
   border-radius: 5px;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.news_title_home {
+  margin-bottom: 20px;
+}
+
+.news_title_side {
+  margin-bottom: 10px;
 }
 
 .news_title a {

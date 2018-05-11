@@ -54,8 +54,9 @@ export default () =>
     <div className="shade">
       <RestarauntContacts displayType={DISPLAY_TYPE}/>
       <Delivery displayType={DISPLAY_TYPE}/>
-      <News>
+      <News displayType={DISPLAY_TYPE}>
         <NewsItem
+          displayType={DISPLAY_TYPE}
           bannerUrl={"/images/promo.jpg"}
           date={"09.04.2018"}
           title={"Конкурс селфи от City Park в Instagram"}
@@ -63,25 +64,28 @@ export default () =>
         />
       </News>
 
-      <RoomsCatalog >
+      <RoomsCatalog displayType={DISPLAY_TYPE}>
         <RoomItem
+          displayType={DISPLAY_TYPE}
           title={"Одноместные номера"}
           cost={"2500-3000"}
           link={"hotel/katalog-nomerov/odnomestnyie.html"}
         />
         <RoomItem
+          displayType={DISPLAY_TYPE}
           title={"Двухместные номера"}
           cost={"3000"}
           link={"hotel/katalog-nomerov/dvuxmestnyie-nomera.html"}
         />
         <RoomItem
+          displayType={DISPLAY_TYPE}
           title={"VIP-номер"}
           cost={"5000"}
           link={"hotel/katalog-nomerov/vip.html"}
         />
       </RoomsCatalog>
 
-      <HotelContacts />
+      <HotelContacts displayType={DISPLAY_TYPE}/>
 
     </div>
   </div>

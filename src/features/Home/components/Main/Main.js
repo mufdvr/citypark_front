@@ -9,6 +9,8 @@ import Header from 'components/Header'
 import Delivery from 'components/Delivery'
 import { RoomItem } from 'components'
 
+const DISPLAY_TYPE = "home"
+
 export default () =>
   <div>
     <div className="part">
@@ -20,28 +22,31 @@ export default () =>
       />
       <div className="partbody partbody_home" style={{float: "right"}}>
         <div className="light">
-          <Delivery displayType="home" />
-          <News>
+          <Delivery displayType={DISPLAY_TYPE} />
+          <News displayType={DISPLAY_TYPE}>
             <NewsItem
+              displayType={DISPLAY_TYPE}
               bannerUrl={"/images/promo.jpg"}
               title={"Конкурс селфи от City Park в Instagram"}
               date={"09.04.2018"}
               link={"/rest/news/konkurs-selfi-ot-city-park-v-instagram.html"}
             />
             <NewsItem
+              displayType={DISPLAY_TYPE}
               bannerUrl={"/images/wVS7mwYjCyw.jpg"}
               title={"Новое спецпредложение"}
               date={"05.04.2018"}
               link={"/rest/news/novoe-speczpredlozhenie.html"}
             />
             <NewsItem
+              displayType={DISPLAY_TYPE}
               bannerUrl={"/images/DSC_0063.JPG"}
               title={"Новое спецпредложение"}
               date={"Бонусная карта от CityPark"}
               link={"rest/news/bonusnaya-karta-ot-citypark.html"}
             />
           </News>
-          <RestarauntContacts displayType="home"/>
+          <RestarauntContacts displayType={DISPLAY_TYPE}/>
         </div>
       </div>
     </div>
@@ -55,8 +60,9 @@ export default () =>
       />
       <div className="partbody">
         <div className="shade">
-          <RoomsCatalog >
+          <RoomsCatalog displayType={DISPLAY_TYPE}>
             <RoomItem
+              displayType={DISPLAY_TYPE}
               bannerUrl={"/images/hotel/N9dGCus1wbk.jpg"}
               title={"Одноместные номера"}
               cost={"2500-3000"}
@@ -64,6 +70,7 @@ export default () =>
               description={"Одноместные номера с двуспальной кроватью."}
             />
             <RoomItem
+              displayType={DISPLAY_TYPE}
               bannerUrl={"/images/hotel/bIGFdJb25nk.jpg"}
               title={"Двухместные номера"}
               cost={"3000"}
@@ -71,6 +78,7 @@ export default () =>
               description={"Двухместные номера с двумя односпальными кроватями или с двуспальной кроватью \"Евро\""}
             />
             <RoomItem
+              displayType={DISPLAY_TYPE}
               bannerUrl={"/images/hotel/YMOwM0GE5aw.jpg"}
               title={"VIP-номер"}
               cost={"5000"}
@@ -83,7 +91,7 @@ export default () =>
             <div className="rntxt">свободный<br/>номер</div>
             <div className="ost_end"></div>
           </div>
-          <HotelContacts />
+          <HotelContacts displayType={DISPLAY_TYPE}/>
         </div>
       </div>
     </div>
