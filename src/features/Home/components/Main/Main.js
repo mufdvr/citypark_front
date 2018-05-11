@@ -1,13 +1,7 @@
 import React from 'react'
 
-import News from 'components/News'
-import NewsItem from 'components/NewsItem'
-import RoomsCatalog from 'components/RoomsCatalog'
-import HotelContacts from 'components/HotelContacts'
-import RestarauntContacts from 'components/RestarauntContacts'
-import Header from 'components/Header'
-import Delivery from 'components/Delivery'
-import { RoomItem } from 'components'
+import { RoomItem, RestaurantContacts, Delivery, Header, HotelContacts,
+  RoomsCatalog, NewsItem, News } from 'components'
 
 const DISPLAY_TYPE = "home"
 
@@ -46,7 +40,7 @@ export default () =>
               link={"rest/news/bonusnaya-karta-ot-citypark.html"}
             />
           </News>
-          <RestarauntContacts displayType={DISPLAY_TYPE}/>
+          <RestaurantContacts displayType={DISPLAY_TYPE}/>
         </div>
       </div>
     </div>

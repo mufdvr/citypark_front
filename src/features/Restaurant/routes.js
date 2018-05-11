@@ -2,7 +2,7 @@ import * as components from './components'
 
 const routes = [
   {
-    path: '/restaraunt',
+    path: '/restaurant',
     component: components.Main
   }
 ]

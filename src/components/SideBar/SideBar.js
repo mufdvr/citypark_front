@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Delivery, NewsItem, News, RestarauntContacts,
+import { Delivery, NewsItem, News, RestaurantContacts,
    RoomsCatalog, RoomItem, HotelContacts } from 'components'
 
 const DISPLAY_TYPE = "side"
@@ -52,7 +52,7 @@ export default () =>
 
   <div className="partbody">
     <div className="shade">
-      <RestarauntContacts displayType={DISPLAY_TYPE}/>
+      <RestaurantContacts displayType={DISPLAY_TYPE}/>
       <Delivery displayType={DISPLAY_TYPE}/>
       <News displayType={DISPLAY_TYPE}>
         <NewsItem

@@ -34,10 +34,6 @@ document, body {
   color: #FFF;
 }
 
-a {}
-
-a:hover {}
-
 .p1 {
   position: absolute;
   top: 0;
@@ -101,7 +97,7 @@ a:hover {}
 
 .fold_home {
   right: 0;
-  background-position-x: center; 
+  background-position-x: center;
 }
 
 .fold_side {
@@ -181,4 +177,27 @@ a:hover {}
   background: rgba(69, 49, 43, 0.7);
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Serif', serif;
+  font-weight: 400;
+  color: #f6dfc4;
+}
+
+h1 {
+  font-family: 'PT Serif', serif;
+  font-size: 28pt;
+  line-height: 28pt;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #ffc0d2;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
 }

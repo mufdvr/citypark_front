@@ -8,7 +8,7 @@ import MainLayout from './MainLayout'
 import NavigationBar from './NavigationBar'
 import News from './News'
 import NewsItem from './NewsItem'
-import RestarauntContacts from './RestarauntContacts'
+import RestaurantContacts from './RestaurantContacts'
 import RoomItem from './RoomItem'
 import RoomsCatalog from './RoomsCatalog'
 import SideBar from './SideBar'
@@ -24,7 +24,7 @@ export {
   NavigationBar,
   News,
   NewsItem,
-  RestarauntContacts,
+  RestaurantContacts,
   RoomItem,
   RoomsCatalog,
   SideBar

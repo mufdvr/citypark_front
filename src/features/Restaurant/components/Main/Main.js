@@ -18,9 +18,7 @@ export default () =>
         fontSize: "1.17em",
         lineHeight: "1.5em",
         fontWeight: "normal"
-      }}>
-        Комфортный зал
-      </span>
+      }}>Комфортный зал </span>
       <a style={{
         fontSize: "1.17em",
         lineHeight: "1.5em",
@@ -34,22 +32,20 @@ export default () =>
         lineHeight: "1.5em",
         fontWeight: "normal"
       }}
-      >
-        с самым&nbsp;современным музыкальным оборудованием.
-      </span>
+      > с самым&nbsp;современным музыкальным оборудованием. </span>
     </h2>
     <p className="justifyleft">
       <span style={{lineHeight: "1.5em"}}>
         &nbsp; &nbsp;
         <img
-          src="/images/restaurant/main/57p7Fso0zf8.90b99260fa4bbedbdd2791869c2da9e52.jpg"
+          src="/images/restaurant/main/city_park_1.jpg"
           alt="City_Park"
           width="450"
           height="300"
         />
         &nbsp;
         <img
-          src="/images/restaurant/main/QlUT8qGV30M.90b99260fa4bbedbdd2791869c2da9e52.jpg"
+          src="/images/restaurant/main/city_park_2.jpg"
           alt="City_Park"
           width="450"
           height="300"
@@ -69,15 +65,12 @@ export default () =>
       Настоящая джазовая и классическая музыка, chill-out и танцевальные направления.
     </p>
     <h3 className="justifyleft">
-      Уютное
-      <a href="rest/kafe.html">
-        летнее кафе
-      </a>
+      Уютное <a href="rest/kafe.html">летнее кафе</a>
       , где вы всегда&nbsp;можете укрыться от городского зноя в&nbsp;прохладной тени или уединиться в застекленной охлаждаемой террасе.
     </h3>
     <p className="justifyleft">
       <img
-        src="/images/restaurant/main/2CAM5105%20Panorama_obrez.d1ac0e28b91ea79bf05106e3ea3313472.jpg"
+        src="/images/restaurant/main/cafe_panorama.jpg"
         alt="Letnee_kafe_panorama"
         width="771"
         height="300"
@@ -86,18 +79,15 @@ export default () =>
     <p className="justifyleft">&nbsp;</p>
     <p className="justifyleft">
       <img
-        src="/images/restaurant/main/2CAM6300_m.90b99260fa4bbedbdd2791869c2da9e52.jpg"
+        src="/images/restaurant/main/cafe_terrasa.jpg"
         alt="letnee_kafe_terrasa"
         width="450"
         height="300"
       />
       &nbsp; &nbsp;
       <br/>
-      Насладитесь
-      <a href="rest/menu/">
-        восхитительными блюдами
-      </a>
-      европейской и японской кухни от&nbsp;первоклассных поваров, а также приятными прохладительными напитками из&nbsp;широкого ассортимента бара.
+      Насладитесь <a href="rest/menu/">восхитительными блюдами</a> европейской и японской кухни от&nbsp;
+      первоклассных поваров, а также приятными прохладительными напитками из&nbsp;широкого ассортимента бара.
       <br/>
       Через большие окна террасы в холодное время года вы можете наслаждаться великолепным пейзажем городского парка.
       <span style={{lineHeight: "1.5em"}}>&nbsp;</span>
