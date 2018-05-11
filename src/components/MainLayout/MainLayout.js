@@ -14,17 +14,11 @@ export default ({ route, location }) => {
           {route && renderRoutes(route.routes)}
         </div>
       :
-      <div>
+      <div style={{lineHeight: "22px"}}>
         <div className="fold fold_side" />
         <SideBar />
         <div className="content">
           <div className="partbody">
-          <Header
-            side={"left"}
-            title={"Ресторан и летнее кафе"}
-            link={"/rest"}
-            backgroundImage={"/images/header/left.jpg"}
-          />
             {route && renderRoutes(route.routes)}
           </div>
         </div>

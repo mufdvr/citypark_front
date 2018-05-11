@@ -155,6 +155,20 @@ document, body {
   border-radius: 5px;
 }
 
+.breadcrumbs a {
+	color:#f6dfc4;
+	text-decoration:none;
+
+	margin:0 10px;
+}
+.breadcrumbs a:hover {
+	color:#bba080;
+	text-decoration:underline;
+}
+.breadcrumbs span {
+	color:#bba080;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'PT Serif', serif;
   font-weight: 400;
