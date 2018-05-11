@@ -1,5 +1,5 @@
 import Main from './Main'
 import Restaurant from './Restaurant'
-import Header from './Header'
+import Layout from './Layout'
 
-export { Main, Restaurant, Header }
+export { Main, Restaurant, Layout }
