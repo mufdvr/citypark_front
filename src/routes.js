@@ -1,6 +1,6 @@
 import MainLayout from './components/MainLayout'
 import Home from 'features/Home'
-import Restaurant from 'features/Restaurant'
+import RestaurantAndCafe from 'features/RestaurantAndCafe'
 
 const routes = [
   {
@@ -8,7 +8,7 @@ const routes = [
     component: MainLayout,
     routes: [
       ...Home.routes,
-      ...Restaurant.routes
+      ...RestaurantAndCafe.routes
     ]
   }
 ]

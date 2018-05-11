@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const RoomItem = ({ bannerUrl, cost, link, title, description, displayType}) =>
+const RoomItem = ({ imageUrl, cost, link, title, description, displayType}) =>
   <div className={`room room_${displayType}`}>
     {
-      bannerUrl &&
+      displayType === "home" &&
       <div className="r_img">
         <img
           alt="pic"
-          src={bannerUrl}
+          src={imageUrl}
         />
       </div>
     }
@@ -17,7 +17,7 @@ const RoomItem = ({ bannerUrl, cost, link, title, description, displayType}) =>
         <a href={link}>{title}</a>
       </div>
       {
-        description && <div className="r_ttx">{description}</div>
+        displayType === "home" && <div className="r_ttx">{description}</div>
       }
       <div className={`r_summ r_summ_${displayType}`}>
         <span className="s">{cost}</span> ₽/ сутки
@@ -26,7 +26,7 @@ const RoomItem = ({ bannerUrl, cost, link, title, description, displayType}) =>
   </div>
 
 RoomItem.propTypes = {
-  bannerUrl: PropTypes.string,
+  imageUrl: PropTypes.string,
   cost: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

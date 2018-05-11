@@ -1,5 +1,7 @@
 import React from 'react'
 
+import * as images from './images'
+
 export default () =>
   <div className="povar_block">
     <div className="povar_line">
@@ -14,7 +16,7 @@ export default () =>
         <div className="povar_info">
           <img
             alt="pic"
-            src="/images/chef/chef.png"
+            src={images.chef}
             className="povar_ava"
           />
           <div className="povar_txt">
@@ -25,7 +27,7 @@ export default () =>
         <div className="povar_bludo">
           <div className="pb_img">
             <img
-              alt="pic" 
+              alt="pic"
               src="/images/chef/2CAM4538rer.jpg"
             />
             <div className="pb_img_l"></div>

@@ -1,19 +1,21 @@
 import React from 'react'
 
+import * as images from './images'
+
 export default () =>
   <div>
     <div className="map_block">
       <div className="m_photo">
         <img
           alt="pic"
-          src="/images/footer/3.jpg"
+          src={images.photo}
         />
       </div>
       <div className="map">
         <a href="https://goo.gl/maps/XLYXH" target="blank">
           <img
             alt="pic"
-            src="/images/footer/map.jpg"
+            src={images.map}
           />
         </a>
       </div>

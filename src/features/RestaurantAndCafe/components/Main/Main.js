@@ -1,5 +1,7 @@
 import React from 'react'
 
+import * as images from './images'
+
 export default () =>
   <div className="light">
     <div className="breadcrumbs">
@@ -38,14 +40,14 @@ export default () =>
       <span style={{lineHeight: "1.5em"}}>
         &nbsp; &nbsp;
         <img
-          src="/images/restaurant/main/city_park_1.jpg"
+          src={images.cityPark1}
           alt="City_Park"
           width="450"
           height="300"
         />
         &nbsp;
         <img
-          src="/images/restaurant/main/city_park_2.jpg"
+          src={images.cityPark2}
           alt="City_Park"
           width="450"
           height="300"
@@ -70,7 +72,7 @@ export default () =>
     </h3>
     <p className="justifyleft">
       <img
-        src="/images/restaurant/main/cafe_panorama.jpg"
+        src={images.cafePanorama}
         alt="Letnee_kafe_panorama"
         width="771"
         height="300"
@@ -79,7 +81,7 @@ export default () =>
     <p className="justifyleft">&nbsp;</p>
     <p className="justifyleft">
       <img
-        src="/images/restaurant/main/cafe_terrasa.jpg"
+        src={images.cafeTerrasa}
         alt="letnee_kafe_terrasa"
         width="450"
         height="300"

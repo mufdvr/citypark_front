@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Restaurant from 'features/Restaurant'
+import RestaurantAndCafe from 'features/RestaurantAndCafe'
 
 export default class NavigationBar extends React.Component {
   constructor(props) {
@@ -31,12 +31,14 @@ export default class NavigationBar extends React.Component {
             <a href="http://cityparkvip.ru/" className="first active">Главная</a>
           </li>
           <li onMouseOver={this.handleHover.bind(null, 0)} onMouseOut={this.handleHover.bind(null, 0)}>
-            <Link to={Restaurant.links.MAIN}>
+            <Link to={RestaurantAndCafe.links.MAIN}>
               Ресторан и летнее каф
             </Link>
             <ul className={`sub ${this.state.subMenuVisible[0] ? "fade-in" : "fade-out"}`}>
               <li>
-                <a href="rest/restaurant.html" className="first">Ресторан</a>
+                <Link to={RestaurantAndCafe.links.RESTAURANT}>
+                  Ресторан
+                </Link>  
               </li>
               <li>
                 <a href="rest/kafe.html">Летнее кафе</a>

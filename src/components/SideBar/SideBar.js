@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Delivery, NewsItem, News, RestaurantContacts,
-   RoomsCatalog, RoomItem, HotelContacts } from 'components'
+   RoomsCatalog, HotelContacts } from 'components'
 
 const DISPLAY_TYPE = "side"
 
@@ -57,36 +57,14 @@ export default () =>
       <News displayType={DISPLAY_TYPE}>
         <NewsItem
           displayType={DISPLAY_TYPE}
-          bannerUrl={"/images/promo.jpg"}
-          date={"09.04.2018"}
-          title={"Конкурс селфи от City Park в Instagram"}
-          link={"vdc"}
+          bannerUrl="/images/promo.jpg"
+          date="09.04.2018"
+          title="Конкурс селфи от City Park в Instagram"
+          link="vdc"
         />
       </News>
-
-      <RoomsCatalog displayType={DISPLAY_TYPE}>
-        <RoomItem
-          displayType={DISPLAY_TYPE}
-          title={"Одноместные номера"}
-          cost={"2500-3000"}
-          link={"hotel/katalog-nomerov/odnomestnyie.html"}
-        />
-        <RoomItem
-          displayType={DISPLAY_TYPE}
-          title={"Двухместные номера"}
-          cost={"3000"}
-          link={"hotel/katalog-nomerov/dvuxmestnyie-nomera.html"}
-        />
-        <RoomItem
-          displayType={DISPLAY_TYPE}
-          title={"VIP-номер"}
-          cost={"5000"}
-          link={"hotel/katalog-nomerov/vip.html"}
-        />
-      </RoomsCatalog>
-
+      <RoomsCatalog displayType={DISPLAY_TYPE} />
       <HotelContacts displayType={DISPLAY_TYPE}/>
-
     </div>
   </div>
 
