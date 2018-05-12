@@ -8,8 +8,8 @@ export default ({ route }) =>
   <div>
     <Header
       side="left"
-      title="Ресторан и летнее кафе"
-      link={MAIN}
+      title={MAIN.title}
+      link={MAIN.url}
     />
     { route && renderRoutes(route.routes) }
   </div>

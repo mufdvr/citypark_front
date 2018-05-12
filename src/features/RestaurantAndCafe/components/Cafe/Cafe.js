@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { SocShare, PhotoGallery } from 'components'
+import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import * as images from './images'
+import { MAIN, CAFE } from '../../routes'
 
 export default () =>
   <div className="light">
-    <div className="breadcrumbs">
-      <a href="http://cityparkvip.ru/">Главная</a>
-      <span>&gt;</span><a href="rest/">Ресторан и летнее кафе</a>
-      <span>&gt;</span><span style={{textDecoration: "underline", margin: "0 10px"}}>
-        Летнее кафе
-      </span>
-    </div>
+    <Breadcrumbs
+      links={[
+        MAIN,
+        CAFE
+      ]}
+    />
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"
@@ -99,6 +99,6 @@ export default () =>
           image: images.image6
         }
       ]}
-    />    
+    />
     <a href="http://cityparkvip.ru/assets/tour/kafe.html" target="_blank" className="tur_btn" style={{top: "80px", right: "30px"}}></a>
   </div>

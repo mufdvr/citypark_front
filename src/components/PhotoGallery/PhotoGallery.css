@@ -35,3 +35,7 @@
   border-radius: 5px;
   overflow: hidden;
 }
+
+.gal_img:hover {
+	border: 2px solid #f6dfc4;
+}

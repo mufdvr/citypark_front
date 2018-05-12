@@ -31,18 +31,18 @@ export default class NavigationBar extends React.Component {
             <Link to="/" className="first active">Главная</Link>
           </li>
           <li onMouseOver={this.handleHover.bind(null, 0)} onMouseOut={this.handleHover.bind(null, 0)}>
-            <Link to={RestaurantAndCafe.links.MAIN}>
-              Ресторан и летнее каф
+            <Link to={RestaurantAndCafe.links.MAIN.url}>
+              {RestaurantAndCafe.links.MAIN.title}
             </Link>
             <ul className={`sub ${this.state.subMenuVisible[0] ? "fade-in" : "fade-out"}`}>
               <li>
-                <Link to={RestaurantAndCafe.links.RESTAURANT}>
-                  Ресторан
+                <Link to={RestaurantAndCafe.links.RESTAURANT.url}>
+                  {RestaurantAndCafe.links.RESTAURANT.title}
                 </Link>
               </li>
               <li>
-                <Link to={RestaurantAndCafe.links.CAFE}>
-                  Летнее кафе
+                <Link to={RestaurantAndCafe.links.CAFE.url}>
+                  {RestaurantAndCafe.links.CAFE.title}
                 </Link>
               </li>
               <li>

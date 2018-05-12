@@ -143,32 +143,6 @@ document, body {
   margin-right: 375px;
 }
 
-.breadcrumbs {
-  position: relative;
-  display: block;
-  font-size: 16px;
-  line-height: 20px;
-  padding: 5px 0;
-  margin-bottom: 30px;
-  background: rgba(69, 49, 43, 0.7);
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 5px;
-}
-
-.breadcrumbs a {
-	color:#f6dfc4;
-	text-decoration:none;
-
-	margin:0 10px;
-}
-.breadcrumbs a:hover {
-	color:#bba080;
-	text-decoration:underline;
-}
-.breadcrumbs span {
-	color:#bba080;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'PT Serif', serif;
   font-weight: 400;

@@ -1,25 +1,34 @@
 import * as components from './components'
 
-export const MAIN          = '/rest'
-export const RESTAURANT    = MAIN + '/restaurant'
-export const CAFE          = MAIN + '/cafe'
+export const MAIN = {
+  url: '/rest',
+  title: 'Ресторан и летнее кафе'
+}
+export const RESTAURANT = {
+  url: MAIN.url + '/restaurant',
+  title: 'Ресторан'
+}
+export const CAFE = {
+  url: MAIN.url + '/cafe',
+  title: 'Летнее кафе'
+}
 
 const routes = [
   {
-    path: MAIN,
+    path: MAIN.url,
     component: components.Layout,
     routes: [
       {
-        path: MAIN,
+        path: MAIN.url,
         exact: true,
         component: components.Main
       },
       {
-        path: RESTAURANT,
+        path: RESTAURANT.url,
         component: components.Restaurant
       },
       {
-        path: CAFE,
+        path: CAFE.url,
         component: components.Cafe
       }
     ]

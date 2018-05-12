@@ -13,6 +13,7 @@ import RoomsCatalog from './RoomsCatalog'
 import SideBar from './SideBar'
 import SocShare from './SocShare'
 import PhotoGallery from './PhotoGallery'
+import Breadcrumbs from './Breadcrumbs'
 
 export {
   App,
@@ -29,5 +30,6 @@ export {
   RoomsCatalog,
   SideBar,
   SocShare,
-  PhotoGallery
+  PhotoGallery,
+  Breadcrumbs
 }
