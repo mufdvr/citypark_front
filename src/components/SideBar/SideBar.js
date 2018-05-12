@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { Delivery, NewsItem, News, RestaurantContacts,
    RoomsCatalog, HotelContacts } from 'components'
@@ -12,7 +13,7 @@ export default () =>
     <div className="h_img">
       <div className="h_column">
         <div className="leaf">
-          <a href="http://cityparkvip.ru/" id="logo"></a>
+          <Link to="/" id="logo" />
           <div className="slogan">
             <a
               href="rest/restaurant.html"

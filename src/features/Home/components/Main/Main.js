@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RoomItem, RestaurantContacts, Delivery, Header, HotelContacts,
+import { RestaurantContacts, Delivery, Header, HotelContacts,
   RoomsCatalog, NewsItem, News } from 'components'
 
 const DISPLAY_TYPE = "home"

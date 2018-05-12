@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
-import { Header, SideBar, Footer, Chef, NavigationBar } from 'components'
+import { SideBar, Footer, Chef, NavigationBar } from 'components'
 
 export default ({ route, location }) => {
   return <div className="body">
