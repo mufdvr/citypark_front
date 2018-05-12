@@ -6,12 +6,7 @@ import { RESTAURANT, MAIN } from '../../routes'
 
 export default (props) =>
   <div className="light">
-    <Breadcrumbs
-      links={[
-        MAIN,
-        RESTAURANT
-      ]}
-    />
+    <Breadcrumbs links={[ MAIN, RESTAURANT ]} />
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"

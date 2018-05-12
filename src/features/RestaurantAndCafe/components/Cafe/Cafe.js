@@ -6,18 +6,13 @@ import { MAIN, CAFE } from '../../routes'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs
-      links={[
-        MAIN,
-        CAFE
-      ]}
-    />
+    <Breadcrumbs links={[ MAIN, CAFE ]} />
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"
       image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
     />
-    <h1>Летнее кафе</h1>
+    <h1>{CAFE.title}</h1>
     <h2>
       <span style={{fontSize: "1.17em", fontWeight: "normal", lineHeight: "1.5em"}}>
         Уютное летнее кафе, где вы всегда&nbsp;можете укрыться от городского зноя в&nbsp;
