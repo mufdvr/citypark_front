@@ -11,6 +11,7 @@ import NewsItem from './NewsItem'
 import RestaurantContacts from './RestaurantContacts'
 import RoomsCatalog from './RoomsCatalog'
 import SideBar from './SideBar'
+import SocShare from './SocShare'
 
 export {
   App,
@@ -25,5 +26,6 @@ export {
   NewsItem,
   RestaurantContacts,
   RoomsCatalog,
-  SideBar
+  SideBar,
+  SocShare
 }

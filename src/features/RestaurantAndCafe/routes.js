@@ -1,7 +1,8 @@
 import * as components from './components'
 
-export const MAIN = '/rest'
-export const RESTAURANT = MAIN + '/restaurant'
+export const MAIN          = '/rest'
+export const RESTAURANT    = MAIN + '/restaurant'
+export const CAFE          = MAIN + '/cafe'
 
 const routes = [
   {
@@ -16,6 +17,10 @@ const routes = [
       {
         path: RESTAURANT,
         component: components.Restaurant
+      },
+      {
+        path: CAFE,
+        component: components.Cafe
       }
     ]
   }

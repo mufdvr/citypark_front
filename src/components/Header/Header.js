@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import * as images from './images'
 
@@ -25,9 +26,9 @@ const Header = ({ side, title, link }) =>
             className={GRADIENT_CLASSES[side]}
             style={{height: "75px"}}>
           </div>
-          <a className={TITLE_CLASSES[side]} href={link}>
+          <Link className={TITLE_CLASSES[side]} to={link}>
             {title}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

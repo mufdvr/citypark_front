@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as images from './images'
+import { SocShare } from 'components'
 
 export default () =>
   <div className="light">
@@ -14,6 +15,11 @@ export default () =>
         Ресторан и летнее кафе
       </span>
     </div>
+    <SocShare
+      link="http://cityparkvip.ru/rest/"
+      title="РГК «City Park» - Ресторан и летнее кафе"
+      image="http://cityparkvip.ru/assets/templates/citypark/site-preview.jpg"
+    />
     <h1>Ресторан и летнее кафе</h1>
     <h2>
       <span style={{

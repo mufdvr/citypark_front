@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as images from './images'
+import { SocShare } from 'components'
 
 export default () =>
   <div className="light">
@@ -9,32 +10,13 @@ export default () =>
       <span>&gt;</span><a href="rest/">Ресторан и летнее кафе</a>
       <span>&gt;</span><span style={{textDecoration: "underline", margin: "0 10px"}}>Ресторан</span>
     </div>
-    <div
-      style={{
-        position: "relative",
-        marginTop: "-28px",
-        fontSize: "12px",
-        lineHeight: "28px",
-        color: "#E3DEDB"
-      }}
-    >
-      <span id="like_5" className="b-share_theme_dark">
-        <span className="b-share">
-          <a rel="nofollow" target="_blank" title="Facebook" className="b-share__handle b-share__link b-share-btn__facebook" href="https://share.yandex.net/go.xml?service=facebook&amp;url=http%3A%2F%2Fwww.cityparkvip.ru%2Frest%2Frestaurant.html&amp;title=%D0%A0%D0%93%D0%9A%20%C2%ABCity%20Park%C2%BB%20-%20%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD&amp;image=http%3A%2F%2Fwww.cityparkvip.ru%2Fassets%2Fimages%2Frestoran_i_kafe%2FZusaX0X2S5I.jpg" data-service="facebook">
-            <span className="b-share-icon b-share-icon_facebook"></span>
-          </a>
-          <a rel="nofollow" target="_blank" title="ВКонтакте" className="b-share__handle b-share__link b-share-btn__vkontakte" href="https://share.yandex.net/go.xml?service=vkontakte&amp;url=http%3A%2F%2Fwww.cityparkvip.ru%2Frest%2Frestaurant.html&amp;title=%D0%A0%D0%93%D0%9A%20%C2%ABCity%20Park%C2%BB%20-%20%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD&amp;image=http%3A%2F%2Fwww.cityparkvip.ru%2Fassets%2Fimages%2Frestoran_i_kafe%2FZusaX0X2S5I.jpg" data-service="vkontakte">
-            <span className="b-share-icon b-share-icon_vkontakte"></span>
-          </a>
-          <a rel="nofollow" target="_blank" title="Одноклассники" className="b-share__handle b-share__link b-share-btn__odnoklassniki" href="https://share.yandex.net/go.xml?service=odnoklassniki&amp;url=http%3A%2F%2Fwww.cityparkvip.ru%2Frest%2Frestaurant.html&amp;title=%D0%A0%D0%93%D0%9A%20%C2%ABCity%20Park%C2%BB%20-%20%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD&amp;image=http%3A%2F%2Fwww.cityparkvip.ru%2Fassets%2Fimages%2Frestoran_i_kafe%2FZusaX0X2S5I.jpg" data-service="odnoklassniki">
-            <span className="b-share-icon b-share-icon_odnoklassniki"></span>
-          </a>
-          <a rel="nofollow" target="_blank" title="Twitter" className="b-share__handle b-share__link b-share-btn__twitter" href="https://share.yandex.net/go.xml?service=twitter&amp;url=http%3A%2F%2Fwww.cityparkvip.ru%2Frest%2Frestaurant.html&amp;title=%23%D0%A0%D0%93%D0%9A%20City%20Park&amp;image=http%3A%2F%2Fwww.cityparkvip.ru%2Fassets%2Fimages%2Frestoran_i_kafe%2FZusaX0X2S5I.jpg" data-service="twitter">
-            <span className="b-share-icon b-share-icon_twitter"></span>
-          </a>
-        </span>
-      </span>
-    </div>
+
+    <SocShare
+      link="http://cityparkvip.ru/rest/kafe.html"
+      title="РГК «City Park» - Летнее кафе"
+      image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
+    />
+
     <h1>Ресторан</h1>
     <h2>
       <span

@@ -28,7 +28,7 @@ export default class NavigationBar extends React.Component {
         <div className="r_grad"></div>
         <ul className="mmenu">
           <li>
-            <a href="http://cityparkvip.ru/" className="first active">Главная</a>
+            <Link to="/" className="first active">Главная</Link>
           </li>
           <li onMouseOver={this.handleHover.bind(null, 0)} onMouseOut={this.handleHover.bind(null, 0)}>
             <Link to={RestaurantAndCafe.links.MAIN}>
@@ -38,10 +38,12 @@ export default class NavigationBar extends React.Component {
               <li>
                 <Link to={RestaurantAndCafe.links.RESTAURANT}>
                   Ресторан
-                </Link>  
+                </Link>
               </li>
               <li>
-                <a href="rest/kafe.html">Летнее кафе</a>
+                <Link to={RestaurantAndCafe.links.CAFE}>
+                  Летнее кафе
+                </Link>
               </li>
               <li>
                 <a href="rest/news/">Новости и мероприятия</a>
