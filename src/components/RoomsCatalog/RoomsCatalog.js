@@ -11,7 +11,7 @@ const RoomsCatalog = ({ displayType }) =>
     </div>
     <RoomItem
       displayType={displayType}
-      bannerUrl={images.photo1}
+      imageUrl={images.photo1}
       title="Одноместные номера"
       cost="2500-3000"
       link="hotel/katalog-nomerov/odnomestnyie.html"
@@ -19,7 +19,7 @@ const RoomsCatalog = ({ displayType }) =>
     />
     <RoomItem
       displayType={displayType}
-      bannerUrl={images.photo2}
+      imageUrl={images.photo2}
       title="Двухместные номера"
       cost="3000"
       link="hotel/katalog-nomerov/dvuxmestnyie-nomera.html"
@@ -27,7 +27,7 @@ const RoomsCatalog = ({ displayType }) =>
     />
     <RoomItem
       displayType={displayType}
-      bannerUrl={images.photo3}
+      imageUrl={images.photo3}
       title="VIP-номер"
       cost="5000"
       link="hotel/katalog-nomerov/vip.html"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SocShare } from 'components'
+import { SocShare, PhotoGallery } from 'components'
 import * as images from './images'
 
 export default () =>
@@ -72,25 +72,33 @@ export default () =>
     <h3 className="justifyleft">
       Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="http://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <a href="rest/menu/">"Меню"</a>
     </h3>
-    <div className="room_gallery" style={{paddingTop: "30px"}}>
-      <div className="gallery_title">Фотогалерея</div>
-      <a href="/assets/lib/2015/08/08/2CAM6317_m.jpg" rel="group" className="gal_img">
-  	    <img src="/assets/lib/resized/22/122x122.jpg" alt="/assets/lib/2015/08/08/2CAM6317_m.jpg"/>
-      </a>
-      <a href="/assets/lib/2015/08/08/2CAM6302_m.jpg" rel="group" className="gal_img">
-  	    <img src="/assets/lib/resized/23/122x122.jpg" alt="/assets/lib/2015/08/08/2CAM6302_m.jpg"/>
-      </a>
-      <a href="/assets/lib/2015/08/08/2CAM6319_m.jpg" rel="group" className="gal_img">
-  	    <img src="/assets/lib/resized/25/122x122.jpg" alt="/assets/lib/2015/08/08/2CAM6319_m.jpg"/>
-      </a><a href="/assets/lib/2015/08/08/2CAM6300_m.jpg" rel="group" className="gal_img">
-  	    <img src="/assets/lib/resized/26/122x122.jpg" alt="/assets/lib/2015/08/08/2CAM6300_m.jpg"/>
-      </a>
-      <a href="/assets/lib/2015/08/08/2CAM6320_m.jpg" rel="group" className="gal_img">
-  	    <img src="/assets/lib/resized/27/122x122.jpg" alt="/assets/lib/2015/08/08/2CAM6320_m.jpg"/>
-      </a>
-      <a href="/assets/lib/2015/08/08/2CAM6308_m.jpg" rel="group" className="gal_img">
-  	    <img src="/assets/lib/resized/28/122x122.jpg" alt="/assets/lib/2015/08/08/2CAM6308_m.jpg"/>
-      </a>
-    </div>
+    <PhotoGallery
+      items={[
+        {
+          thumb: images.thumb1,
+          image: images.image1
+        },
+        {
+          thumb: images.thumb2,
+          image: images.image2
+        },
+        {
+          thumb: images.thumb3,
+          image: images.image3
+        },
+        {
+          thumb: images.thumb4,
+          image: images.image4
+        },
+        {
+          thumb: images.thumb5,
+          image: images.image5
+        },
+        {
+          thumb: images.thumb6,
+          image: images.image6
+        }
+      ]}
+    />    
     <a href="http://cityparkvip.ru/assets/tour/kafe.html" target="_blank" className="tur_btn" style={{top: "80px", right: "30px"}}></a>
   </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as images from './images'
-import { SocShare } from 'components'
+import { SocShare, PhotoGallery } from 'components'
 
 export default () =>
   <div className="light">
@@ -90,26 +90,21 @@ export default () =>
     <h4>
       Забронировать столик или заказать доставку еды в Белореченске можно по телефону: +7-918-311-97-91 или на сайте РГК City Park <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank">www.cityparkvip.ru</a> в разделе "Меню".
     </h4>
-    <div className="room_gallery" style={{paddingTop: "30px"}}>
-      <div className="gallery_title">Фотогалерея</div>
-      <a href="/assets/lib/2015/08/08/aoUCet0UH0g.jpg" rel="group" className="gal_img">
-  	    <img
-          src="/assets/lib/resized/16/122x122.jpg"
-          alt="/assets/lib/2015/08/08/aoUCet0UH0g.jpg"
-        />
-      </a>
-      <a href="/assets/lib/2018/04/09/doPfm1xzHXI.jpg" rel="group" className="gal_img">
-  	    <img
-          src="/assets/lib/resized/587/122x122.jpg"
-          alt="/assets/lib/2018/04/09/doPfm1xzHXI.jpg"
-        />
-      </a>
-      <a href="/assets/lib/2018/04/09/YXOsZr4bT4o.jpg" rel="group" className="gal_img">
-  	    <img
-          src="/assets/lib/resized/588/122x122.jpg"
-          alt="/assets/lib/2018/04/09/YXOsZr4bT4o.jpg"
-        />
-      </a>
-    </div>
+    <PhotoGallery
+      items={[
+        {
+          thumb: images.thumb1,
+          image: images.image1
+        },
+        {
+          thumb: images.thumb2,
+          image: images.image2
+        },
+        {
+          thumb: images.thumb3,
+          image: images.image3
+        }
+      ]}
+    />
     <a href="http://www.cityparkvip.ru/assets/tour/restaurant.html" target="_blank" className="tur_btn" style={{top: "80px", right: "30px"}}></a>
   </div>

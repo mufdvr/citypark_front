@@ -12,6 +12,7 @@ import RestaurantContacts from './RestaurantContacts'
 import RoomsCatalog from './RoomsCatalog'
 import SideBar from './SideBar'
 import SocShare from './SocShare'
+import PhotoGallery from './PhotoGallery'
 
 export {
   App,
@@ -27,5 +28,6 @@ export {
   RestaurantContacts,
   RoomsCatalog,
   SideBar,
-  SocShare
+  SocShare,
+  PhotoGallery
 }
