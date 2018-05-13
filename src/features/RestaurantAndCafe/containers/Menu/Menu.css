@@ -1,0 +1,9 @@
+.restaraunt-menu>h2, .restaraunt-menu>h4 {
+  text-align: center;
+}
+
+.restaraunt-menu>h2>span {
+  font-size: 1.5em;
+  font-weight: normal;
+  line-height: 1.5em;
+}

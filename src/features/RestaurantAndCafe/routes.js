@@ -1,4 +1,5 @@
 import * as components from './components'
+import * as containers from './containers'
 
 export const MAIN = {
   url: '/rest',
@@ -11,6 +12,10 @@ export const RESTAURANT = {
 export const CAFE = {
   url: MAIN.url + '/cafe',
   title: 'Летнее кафе'
+}
+export const MENU = {
+  url: MAIN.url + '/menu',
+  title: 'Меню'
 }
 
 const routes = [
@@ -30,6 +35,10 @@ const routes = [
       {
         path: CAFE.url,
         component: components.Cafe
+      },
+      {
+        path: MENU.url,
+        component: containers.Menu
       }
     ]
   }
