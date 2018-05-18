@@ -17,15 +17,6 @@ const Category = ({ title, cookingTime }) =>
     <div className="cat_wrapper" style={{height: "281px"}}>
       <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
       <div className="cat_content">
-        <Item
-          imageThumb="http://cityparkvip.ru/phpthumbsup/w/305/h/200/zc/1/src/assets/images/Nwy3yOlyGl8.jpg"
-          imageFull="http://cityparkvip.ru/assets/images/Nwy3yOlyGl8.jpg"
-          title="Клефтико"
-          composition="Говядина, баранина, перец болгарский, лук репчатый, помидоры, баклажаны, чеснок"
-          cost="700"
-          weight="400 gr"
-        />
-
         <a href="javascript:gtcat('c_15');" className="gtcat">Наверх к категории</a>
       </div>
     </div>

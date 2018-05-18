@@ -1,10 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { Category } from './components'
 import { MAIN, MENU } from '../../routes'
+import * as actions from '../../actions'
 
 class Menu extends React.Component {
+
+  categoriesList = () => {
+    const { categories } = this.props
+    return categories ? categories.map(category =>
+      <Category title={category.title} cookingTime={category.cookingTime} />
+    ) : null
+  }
+
+  componentDidMount = () => {
+    const { fetching, getCategories } = this.props
+    !fetching && getCategories()
+  }
 
   render = () =>
     <div className="light restaraunt-menu">
@@ -23,9 +38,18 @@ class Menu extends React.Component {
       <h4>Доставка еды в Белореченске от ресторана City Park. 8-918-311-97-91. www.cityparkvip.ru</h4>
       <p>&nbsp;</p>
       <p></p>
-       <Category title="Спецпредложения" cookingTime="20—40 мин." />
+      { this.categoriesList() }
       <div className="go_top">Наверх</div>
     </div>
 }
 
-export default Menu
+const mapStateToProps = state => ({
+  fetching: state.restcafe.fetching,
+  categories: state.restcafe.payload.categories
+})
+
+const mapDispathToProps = dispatch => bindActionCreators({
+  ...actions.menu
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispathToProps)(Menu)
