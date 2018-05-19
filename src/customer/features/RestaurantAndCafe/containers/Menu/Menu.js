@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { SocShare, Breadcrumbs } from 'components'
-import { Category } from './components'
+import { Category } from '../../containers'
 import { MAIN, MENU } from '../../routes'
 import * as actions from '../../actions'
 
@@ -11,8 +11,13 @@ class Menu extends React.Component {
 
   categoriesList = () => {
     const { categories } = this.props
-    return categories ? categories.map(category =>
-      <Category title={category.title} cookingTime={category.cookingTime} />
+    return categories ? categories.map((category, index) =>
+      <Category
+        key={category.id}
+        index={index}
+        title={category.title}
+        cookingTime={category.cooking_time}
+      />
     ) : null
   }
 

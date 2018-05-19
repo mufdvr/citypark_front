@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Item = ({ title, cost, imageThumb, imageFull, composition, weight }) =>
+const Dish = ({ id, title, cost, imageThumb, imageFull, description, weight }) =>
   <div className="bludo">
     <div className="bludo_img">
       <a href={imageFull} className="gmg">
@@ -10,7 +10,7 @@ const Item = ({ title, cost, imageThumb, imageFull, composition, weight }) =>
     </div>
     <div className="bludo_txt">
       <div className="bludo_title">{title}</div>
-      {composition}
+      {description}
     </div>
     <div className="bludo_dop">
       <div className="bl_cena">
@@ -21,13 +21,13 @@ const Item = ({ title, cost, imageThumb, imageFull, composition, weight }) =>
     </div>
   </div>
 
-Item.propTypes = {
+Dish.propTypes = {
   title: PropTypes.string.isRequired,
   cost: PropTypes.string.isRequired,
-  imageThumb: PropTypes.string.isRequired,
-  imageFull: PropTypes.string.isRequired,
-  composition: PropTypes.string.isRequired,
+  imageThumb: PropTypes.string,
+  imageFull: PropTypes.string,
+  description: PropTypes.string,
   weight: PropTypes.string.isRequired
 }
 
-export default Item
+export default Dish
