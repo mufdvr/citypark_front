@@ -6,43 +6,66 @@ import PropTypes from 'prop-types'
 import { Dish } from '../../components'
 import * as actions from '../../actions'
 
-const Category = ({ categories, index, title, cookingTime, getDishes }) => {
+class Category extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      visible: false,
+    }
+  }
 
-  const handleClick = event => {
+  componentWillReceiveProps = nextProps => {
+    const { index, categories } = this.props
+    if (!categories[index].dishes && nextProps.categories[index].dishes) this.setState({
+      visible: true,
+      fetching: false,
+    })
+  }
+
+  handleClick = event => {
+    const { categories, index, getDishes } = this.props
+    const { visible } = this.state
     event.preventDefault()
-    console.log(categories[index].dishes);
+    this.setState({
+      visible: categories[index].dishes && !visible,
+      fetching: !categories[index].dishes
+    })
     !categories[index].dishes && getDishes(categories[index].id)
   }
 
-  const dishesList = () =>
-    categories[index].dishes ? categories[index].dishes.map(dish =>
+  dishesList = () => {
+    const { categories, index } = this.props
+    return categories[index].dishes ? categories[index].dishes.map(dish =>
       <Dish key={dish.id} {...dish} />
     ) : null
+  }
 
-
-
-  return (
-    <div>
-      <div className="menu_cat_title" id="c_15">
-        <div className="mcl"></div>
-        <div className="mcr"></div>
-        <div className="mctt">
-          <a href="#" onClick={handleClick}>
-            {title}
-          </a>
+  render = () => {
+    const { title, cookingTime } = this.props
+    const { visible, fetching } = this.state
+    return (
+      <div>
+        <div className="menu_cat_title">
+          <div className="mcl"></div>
+          <div className="mcr"></div>
+          <div className="mctt">
+            { fetching ? <div className="cwait" /> : null }
+            <a href="#" onClick={this.handleClick}>
+              {title}
+            </a>
+          </div>
+          <div className="mshade"></div>
         </div>
-        <div className="mshade"></div>
-      </div>
-      <div className="cat_wrapper" style={{height: "281px"}}>
-        <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
-        <div className="cat_content">
-
-          { dishesList() }
-          <a href="javascript:gtcat('c_15');" className="gtcat">Наверх к категории</a>
+        <div className="cat_wrapper" style={ visible ? null : {height: 0} }>
+          <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
+          <div className="cat_content">
+            { this.dishesList() }
+            <a href="#" className="gtcat">Наверх к категории</a>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 Category.propTypes = {
@@ -54,6 +77,7 @@ Category.propTypes = {
 }
 
 const mapStateToProps = state => ({
+  fetching: state.restcafe.fetching,
   categories: state.restcafe.payload.categories
 })
 

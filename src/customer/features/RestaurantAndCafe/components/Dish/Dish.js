@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Dish = ({ id, title, cost, imageThumb, imageFull, description, weight }) =>
+const Dish = ({ id, title, cost, images: { preview, full }, description, weight }) =>
   <div className="bludo">
     <div className="bludo_img">
-      <a href={imageFull} className="gmg">
-        <img src={imageThumb} />
+      <a href={full} className="gmg">
+        <img src={process.env.REACT_APP_BACK_ROOT + preview} />
       </a>
     </div>
     <div className="bludo_txt">
@@ -23,9 +23,8 @@ const Dish = ({ id, title, cost, imageThumb, imageFull, description, weight }) =
 
 Dish.propTypes = {
   title: PropTypes.string.isRequired,
-  cost: PropTypes.string.isRequired,
-  imageThumb: PropTypes.string,
-  imageFull: PropTypes.string,
+  cost: PropTypes.number.isRequired,
+  images: PropTypes.object,
   description: PropTypes.string,
   weight: PropTypes.string.isRequired
 }
