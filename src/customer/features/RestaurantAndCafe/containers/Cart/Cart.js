@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { CartItem } from '../../components'
+import * as actions from '../../actions'
 
 const CART_STATES = [
   {left: '-1000px'},
@@ -14,8 +15,9 @@ class Cart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cartState: 0
+      cartState: 0,
     }
+    this.totalCost = 0
   }
 
   handleClick = () =>
@@ -24,10 +26,12 @@ class Cart extends React.Component {
     })
 
   listItems = () => {
-    const { cart } = this.props
-    return cart ? Object.keys(cart).map(item =>
-      <CartItem key={item} {...cart[item]} />
-    ) : null
+    const { cart, changeCount } = this.props
+    this.totalCost = 0
+    if (cart) {
+      Object.values(cart).forEach(item => this.totalCost += item.cost * item.count)
+      return Object.keys(cart).map(item => <CartItem changeCount={changeCount} key={item} id={item} {...cart[item]} />)
+    } else return null
   }
 
   componentWillReceiveProps = nextProps => {
@@ -45,8 +49,12 @@ class Cart extends React.Component {
         </div>
 
         <div className="basket_summ">
-          <div id="free_dost">Бесплатная доставка!</div>
-          Сумма заказа: <span id="t_all_summ">540</span>₽
+          {
+            this.totalCost >= 500 ?
+              <div id="free_dost">Бесплатная доставка!</div>
+            : null
+          }
+          Сумма заказа: <span id="t_all_summ">{this.totalCost}</span>₽
           <div id="skidka">С учетом скидки 10%</div>
         </div>
 
@@ -68,4 +76,8 @@ const mapStateToProps = state => ({
   cart: state.restcafe.payload.cart
 })
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = dispath => bindActionCreators({
+  ...actions.cart
+}, dispath)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
