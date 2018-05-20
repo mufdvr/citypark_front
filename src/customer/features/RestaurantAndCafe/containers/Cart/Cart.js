@@ -27,17 +27,23 @@ class Cart extends React.Component {
 
   listItems = () => {
     const { cart, changeCount } = this.props
-    this.totalCost = 0
-    if (cart) {
-      Object.values(cart).forEach(item => this.totalCost += item.cost * item.count)
-      return Object.keys(cart).map(item => <CartItem changeCount={changeCount} key={item} id={item} {...cart[item]} />)
-    } else return null
+    return cart ? cart.map(item => <CartItem changeCount={changeCount} key={item.id} {...item} />)
+    : null
   }
 
   componentWillReceiveProps = nextProps => {
-    if (!this.props.cart && nextProps.cart) this.setState ({
+    const { cart } = nextProps
+    console.log(cart);
+    if ((!this.props.cart || !this.props.cart.length) && cart) this.setState ({
       cartState: 1
     })
+    else if (!cart.length) this.setState({
+      cartState: 0
+    })
+    if (cart) {
+      this.totalCost = 0
+      cart.forEach(item => this.totalCost += item.cost * item.count)
+    }
   }
 
   render = () => {

@@ -4,10 +4,8 @@ export const addToCart = (id, title, cost) => ({
   type: types.CART_ADD_DISH,
   payload: {
     id,
-    dish: {
     title,
     cost,
-  }
   }
 })
 

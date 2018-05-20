@@ -18,7 +18,7 @@ const CartItem = ({ id, title, cost, count, changeCount }) =>
   </div>
 
 CartItem.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   cost: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,

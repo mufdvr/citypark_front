@@ -4,30 +4,25 @@ import { pushInPayload } from 'utils'
 export default (state, action) => {
   switch (action.type) {
     case types.CART_ADD_DISH:
+      let result
+      if (state.payload.cart) {
+        let items = state.payload.cart.slice(0)
+        items.forEach((item, index) => {
+          if (item.id === action.payload.id) items[index].count = item.count + 1
+          else if (index === items.length - 1) items = []
+        })
+        result = items.length ? items : [...state.payload.cart, { ...action.payload, count: 1 }]
+      }
+      else result = [{ ...action.payload, count: 1 }]
       return pushInPayload(state, {
-        cart: state.payload.cart ? {
-          ...state.payload.cart,
-          [action.payload.id]: {
-            ...action.payload.dish,
-            count: state.payload.cart[action.payload.id] ? state.payload.cart[action.payload.id].count + 1 : 1
-          }
-        } : {
-          [action.payload.id]: {
-            ...action.payload.dish,
-            count: 1
-          }
-        }
+        cart: result
       })
-     case types.CART_CHANGE_ITEM_COUNT:
-        return pushInPayload(state, {
-          cart: {
-            ...state.payload.cart,
-            [action.payload.id]: {
-              ...state.payload.cart[action.payload.id],
-              count: state.payload.cart[action.payload.id].count += action.payload.amount
-            }
-          }
-        })   
+    case types.CART_CHANGE_ITEM_COUNT:
+      return pushInPayload(state, {
+        cart: state.payload.cart.map(item =>
+          item.id === action.payload.id ? { ...item, count: item.count += action.payload.amount } : item
+        ).filter(item => item.count > 0)
+      })
 
     default: return false
   }
