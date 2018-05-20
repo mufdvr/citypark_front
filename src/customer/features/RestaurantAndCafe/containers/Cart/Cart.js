@@ -26,14 +26,19 @@ class Cart extends React.Component {
     })
 
   listItems = () => {
-    const { cart, changeCount } = this.props
-    return cart ? cart.map(item => <CartItem changeCount={changeCount} key={item.id} {...item} />)
-    : null
+    const { cart, changeCount, deleteItem } = this.props
+    return cart ? cart.map(item =>
+      <CartItem
+        key={item.id}
+        deleteItem={deleteItem}
+        changeCount={changeCount}
+        {...item}
+      />
+    ) : null
   }
 
   componentWillReceiveProps = nextProps => {
     const { cart } = nextProps
-    console.log(cart);
     if ((!this.props.cart || !this.props.cart.length) && cart) this.setState ({
       cartState: 1
     })

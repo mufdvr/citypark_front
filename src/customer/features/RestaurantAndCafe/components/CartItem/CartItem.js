@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CartItem = ({ id, title, cost, count, changeCount }) =>
+const CartItem = ({ id, title, cost, count, changeCount, deleteItem }) =>
   <div className="tovar">
-    <div className="t_remove">x</div>
+    <div onClick={deleteItem.bind(null, id)} className="t_remove">x</div>
     <div className="t_countbox">
       <div className="t_count">{count}</div>
       <div onClick={changeCount.bind(null, id, -1)} className="t_btn t_minus">-</div>
@@ -22,7 +22,8 @@ CartItem.propTypes = {
   title: PropTypes.string.isRequired,
   cost: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
-  changeCount: PropTypes.func.isRequired
+  changeCount: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired
 }
 
 export default CartItem

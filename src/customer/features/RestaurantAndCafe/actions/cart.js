@@ -16,3 +16,8 @@ export const changeCount = (id, amount) => ({
     amount
   }
 })
+
+export const deleteItem = id => ({
+  type: types.CART_DELETE_ITEM,
+  id
+})

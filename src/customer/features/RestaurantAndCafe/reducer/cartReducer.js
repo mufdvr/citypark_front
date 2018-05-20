@@ -23,6 +23,10 @@ export default (state, action) => {
           item.id === action.payload.id ? { ...item, count: item.count += action.payload.amount } : item
         ).filter(item => item.count > 0)
       })
+    case types.CART_DELETE_ITEM:
+      return pushInPayload(state, {
+        cart: state.payload.cart.filter(item => item.id != action.id)
+      })  
 
     default: return false
   }
