@@ -1,7 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 
-const Dish = ({ id, title, cost, images: { preview, full }, description, weight }) =>
+import * as actions from '../../actions'
+
+const Dish = ({ id, title, cost, description, weight, addToCart, images: { preview, full } }) =>
   <div className="bludo">
     <div className="bludo_img">
       <a href={full} className="gmg">
@@ -17,7 +21,7 @@ const Dish = ({ id, title, cost, images: { preview, full }, description, weight 
         <span className="gramm">{weight}</span>
         <span className="bsm"><span className="bsm_n">{cost}</span><span style={{fontSize:"30px"}}>₽</span></span>
       </div>
-      <div className="z_btn">Добавить в список заказа</div>
+      <div onClick={addToCart.bind(null, id, title, cost)} className="z_btn">Добавить в список заказа</div>
     </div>
   </div>
 
@@ -26,7 +30,8 @@ Dish.propTypes = {
   cost: PropTypes.number.isRequired,
   images: PropTypes.object,
   description: PropTypes.string,
-  weight: PropTypes.string.isRequired
+  weight: PropTypes.string.isRequired,
+  addToCart: PropTypes.func.isRequired
 }
 
 export default Dish

@@ -34,9 +34,9 @@ class Category extends React.Component {
   }
 
   dishesList = () => {
-    const { categories, index } = this.props
+    const { categories, index, addToCart } = this.props
     return categories[index].dishes ? categories[index].dishes.map(dish =>
-      <Dish key={dish.id} {...dish} />
+      <Dish key={dish.id} addToCart={addToCart} {...dish} />
     ) : null
   }
 
@@ -82,7 +82,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispathToProps = dispatch => bindActionCreators ({
-  ...actions.menu
+  ...actions.menu,
+  ...actions.cart
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispathToProps)(Category)

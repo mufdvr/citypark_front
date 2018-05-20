@@ -1,39 +1,47 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-const CART_STATE = {
-  close: {left: '-1000px'},
-  hidden: {left: '-352px'},
-  open: {left: '10px'}
-}
+import { CartItem } from '../../components'
+
+const CART_STATES = [
+  {left: '-1000px'},
+  {left: '-352px'},
+  {left: '10px'}
+]
 
 class Cart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cartState: CART_STATE.hidden
+      cartState: 0
     }
+  }
+
+  handleClick = () =>
+    this.setState({
+      cartState: this.state.cartState ^ 0b11
+    })
+
+  listItems = () => {
+    const { cart } = this.props
+    return cart ? Object.keys(cart).map(item =>
+      <CartItem key={item} {...cart[item]} />
+    ) : null
+  }
+
+  componentWillReceiveProps = nextProps => {
+    if (!this.props.cart && nextProps.cart) this.setState ({
+      cartState: 1
+    })
   }
 
   render = () => {
     const { cartState } = this.state
     return (
-      <div className="shopping" style={cartState}>
+      <div className="shopping" style={CART_STATES[cartState]}>
         <div className="t_list">
-          <div className="tovar" id="t_bl_73_list">
-            <div className="t_remove">x</div>
-            <div className="t_countbox">
-              <div className="t_count">1</div>
-              <div className="t_btn t_minus">-</div>
-              <div className="t_btn t_plus">+</div>
-            </div>
-            <div className="t_text">
-              <div className="t_name">Мясная нарезка</div>
-              <div style={{display: "table-row"}}>
-                <div className="t_summ"><span className="t_summ_num">600</span>₽</div>
-              </div>
-            </div>
-          </div>
+          {this.listItems()}
         </div>
 
         <div className="basket_summ">
@@ -48,7 +56,7 @@ class Cart extends React.Component {
         </div>
 
 
-        <div id="s_open_btn">
+        <div id="s_open_btn" onClick={this.handleClick}>
           <div></div>
         </div>
       </div>
@@ -56,4 +64,8 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart
+const mapStateToProps = state => ({
+  cart: state.restcafe.payload.cart
+})
+
+export default connect(mapStateToProps)(Cart)
