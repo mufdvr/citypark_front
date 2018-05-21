@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { RestaurantContacts, Delivery, Header, HotelContacts,
-  RoomsCatalog, NewsItem, News } from 'components'
+  RoomsCatalog, NewsItem, News, NavigationBar, Chef } from 'components'
 
 const DISPLAY_TYPE = "home"
 
 export default () =>
   <div>
+    <div className="fold fold_home" />
     <div className="part">
       <Header
         side="left"
@@ -64,4 +65,6 @@ export default () =>
       </div>
     </div>
     <div className="logo" />
+    <Chef />
+    <NavigationBar />
   </div>

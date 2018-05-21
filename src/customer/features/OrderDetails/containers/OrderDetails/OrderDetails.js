@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 class OrderDetails extends React.Component {
 
   render = () =>
-   <div>test</div>
+   <div><h1>test</h1></div>
 }
 
 export default OrderDetails

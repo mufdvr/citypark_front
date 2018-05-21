@@ -11,7 +11,7 @@ const routes = [
       ...Home.routes,
       ...RestaurantAndCafe.routes,
       ...OrderDetails.routes
-    ]
+    ]  
   }
 ]
 
