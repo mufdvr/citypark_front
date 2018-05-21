@@ -25,8 +25,8 @@ export default (state, action) => {
       })
     case types.CART_DELETE_ITEM:
       return pushInPayload(state, {
-        cart: state.payload.cart.filter(item => item.id != action.id)
-      })  
+        cart: state.payload.cart.filter(item => item.id !== action.id)
+      })
 
     default: return false
   }

@@ -50,7 +50,7 @@ class Category extends React.Component {
           <div className="mcr"></div>
           <div className="mctt">
             { fetching ? <div className="cwait" /> : null }
-            <a href="#" onClick={this.handleClick}>
+            <a onClick={this.handleClick}>
               {title}
             </a>
           </div>
@@ -60,7 +60,7 @@ class Category extends React.Component {
           <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
           <div className="cat_content">
             { this.dishesList() }
-            <a href="#" className="gtcat">Наверх к категории</a>
+            <a className="gtcat">Наверх к категории</a>
           </div>
         </div>
       </div>
