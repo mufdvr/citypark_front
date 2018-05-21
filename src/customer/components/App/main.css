@@ -159,6 +159,7 @@ h1 {
 a {
   color: #ffc0d2;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 a:hover {

@@ -1,15 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
-
-import * as actions from '../../actions'
 
 const Dish = ({ id, title, cost, description, weight, addToCart, images: { preview, full } }) =>
   <div className="bludo">
     <div className="bludo_img">
       <a href={full} className="gmg">
-        <img src={process.env.REACT_APP_BACK_ROOT + preview} />
+        <img
+          alt="pic"
+          src={process.env.REACT_APP_BACK_ROOT + preview}
+        />
       </a>
     </div>
     <div className="bludo_txt">

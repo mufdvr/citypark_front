@@ -103,7 +103,7 @@
   margin-right: 99px;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#dabf9d', endColorstr='#f9f5ef', GradientType=0);
   zoom: 1;
-  background: linear-gradient(left, #dabf9d, #f9f5ef);
+  background: linear-gradient(to right, #dabf9d, #f9f5ef);
 }
 
 .pb_txt div {
