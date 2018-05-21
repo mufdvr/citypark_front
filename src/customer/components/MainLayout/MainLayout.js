@@ -10,7 +10,6 @@ export default ({ route, location }) => {
     <div className="p2" />
     {
       (() => {
-        console.log(location.pathname);
         switch (location.pathname) {
           case "/":
             return (
