@@ -1,4 +1,4 @@
-import routes from './routes'
+import routes, * as links from './routes'
 //import * as components from './components'
 //import * as actions from './actions'
 //import * as types from './actionTypes'
@@ -11,5 +11,6 @@ export default {
   //reducer,
   containers,
   //components,
-  routes
+  routes,
+  links
 }

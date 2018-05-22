@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { withRouter } from "react-router-dom"
 
+import OrderDetails from 'features/OrderDetails'
 import { CartItem } from '../../components'
 import * as actions from '../../actions'
 
@@ -24,6 +26,9 @@ class Cart extends React.Component {
     this.setState({
       cartState: this.state.cartState ^ 0b11
     })
+
+  handleOrderDetails = () =>
+    this.props.history.push(OrderDetails.links.ORDER_DETAILS)
 
   listItems = () => {
     const { cart, changeCount, deleteItem } = this.props
@@ -71,7 +76,7 @@ class Cart extends React.Component {
         </div>
 
         <div className="zakaz_info">
-          <div className="z_btn create-order-btn">Оформить заказ</div>
+          <div onClick={this.handleOrderDetails} className="z_btn create-order-btn">Оформить заказ</div>
         </div>
 
 
@@ -91,4 +96,4 @@ const mapDispatchToProps = dispath => bindActionCreators({
   ...actions.cart
 }, dispath)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Cart))
