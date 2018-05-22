@@ -1,8 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
-import { SideBar, Footer, Chef, NavigationBar } from 'components'
-import { OrderDetails } from 'features/OrderDetails/containers'
+import { Footer } from 'components'
 
 export default ({ route }) =>
   <div className="body">
