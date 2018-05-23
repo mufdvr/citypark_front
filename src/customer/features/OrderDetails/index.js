@@ -3,12 +3,12 @@ import routes, * as links from './routes'
 //import * as actions from './actions'
 //import * as types from './actionTypes'
 import * as containers from './containers'
-//import reducer from './reducer'
+import reducer from './reducer'
 
 export default {
   //actions,
   //types,
-  //reducer,
+  reducer,
   containers,
   //components,
   routes,

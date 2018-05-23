@@ -38,24 +38,72 @@ class OrderDetails extends React.Component {
     MonetaForm.send()
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    const { id, amount, mnt_signature } = nextProps.order
+    this.setState(prev => ({
+      ...prev,
+      id,
+      amount,
+      mnt_signature
+    }))
+  }
+
+  componentDidUpdate = () => this.state.id && MonetaForm.send()
+
   render = () => {
+    const { id, amount, mnt_signature } = this.state
     return (
      <div id="order-details">
-       <input onChange={this.handleChange} name="name" type="text" placeholder="name" /><br/>
-       <input onChange={this.handleChange} name="phone" type="text" placeholder="phone" /><br/>
-       <input onChange={this.handleChange} name="city" type="text" placeholder="city" value={this.state.order.city} /><br/>
-       <input onChange={this.handleChange} name="house" type="text" placeholder="house" /><br/>
+       <div id="order-left-side">
+       <h2>Информация о покупателе</h2>
+       <div className="form-group">
+         <div className="form-label">Ваше имя</div>
+         <input
+           onChange={this.handleChange}
+           className="form-input"
+           name="name"
+           type="text"
+         />
+       </div>
+       <div className="form-group">
+         <div className="form-label">Контактный телефон</div>
+         <input
+           onChange={this.handleChange}
+           className="form-input"
+           name="phone"
+           type="tel"
+          />
+       </div>
+       <div className="form-group">
+         <div className="form-label">Город</div>
+         <input
+           onChange={this.handleChange}
+           className="form-input"
+           name="city"
+           type="text"
+           value={this.state.order.city}
+          />
+       </div>
+        <input onChange={this.handleChange} name="house" type="text" placeholder="house" /><br/>
        <input onChange={this.handleChange} name="apartment" type="text" placeholder="apartment" /><br/>
        <input onChange={this.handleChange} name="comment" type="text" placeholder="comment" /><br/>
-       <button onClick={this.handleClick}>tst</button>
-       <MonetaForm />
+       <button onClick={this.handleSubmit}>tst</button>
+     </div>
+     <div id="order-right-side">
+     </div>
+       <MonetaForm
+         mntTransactionId={id}
+         mntAmount={amount}
+         mntSignature={mnt_signature}
+        />
      </div>
    )
  }
 }
 
 const mapStateToProps = state => ({
-  cart: state.restcafe.payload.cart
+  cart: state.restcafe.payload.cart,
+  order: state.order.payload.order
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

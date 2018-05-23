@@ -8,8 +8,7 @@ export const pushInPayload = (state, item) => ({
 })
 
 export const filterCart = cart =>
-  cart && cart.map(item => {
-    delete item.cost
-    delete item.title
-    return item
-  })
+  cart && cart.map(item => ({
+    dish_id: item.id,
+    dush_count: item.count
+  }))

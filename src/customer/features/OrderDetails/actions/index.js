@@ -1,3 +1,3 @@
-import order from './order'
+import * as order from './order'
 
 export { order }
