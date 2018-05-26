@@ -13,6 +13,10 @@ export const CAFE = {
   url: MAIN.url + '/cafe',
   title: 'Летнее кафе'
 }
+export const NEWS = {
+  url: MAIN.url + '/news',
+  title: 'Новости и мероприятия'
+}
 export const MENU = {
   url: MAIN.url + '/menu',
   title: 'Меню'
@@ -35,6 +39,10 @@ const routes = [
       {
         path: CAFE.url,
         component: components.Cafe
+      },
+      {
+        path: NEWS.url,
+        component: containers.News
       },
       {
         path: MENU.url,
