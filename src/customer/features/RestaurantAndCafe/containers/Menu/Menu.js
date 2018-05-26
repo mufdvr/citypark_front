@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { Category, Cart } from '../../containers'
-import { MAIN, MENU } from '../../routes'
+import { REST_MAIN, MENU } from '../../routes'
 import * as actions from '../../actions'
 
 class Menu extends React.Component {
@@ -29,7 +29,7 @@ class Menu extends React.Component {
   render = () =>
     <div className="light restaraunt-menu">
       <Cart />
-      <Breadcrumbs links={[ MAIN, MENU ]} />
+      <Breadcrumbs links={[ REST_MAIN, MENU ]} />
       <SocShare
         link="http://cityparkvip.ru/rest/kafe.html"
         title="РГК «City Park» - Летнее кафе"

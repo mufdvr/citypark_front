@@ -1,0 +1,74 @@
+.room_list {
+  position: relative;
+  overflow: hidden;
+  background: rgba(69, 49, 43, 0.6);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.room_list:hover {
+  background: rgba(69, 49, 43, 0.9);
+}
+
+.room_list_img {
+  position: relative;
+  display: block;
+  width: 260px;
+  height: 170px;
+  margin: 2px;
+  border-radius: 5px;
+  background: #933;
+  float: left;
+  overflow: hidden;
+}
+
+.room_list_title {
+  position: relative;
+  font-family: 'PT Serif', serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: #f6dfc4;
+  margin: 15px 0;
+}
+
+.room_list_title a {
+  font-family: 'PT Serif', serif;
+  font-size: 30px;
+  line-height: 30px;
+  color: #f6dfc4;
+  text-decoration: underline;
+}
+
+.room_list_title a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.room_list_txt {
+  margin-left: 280px;
+}
+
+.room_empty {
+  bottom: 2px;
+  padding: 3px 8px;
+  overflow: hidden;
+  font-family: 'PT Serif', serif;
+  color: #f6dfc4;
+  background: rgba(69, 49, 43, 1);
+  border-radius: 5px;
+}
+
+.re_num {
+  position: relative;
+  float: left;
+  margin-right: 8px;
+  font-size: 32px;
+  line-height: 30px;
+}
+
+.re_txt {
+  position: relative;
+  float: left;
+  font-size: 14px;
+  line-height: 14px;
+}

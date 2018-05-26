@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
+import Hotel from 'features/Hotel'
 
 export default class NavigationBar extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ export default class NavigationBar extends React.Component {
   }
 
   render = () => {
-    const { MAIN, RESTAURANT, CAFE, MENU } = RestaurantAndCafe.links
+    const { REST_MAIN, RESTAURANT, CAFE, MENU, NEWS } = RestaurantAndCafe.links
+    const { HOTEL_MAIN, CATALOG } = Hotel.links
     return (
       <div className="mainmenu">
         <div className="menubody">
@@ -33,8 +35,8 @@ export default class NavigationBar extends React.Component {
               <Link to="/" className="first active">Главная</Link>
             </li>
             <li onMouseOver={this.handleHover.bind(null, 0)} onMouseOut={this.handleHover.bind(null, 0)}>
-              <Link to={MAIN.url}>
-                {MAIN.title}
+              <Link to={REST_MAIN.url}>
+                {REST_MAIN.title}
               </Link>
               <ul className={`sub ${this.state.subMenuVisible[0] ? "fade-in" : "fade-out"}`}>
                 <li>
@@ -48,12 +50,14 @@ export default class NavigationBar extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <a href="rest/news/">Новости и мероприятия</a>
+                  <Link to={NEWS.url}>
+                    {NEWS.title}
+                  </Link>
                 </li>
                 <li>
                   <Link to={MENU.url}>
                     {MENU.title}
-                  </Link>  
+                  </Link>
                 </li>
                 <li>
                   <a href="rest/shefblog/" className="last">Блог шеф-повара</a>
@@ -61,10 +65,14 @@ export default class NavigationBar extends React.Component {
               </ul>
             </li>
             <li onMouseOver={this.handleHover.bind(null, 1)} onMouseOut={this.handleHover.bind(null, 1)}>
-              <a href="hotel/">Отель-люкс</a>
+              <Link to={HOTEL_MAIN.url}>
+                {HOTEL_MAIN.title}
+              </Link>
               <ul className={`sub ${this.state.subMenuVisible[1] ? "fade-in" : "fade-out"}`}>
                 <li>
-                  <a href="hotel/katalog-nomerov/" className="first">Каталог номеров</a>
+                  <Link to={CATALOG.url}>
+                    {CATALOG.title}
+                  </Link>
                 </li>
                 <li>
                   <a href="hotel/test0.html" className="last">Документация</a>

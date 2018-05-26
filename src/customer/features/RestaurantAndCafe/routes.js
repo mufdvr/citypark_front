@@ -1,34 +1,34 @@
 import * as components from './components'
 import * as containers from './containers'
 
-export const MAIN = {
+export const REST_MAIN = {
   url: '/rest',
   title: 'Ресторан и летнее кафе'
 }
 export const RESTAURANT = {
-  url: MAIN.url + '/restaurant',
+  url: REST_MAIN.url + '/restaurant',
   title: 'Ресторан'
 }
 export const CAFE = {
-  url: MAIN.url + '/cafe',
+  url: REST_MAIN.url + '/cafe',
   title: 'Летнее кафе'
 }
 export const NEWS = {
-  url: MAIN.url + '/news',
+  url: REST_MAIN.url + '/news',
   title: 'Новости и мероприятия'
 }
 export const MENU = {
-  url: MAIN.url + '/menu',
+  url: REST_MAIN.url + '/menu',
   title: 'Меню'
 }
 
 const routes = [
   {
-    path: MAIN.url,
+    path: REST_MAIN.url,
     component: components.Layout,
     routes: [
       {
-        path: MAIN.url,
+        path: REST_MAIN.url,
         exact: true,
         component: components.Main
       },

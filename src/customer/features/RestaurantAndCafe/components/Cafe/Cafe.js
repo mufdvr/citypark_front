@@ -2,11 +2,11 @@ import React from 'react'
 
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import * as images from './images'
-import { MAIN, CAFE } from '../../routes'
+import { REST_MAIN, CAFE } from '../../routes'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs links={[ MAIN, CAFE ]} />
+    <Breadcrumbs links={[ REST_MAIN, CAFE ]} />
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"

@@ -1,8 +1,8 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
-import { REST_MAIN } from '../../routes'
-import { Header, Chef, NavigationBar, SideBar } from 'components'
+import { HOTEL_MAIN } from '../../routes'
+import { Header, NavigationBar, SideBar } from 'components'
 
 export default ({ route }) =>
   <div style={{lineHeight: "22px"}}>
@@ -12,12 +12,11 @@ export default ({ route }) =>
       <div className="partbody">
         <Header
           side="left"
-          title={REST_MAIN.title}
-          link={REST_MAIN.url}
+          title={HOTEL_MAIN.title}
+          link={HOTEL_MAIN.url}
         />
         { route && renderRoutes(route.routes) }
       </div>
     </div>
-    <Chef />
     <NavigationBar />
   </div>
