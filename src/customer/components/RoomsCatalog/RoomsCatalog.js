@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { RoomItem } from './components'
+import { RoomItem } from 'components'
 import * as images from './images'
 
 const RoomsCatalog = ({ displayType }) =>

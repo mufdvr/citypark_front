@@ -14,6 +14,7 @@ import SideBar from './SideBar'
 import SocShare from './SocShare'
 import PhotoGallery from './PhotoGallery'
 import Breadcrumbs from './Breadcrumbs'
+import RoomItem from './RoomItem'
 
 export {
   App,
@@ -31,5 +32,6 @@ export {
   SideBar,
   SocShare,
   PhotoGallery,
-  Breadcrumbs
+  Breadcrumbs,
+  RoomItem
 }

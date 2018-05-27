@@ -11,7 +11,7 @@ export default () =>
       title="РГК «City Park» - Ресторан и летнее кафе"
       image="http://cityparkvip.ru/assets/templates/citypark/site-preview.jpg"
     />
-    <h2>Отель-люкс City Park — это в<span style={{lineHeight: "1.5em"}}>ысококлассная гостиница в Белореченске с номерами&nbsp;</span><span style={{lineHeight: "1.5em;"}}>различных категорий.</span></h2>
+    <h2>Отель-люкс City Park — это в<span style={{lineHeight: "1.5em"}}>ысококлассная гостиница в Белореченске с номерами&nbsp;</span><span style={{lineHeight: "1.5em"}}>различных категорий.</span></h2>
     <p><strong><span style={{lineHeight: "1.5em"}}>В гостинице 12 номеров площадью от 19 до 45 м2, все они соответствуют категории "Люкс". <br/></span></strong></p>
     <h2><span style={{lineHeight: "1.5em"}}><a href="hotel/katalog-nomerov/" target="_blank">Посмотреть каталог номеров</a></span><strong><span style={{lineHeight: "1.5em"}}><a href="hotel/katalog-nomerov/" target="_blank"><br/><br/></a></span></strong></h2>
     <p>201 — одноместный номер с двуспальной кроватью, с балконом. Площадь 23 кв.м. + балкон 7 кв.м.<br/>204, 304 — одноместные номера с двуспальной кроватью. Площадь 19 кв.м.&nbsp;<br/>203, 206, 302, 303 — двухместные номера с двумя односпальными кроватями
@@ -37,7 +37,7 @@ export default () =>
     <p align="CENTER"><span>ИНФОРМАЦИЯ ОБ ИСПОЛНИТЕЛЕ И О ПРЕДОСТАВЛЯЕМЫХ ИСПОЛНИТЕЛЕМ ГОСТИНИЧНЫХ УСЛУГАХ</span></p>
     <p align="CENTER"><span>(в соответствиис п.п. 9, 10 Правил предоставления гостиничных услуг в Российской Федерации, утв. Постановлением Правительства РФ от 9 октября 2015г. № 1085)</span></p>
     <p align="CENTER">&nbsp;</p>
-    <table width="100%" border="1" cellspacing="0" cellpadding="4">
+    <table width="100%" border="1" cellSpacing="0" cellPadding="4">
       <colgroup>
         <col width="128*"/>
         <col width="128*"/>
@@ -233,7 +233,7 @@ export default () =>
     <p align="CENTER"><span>к информации об Исполнитель и о предоставляемых исполнителем гостиничных услугах</span></p>
     <p align="CENTER">&nbsp;</p>
     <p align="CENTER"><span>Категории номеров и цены 2016г.</span></p>
-    <table width="100%" border="1" cellspacing="0" cellpadding="4">
+    <table width="100%" border="1" cellSpacing="0" cellPadding="4">
       <colgroup>
         <col width="128*"/>
         <col width="128*"/>
@@ -357,7 +357,7 @@ export default () =>
     <p align="CENTER">&nbsp;</p>
     <p align="CENTER"><span>Лобби бар</span></p>
     <p align="LEFT">&nbsp;</p>
-    <table dir="ltr" border="1" cellspacing="0" cellpadding="0">
+    <table dir="ltr" border="1" cellSpacing="0" cellPadding="0">
       <colgroup>
         <col width="254"/>
         <col width="81"/>
