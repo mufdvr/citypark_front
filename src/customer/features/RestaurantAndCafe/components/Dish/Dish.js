@@ -20,7 +20,7 @@ const Dish = ({ id, title, cost, description, weight, addToCart, images: { previ
         <span className="gramm">{weight}</span>
         <span className="bsm"><span className="bsm_n">{cost}</span><span style={{fontSize:"30px"}}>₽</span></span>
       </div>
-      <div onClick={addToCart.bind(null, id, title, cost)} className="z_btn">Добавить в список заказа</div>
+      <div onClick={() => addToCart(id, title, cost)} className="z_btn">Добавить в список заказа</div>
     </div>
   </div>
 

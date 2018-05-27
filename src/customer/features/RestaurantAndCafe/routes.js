@@ -17,6 +17,9 @@ export const NEWS = {
   url: REST_MAIN.url + '/news',
   title: 'Новости и мероприятия'
 }
+export const NEWS_SHOW = {
+  url: NEWS.url + '/:id'
+}
 export const MENU = {
   url: REST_MAIN.url + '/menu',
   title: 'Меню'
@@ -42,7 +45,12 @@ const routes = [
       },
       {
         path: NEWS.url,
+        exact: true,
         component: containers.News
+      },
+      {
+        path: NEWS_SHOW.url,
+        component: containers.NewsShow
       },
       {
         path: MENU.url,

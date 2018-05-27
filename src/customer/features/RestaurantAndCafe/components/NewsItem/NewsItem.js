@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { NEWS } from '../../routes'
 
 const NewsItem = ({ id, title, image, created_at }) =>
   <div className="page_list_wrapper">
@@ -9,7 +10,7 @@ const NewsItem = ({ id, title, image, created_at }) =>
       <img src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
     </div>
     <div className="description">
-      <Link to="wtf" className="dttl">{title}</Link><br/>
+      <Link to={NEWS.url + '/' + id} className="dttl">{title}</Link><br/>
     </div>
   </div>
 

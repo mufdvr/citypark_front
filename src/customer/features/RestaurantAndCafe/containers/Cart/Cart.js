@@ -8,7 +8,7 @@ import { CartItem } from '../../components'
 import * as actions from '../../actions'
 
 const CART_STATES = [
-  {left: '-1000px'},
+  {left: '-500px'},
   {left: '-352px'},
   {left: '10px'}
 ]
@@ -78,7 +78,6 @@ class Cart extends React.Component {
         <div className="zakaz_info">
           <div onClick={this.handleOrderDetails} className="z_btn create-order-btn">Оформить заказ</div>
         </div>
-
 
         <div id="s_open_btn" onClick={this.handleClick}>
           <div></div>

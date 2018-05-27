@@ -6,3 +6,4 @@ export const CART_CHANGE_ITEM_COUNT        = '@@CART_CHANGE_ITEM_COUNT'
 export const CART_DELETE_ITEM              = '@@CART_DELETE_ITEM'
 
 export const NEWS_INDEX                    = '@@NEWS_INDEX'
+export const NEWS_SHOW                     = '@@NEWS_SHOW'

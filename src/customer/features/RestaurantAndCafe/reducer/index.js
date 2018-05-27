@@ -12,6 +12,7 @@ export default (state, action) =>
     [
       types.CATEGORIES_INDEX,
       types.CATEGORIES_SHOW,
-      types.NEWS_INDEX
+      types.NEWS_INDEX,
+      types.NEWS_SHOW
     ]
   )
