@@ -24,6 +24,10 @@ export const MENU = {
   url: REST_MAIN.url + '/menu',
   title: 'Меню'
 }
+export const CHEF_BLOG = {
+  url: REST_MAIN.url + '/chefblog',
+  title: 'Блог шеф-повара'
+}
 
 const routes = [
   {
@@ -55,6 +59,11 @@ const routes = [
       {
         path: MENU.url,
         component: containers.Menu
+      },
+      {
+        path: CHEF_BLOG.url,
+        exact: true,
+        component: components.ChefBlog
       }
     ]
   }

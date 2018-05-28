@@ -23,7 +23,7 @@ export default class NavigationBar extends React.Component {
   }
 
   render = () => {
-    const { REST_MAIN, RESTAURANT, CAFE, MENU, NEWS } = RestaurantAndCafe.links
+    const { REST_MAIN, RESTAURANT, CAFE, MENU, NEWS, CHEF_BLOG } = RestaurantAndCafe.links
     const { HOTEL_MAIN, CATALOG } = Hotel.links
     return (
       <div className="mainmenu">
@@ -60,7 +60,9 @@ export default class NavigationBar extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <a href="rest/shefblog/" className="last">Блог шеф-повара</a>
+                  <Link to={CHEF_BLOG.url}>
+                    {CHEF_BLOG.title}
+                  </Link>
                 </li>
               </ul>
             </li>

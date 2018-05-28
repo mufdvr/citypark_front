@@ -15,6 +15,7 @@ import SocShare from './SocShare'
 import PhotoGallery from './PhotoGallery'
 import Breadcrumbs from './Breadcrumbs'
 import RoomItem from './RoomItem'
+import NotFound from './NotFound'
 
 export {
   App,
@@ -33,5 +34,6 @@ export {
   SocShare,
   PhotoGallery,
   Breadcrumbs,
-  RoomItem
+  RoomItem,
+  NotFound
 }

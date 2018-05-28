@@ -3,6 +3,7 @@ import Home from 'features/Home'
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
 import OrderDetails from 'features/OrderDetails'
 import Hotel from 'features/Hotel'
+import { NotFound } from 'components'
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
       ...OrderDetails.routes,
       ...Hotel.routes
     ]
+  },
+  {
+    path: '*', 
+    component: NotFound
   }
 ]
 
