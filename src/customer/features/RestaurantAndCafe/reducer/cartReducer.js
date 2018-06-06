@@ -8,10 +8,13 @@ export default (state, action) => {
       let result
       if (state.payload.cart) {
         let items = state.payload.cart.slice(0)
-        items.forEach((item, index) => {
-          if (item.id === action.payload.id) items[index].count = item.count + 1
-          else if (index === items.length - 1) items = []
-        })
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].id === action.payload.id) {
+            items[i].count += 1
+            break
+          }
+          else if (i === items.length - 1) items = []
+        }
         result = items.length ? items : [...state.payload.cart, { ...action.payload, count: 1 }]
       }
       else result = [{ ...action.payload, count: 1 }]

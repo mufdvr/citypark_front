@@ -17,7 +17,7 @@ class Cart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cartState: 0,
+      cartState: props.cart ? 1 : 0
     }
     this.totalCost = 0
   }
