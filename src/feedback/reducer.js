@@ -6,8 +6,15 @@ const initialState = {
   errors: {}
 }
 
-export const getAction = type => /@@\w+/.exec(type)[0]
-export const getStatus = type => /\/\w+/.exec(type)[0]
+export const getAction = type => {
+  const fnd = /@@\w+/.exec(type)
+  return fnd ? fnd[0] : null
+}  
+
+export const getStatus = type => {
+  const fnd = /\/\w+/.exec(type)
+  return fnd ? fnd[0] : null
+}
 
 const defaultReducer = (state = initialState, { type, payload, errors } = {}, actionTypes = []) =>
    actionTypes.includes(getAction(type)) ? {

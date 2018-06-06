@@ -2,6 +2,7 @@
   padding: 50px;
   position: relative;
   display: flex;
+  justify-content: space-between;
 }
 
 #order-left-side {

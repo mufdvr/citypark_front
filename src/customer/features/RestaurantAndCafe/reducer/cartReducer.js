@@ -3,6 +3,7 @@ import { pushInPayload } from 'utils'
 
 export default (state, action) => {
   switch (action.type) {
+
     case types.CART_ADD_DISH:
       let result
       if (state.payload.cart) {
@@ -17,16 +18,22 @@ export default (state, action) => {
       return pushInPayload(state, {
         cart: result
       })
+
     case types.CART_CHANGE_ITEM_COUNT:
       return pushInPayload(state, {
         cart: state.payload.cart.map(item =>
           item.id === action.payload.id ? { ...item, count: item.count += action.payload.amount } : item
         ).filter(item => item.count > 0)
       })
+
     case types.CART_DELETE_ITEM:
       return pushInPayload(state, {
         cart: state.payload.cart.filter(item => item.id !== action.id)
       })
+
+    case types.LOAD_CART_FROM_LOCALSTORAGE:
+      const cart = JSON.parse(localStorage.getItem("cart"))
+      return cart ? pushInPayload(state, { cart }) : state
 
     default: return false
   }

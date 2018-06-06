@@ -8,3 +8,7 @@ export const createOrder = order =>
     types.ORDERS_CREATE,
     { order }
   )
+
+export const loadOrderFromLocalstorage = () => ({
+  type: types.LOAD_ORDER_FROM_LOCALSTORAGE
+})

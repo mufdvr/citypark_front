@@ -44,7 +44,7 @@ class Cart extends React.Component {
 
   componentWillReceiveProps = nextProps => {
     const { cart } = nextProps
-    if ((!this.props.cart || !this.props.cart.length) && cart) this.setState ({
+    if ((!this.props.cart || !this.props.cart.length) && cart && cart.length) this.setState ({
       cartState: 1
     })
     else if (!cart.length) this.setState({
@@ -56,6 +56,8 @@ class Cart extends React.Component {
     }
     localStorage.setItem("cart", JSON.stringify(cart))
   }
+
+  componentDidMount = () => this.props.loadCartFromLocalstorage()
 
   render = () => {
     const { cartState } = this.state

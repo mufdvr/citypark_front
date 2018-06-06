@@ -3,8 +3,8 @@ import cartReducer from './cartReducer'
 import feedback from 'feedback'
 import * as types from '../actionTypes'
 
-export default (state, action) =>
-  cartReducer(state, action) ||
+export default (state, action) => {
+  return cartReducer(state, action) ||
   categoriesReducer(state, action) ||
   feedback.reducer(
     state,
@@ -16,3 +16,4 @@ export default (state, action) =>
       types.NEWS_SHOW
     ]
   )
+}

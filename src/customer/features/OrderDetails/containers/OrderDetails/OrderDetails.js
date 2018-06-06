@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import { createOrder } from '../../models'
 import { filterCart } from 'utils'
 import * as actions from '../../actions'
+import RestaurantAndCafe from 'features/RestaurantAndCafe'
 import { MonetaForm } from '../../components'
 
 class OrderDetails extends React.Component {
@@ -34,24 +35,45 @@ class OrderDetails extends React.Component {
     createOrder(order)
   }
 
-  handleClick = () => {
-    MonetaForm.send()
+  componentDidMount = () => {
+    const { cart, loadOrderFromLocalstorage, loadCartFromLocalstorage } = this.props
+    !cart && loadCartFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { id, amount, mnt_signature } = nextProps.order
+    const { order } = nextProps
+    //console.log(order);
+    if (!order) return
+    const { id, amount, mnt_signature } = order
     this.setState(prev => ({
       ...prev,
       id,
       amount,
-      mnt_signature
+      mnt_signature,
+      //order
     }))
   }
 
-  componentDidUpdate = () => this.state.id && MonetaForm.send()
+  componentDidUpdate = () => {
+    const { order, id } = this.state
+    //localStorage.setItem("order", JSON.stringify(order))
+    id && MonetaForm.send()
+  }
+
+  cartList = () => {
+    const { cart } = this.props
+    return cart ? cart.map(item =>
+      <div>
+        <img src={process.env.REACT_APP_BACK_ROOT + item.images.preview} alt="pic" />
+        <p>{item.title}</p>
+        <p>{item.cost}</p>
+      </div>
+    ) : null
+  }
 
   render = () => {
     const { id, amount, mnt_signature } = this.state
+    const { name, phone } = this.state.order
     return (
      <div id="order-details">
        <div id="order-left-side">
@@ -63,6 +85,7 @@ class OrderDetails extends React.Component {
            className="form-input"
            name="name"
            type="text"
+           value={name}
          />
        </div>
        <div className="form-group">
@@ -72,6 +95,7 @@ class OrderDetails extends React.Component {
            className="form-input"
            name="phone"
            type="tel"
+           value={phone}
           />
        </div>
        <div className="form-group">
@@ -84,12 +108,13 @@ class OrderDetails extends React.Component {
            value={this.state.order.city}
           />
        </div>
-        <input onChange={this.handleChange} name="house" type="text" placeholder="house" /><br/>
+       <input onChange={this.handleChange} name="house" type="text" placeholder="house" /><br/>
        <input onChange={this.handleChange} name="apartment" type="text" placeholder="apartment" /><br/>
        <input onChange={this.handleChange} name="comment" type="text" placeholder="comment" /><br/>
        <button onClick={this.handleSubmit}>tst</button>
      </div>
      <div id="order-right-side">
+       { this.cartList() }
      </div>
        <MonetaForm
          mntTransactionId={id}
@@ -106,8 +131,12 @@ const mapStateToProps = state => ({
   order: state.order.payload.order
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  ...actions.order
-}, dispatch)
+const mapDispatchToProps = dispatch => {
+  const { loadCartFromLocalstorage } = RestaurantAndCafe.actions.cart
+  return bindActionCreators({
+    ...actions.order,
+    loadCartFromLocalstorage,
+  }, dispatch)
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderDetails)
