@@ -54,7 +54,7 @@ class Cart extends React.Component {
       this.totalCost = 0
       cart.forEach(item => this.totalCost += item.cost * item.count)
     }
-    //localStorage.setItem("cart", JSON.stringify(cart))
+    localStorage.setItem("cart", JSON.stringify(cart))
   }
 
   render = () => {

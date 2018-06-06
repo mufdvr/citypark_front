@@ -1,14 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Dish = ({ id, title, cost, description, weight, addToCart, images: { preview, full } }) =>
+const Dish = ({ id, title, cost, description, weight, addToCart, images }) =>
   <div className="bludo">
     <div className="bludo_img">
-      <a href={full} className="gmg">
-        <img
-          alt="pic"
-          src={process.env.REACT_APP_BACK_ROOT + preview}
-        />
+      <a href="ads" className="gmg">
+        {
+          images ?
+            <img
+              alt="pic"
+              src={process.env.REACT_APP_BACK_ROOT + images.preview}
+            />
+          : null
+        }
       </a>
     </div>
     <div className="bludo_txt">
