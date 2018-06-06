@@ -1,4 +1,5 @@
 const order = {
+  uuid: '',
   name: '',
   phone: '',
   city: 'Белореченск',

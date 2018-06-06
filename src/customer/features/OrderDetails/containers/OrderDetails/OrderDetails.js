@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { v4 } from 'react-native-uuid'
 
 import { createOrder } from '../../models'
 import { filterCart } from 'utils'
@@ -38,11 +39,16 @@ class OrderDetails extends React.Component {
   componentDidMount = () => {
     const { cart, loadOrderFromLocalstorage, loadCartFromLocalstorage } = this.props
     !cart && loadCartFromLocalstorage()
+    console.log(v4());
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { order } = nextProps
-    //console.log(order);
+    const { cart, order } = nextProps
+    const dishes_orders_attributes = filterCart(cart)
+    this.setState(prev => ({
+      ...prev,
+      order: createOrder({ dishes_orders_attributes })
+    }))
     if (!order) return
     const { id, amount, mnt_signature } = order
     this.setState(prev => ({
@@ -50,7 +56,6 @@ class OrderDetails extends React.Component {
       id,
       amount,
       mnt_signature,
-      //order
     }))
   }
 
@@ -62,8 +67,8 @@ class OrderDetails extends React.Component {
 
   cartList = () => {
     const { cart } = this.props
-    return cart ? cart.map(item =>
-      <div>
+    return cart ? cart.map((item, index) =>
+      <div key={index}>
         <img src={process.env.REACT_APP_BACK_ROOT + item.images.preview} alt="pic" />
         <p>{item.title}</p>
         <p>{item.cost}</p>
