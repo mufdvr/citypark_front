@@ -1,5 +1,5 @@
 const order = {
-  uuid: '',
+  delivery_times: null,
   name: '',
   phone: '',
   city: 'Белореченск',

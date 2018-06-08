@@ -1,8 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { v4 } from 'react-native-uuid'
+import DatePicker from 'react-datepicker'
+//import { v4 } from 'react-native-uuid'
+import moment from 'moment'
+import 'moment/locale/ru'
 
+import 'react-datepicker/dist/react-datepicker.css'
 import { createOrder } from '../../models'
 import { filterCart } from 'utils'
 import * as actions from '../../actions'
@@ -30,6 +34,15 @@ class OrderDetails extends React.Component {
     }))
   }
 
+  handleDateTimeChange = datetime =>
+    this.setState(prev => ({
+      ...prev,
+      order: {
+        ...prev.order,
+        delivery_times: datetime
+      }
+    }))
+
   handleSubmit = () => {
     const { order } = this.state
     const { createOrder } = this.props
@@ -39,7 +52,6 @@ class OrderDetails extends React.Component {
   componentDidMount = () => {
     const { cart, loadOrderFromLocalstorage, loadCartFromLocalstorage } = this.props
     !cart && loadCartFromLocalstorage()
-    console.log(v4());
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -113,8 +125,23 @@ class OrderDetails extends React.Component {
            value={this.state.order.city}
           />
        </div>
+       <input onChange={this.handleChange} name="street" type="text" placeholder="street" /><br/>
        <input onChange={this.handleChange} name="house" type="text" placeholder="house" /><br/>
        <input onChange={this.handleChange} name="apartment" type="text" placeholder="apartment" /><br/>
+       <div className="form-group">
+         <DatePicker
+            selected={this.state.order.delivery_times}
+            onChange={this.handleDateTimeChange}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            dateFormat="LLL"
+            timeCaption="время"
+            locale="ru"
+            minDate={moment()}
+            maxDate={moment().add(5, "days")}
+         />
+       </div>
        <input onChange={this.handleChange} name="comment" type="text" placeholder="comment" /><br/>
        <button onClick={this.handleSubmit}>tst</button>
      </div>
