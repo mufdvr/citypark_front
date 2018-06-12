@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactFancyBox from 'react-fancybox'
+import 'react-fancybox/lib/fancybox.css'
 
 const Dish = ({ id, title, cost, description, weight, addToCart, images }) =>
   <div className="bludo">
     <div className="bludo_img">
-      <a href="ads" className="gmg">
         {
           images ?
-            <img
-              alt="pic"
-              src={process.env.REACT_APP_BACK_ROOT + images.preview}
+            <ReactFancyBox
+              className="gmg"
+              thumbnail={process.env.REACT_APP_BACK_ROOT + images.preview}
+              image={process.env.REACT_APP_BACK_ROOT + images.full}
             />
           : null
         }
-      </a>
     </div>
     <div className="bludo_txt">
       <div className="bludo_title">{title}</div>

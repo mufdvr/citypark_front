@@ -1,0 +1,18 @@
+import f1 from './f1.jpg'
+import f2 from './f2.jpg'
+import f3 from './f3.jpg'
+import f4 from './f4.jpg'
+import f5 from './f5.jpg'
+import f6 from './f6.jpg'
+import f7 from './f7.jpg'
+import f8 from './f8.jpg'
+import t1 from './t1.jpg'
+import t2 from './t2.jpg'
+import t3 from './t3.jpg'
+import t4 from './t4.jpg'
+import t5 from './t5.jpg'
+import t6 from './t6.jpg'
+import t7 from './t7.jpg'
+import t8 from './t8.jpg'
+
+export { f1, f2, f3, f4, f5, f6, f7, f8, t1, t2, t3, t4, t5, t6, t7, t8 }

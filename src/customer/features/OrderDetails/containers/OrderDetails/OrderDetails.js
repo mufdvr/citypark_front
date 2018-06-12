@@ -148,10 +148,13 @@ class OrderDetails extends React.Component {
             onChange={this.handleDateTimeChange}
             showTimeSelect
             timeFormat="HH:mm"
-            timeIntervals={15}
+            timeIntervals={30}
             dateFormat="LLL"
             timeCaption="время"
             locale="ru"
+            excludeTimes={[moment().hours(1).minutes(30), moment().hours(2).minutes(0), moment().hours(2).minutes(30),
+              moment().hours(3).minutes(0), moment().hours(3).minutes(30), moment().hours(4).minutes(0),
+              moment().hours(4).minutes(30), moment().hours(5).minutes(0), moment().hours(5).minutes(30)]}
             minDate={moment()}
             maxDate={moment().add(5, "days")}
          />
