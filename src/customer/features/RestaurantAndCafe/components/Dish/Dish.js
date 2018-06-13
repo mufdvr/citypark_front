@@ -6,15 +6,15 @@ import 'react-fancybox/lib/fancybox.css'
 const Dish = ({ id, title, cost, description, weight, addToCart, images }) =>
   <div className="bludo">
     <div className="bludo_img">
-        {
-          images ?
-            <ReactFancyBox
-              className="gmg"
-              thumbnail={process.env.REACT_APP_BACK_ROOT + images.preview}
-              image={process.env.REACT_APP_BACK_ROOT + images.full}
-            />
-          : null
-        }
+      {
+        images ?
+          <ReactFancyBox
+            className="gmg"
+            thumbnail={process.env.REACT_APP_BACK_ROOT + images.preview}
+            image={process.env.REACT_APP_BACK_ROOT + images.full}
+          />
+        : null
+      }
     </div>
     <div className="bludo_txt">
       <div className="bludo_title">{title}</div>
