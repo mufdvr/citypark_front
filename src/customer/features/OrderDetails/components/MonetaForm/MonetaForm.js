@@ -8,7 +8,7 @@ export default class MonetaForm extends React.Component {
   }
 
   render = () => {
-    const { mntTransactionId, mntAmount, mntSignature } = this.props
+    const { mntTransactionId, mntAmount, mntSignature, paymentType } = this.props
     const { REACT_APP_MNT_ID, REACT_APP_ASSISTANT, REACT_APP_MNT_TEST_MODE, REACT_APP_MNT_CURRENCY_CODE } = process.env
     return (
       <form method="post" action={REACT_APP_ASSISTANT}>
@@ -18,6 +18,7 @@ export default class MonetaForm extends React.Component {
         <input type="hidden" name="MNT_TRANSACTION_ID" value={mntTransactionId} />
         <input type="hidden" name="MNT_AMOUNT" value={mntAmount} />
         <input type="hidden" name="MNT_SIGNATURE" value={mntSignature} />
+        <input type="hidden" name="paymentSystem.unitId" value={paymentType} />
         <input id="moneta-submit" type="submit" style={{display: 'none'}} />
       </form>
     )

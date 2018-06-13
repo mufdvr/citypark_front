@@ -1,13 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { v4 } from 'react-native-uuid'
+import DatePicker from 'react-datepicker'
+//import { v4 } from 'react-native-uuid'
+import moment from 'moment'
+import 'moment/locale/ru'
 
+import 'react-datepicker/dist/react-datepicker.css'
 import { createOrder } from '../../models'
 import { filterCart } from 'utils'
 import * as actions from '../../actions'
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
 import { MonetaForm } from '../../components'
+
+const PAYMENT_TYPES = {
+  sberbank: "32863",
+  vtb24: "1027"
+}
 
 class OrderDetails extends React.Component {
 
@@ -15,7 +24,8 @@ class OrderDetails extends React.Component {
     super(props)
     const dishes_orders_attributes = filterCart(this.props.cart)
     this.state = {
-      order: createOrder({ dishes_orders_attributes })
+      order: createOrder({ dishes_orders_attributes }),
+      paymentType: PAYMENT_TYPES.sberbank
     }
   }
 
@@ -30,6 +40,23 @@ class OrderDetails extends React.Component {
     }))
   }
 
+  handlePaymentChange = event => {
+    const { value } = event.target
+    this.setState(prev => ({
+      ...prev,
+      paymentType: value
+    }))
+  }
+
+  handleDateTimeChange = datetime =>
+    this.setState(prev => ({
+      ...prev,
+      order: {
+        ...prev.order,
+        delivery_times: datetime
+      }
+    }))
+
   handleSubmit = () => {
     const { order } = this.state
     const { createOrder } = this.props
@@ -39,7 +66,6 @@ class OrderDetails extends React.Component {
   componentDidMount = () => {
     const { cart, loadOrderFromLocalstorage, loadCartFromLocalstorage } = this.props
     !cart && loadCartFromLocalstorage()
-    console.log(v4());
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -77,7 +103,7 @@ class OrderDetails extends React.Component {
   }
 
   render = () => {
-    const { id, amount, mnt_signature } = this.state
+    const { id, amount, mnt_signature, paymentType } = this.state
     const { name, phone } = this.state.order
     return (
      <div id="order-details">
@@ -113,9 +139,49 @@ class OrderDetails extends React.Component {
            value={this.state.order.city}
           />
        </div>
+       <input onChange={this.handleChange} name="street" type="text" placeholder="street" /><br/>
        <input onChange={this.handleChange} name="house" type="text" placeholder="house" /><br/>
        <input onChange={this.handleChange} name="apartment" type="text" placeholder="apartment" /><br/>
-       <input onChange={this.handleChange} name="comment" type="text" placeholder="comment" /><br/>
+       <div className="form-group">
+         <DatePicker
+            selected={this.state.order.delivery_times}
+            onChange={this.handleDateTimeChange}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={30}
+            dateFormat="LLL"
+            timeCaption="время"
+            locale="ru"
+            excludeTimes={[moment().hours(1).minutes(30), moment().hours(2).minutes(0), moment().hours(2).minutes(30),
+              moment().hours(3).minutes(0), moment().hours(3).minutes(30), moment().hours(4).minutes(0),
+              moment().hours(4).minutes(30), moment().hours(5).minutes(0), moment().hours(5).minutes(30)]}
+            minDate={moment()}
+            maxDate={moment().add(5, "days")}
+         />
+       </div>
+       <input
+         onChange={this.handleChange}
+         name="comment" type="text"
+         placeholder="comment"
+        /><br/>
+       <label>
+         <input
+           type="radio"
+           checked={paymentType === PAYMENT_TYPES.sberbank}
+           onChange={this.handlePaymentChange}
+           value={PAYMENT_TYPES.sberbank}
+         />
+         sberbank
+       </label>
+       <label>
+         <input
+           type="radio"
+           checked={paymentType === PAYMENT_TYPES.vtb24}
+           onChange={this.handlePaymentChange}
+           value={PAYMENT_TYPES.vtb24}
+          />
+          vtb24
+       </label>
        <button onClick={this.handleSubmit}>tst</button>
      </div>
      <div id="order-right-side">
@@ -125,6 +191,7 @@ class OrderDetails extends React.Component {
          mntTransactionId={id}
          mntAmount={amount}
          mntSignature={mnt_signature}
+         paymentType={paymentType}
         />
      </div>
    )

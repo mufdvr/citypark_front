@@ -8,6 +8,10 @@ export const CATALOG = {
   url: HOTEL_MAIN.url + '/catalog',
   title: 'Каталог номеров'
 }
+export const DOCUMENTATION = {
+  url: HOTEL_MAIN.url + '/documentation',
+  title: 'Документация'
+}
 
 const routes = [
   {
@@ -22,6 +26,10 @@ const routes = [
       {
         path: CATALOG.url,
         component: components.RoomCatalog
+      },
+      {
+        path: DOCUMENTATION.url,
+        component: components.Documentation
       }
     ]
   }
