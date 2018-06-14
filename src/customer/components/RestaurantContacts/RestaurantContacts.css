@@ -46,7 +46,41 @@
   font-size: 34px;
   padding-bottom: 15px;
 }
+
 .rest_contacts_side span {
   font-size: 18px;
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  .rest_contacts_home {
+    font-size: 22pt;
+    line-height: 22pt;
+    padding: 20px 0;
+  }
+  .rest_contacts_home div {
+    font-size: 30pt;
+    line-height: 38pt;
+  }
+  .rest_contacts span {
+    font-size: 18pt;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .rest_contacts {
+    background: rgba(212, 148, 142, 0.1);
+    font-size: 18pt;
+    line-height: 18pt;
+    padding: 20px 0;
+  }
+  .rest_contacts div {
+    font-size: 26pt;
+    line-height: 32pt;
+  }
+  .rest_contacts span {
+    font-size: 16pt;
+    padding-bottom: 5px;
+  }
 }

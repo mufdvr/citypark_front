@@ -17,3 +17,13 @@
   top: 290px;
   margin-top: -215px;
 }
+
+@media screen and (max-width: 800px) {
+  .logo {
+    margin-top: 0;
+    top: 0;
+  }
+  .part {
+    width: 100%
+  }
+}

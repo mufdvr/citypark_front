@@ -6,9 +6,7 @@
   border-radius: 5px;
 }
 
-.room_side {
-  
-}
+.room_side {}
 
 .r_img {
   position: relative;
@@ -77,5 +75,20 @@
 }
 
 .r_summ_side {
-	margin-top: 5px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+  .r_img {
+    width: 150px;
+    height: 100px;
+  }
+  .r_img img {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .r_img {}
+  .r_body {}
 }

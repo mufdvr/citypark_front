@@ -59,3 +59,55 @@
 .h_title_left:hover, .h_title_right:hover {
   color: #fff;
 }
+
+/*@media screen and (max-width: 1100px) {
+  .h_img img {
+    height: 100%;
+    left: 0;
+    margin-left: 0;
+  }
+}*/
+
+@media screen and (max-width: 800px) {
+  .header {
+    height: auto;
+    overflow: hidden;
+  }
+  .h_img img {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .h_title {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    bottom: 0;
+    background: #45312b;
+  }
+  .h_title_bg {
+    min-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .h_title_left, .h_title_right {
+    font-size: 35px;
+    line-height: 75px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .h_title_left, .h_title_right {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    color: #f6dfc4;
+    font-size: 25px;
+    line-height: 75px;
+    text-shadow: -2px -2px 0 #45312b;
+  }
+}

@@ -30,9 +30,7 @@
   /*height:100%;*/
 }
 
-.deliver-img_home {
-
-}
+.deliver-img_home {}
 
 .deliver-img_side {
   height: 100%;
@@ -49,4 +47,16 @@
   line-height: 50px;
   text-align: center;
   color: #d4b58e;
+}
+
+@media screen and (max-width: 800px) {
+  .deliver_block_home {
+    max-width: none;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  .deliver_block img {
+    width: 100%;
+  }
 }

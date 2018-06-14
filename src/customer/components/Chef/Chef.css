@@ -5,7 +5,6 @@
   margin-left: 50px;
 }
 
-
 .povar_block {
   position: relative;
   display: block;
@@ -132,4 +131,170 @@
   height: 220px;
   float: right;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .povar_block {
+    position: relative;
+    display: block;
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .povar_line {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 65px;
+    background: #45312b;
+    overflow: visible;
+  }
+  .povar_info {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: 220px;
+    right: auto;
+    overflow: visible;
+  }
+  .povar_ava {
+    position: relative;
+    float: left;
+    margin-top: -65px;
+    margin-left: 50px;
+  }
+  .povar_txt {
+    margin: 20px 0 20px 10px;
+    color: #FFF;
+    font-size: 18px;
+  }
+  .povar_bludo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 220px;
+    max-width: 800px;
+    overflow: hidden;
+    left: auto;
+  }
+  .pb_img {
+    position: relative;
+    display: block;
+    width: 330px;
+    height: 220px;
+    float: left;
+    background: #933;
+  }
+  .pb_img_l {
+    display: none;
+  }
+  .pb_img_r {
+    position: absolute;
+    display: block;
+    width: 69px;
+    height: 220px;
+    top: 0;
+    right: 0;
+  }
+  .pb_txt {
+    color: #000;
+    font-size: 18px;
+    position: relative;
+    height: 100%;
+    margin-left: 330px;
+    margin-right: 99px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .povar_block {
+    position: relative;
+    display: block;
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    height: auto;
+  }
+  .povar_line {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 65px;
+    background: #45312b;
+    overflow: visible;
+  }
+  .povar_info {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    right: auto;
+    overflow: visible;
+  }
+  .povar_ava {
+    position: relative;
+    float: none;
+    margin-top: -65px;
+    margin-left: 0;
+  }
+  .povar_txt {
+    margin: 20px 0 20px 10px;
+    color: #FFF;
+    font-size: 18px;
+  }
+  .povar_txt a {
+    display: block;
+    font-family: 'PT Serif', serif;
+    color: #d4b58e;
+    font-size: 34px;
+    line-height: 34px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+  .povar_txt a:hover {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .povar_bludo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    overflow: hidden;
+    left: auto;
+  }
+  .pb_img {
+    position: relative;
+    display: block;
+    width: 330px;
+    height: 220px;
+    float: none;
+    background: #933;
+  }
+  .pb_img_l {
+    display: none;
+  }
+  .pb_img_r {
+    display: none;
+  }
+  .pb_txt {
+    color: #000;
+    font-size: 18px;
+    position: relative;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pb_end {
+    display: none;
+  }
 }

@@ -111,25 +111,36 @@ ul.sub {
 }
 
 .fade-out {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
 }
+
 .fade-in {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s linear 0s, opacity 300ms;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-    10% { display: none; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+  10% {
+    display: none;
+  }
 }
 
 ul.sub li {
@@ -153,4 +164,51 @@ ul.sub li a {
 ul.sub li a:hover {
   border-bottom: 2px solid #f0d8be;
   color: #FFF;
+}
+
+@media screen and (max-width: 1100px) {
+  .fade-out {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .mainmenu {
+    top: 0px;
+    background: #45312b;
+  }
+  .menubody {
+    min-width: 300px;
+    height: 40px;
+  }
+  #menu-btn {
+    display: block;
+  }
+  ul.mmenu {
+    position: absolute;
+    text-align: left;
+    height: auto;
+    width: 260px;
+    overflow: visible;
+    left: -300px;
+    padding: 40px 20px;
+    background: #796659;
+    border-radius: 5px;
+  }
+  ul.mmenu li {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+  }
+  ul.mmenu li:hover {}
+  ul.sub {
+    display: block;
+    position: relative;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+  }
 }

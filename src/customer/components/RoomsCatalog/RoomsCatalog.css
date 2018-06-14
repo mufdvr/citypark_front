@@ -3,7 +3,7 @@
 }
 
 .room_catalog_side {
-	margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 .ost_rooms {
@@ -40,4 +40,28 @@
   display: inline-block;
   line-height: 45px;
   color: #f6dfc4;
+}
+
+@media screen and (max-width: 400px) {
+  .ost_rooms {
+    font-size: 26px;
+    margin-top: 40px;
+    border-top: 1px solid #f6dfc4;
+    padding-top: 20px;
+  }
+  .rn {
+    position: relative;
+    display: inline-block;
+    font-size: 80px;
+    line-height: 18px;
+    color: #eaae93;
+    text-align: right;
+    margin-right: 20px;
+  }
+  .rntxt {
+    position: relative;
+    display: inline-block;
+    line-height: 30px;
+    color: #f6dfc4;
+  }
 }
