@@ -28,7 +28,6 @@
   color: #000;
 }
 
-
 .h_column {
   position: relative;
   display: block;
@@ -75,4 +74,13 @@
   margin-left: 50%;
   left: -148px;
   top: 115px;
+  background:url(/images/pagelogo.png) no-repeat;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    position: relative;
+    width: 100%;
+    float: none;
+  }
 }

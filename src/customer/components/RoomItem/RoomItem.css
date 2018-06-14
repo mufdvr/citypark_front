@@ -86,9 +86,16 @@
   .r_img img {
     width: 150px;
   }
+  .r_summ {
+    position: relative !important;
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .r_img {}
   .r_body {}
+  .r_summ {
+    position: relative !important;
+  }
 }

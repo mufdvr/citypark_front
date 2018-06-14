@@ -76,3 +76,34 @@
   zoom: 1;
   background: linear-gradient(to bottom, #45312b, #cca77a);
 }
+
+@media screen and (max-width: 800px) {
+  .bl_cena {
+    position: relative;
+    float: none;
+    font-family: Helvetica, sans-serif;
+    color: #e9cba7;
+    font-size: 16px;
+  }
+  .z_btn {
+    float: none;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .bludo_txt {
+    position: relative;
+    margin-left: 0;
+  }
+  .bludo_dop {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .bludo_img {
+    width: 270px;
+    height: 150px;
+  }
+}

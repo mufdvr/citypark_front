@@ -68,17 +68,17 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .hotel_contacts_home {
+  .hotel_contacts {
     background: #d4b58e;
     font-size: 18pt;
     line-height: 18pt;
     padding: 20px 0;
   }
-  .hotel_contacts_home div {
+  .hotel_contacts div {
     font-size: 26pt;
     line-height: 32pt;
   }
-  .hotel_contacts_home span {
+  .hotel_contacts span {
     font-size: 12pt;
     line-height: 24px;
   }
@@ -91,17 +91,17 @@
 }
 
 @media screen and (max-width: 400px) {
-  .hotel_contacts_home {
+  .hotel_contacts {
     background: #d4b58e;
     font-size: 18pt;
     line-height: 18pt;
     padding: 20px 0;
   }
-  .hotel_contacts_home div {
+  .hotel_contacts div {
     font-size: 26pt;
     line-height: 32pt;
   }
-  .hotel_contacts_home span {
+  .hotel_contacts span {
     font-size: 12pt;
     line-height: 24px;
   }
