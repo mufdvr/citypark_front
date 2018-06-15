@@ -15,12 +15,12 @@ const routes = [
       ...RestaurantAndCafe.routes,
       ...OrderDetails.routes,
       ...Hotel.routes,
-      ...Contacts.routes
+      ...Contacts.routes,
+      {
+        path: '*',
+        component: NotFound
+      }
     ]
-  },
-  {
-    path: '*',
-    component: NotFound
   }
 ]
 

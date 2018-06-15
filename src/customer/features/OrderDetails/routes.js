@@ -1,10 +1,9 @@
 import * as containers from './containers'
-
-export const ORDER_DETAILS = '/order_details'
+import * as links from './links'
 
 const routes = [
   {
-    path: ORDER_DETAILS,
+    path: links.ORDER_DETAILS,
     component: containers.OrderDetails
   }
 ]

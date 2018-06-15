@@ -2,7 +2,7 @@ import React from 'react'
 
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import * as images from './images'
-import { REST_MAIN, CAFE } from '../../routes'
+import { REST_MAIN, CAFE } from '../../links'
 
 export default () =>
   <div className="light">
@@ -95,5 +95,5 @@ export default () =>
         }
       ]}
     />
-    <a href="http://cityparkvip.ru/assets/tour/kafe.html" target="_blank" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
+    <a href="http://cityparkvip.ru/assets/tour/kafe.html" target="_blank" rel="noopener noreferrer" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
   </div>

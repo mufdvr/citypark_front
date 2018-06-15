@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
-import { HOTEL_MAIN } from '../../routes'
+import { HOTEL_MAIN } from '../../links'
 import { Header, NavigationBar, SideBar } from 'components'
 
 export default ({ route }) =>

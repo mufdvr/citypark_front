@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { Category, Cart } from '../../containers'
-import { REST_MAIN, MENU } from '../../routes'
+import { REST_MAIN, MENU } from '../../links'
 import * as actions from '../../actions'
 
 class Menu extends React.Component {

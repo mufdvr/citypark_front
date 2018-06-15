@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { NEWS } from '../../routes'
+import { NEWS } from '../../links'
 
 const NewsItem = ({ id, title, image, created_at }) =>
   <div className="page_list_wrapper">

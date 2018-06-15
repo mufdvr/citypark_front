@@ -64,7 +64,8 @@ class OrderDetails extends React.Component {
   }
 
   componentDidMount = () => {
-    const { cart, loadOrderFromLocalstorage, loadCartFromLocalstorage } = this.props
+    //loadOrderFromLocalstorage
+    const { cart, loadCartFromLocalstorage } = this.props
     !cart && loadCartFromLocalstorage()
   }
 
@@ -86,7 +87,7 @@ class OrderDetails extends React.Component {
   }
 
   componentDidUpdate = () => {
-    const { order, id } = this.state
+    const { id } = this.state
     //localStorage.setItem("order", JSON.stringify(order))
     id && MonetaForm.send()
   }

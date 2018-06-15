@@ -86,4 +86,6 @@ const mapDispathToProps = dispatch => bindActionCreators ({
   ...actions.cart
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispathToProps)(Category)
+const ReduxWrapper = connect(mapStateToProps, mapDispathToProps)
+const WrappedComponent = ReduxWrapper(Category)
+export default WrappedComponent

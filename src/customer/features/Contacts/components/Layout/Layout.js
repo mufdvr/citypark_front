@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
-import { CONTACTS } from '../../routes'
+import { CONTACTS } from '../../links'
 import { Header, NavigationBar, SideBar } from 'components'
 
 export default ({ route }) =>

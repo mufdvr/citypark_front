@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as actions from '../../actions'
 import { SocShare, Breadcrumbs } from 'components'
 import { NewsItem } from '../../components'
-import { REST_MAIN, NEWS } from '../../routes'
+import { REST_MAIN, NEWS } from '../../links'
 
 class News extends React.Component {
 

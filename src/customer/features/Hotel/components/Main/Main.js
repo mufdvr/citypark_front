@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { SocShare, Breadcrumbs } from 'components'
-import { HOTEL_MAIN } from '../../routes'
+import { HOTEL_MAIN } from '../../links'
 
 export default () =>
   <div className="light">
@@ -31,7 +31,8 @@ export default () =>
     <p>Номер VIP – не более четырех гостей, в остальные номера – не более двух.<br/>Заселение производится по паспорту или водительскому удостоверению. <br/>Оплатить можно как наличными, так и банковской картой.<br/>За бронирование плата не взимается.<br/>
       <strong style={{lineHeight: "1.5em"}}>Заезд с животными запрещен.<br/></strong><strong style={{lineHeight: "1.5em"}}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
     <p>&nbsp;</p>
-    <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;<a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank">www.cityparkvip.ru</a>&nbsp;в разделе <a href="hotel/katalog-nomerov/">"Каталог номеров"</a>.</h4>
+    <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;
+    <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <a href="hotel/katalog-nomerov/">"Каталог номеров"</a>.</h4>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p align="CENTER"><span>ИНФОРМАЦИЯ ОБ ИСПОЛНИТЕЛЕ И О ПРЕДОСТАВЛЯЕМЫХ ИСПОЛНИТЕЛЕМ ГОСТИНИЧНЫХ УСЛУГАХ</span></p>

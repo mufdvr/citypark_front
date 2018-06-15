@@ -1,7 +1,7 @@
 import React from 'react'
 import { Breadcrumbs } from 'components'
 import { ChefBlogDishItem } from '../../components'
-import { REST_MAIN, CHEF_BLOG } from '../../routes'
+import { REST_MAIN, CHEF_BLOG } from '../../links'
 import content from './content'
 
 export default () => {

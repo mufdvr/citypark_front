@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as images from './images'
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
-import { RESTAURANT, REST_MAIN } from '../../routes'
+import { RESTAURANT, REST_MAIN } from '../../links'
 
 export default (props) =>
   <div className="light">
@@ -83,7 +83,8 @@ export default (props) =>
       </span>
     </p>
     <h4>
-      Забронировать столик или заказать доставку еды в Белореченске можно по телефону: +7-918-311-97-91 или на сайте РГК City Park <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank">www.cityparkvip.ru</a> в разделе "Меню".
+      Забронировать столик или заказать доставку еды в Белореченске можно по телефону: +7-918-311-97-91 или на сайте РГК City Park
+      <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a> в разделе "Меню".
     </h4>
     <PhotoGallery
       items={[
@@ -101,5 +102,5 @@ export default (props) =>
         }
       ]}
     />
-    <a href="http://www.cityparkvip.ru/assets/tour/restaurant.html" target="_blank" className="tur_btn" style={{top: "80px", right: "30px"}}></a>
+    <a href="http://www.cityparkvip.ru/assets/tour/restaurant.html" target="_blank" rel="noopener noreferrer" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
   </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { SocShare, Breadcrumbs } from 'components'
 import * as images from './images'
-import { CONTACTS } from '../../routes'
+import { CONTACTS } from '../../links'
 
 export default () =>
 	<div className="light">

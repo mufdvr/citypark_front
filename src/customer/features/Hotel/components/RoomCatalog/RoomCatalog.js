@@ -2,7 +2,7 @@ import React from 'react'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { RoomListItem } from '../../components'
-import { HOTEL_MAIN, CATALOG } from '../../routes'
+import { HOTEL_MAIN, CATALOG } from '../../links'
 import * as images from './images'
 
 export default () =>

@@ -6,7 +6,7 @@ export default () =>
   <div className="body">
     <div className="line">
       <div className="img">
-        <img src={img} />
+        <img src={img} alt="pic" />
       </div>
       <div className="txt">
         <h1 className="title">404</h1>

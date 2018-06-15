@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { PhotoGallery, SocShare, Breadcrumbs } from 'components'
-import { HOTEL_MAIN, DOCUMENTATION } from '../../routes'
+import { HOTEL_MAIN, DOCUMENTATION } from '../../links'
 import * as images from './images'
 
 export default () =>

@@ -1,17 +1,13 @@
 import * as components from './components'
-
-export const CONTACTS = {
-  url: '/contacts',
-  title: 'Контакты'
-}
+import * as links from './links'
 
 const routes = [
   {
-    path: CONTACTS.url,
+    path: links.CONTACTS.url,
     component: components.Layout,
     routes: [
       {
-        path: CONTACTS.url,
+        path: links.CONTACTS.url,
         component: components.Main
       }
     ]

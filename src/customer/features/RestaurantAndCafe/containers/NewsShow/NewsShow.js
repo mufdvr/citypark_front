@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import * as actions from '../../actions'
 import { Breadcrumbs } from 'components'
-import { REST_MAIN, NEWS } from '../../routes'
+import { REST_MAIN, NEWS } from '../../links'
 
 class NewsShow extends React.Component {
 
@@ -26,7 +26,7 @@ class NewsShow extends React.Component {
         <Breadcrumbs links={[ REST_MAIN, NEWS ]} />
           <div className="page_date">{created_at}</div>
           <div className="page_img">
-          	<img src={process.env.REACT_APP_BACK_ROOT + image} />
+          	<img src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
           </div>
           <h1>{title}</h1>
           <div ref={this.xss} />
