@@ -102,5 +102,5 @@ export default (props) =>
         }
       ]}
     />
-    <a href="http://www.cityparkvip.ru/assets/tour/restaurant.html" target="_blank" rel="noopener noreferrer" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
+    <a href="/tour/restaurant.html" target="_blank" rel="noopener noreferrer" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
   </div>

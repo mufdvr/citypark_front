@@ -95,5 +95,5 @@ export default () =>
         }
       ]}
     />
-    <a href="http://cityparkvip.ru/assets/tour/kafe.html" target="_blank" rel="noopener noreferrer" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
+    <a href="/tour/kafe.html" target="_blank" rel="noopener noreferrer" className="tur_btn" style={{top: "80px", right: "30px"}}><div /></a>
   </div>

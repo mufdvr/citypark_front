@@ -9,12 +9,12 @@ export default ({ route }) =>
     <div className="fold fold_side" />
     <SideBar />
     <div className="content">
+      <Header
+        side="left"
+        title={CONTACTS.title}
+        link={CONTACTS.url}
+      />
       <div className="partbody">
-        <Header
-          side="left"
-          title={CONTACTS.title}
-          link={CONTACTS.url}
-        />
         { route && renderRoutes(route.routes) }
       </div>
     </div>
