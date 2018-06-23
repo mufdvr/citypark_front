@@ -12,3 +12,9 @@ export const filterCart = cart =>
     dish_id: item.id,
     dush_count: item.count
   }))
+
+export const cartTotal = cart => {
+  let total = 0
+  cart && cart.forEach(item => total += item.cost * item.count)
+  return total
+}
