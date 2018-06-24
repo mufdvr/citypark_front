@@ -38,6 +38,9 @@ export default (state, action) => {
       const cart = JSON.parse(localStorage.getItem("cart"))
       return cart ? pushInPayload(state, { cart }) : state
 
+    case types.CLEAR_CART:
+      return pushInPayload(state, { cart: [] })  
+
     default: return false
   }
 }

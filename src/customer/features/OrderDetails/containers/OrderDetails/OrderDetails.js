@@ -1,15 +1,16 @@
+//import { v4 } from 'react-native-uuid'
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import DatePicker from 'react-datepicker'
-//import { v4 } from 'react-native-uuid'
 import moment from 'moment'
-import 'moment/locale/ru'
+import { withRouter } from "react-router-dom"
 import Select from 'react-select'
 import Captcha from 'react-captcha'
 import 'react-select/dist/react-select.css'
-
+import 'moment/locale/ru'
 import 'react-datepicker/dist/react-datepicker.css'
+
 import { createOrder } from '../../models'
 import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
@@ -34,27 +35,21 @@ class OrderDetails extends React.Component {
     }
   }
 
-  handleChange = event => {
-    const { name, value } = event.target
+  handleChangeOrder = prop => {
+    const { target } = prop
     this.setState(prev => ({
       ...prev,
       order: {
         ...prev.order,
-        [name]: value
+        ...(() => target ? {[target.name]: target.value} : prop)()
       }
     }))
   }
 
-  handleChangeDesiredTimes = desiredTimes =>
+  handleChange = prop =>
     this.setState(prev => ({
       ...prev,
-      desiredTimes
-    }))
-
-  handleChangeSettlements = settlements =>
-    this.setState(prev => ({
-      ...prev,
-      settlements
+      ...prop
     }))
 
   handlePaymentChange = event => {
@@ -65,19 +60,10 @@ class OrderDetails extends React.Component {
     }))
   }
 
-  handleDateTimeChange = datetime =>
-    this.setState(prev => ({
-      ...prev,
-      order: {
-        ...prev.order,
-        delivery_times: datetime
-      }
-    }))
-
   handleSubmit = () => {
-    const { order } = this.state
+    const { order, g_recaptcha_response } = this.state
     const { createOrder } = this.props
-    createOrder(order)
+    createOrder(order, g_recaptcha_response)
   }
 
   componentDidMount = () => {
@@ -141,7 +127,7 @@ class OrderDetails extends React.Component {
              <Select
                clearable={false}
                value={desiredTimes}
-               onChange={this.handleChangeDesiredTimes}
+               onChange={(desiredTimes) => this.handleChange({desiredTimes})}
                options={constants.DESIRED_TIMES}
              />
            </div>
@@ -151,8 +137,8 @@ class OrderDetails extends React.Component {
                  <DatePicker
                     className="form-input"
                     placeholderText="Выберите время"
-                    selected={this.state.order.delivery_times}
-                    onChange={this.handleDateTimeChange}
+                    selected={this.state.delivery_times}
+                    onChange={(delivery_times) => this.handleChange({delivery_times})}
                     showTimeSelect
                     timeFormat="HH:mm"
                     timeIntervals={30}
@@ -175,17 +161,18 @@ class OrderDetails extends React.Component {
              <Select
                clearable={false}
                value={settlements}
-               onChange={this.handleChangeSettlements}
+               onChange={(settlements) => this.handleChange({settlements})}
                options={constants.SETTLEMENTS}
              />
            </div>
            <div className="field required" style={{marginLeft: "1rem"}}>
              <label>Улица</label>
              <input
-               onChange={this.handleChange}
+               onChange={this.handleChangeOrder}
                className="form-input"
                name="street"
                type="text"
+               placeholder="Улица"
              />
            </div>
          </div>
@@ -193,69 +180,75 @@ class OrderDetails extends React.Component {
            <div className="field required">
              <label>Дом</label>
              <input
-               onChange={this.handleChange}
+               onChange={this.handleChangeOrder}
                className="form-input"
                name="house"
                type="text"
+               placeholder="Дом"
              />
            </div>
            <div className="field" style={{marginLeft: "1rem"}}>
              <label>Корпус</label>
              <input
-               onChange={this.handleChange}
+               onChange={this.handleChangeOrder}
                className="form-input"
                name="hull"
                type="text"
+               placeholder="Корпус"
              />
            </div>
            <div className="field" style={{marginLeft: "1rem"}}>
              <label>Квартира</label>
              <input
-               onChange={this.handleChange}
+               onChange={this.handleChangeOrder}
                className="form-input"
                name="apartment"
                type="text"
+               placeholder="Квартира"
              />
            </div>
            <div className="field" style={{marginLeft: "1rem"}}>
              <label>Подъезд</label>
              <input
-               onChange={this.handleChange}
+               onChange={this.handleChangeOrder}
                className="form-input"
                name="entrance"
                type="text"
+               placeholder="Подъезд"
              />
            </div>
          </div>
          <div className="field required">
            <label>Имя</label>
            <input
-             onChange={this.handleChange}
+             onChange={this.handleChangeOrder}
              className="form-input"
              name="name"
              type="text"
+             placeholder="Имя"
            />
          </div>
          <div className="field required">
            <label>Контактный телефон</label>
            <input
-             onChange={this.handleChange}
+             onChange={this.handleChangeOrder}
              className="form-input"
              name="phone"
              type="tel"
+             placeholder="Контактный телефон"
             />
          </div>
          <div className="field">
            <label>Ваши пожелания</label>
            <textarea
-              onChange={this.handleChange}
+              onChange={this.handleChangeOrder}
               rows="5"
               name="comment"
+              placeholder="Впишите Ваши пожелания"
             />
          </div>
          {
            //<PaymentMethods onChange={this.handlePaymentChange} value={paymentMethod} />
-           //<button onClick={this.handleSubmit}>tst</button>
          }
          <div id="total">
            <Captcha
@@ -263,11 +256,11 @@ class OrderDetails extends React.Component {
               lang = 'ru'
               theme = 'light'
               type = 'image'
-              callback = {(value) => console.log(value)}
+              callback = {(g_recaptcha_response) => this.handleChange({g_recaptcha_response})}
             />
            <div className="bl_cena">
              {
-               freeDelivery ? null : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+               freeDelivery ? <div>&nbsp;</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
              }
              <span style={{fontSize: "1.5em"}}>Итого: </span>
              <span className="bsm">
@@ -278,17 +271,23 @@ class OrderDetails extends React.Component {
        </div>
        <div id="submit">
           <div onClick={this.handleSubmit} className="z_btn">Отправить</div>
-          <div onClick={this.handleSubmit} className="z_btn">Отмена</div>
+          <div
+            onClick={() => this.props.history.push(RestaurantAndCafe.links.MENU.url)}
+            className="z_btn"
+          >
+           Отмена
+          </div>
        </div>
+       </div>
+       <div id="leaf-right" className="leaf leafs" />
+       <div id="leaf-left" className="leaf leafs" />
+       <RestaurantAndCafe.containers.Cart />
        <MonetaForm
          mntTransactionId={id}
          mntAmount={amount}
          mntSignature={mnt_signature}
          paymentType={paymentMethod}
        />
-       </div>
-       <div id="leaf-right" className="leaf leafs" />
-       <div id="leaf-left" className="leaf leafs" />
      </div>
    )
  }
@@ -307,4 +306,4 @@ const mapDispatchToProps = dispatch => {
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderDetails)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(OrderDetails))

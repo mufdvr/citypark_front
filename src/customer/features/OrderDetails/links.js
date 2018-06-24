@@ -1,1 +1,1 @@
-export const ORDER_DETAILS = '/order_details'
+export const ORDER_DETAILS = '/order'

@@ -26,3 +26,7 @@ export const deleteItem = id => ({
 export const loadCartFromLocalstorage = () => ({
   type: types.LOAD_CART_FROM_LOCALSTORAGE
 })
+
+export const clearCart = () => ({
+  type: types.CLEAR_CART
+})

@@ -7,7 +7,7 @@ const order = {
   house: '',
   apartment: '',
   comment: '',
-  dishes_orders_attributes: []
+  dishes_orders_attributes: [],
 }
 
 export const createOrder = props => ({

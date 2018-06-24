@@ -27,9 +27,6 @@ class Cart extends React.Component {
       cartState: this.state.cartState ^ 0b11
     })
 
-  handleOrderDetails = () =>
-    this.props.history.push(OrderDetails.links.ORDER_DETAILS)
-
   listItems = () => {
     const { cart, changeCount, deleteItem } = this.props
     return cart ? cart.map(item =>
@@ -57,7 +54,8 @@ class Cart extends React.Component {
 
   render = () => {
     const { cartState } = this.state
-    const { cart } = this.props
+    const { cart, clearCart, history, location: { pathname } } = this.props
+    const _cartTotal = cartTotal(cart)
     const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY } = process.env
     return (
       <div className="shopping" style={CART_STATES[cartState]}>
@@ -66,18 +64,31 @@ class Cart extends React.Component {
         </div>
         <div className="basket_summ">
           {
-            this.totalCost >= REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY ?
+            _cartTotal >= Number(REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY) ?
               <div id="free_dost">Бесплатная доставка!</div>
             : null
           }
-          Сумма заказа: <span id="t_all_summ">{cartTotal(cart)}</span>₽
+          Сумма заказа: <span id="t_all_summ">{_cartTotal}</span>₽
           <div id="skidka">С учетом скидки 10%</div>
         </div>
-
-        <div className="zakaz_info">
-          <div onClick={this.handleOrderDetails} className="z_btn create-order-btn">Оформить заказ</div>
-        </div>
-
+        {
+          pathname !== OrderDetails.links.ORDER_DETAILS ?
+            <div className="zakaz_info" style={{display: "flex"}}>
+              <div
+                onClick={clearCart}
+                className="z_btn create-order-btn cancel-btn"
+              >
+                Отмена<i style={{color: "red"}} className="material-icons">close</i>
+            </div>
+              <div
+                onClick={() => history.push(OrderDetails.links.ORDER_DETAILS)}
+                className="z_btn create-order-btn create-btn"
+              >
+                Оформить заказ<i style={{color: "green"}} className="material-icons">done</i>
+              </div>
+            </div>
+          : null
+        }
         <div id="s_open_btn" onClick={this.handleClick}>
           <div></div>
         </div>
