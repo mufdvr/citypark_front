@@ -1,10 +1,10 @@
-export const PAYMENT_METHODS = {
+/*export const PAYMENT_METHODS = {
   sberbank: "32863",
   vtb24: "1027",
   yandexmoney: "1020",
   webmoney: "1017",
   visa: "43674"
-}
+}*/
 
 export const DESIRED_TIMES = [
  { value: 1, label: 'В ближайшее время' },

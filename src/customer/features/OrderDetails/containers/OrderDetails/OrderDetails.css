@@ -8,11 +8,30 @@
   border: 1px solid #45312b;
   border-radius: 10px;
   z-index: 2;
+  box-shadow: 0 20px 28px rgba(0,0,0,0.55), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #order h2 {
-
   padding: 0.7rem 1.5rem;
+}
+
+.error label {
+  color: red;
+}
+
+.order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-btn:hover {
+  text-decoration: none;
+}
+
+.error input {
+  background: #ffe6e6;
+  border-color: red;
 }
 
 .leafs {

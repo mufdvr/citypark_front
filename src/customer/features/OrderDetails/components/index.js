@@ -1,4 +1,4 @@
 import MonetaForm from './MonetaForm'
-import PaymentMethods from './PaymentMethods'
+//import PaymentMethods from './PaymentMethods'
 
-export { MonetaForm, PaymentMethods }
+export { MonetaForm }

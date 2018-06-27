@@ -1,3 +1,3 @@
-import { createOrder } from './order'
+import { createOrder, validOrder } from './order'
 
-export { createOrder }
+export { createOrder, validOrder }

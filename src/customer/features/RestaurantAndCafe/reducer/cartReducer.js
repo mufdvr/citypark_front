@@ -39,7 +39,7 @@ export default (state, action) => {
       return cart ? pushInPayload(state, { cart }) : state
 
     case types.CLEAR_CART:
-      return pushInPayload(state, { cart: [] })  
+      return pushInPayload(state, { cart: [] })
 
     default: return false
   }

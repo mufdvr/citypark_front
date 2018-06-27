@@ -7,17 +7,19 @@ import moment from 'moment'
 import { withRouter } from "react-router-dom"
 import Select from 'react-select'
 import Captcha from 'react-captcha'
+import PhoneInput from 'react-phone-number-input/native'
 import 'react-select/dist/react-select.css'
 import 'moment/locale/ru'
 import 'react-datepicker/dist/react-datepicker.css'
+import 'react-phone-number-input/style.css'
 
-import { createOrder } from '../../models'
+import { createOrder, validOrder } from '../../models'
 import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import * as constants from '../../constants'
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
-import { MonetaForm, PaymentMethods } from '../../components'
+import { MonetaForm } from '../../components'
 
 
 class OrderDetails extends React.Component {
@@ -28,7 +30,7 @@ class OrderDetails extends React.Component {
     const dishes_orders_attributes = filterCart(cart)
     this.state = {
       order: createOrder({ dishes_orders_attributes }),
-      paymentMethod: constants.PAYMENT_METHODS.visa,
+      invalidFields: [],
       desiredTimes: constants.DESIRED_TIMES[0],
       settlements: constants.SETTLEMENTS[0],
       ...deliveryAndTotalCost(cart)
@@ -52,28 +54,30 @@ class OrderDetails extends React.Component {
       ...prop
     }))
 
-  handlePaymentChange = event => {
-    const { value } = event.target
+  handleSubmit = () => {
+    const { order, g_recaptcha_response, delivery_times, settlements } = this.state
+    const { createOrder } = this.props
+    order.city = settlements.label
+    const invalidFields = validOrder(order)
     this.setState(prev => ({
       ...prev,
-      paymentMethod: value
+      invalidFields
     }))
-  }
-
-  handleSubmit = () => {
-    const { order, g_recaptcha_response } = this.state
-    const { createOrder } = this.props
-    createOrder(order, g_recaptcha_response)
+    //console.log(delivery_times);
+    if (delivery_times) order.delivery_times = delivery_times._d
+    !invalidFields.length && g_recaptcha_response && createOrder(order, g_recaptcha_response)
   }
 
   componentDidMount = () => {
     //loadOrderFromLocalstorage
+    window.scrollTo(0, 0)
     const { cart, loadCartFromLocalstorage } = this.props
     !cart && loadCartFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order } = nextProps
+    const { cart, order, history } = nextProps
+    !cart.length && history.push(RestaurantAndCafe.links.MENU.url)
     const dishes_orders_attributes = filterCart(cart)
     this.setState(prev => ({
       ...prev,
@@ -110,8 +114,8 @@ class OrderDetails extends React.Component {
   }
 
   render = () => {
-    const { id, amount, mnt_signature, paymentMethod, desiredTimes, settlements, freeDelivery, totalCost } = this.state
-    const { cart } = this.props
+    const { id, amount, mnt_signature, desiredTimes, settlements, freeDelivery, totalCost, invalidFields } = this.state
+    const { clearCart } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
      <div style={{position: "relative"}}>
@@ -137,6 +141,7 @@ class OrderDetails extends React.Component {
                  <DatePicker
                     className="form-input"
                     placeholderText="Выберите время"
+                    utcOffset={3}
                     selected={this.state.delivery_times}
                     onChange={(delivery_times) => this.handleChange({delivery_times})}
                     showTimeSelect
@@ -165,7 +170,7 @@ class OrderDetails extends React.Component {
                options={constants.SETTLEMENTS}
              />
            </div>
-           <div className="field required" style={{marginLeft: "1rem"}}>
+           <div className={`field required${ invalidFields.includes('street') ? ' error' : '' }`} style={{marginLeft: "1rem"}}>
              <label>Улица</label>
              <input
                onChange={this.handleChangeOrder}
@@ -177,7 +182,7 @@ class OrderDetails extends React.Component {
            </div>
          </div>
          <div className="group">
-           <div className="field required">
+           <div className={`field required${ invalidFields.includes('house') ? ' error' : '' }`}>
              <label>Дом</label>
              <input
                onChange={this.handleChangeOrder}
@@ -218,7 +223,7 @@ class OrderDetails extends React.Component {
              />
            </div>
          </div>
-         <div className="field required">
+         <div className={`field required${ invalidFields.includes('name') ? ' error' : '' }`}>
            <label>Имя</label>
            <input
              onChange={this.handleChangeOrder}
@@ -228,13 +233,15 @@ class OrderDetails extends React.Component {
              placeholder="Имя"
            />
          </div>
-         <div className="field required">
+         <div className={`field required${ invalidFields.includes('phone') ? ' error' : '' }`}>
            <label>Контактный телефон</label>
-           <input
-             onChange={this.handleChangeOrder}
+           <PhoneInput
+             onChange={ phone => this.handleChangeOrder({ phone })}
+             countries={['RU']}
              className="form-input"
-             name="phone"
-             type="tel"
+             displayInitialValueAsLocalNumber={false}
+             indicateInvalid={true}
+             value={this.state.order.phone}
              placeholder="Контактный телефон"
             />
          </div>
@@ -247,16 +254,13 @@ class OrderDetails extends React.Component {
               placeholder="Впишите Ваши пожелания"
             />
          </div>
-         {
-           //<PaymentMethods onChange={this.handlePaymentChange} value={paymentMethod} />
-         }
          <div id="total">
            <Captcha
               sitekey = {REACT_APP_CAPTCHA_KEY}
-              lang = 'ru'
-              theme = 'light'
-              type = 'image'
-              callback = {(g_recaptcha_response) => this.handleChange({g_recaptcha_response})}
+              lang = "ru"
+              theme = "light"
+              type = "image"
+              callback = {g_recaptcha_response => this.handleChange({ g_recaptcha_response })}
             />
            <div className="bl_cena">
              {
@@ -270,12 +274,13 @@ class OrderDetails extends React.Component {
          </div>
        </div>
        <div id="submit">
-          <div onClick={this.handleSubmit} className="z_btn">Отправить</div>
+          <div onClick={this.handleSubmit} className="z_btn order-btn">Отправить<i style={{color: "green"}} className="material-icons">done</i></div>
           <div
-            onClick={() => this.props.history.push(RestaurantAndCafe.links.MENU.url)}
-            className="z_btn"
+            onClick={clearCart}
+            className="z_btn order-btn"
           >
            Отмена
+           <i style={{color: "red"}} className="material-icons">close</i>
           </div>
        </div>
        </div>
@@ -286,7 +291,7 @@ class OrderDetails extends React.Component {
          mntTransactionId={id}
          mntAmount={amount}
          mntSignature={mnt_signature}
-         paymentType={paymentMethod}
+         paymentType="43674"
        />
      </div>
    )
@@ -302,6 +307,7 @@ const mapDispatchToProps = dispatch => {
   const { loadCartFromLocalstorage } = RestaurantAndCafe.actions.cart
   return bindActionCreators({
     ...actions.order,
+    ...RestaurantAndCafe.actions.cart,
     loadCartFromLocalstorage,
   }, dispatch)
 }
