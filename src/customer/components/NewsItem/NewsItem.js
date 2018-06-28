@@ -1,22 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const NewsItem = ({ bannerUrl, title, date, link, displayType }) =>
+import RestaurantAndCafe from 'features/RestaurantAndCafe'
+
+const NewsItem = ({ id, image, title, created_at, displayType }) =>
   <div className="new">
     <div className={`n_foto n_foto_${displayType}`}>
       <img
+        className={`cover-${displayType}`}
         alt="pic"
-        src={bannerUrl}
+        src={process.env.REACT_APP_BACK_ROOT + image}
       />
     </div>
     <div className={`n_body_${displayType}`}>
       <div className={`n_date n_date_${displayType}`}>
-        {date}
+        {created_at}
       </div>
       <div className="n_title">
-        <a href={link}>
-              {title}
-            </a>
+        <Link to={RestaurantAndCafe.links.NEWS.url + '/' + id}>
+          {title}
+        </Link>
       </div>
       <div className="n_ttx">
       </div>
@@ -24,9 +28,8 @@ const NewsItem = ({ bannerUrl, title, date, link, displayType }) =>
   </div>
 
 NewsItem.propTypes = {
-  date: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  bannerUrl: PropTypes.string.isRequired,
+  created_at: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   displayType: PropTypes.string.isRequired
 }

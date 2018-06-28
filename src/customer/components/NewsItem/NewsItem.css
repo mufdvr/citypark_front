@@ -5,6 +5,18 @@
   overflow: hidden;
 }
 
+.cover-home {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.cover-side {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
 .n_foto {
   position: relative;
   display: block;
