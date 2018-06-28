@@ -2,12 +2,12 @@ import React from 'react'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { RoomListItem } from '../../components'
-import { HOTEL_MAIN, CATALOG } from '../../links'
+import * as links from '../../links'
 import * as images from './images'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs links={[ HOTEL_MAIN, CATALOG ]} />
+    <Breadcrumbs links={[ links.HOTEL_MAIN, links.CATALOG ]} />
     <SocShare
       link="http://cityparkvip.ru/rest/"
       title="РГК «City Park» - Ресторан и летнее кафе"
@@ -19,6 +19,7 @@ export default () =>
       cost="2500-3000"
       freeCount={2}
       image={images.catalog1}
+      lnk={links.SINGLE_ROOM.url}
     />
     <RoomListItem
       title="Двухместные номера"
@@ -26,6 +27,7 @@ export default () =>
       cost="3000"
       freeCount={6}
       image={images.catalog2}
+      lnk={links.DOUBLE_ROOM.url}
     />
     <RoomListItem
       title="VIP-номер"
@@ -33,6 +35,7 @@ export default () =>
       cost="5000"
       freeCount={0}
       image={images.catalog3}
+      lnk={links.VIP_ROOM.url}
     />
 
   </div>

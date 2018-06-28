@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const RoomListItem = ({ title, image, description, cost, freeCount }) =>
+const RoomListItem = ({ title, image, description, cost, freeCount, lnk }) =>
   <div className="room_list">
     <div className="room_list_img">
       <img src={image} alt="img" />
     </div>
     <div className="room_list_txt">
-      <div className="room_list_title"><Link to="wtf">{title}</Link></div>
+      <div className="room_list_title"><Link to={lnk}>{title}</Link></div>
       {description}
       <div className="r_summ r_summ_side" style={{position: "absolute", bottom: "10px"}}><span className="s">{cost}</span> ₽/сутки</div>
     </div>
