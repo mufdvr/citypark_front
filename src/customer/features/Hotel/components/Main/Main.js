@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { SocShare, Breadcrumbs } from 'components'
-import { HOTEL_MAIN } from '../../links'
+import * as links from '../../links'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs links={[ HOTEL_MAIN ]} />
+    <Breadcrumbs links={[ links.HOTEL_MAIN ]} />
     <SocShare
       link="http://cityparkvip.ru/rest/"
       title="РГК «City Park» - Ресторан и летнее кафе"
@@ -13,7 +14,14 @@ export default () =>
     />
     <h2>Отель-люкс City Park — это в<span style={{lineHeight: "1.5em"}}>ысококлассная гостиница в Белореченске с номерами&nbsp;</span><span style={{lineHeight: "1.5em"}}>различных категорий.</span></h2>
     <p><strong><span style={{lineHeight: "1.5em"}}>В гостинице 12 номеров площадью от 19 до 45 м2, все они соответствуют категории "Люкс". <br/></span></strong></p>
-    <h2><span style={{lineHeight: "1.5em"}}><a href="hotel/katalog-nomerov/" target="_blank">Посмотреть каталог номеров</a></span><strong><span style={{lineHeight: "1.5em"}}><a href="hotel/katalog-nomerov/" target="_blank"><br/><br/></a></span></strong></h2>
+    <h2>
+      <span style={{lineHeight: "1.5em"}}>
+        <Link to={links.CATALOG.url}>
+          Посмотреть каталог номеров
+        </Link>
+      </span>
+      <strong><span style={{lineHeight: "1.5em"}}><br/><br/></span></strong>
+    </h2>
     <p>201 — одноместный номер с двуспальной кроватью, с балконом. Площадь 23 кв.м. + балкон 7 кв.м.<br/>204, 304 — одноместные номера с двуспальной кроватью. Площадь 19 кв.м.&nbsp;<br/>203, 206, 302, 303 — двухместные номера с двумя односпальными кроватями
       ( с возможностью сдвига). Площадь 23-25 кв.м.&nbsp;<br/>202, 205, 305, 306 — двухместные номера с двуспальной кроватью евро. Площадь 23-25 кв.м.&nbsp;<br/>301 — VIP-номер. Двухкомнатный (гостиная + спальня) с балконом. Площадь 45 кв.м. + балкон 7кв.м.
       Номер имеет расширенную комплектацию (ознакомиться).</p>
@@ -32,7 +40,7 @@ export default () =>
       <strong style={{lineHeight: "1.5em"}}>Заезд с животными запрещен.<br/></strong><strong style={{lineHeight: "1.5em"}}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
     <p>&nbsp;</p>
     <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;
-    <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <a href="hotel/katalog-nomerov/">"Каталог номеров"</a>.</h4>
+    <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <Link to={links.CATALOG.url}>"Каталог номеров"</Link>.</h4>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p align="CENTER"><span>ИНФОРМАЦИЯ ОБ ИСПОЛНИТЕЛЕ И О ПРЕДОСТАВЛЯЕМЫХ ИСПОЛНИТЕЛЕМ ГОСТИНИЧНЫХ УСЛУГАХ</span></p>

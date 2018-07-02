@@ -5,22 +5,22 @@ import 'react-fancybox/lib/fancybox.css'
 
 const Dish = ({ id, title, cost, description, weight, addToCart, images }) =>
   <div className="bludo">
-    <div className="bludo_img">
-      {
-        images ?
+    {
+      images ?
+        <div className="bludo_img">
           <ReactFancyBox
             className="gmg"
             thumbnail={process.env.REACT_APP_BACK_ROOT + images.preview}
             image={process.env.REACT_APP_BACK_ROOT + images.full}
           />
-        : null
-      }
-    </div>
-    <div className="bludo_txt">
+        </div>
+      : <div />
+    }
+    <div className="bludo_txt" style={ images ? null : {marginLeft: "150px"}}>
       <div className="bludo_title">{title}</div>
       {description}
     </div>
-    <div className="bludo_dop">
+    <div className="bludo_dop" style={ images ? null : {marginLeft: "150px"}}>
       <div className="bl_cena">
         <span className="gramm">{weight}</span>
         <span className="bsm"><span className="bsm_n">{cost}</span><span style={{fontSize:"30px"}}>₽</span></span>
