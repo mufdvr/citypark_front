@@ -9,3 +9,7 @@ export const CLEAR_CART                    = '@@CLEAR_CART'
 
 export const NEWS_INDEX                    = '@@NEWS_INDEX'
 export const NEWS_SHOW                     = '@@NEWS_SHOW'
+
+export const ADD_TO_FAVORITES              = '@@ADD_TO_FAVORITES'
+export const FAVORITES_DESTROY             = '@@FAVORITES_DESTROY'
+export const FAVORITES_INDEX               = '@@FAVORITES_INDEX'

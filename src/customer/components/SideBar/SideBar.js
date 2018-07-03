@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import { Delivery, NewsItem, News, RestaurantContacts,
    RoomsCatalog, HotelContacts } from 'components'
@@ -12,11 +11,6 @@ import Hotel from 'features/Hotel'
 const DISPLAY_TYPE = "side"
 
 class SideBar extends React.Component {
-
-  componentDidMount = () => {
-    const { fetching, getNews, newslist } = this.props
-    !newslist && !fetching && getNews(3)
-  }
 
   render = () => {
     const { RESTAURANT, CAFE } = RestaurantAndCafe.links
@@ -84,11 +78,6 @@ class SideBar extends React.Component {
 
 const mapStateToProps = state => ({
   newslist: state.restcafe.payload.newslist,
-  fetching: state.restcafe.fetching
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  ...RestaurantAndCafe.actions.news
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(SideBar)
+export default connect(mapStateToProps)(SideBar)

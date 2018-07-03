@@ -1,19 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import { RestaurantContacts, Delivery, Header, HotelContacts,
   RoomsCatalog, NewsItem, News, NavigationBar, Chef } from 'components'
-import RestaurantAndCafe from 'features/RestaurantAndCafe'
 
 const DISPLAY_TYPE = "home"
 
 class Home extends React.Component {
-
-  componentDidMount = () => {
-    const { fetching, getNews, newslist } = this.props
-    !newslist && !fetching && getNews(3)
-  }
 
   newslist = () => {
     const { newslist } = this.props
@@ -67,11 +60,6 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   newslist: state.restcafe.payload.newslist,
-  fetching: state.restcafe.fetching
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  ...RestaurantAndCafe.actions.news
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)

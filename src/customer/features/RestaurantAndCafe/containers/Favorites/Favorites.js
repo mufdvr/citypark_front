@@ -1,12 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import PropTypes from 'prop-types'
 
 import { Dish } from '../../containers'
 import * as actions from '../../actions'
 
-class Category extends React.Component {
+class Favorites extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,33 +14,32 @@ class Category extends React.Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    const { index, categories } = this.props
-    if (!categories[index].dishes && nextProps.categories[index].dishes) this.setState({
+    const { favorites } = this.props
+    if (!favorites && nextProps.favorites) this.setState({
       visible: true,
       fetching: false,
     })
   }
 
   handleClick = event => {
-    const { categories, index, getDishes } = this.props
+    const { favorites, getFavorites } = this.props
     const { visible } = this.state
     event.preventDefault()
     this.setState({
-      visible: categories[index].dishes && !visible,
-      fetching: !categories[index].dishes
+      visible: favorites && !visible,
+      fetching: !favorites
     })
-    !categories[index].dishes && getDishes(categories[index].id)
+    !favorites && getFavorites()
   }
 
   dishesList = () => {
-    const { categories, index } = this.props
-    return categories[index].dishes ? categories[index].dishes.map(dish =>
-      <Dish key={dish.id} {...dish} />
+    const { favorites } = this.props
+    return favorites ? favorites.map(dish =>
+      <Dish key={dish.id} {...dish} fav />
     ) : null
   }
 
   render = () => {
-    const { title, cookingTime } = this.props
     const { visible, fetching } = this.state
     return (
       <div>
@@ -51,16 +49,16 @@ class Category extends React.Component {
           <div className="mctt">
             { fetching ? <div className="cwait" /> : null }
             <a onClick={this.handleClick}>
-              {title}
+              Избранное
             </a>
           </div>
           <div className="mshade"></div>
         </div>
         <div className="cat_wrapper" style={ visible ? null : {height: 0} }>
-          <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
+          <div className="vrprig"><br/></div>
           <div className="cat_content">
             { this.dishesList() }
-            <a className="gtcat">Наверх к категории</a>
+            <a className="gtcat">Наверх</a>
           </div>
         </div>
       </div>
@@ -68,23 +66,13 @@ class Category extends React.Component {
   }
 }
 
-Category.propTypes = {
-  index: PropTypes.number,
-  categories: PropTypes.array.isRequired,
-  getDishes: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  cookingTime: PropTypes.string
-}
-
 const mapStateToProps = state => ({
   fetching: state.restcafe.fetching,
-  categories: state.restcafe.payload.categories
+  favorites: state.restcafe.payload.favorites
 })
 
 const mapDispathToProps = dispatch => bindActionCreators ({
-  ...actions.menu,
+  ...actions.favorites,
 }, dispatch)
 
-const ReduxWrapper = connect(mapStateToProps, mapDispathToProps)
-const WrappedComponent = ReduxWrapper(Category)
-export default WrappedComponent
+export default connect(mapStateToProps, mapDispathToProps)(Favorites)
