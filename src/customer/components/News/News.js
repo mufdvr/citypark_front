@@ -11,7 +11,7 @@ const News = ({ children, displayType }) =>
   </div>
 
 News.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   displayType: PropTypes.string.isRequired
 }
 

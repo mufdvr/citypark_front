@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
 import Hotel from 'features/Hotel'
 import Contacts from 'features/Contacts'
+import Personal from 'features/Personal'
 
 export default class NavigationBar extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class NavigationBar extends React.Component {
     const { REST_MAIN, RESTAURANT, CAFE, MENU, NEWS, CHEF_BLOG } = RestaurantAndCafe.links
     const { HOTEL_MAIN, CATALOG, DOCUMENTATION } = Hotel.links
     const { CONTACTS } = Contacts.links
+    const { PERSONAL } = Personal.links
     return (
       <div className="mainmenu">
         <div className="menubody">
@@ -88,6 +90,11 @@ export default class NavigationBar extends React.Component {
             <li>
               <Link to={CONTACTS.url}>
                 {CONTACTS.title}
+              </Link>
+            </li>
+            <li>
+              <Link to={PERSONAL.url}>
+                {PERSONAL.title}
               </Link>
             </li>
     		    <div id="menu-btn">
