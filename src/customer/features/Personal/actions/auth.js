@@ -7,3 +7,16 @@ export const getUser = () =>
     apiConst.PROFILE,
     types.USER
   )
+
+export const signIn = user =>
+  feedback.post(
+    apiConst.SIGN_IN,
+    types.USER,
+    { user }
+  )
+
+export const signOut = () =>
+  feedback.destroy(
+    apiConst.SIGN_OUT,
+    types.USER
+  )

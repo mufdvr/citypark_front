@@ -1,0 +1,46 @@
+#tab-sheet {
+  margin: 3% auto;
+  width: 600px;
+  position: relative;
+  z-index: 2;
+
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border: 1px solid #45312b;
+  box-shadow: 0 20px 28px rgba(0,0,0,0.55), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+input[type = "radio"] {
+  display: none;
+}
+
+#tab-sheet > label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+  background: rgba(69, 49, 43, 0.6);
+}
+
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+#tab-sheet > input:checked + label {
+  color: #555;
+  border: 1px solid #45312b;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#SIGN_IN_TAB:checked ~ #sign-in-content,
+#SIGN_UP_TAB:checked ~ #sign-up-content {
+  display: block;
+}

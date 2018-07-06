@@ -5,15 +5,8 @@ import * as links from './links'
 const routes = [
   {
     path: links.PERSONAL.url,
-    component: components.Layout,
-    routes: [
-      {
-        path: links.PERSONAL.url,
-        exact: true,
-        component: containers.Auth
-      }
-    ]
+    component: components.TabSheet
   }
-]
+]  
 
 export default routes
