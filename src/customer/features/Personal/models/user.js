@@ -1,10 +1,22 @@
-const user = {
+const userSession = {
   email: '',
   password: '',
   remember_me: true
 }
 
-export const createUser = props => ({
-  ...user,
+const userRegistartion = {
+  email: '',
+  name: '',
+  password: '',
+  password_confirmation: ''
+}
+
+export const createUserSession = props => ({
+  ...userSession,
+  ...props
+})
+
+export const createUserRegistration = props => ({
+  ...userRegistartion,
   ...props
 })

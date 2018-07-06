@@ -3,7 +3,7 @@
   width: 600px;
   position: relative;
   z-index: 2;
-
+  min-height: 500px;
 }
 
 section {
@@ -23,21 +23,21 @@ input[type = "radio"] {
   padding: 15px 25px;
   font-weight: 600;
   text-align: center;
-  color: #bbb;
+  color: #888;
   border: 1px solid transparent;
   background: rgba(69, 49, 43, 0.6);
 }
 
-label:hover {
-  color: #888;
+#tab-sheet > label:hover {
+  color: #aaa;
   cursor: pointer;
 }
 
 #tab-sheet > input:checked + label {
-  color: #555;
+  color: #f6dfc4;
   border: 1px solid #45312b;
+  border-bottom: 1px solid transparent;
   border-top: 2px solid orange;
-  border-bottom: 1px solid #fff;
 }
 
 #SIGN_IN_TAB:checked ~ #sign-in-content,

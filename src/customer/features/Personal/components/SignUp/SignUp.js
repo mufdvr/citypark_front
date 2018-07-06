@@ -2,15 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { createUserSession } from '../../models'
+import { createUserRegistration } from '../../models'
 import * as actions from '../../actions'
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      user: createUserSession()
+      user: createUserRegistration()
     }
   }
 
@@ -27,15 +27,25 @@ class SignIn extends React.Component {
 
   handleSubmit = () => {
     const { user } = this.state
-    const { signIn } = this.props
-    signIn(user)
+    const { signUp } = this.props
+    signUp(user)
   }
 
   render = () => {
     return (
-      <section id="sign-in-content">
-        <div className="field">
-          <label>E-mail</label>
+      <section id="sign-up-content">
+        <div className="field required">
+          <label>Имя</label>
+          <input
+            className="form-input"
+            onChange={this.handleChange}
+            type="text"
+            placeholder="Имя"
+            name="name"
+          />
+        </div>
+        <div className="field required">
+          <label>Email</label>
           <input
             className="form-input"
             onChange={this.handleChange}
@@ -44,7 +54,7 @@ class SignIn extends React.Component {
             name="email"
           />
         </div>
-        <div className="field">
+        <div className="field required">
           <label>Пароль</label>
           <input
             className="form-input"
@@ -52,6 +62,16 @@ class SignIn extends React.Component {
             type="password"
             placeholder="Пароль"
             name="password"
+          />
+        </div>
+        <div className="field required">
+          <label>Повторите пароль</label>
+          <input
+            className="form-input"
+            onChange={this.handleChange}
+            type="password"
+            placeholder="Пароль"
+            name="password_confirmation"
           />
         </div>
           <button
@@ -74,4 +94,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.auth
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

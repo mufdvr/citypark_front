@@ -1,3 +1,3 @@
-import { createUser } from './user'
+import { createUserSession, createUserRegistration } from './user'
 
-export { createUser }
+export { createUserSession, createUserRegistration }

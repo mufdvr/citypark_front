@@ -1,4 +1,4 @@
 export const PERSONAL = {
-  url: '/presonal',
+  url: '/personal',
   title: 'Личный кабинет'
 }

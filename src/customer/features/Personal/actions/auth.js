@@ -15,6 +15,13 @@ export const signIn = user =>
     { user }
   )
 
+export const signUp = user =>
+  feedback.post(
+    apiConst.SIGN_UP,
+    types.USER,
+    { user }
+  )
+
 export const signOut = () =>
   feedback.destroy(
     apiConst.SIGN_OUT,
