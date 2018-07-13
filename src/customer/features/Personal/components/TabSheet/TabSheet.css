@@ -1,8 +1,7 @@
 #tab-sheet {
-  margin: 3% auto;
+  margin: 110px auto;
   width: 600px;
   position: relative;
-  z-index: 2;
   min-height: 500px;
 }
 

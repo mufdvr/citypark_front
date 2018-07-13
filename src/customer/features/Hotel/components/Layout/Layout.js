@@ -2,7 +2,8 @@ import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
 import { HOTEL_MAIN } from '../../links'
-import { Header, NavigationBar, SideBar } from 'components'
+import { Header } from 'components'
+import { NavigationBar, SideBar } from 'containers'  
 
 export default ({ route }) =>
   <div style={{lineHeight: "22px"}}>

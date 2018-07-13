@@ -60,6 +60,7 @@ class SignIn extends React.Component {
           >
             Войти
         </button>
+        <button onClick={this.props.signOut}>exit</button>
       </section>
     )
   }

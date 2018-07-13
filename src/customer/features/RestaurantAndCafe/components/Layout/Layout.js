@@ -2,7 +2,8 @@ import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
 import { REST_MAIN } from '../../links'
-import { Header, Chef, NavigationBar, SideBar } from 'components'
+import { Header, Chef } from 'components'
+import { NavigationBar, SideBar } from 'containers'  
 
 export default ({ route }) =>
   <div style={{lineHeight: "22px"}}>

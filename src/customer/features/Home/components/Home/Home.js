@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RestaurantContacts, Delivery, Header, HotelContacts,
-  RoomsCatalog, NewsItem, News, NavigationBar, Chef } from 'components'
+  RoomsCatalog, NewsItem, News, Chef } from 'components'
+import { NavigationBar } from 'containers'
 
 const DISPLAY_TYPE = "home"
 

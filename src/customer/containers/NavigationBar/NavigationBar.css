@@ -4,6 +4,8 @@
   top: 35px;
   /*overflow:hidden;*/
   background: #45312b;
+  border: 1px solid #45312b;
+  box-shadow: 0px 0px 25px 1px rgba(0,0,0,0.6);
 }
 
 .menubody {

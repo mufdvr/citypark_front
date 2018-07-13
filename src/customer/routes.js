@@ -1,10 +1,10 @@
-import MainLayout from './components/MainLayout'
 import Home from 'features/Home'
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
 import OrderDetails from 'features/OrderDetails'
 import Hotel from 'features/Hotel'
 import Contacts from 'features/Contacts'
 import Personal from 'features/Personal'
+import { MainLayout } from 'containers'
 import { NotFound } from 'components'
 
 const routes = [
