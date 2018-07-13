@@ -8,5 +8,5 @@ export default combineReducers({
   routing: routerReducer,
   restcafe: RestaurantAndCafe.reducer,
   order: OrderDetails.reducer,
-  user: Personal.reducer
+  personal: Personal.reducer
 })

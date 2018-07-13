@@ -6,6 +6,8 @@ import ReactFancyBox from 'react-fancybox'
 import * as actions from '../../actions'
 import 'react-fancybox/lib/fancybox.css'
 
+import Personal from 'features/Personal'
+
 class Dish extends React.Component {
 
   render = () => {
@@ -33,7 +35,7 @@ class Dish extends React.Component {
             <span className="bsm"><span className="bsm_n">{cost}</span><span style={{fontSize:"30px"}}>₽</span></span>
           </div>
           {
-            user.id ?
+            user && user.id ?
               fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
               : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
             : null
@@ -56,11 +58,11 @@ Dish.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  user: state.user.payload.user
+  user: state.personal.payload.user
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  ...actions.favorites,
+  ...Personal.actions.favorites,
   ...actions.cart
 }, dispatch)
 

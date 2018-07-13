@@ -1,5 +1,6 @@
-import Auth from './Auth'
-import AuthorizeResource from './AuthorizeResource'
 import OrdersHistory from './OrdersHistory'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
+import Favorites from './Favorites'
 
-export { Auth, AuthorizeResource, OrdersHistory }
+export { OrdersHistory, SignIn, SignUp, Favorites }

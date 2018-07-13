@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { SocShare, Breadcrumbs } from 'components'
-import { Category, Cart, Favorites } from '../../containers'
+import { Category, Cart } from '../../containers'
 import { REST_MAIN, MENU } from '../../links'
 import * as actions from '../../actions'
 
@@ -27,7 +27,6 @@ class Menu extends React.Component {
   }
 
   render = () => {
-    const { user } = this.props
     return (
       <div className="light restaraunt-menu">
         <Cart />
@@ -46,9 +45,6 @@ class Menu extends React.Component {
         <h4>Доставка еды в Белореченске от ресторана City Park. 8-918-311-97-91. www.cityparkvip.ru</h4>
         <p>&nbsp;</p>
         <p></p>
-        {
-          user && user.id ? <Favorites /> : null
-        }
         { this.categoriesList() }
         <div className="go_top">Наверх</div>
       </div>
@@ -57,7 +53,6 @@ class Menu extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user.payload.user,
   fetching: state.restcafe.fetching,
   categories: state.restcafe.payload.categories
 })

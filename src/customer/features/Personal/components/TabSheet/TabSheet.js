@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { SignIn, SignUp } from '../../components'
+import { SignIn, SignUp } from '../../containers'
 
 const SIGN_IN_TAB = 'SIGN_IN_TAB'
 const SIGN_UP_TAB = 'SIGN_UP_TAB'

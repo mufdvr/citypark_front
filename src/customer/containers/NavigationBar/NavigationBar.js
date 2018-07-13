@@ -39,7 +39,7 @@ class NavigationBar extends React.Component {
     const { REST_MAIN, RESTAURANT, CAFE, MENU, NEWS, CHEF_BLOG } = RestaurantAndCafe.links
     const { HOTEL_MAIN, CATALOG, DOCUMENTATION } = Hotel.links
     const { CONTACTS } = Contacts.links
-    const { PERSONAL } = Personal.links
+    const { PERSONAL, FAVORITES } = Personal.links
     const { user } = this.props
     return (
       <div className="mainmenu">
@@ -112,6 +112,11 @@ class NavigationBar extends React.Component {
                 user && user.id ?
                   <ul className={`sub ${this.state.subMenuVisible[2] ? "fade-in" : "fade-out"}`}>
                     <li>
+                      <Link to={FAVORITES.url}>
+                        {FAVORITES.title}
+                      </Link>
+                    </li>
+                    <li>
                       <a onClick={this.props.signOut}>Выход</a>
                     </li>
                   </ul>
@@ -131,7 +136,7 @@ class NavigationBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user.payload.user
+  user: state.personal.payload.user
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
