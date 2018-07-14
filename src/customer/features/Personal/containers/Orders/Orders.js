@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { Breadcrumbs } from 'components'
 import * as actions from '../../actions'
+import * as links from '../../links'
+import { OrderItem } from '../../components'
 
 class Orders extends React.Component {
 
@@ -11,9 +14,15 @@ class Orders extends React.Component {
     !fetching && getOrders()
   }
 
+  ordersList = () => {
+    const { orders } = this.props
+    return orders ? orders.map(order => <OrderItem order={order} />) : null
+  }
+
   render = () =>
-    <div>
-      { this.props.orders }
+    <div className="light">
+      <Breadcrumbs links={[ links.PERSONAL, links.ORDERS ]} />
+      { this.ordersList() }
     </div>
 }
 
