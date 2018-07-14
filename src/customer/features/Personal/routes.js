@@ -15,6 +15,10 @@ const routes = [
       {
         path: links.FAVORITES.url,
         component: containers.Favorites
+      },
+      {
+        path: links.ORDERS.url,
+        component: containers.Orders
       }
     ]
   }

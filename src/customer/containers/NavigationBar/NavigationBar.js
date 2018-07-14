@@ -39,8 +39,8 @@ class NavigationBar extends React.Component {
     const { REST_MAIN, RESTAURANT, CAFE, MENU, NEWS, CHEF_BLOG } = RestaurantAndCafe.links
     const { HOTEL_MAIN, CATALOG, DOCUMENTATION } = Hotel.links
     const { CONTACTS } = Contacts.links
-    const { PERSONAL, FAVORITES } = Personal.links
-    const { user } = this.props
+    const { PERSONAL, FAVORITES, ORDERS } = Personal.links
+    const { user, signOut } = this.props
     return (
       <div className="mainmenu">
         <div className="menubody">
@@ -106,7 +106,7 @@ class NavigationBar extends React.Component {
             </li>
             <li onMouseOver={() => this.handleHover(2)} onMouseOut={() => this.handleHover(2)}>
               <Link to={PERSONAL.url}>
-                {PERSONAL.title}
+                { user && user.id ? user.name : PERSONAL.title }
               </Link>
               {
                 user && user.id ?
@@ -117,7 +117,12 @@ class NavigationBar extends React.Component {
                       </Link>
                     </li>
                     <li>
-                      <a onClick={this.props.signOut}>Выход</a>
+                      <Link to={ORDERS.url}>
+                        {ORDERS.title}
+                      </Link>
+                    </li>
+                    <li>
+                      <a onClick={signOut}>Выход</a>
                     </li>
                   </ul>
                 : null

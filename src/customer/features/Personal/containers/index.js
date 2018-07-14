@@ -1,6 +1,6 @@
-import OrdersHistory from './OrdersHistory'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Favorites from './Favorites'
+import Orders from './Orders'
 
-export { OrdersHistory, SignIn, SignUp, Favorites }
+export { SignIn, SignUp, Favorites, Orders }

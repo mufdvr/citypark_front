@@ -81,10 +81,10 @@ const mapStateToProps = state => ({
   categories: state.restcafe.payload.categories
 })
 
-const mapDispathToProps = dispatch => bindActionCreators ({
+const mapDispatchToProps = dispatch => bindActionCreators ({
   ...actions.menu,
 }, dispatch)
 
-const ReduxWrapper = connect(mapStateToProps, mapDispathToProps)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
 const WrappedComponent = ReduxWrapper(Category)
 export default WrappedComponent

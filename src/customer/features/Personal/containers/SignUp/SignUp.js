@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Captcha from 'react-google-recaptcha'
 
 import { createUserRegistration } from '../../models'
 import * as actions from '../../actions'
@@ -26,12 +27,13 @@ class SignUp extends React.Component {
   }
 
   handleSubmit = () => {
-    const { user } = this.state
+    const { user, g_recaptcha_response } = this.state
     const { signUp } = this.props
-    signUp(user)
+    signUp(user, g_recaptcha_response)
   }
 
   render = () => {
+    const { REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <section id="sign-up-content">
         <div className="field required">
@@ -74,6 +76,10 @@ class SignUp extends React.Component {
             name="password_confirmation"
           />
         </div>
+        <Captcha
+           sitekey = {REACT_APP_CAPTCHA_KEY}
+           onChange = {g_recaptcha_response => this.setState({ g_recaptcha_response })}
+         />
           <button
             className="btn"
             onClick={this.handleSubmit}
@@ -87,7 +93,7 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  errors: state.personal.errors
+  errors: state.personal.errors,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

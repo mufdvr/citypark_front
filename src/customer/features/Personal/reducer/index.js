@@ -10,7 +10,8 @@ export default (state, action) => {
     [
       types.USER,
       types.FAVORITES_INDEX,
-      types.FAVORITES_DESTROY
+      types.FAVORITES_DESTROY,
+      types.ORDERS_INDEX
     ]
   )
 }

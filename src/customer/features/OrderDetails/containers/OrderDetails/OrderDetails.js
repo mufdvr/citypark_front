@@ -6,7 +6,7 @@ import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import { withRouter } from "react-router-dom"
 import Select from 'react-select'
-import Captcha from 'react-captcha'
+import Captcha from 'react-google-recaptcha'
 import PhoneInput from 'react-phone-number-input/native'
 import 'react-select/dist/react-select.css'
 import 'moment/locale/ru'
@@ -257,10 +257,7 @@ class OrderDetails extends React.Component {
          <div id="total">
            <Captcha
               sitekey = {REACT_APP_CAPTCHA_KEY}
-              lang = "ru"
-              theme = "light"
-              type = "image"
-              callback = {g_recaptcha_response => this.handleChange({ g_recaptcha_response })}
+              onChange = {g_recaptcha_response => this.handleChange({ g_recaptcha_response })}
             />
            <div className="bl_cena">
              {

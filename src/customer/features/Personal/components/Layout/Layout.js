@@ -3,8 +3,6 @@ import { renderRoutes } from 'react-router-config'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { PERSONAL } from '../../links'
-import { Header } from 'components'
 import { TabSheet } from '../../components'
 import { NavigationBar, SideBar } from 'containers'
 import * as actions from '../../actions'
@@ -21,7 +19,7 @@ class Layout extends React.Component {
       <div className="fold fold_pr" />
       <SideBar />
       <div className="content">
-        <div className="partbody" style={{paddingTop: "150px"}}>
+        <div className="partbody" style={{paddingTop: "70px"}}>
         {
           fetching === types.USER ? null :
             user && user.id ? route && renderRoutes(route.routes) : <TabSheet />

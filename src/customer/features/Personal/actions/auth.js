@@ -15,11 +15,14 @@ export const signIn = user =>
     { user }
   )
 
-export const signUp = user =>
+export const signUp = (user, g_recaptcha_response) =>
   feedback.post(
     apiConst.SIGN_UP,
     types.USER,
-    { user }
+    {
+      user,
+      g_recaptcha_response,
+    }
   )
 
 export const signOut = () =>
