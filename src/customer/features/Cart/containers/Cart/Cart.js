@@ -18,7 +18,7 @@ class Cart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cartState: props.cart ? 1 : 0
+      cartState: props.cart && props.cart.length ? 1 : 0
     }
   }
 

@@ -8,22 +8,16 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case types.CART_ADD_DISH:
-      let result
-      if (state.payload) {
-        let items = state.payload.slice(0)
-        for (let i = 0; i < items.length; i++) {
-          if (items[i].id === action.payload.id) {
-            items[i].count += 1
-            break
-          }
-          else if (i === items.length - 1) items = []
-        }
-        result = items.length ? items : [...state.payload, { ...action.payload, count: 1 }]
+      let items = state.payload.slice(0)
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].id === action.payload.id) {
+          items[i].count += 1
+          break
+        } else if (i === items.length - 1) items = []
       }
-      else result = [{ ...action.payload, count: 1 }]
       return {
         ...state,
-        payload: result
+        payload: items.length ? items : [...state.payload, { ...action.payload, count: 1 }]
       }
 
     case types.CART_CHANGE_ITEM_COUNT:
