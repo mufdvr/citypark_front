@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { Breadcrumbs } from 'components'
-import { Dish, Cart } from 'features/RestaurantAndCafe/containers'
+import { Dish } from 'features/RestaurantAndCafe/containers'
+import { Cart } from 'features/Cart/containers'
 import * as actions from '../../actions'
 import * as links from '../../links'
 

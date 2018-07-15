@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
 
-import OrderDetails from 'features/OrderDetails'
+import { OrderDetails } from 'features'
 import { cartTotal } from 'utils'
 import { CartItem } from '../../components'
 import * as actions from '../../actions'
@@ -41,10 +41,11 @@ class Cart extends React.Component {
 
   componentWillReceiveProps = nextProps => {
     const { cart } = nextProps
+    console.log(nextProps);
     if ((!this.props.cart || !this.props.cart.length) && cart && cart.length) this.setState ({
       cartState: 1
     })
-    else if (!cart.length) this.setState({
+    else if (!cart || !cart.length) this.setState({
       cartState: 0
     })
     localStorage.setItem("cart", JSON.stringify(cart))
@@ -98,7 +99,7 @@ class Cart extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.restcafe.payload.cart
+  cart: state.cart.payload
 })
 
 const mapDispatchToProps = dispath => bindActionCreators({

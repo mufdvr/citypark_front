@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { SocShare, Breadcrumbs } from 'components'
-import { Category, Cart } from '../../containers'
+import { Category } from '../../containers'
+import { Cart } from 'features/Cart/containers'
 import { REST_MAIN, MENU } from '../../links'
 import * as actions from '../../actions'
 

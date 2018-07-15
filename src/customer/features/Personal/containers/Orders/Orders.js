@@ -6,6 +6,7 @@ import { Breadcrumbs } from 'components'
 import * as actions from '../../actions'
 import * as links from '../../links'
 import { OrderItem } from '../../components'
+import { Cart } from 'features/Cart/containers'
 
 class Orders extends React.Component {
 
@@ -16,11 +17,12 @@ class Orders extends React.Component {
 
   ordersList = () => {
     const { orders } = this.props
-    return orders ? orders.map(order => <OrderItem order={order} />) : null
+    return orders ? orders.map(order => <OrderItem key={order.id} order={order} />) : null
   }
 
   render = () =>
     <div className="light">
+      <Cart />
       <Breadcrumbs links={[ links.PERSONAL, links.ORDERS ]} />
       { this.ordersList() }
     </div>

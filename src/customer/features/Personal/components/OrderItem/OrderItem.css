@@ -2,6 +2,27 @@
   padding: 1.2rem;
   background: rgba(69, 49, 43, 0.6);
   margin-bottom: 10px;
-  border: 1px solid #e9cba7;
+  border: 1px solid #45312b;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.ord-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.green {
+  color: #a0c80f;
+}
+
+.order-dish-list > ol {
+  margin-left: 1.2rem;
+}
+
+.order-dish-list {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }

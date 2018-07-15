@@ -29,5 +29,5 @@ export {
   PhotoGallery,
   Breadcrumbs,
   RoomItem,
-  NotFound
+  NotFound,
 }

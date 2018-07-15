@@ -1,11 +1,9 @@
 import categoriesReducer from './categoriesReducer'
-import cartReducer from './cartReducer'
 import feedback from 'feedback'
 import * as types from '../actionTypes'
 
 export default (state, action) => {
-  return cartReducer(state, action) ||
-  categoriesReducer(state, action) ||
+  return categoriesReducer(state, action) ||
   feedback.reducer(
     state,
     action,

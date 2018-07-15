@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 import ReactFancyBox from 'react-fancybox'
-import * as actions from '../../actions'
 import 'react-fancybox/lib/fancybox.css'
 
-import Personal from 'features/Personal'
+import { Personal, Cart } from 'features'
 
 class Dish extends React.Component {
 
@@ -63,7 +62,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...Personal.actions.favorites,
-  ...actions.cart
+  ...Cart.actions.cart
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dish)

@@ -18,7 +18,8 @@ import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import * as constants from '../../constants'
-import RestaurantAndCafe from 'features/RestaurantAndCafe'
+import { RestaurantAndCafe } from 'features'
+import { Cart } from 'features/Cart/containers'
 import { MonetaForm } from '../../components'
 
 
@@ -283,7 +284,7 @@ class OrderDetails extends React.Component {
        </div>
        <div id="leaf-right" className="leaf leafs" />
        <div id="leaf-left" className="leaf leafs" />
-       <RestaurantAndCafe.containers.Cart />
+       <Cart />
        <MonetaForm
          mntTransactionId={id}
          mntAmount={amount}

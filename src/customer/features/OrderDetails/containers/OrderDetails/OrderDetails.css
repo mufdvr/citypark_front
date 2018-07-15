@@ -34,7 +34,7 @@
   border-color: red;
 }
 
-.leafs {
+div.leafs {
   background-position: top;
   z-index: 1;
   position: absolute;
