@@ -4,7 +4,7 @@ const initialState = {
   payload: []
 }
 
-export default (state, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
 
     case types.CART_ADD_DISH:
@@ -42,7 +42,6 @@ export default (state, action) => {
 
     case types.LOAD_CART_FROM_LOCALSTORAGE:
       const cart = JSON.parse(localStorage.getItem("cart"))
-      console.log(cart);
       return cart ? {
         ...state,
         payload: cart
@@ -51,6 +50,6 @@ export default (state, action) => {
     case types.CLEAR_CART:
       return { ...state, payload: []}
 
-    default: return false
+    default: return state
   }
 }

@@ -48,7 +48,7 @@ class Cart extends React.Component {
     else if (!cart || !cart.length) this.setState({
       cartState: 0
     })
-    localStorage.setItem("cart", JSON.stringify(cart))
+    cart && localStorage.setItem("cart", JSON.stringify(cart))
   }
 
   componentDidMount = () => this.props.loadCartFromLocalstorage()
