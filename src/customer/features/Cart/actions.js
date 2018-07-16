@@ -1,13 +1,9 @@
-import * as types from '../actionTypes'
+import * as types from './actionTypes'
 
-export const addToCart = (id, title, cost, images) => ({
-  type: types.CART_ADD_DISH,
-  payload: {
-    id,
-    title,
-    cost,
-    images
-  }
+
+export const addItems = payload => ({
+  type: types.CART_ADD_ITEMS,
+  payload
 })
 
 export const changeCount = (id, amount) => ({

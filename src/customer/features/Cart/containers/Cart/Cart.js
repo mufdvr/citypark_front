@@ -41,7 +41,6 @@ class Cart extends React.Component {
 
   componentWillReceiveProps = nextProps => {
     const { cart } = nextProps
-    console.log(nextProps);
     if ((!this.props.cart || !this.props.cart.length) && cart && cart.length) this.setState ({
       cartState: 1
     })
@@ -103,7 +102,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispath => bindActionCreators({
-  ...actions.cart
+  ...actions
 }, dispath)
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Cart))

@@ -10,7 +10,7 @@ import { Personal, Cart } from 'features'
 class Dish extends React.Component {
 
   render = () => {
-    const { id, title, cost, description, weight, addToCart, addToFavorites, delFavorite, images, user, fav } = this.props
+    const { id, title, cost, description, weight, addItems, addToFavorites, delFavorite, images, user, fav } = this.props
     return (
       <div className="bludo">
         {
@@ -39,7 +39,7 @@ class Dish extends React.Component {
               : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
             : null
           }
-          <div onClick={() => addToCart(id, title, cost, images)} className="z_btn">Добавить в список заказа</div>
+          <div onClick={() => addItems([{id, title, cost}])} className="z_btn">Добавить в список заказа</div>
         </div>
       </div>
     )
@@ -62,7 +62,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...Personal.actions.favorites,
-  ...Cart.actions.cart
+  ...Cart.actions
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dish)

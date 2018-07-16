@@ -26,7 +26,7 @@ class OrderItem extends React.Component {
     }))
 
   render = () => {
-    const { order } = this.props
+    const { order, addItems } = this.props
     const { showDishes } = this.state
     return (
       <div className="order-item" onClick={this.handleClick}>
@@ -47,7 +47,7 @@ class OrderItem extends React.Component {
           showDishes ?
             <div className="order-dish-list">
               { this.dishesList() }
-              <div className="z_btn">Повторить заказ</div>
+              <div className="z_btn" onClick={() => addItems(order.dishes)}>Повторить заказ</div>
             </div>
           : null
         }
@@ -65,9 +65,11 @@ OrderItem.propTypes = {
     dishes: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,
+      cost: PropTypes.number,
       count: PropTypes.number
     }))
-  })
+  }),
+  addItems: PropTypes.func.isRequired
 }
 
 export default OrderItem
