@@ -5,6 +5,8 @@
   border: 1px solid #45312b;
   border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
+  transition: height 4s;
 }
 
 .ord-header {

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import statuses from './statuses'
+
 class OrderItem extends React.Component {
   constructor(props) {
     super(props)
@@ -13,9 +15,7 @@ class OrderItem extends React.Component {
     const { order } = this.props
     return order ?
       <ol>
-        {
-          order.dishes.map(dish => <li>{dish.title} - {dish.count}</li>)
-        }
+        { order.dishes.map(dish => <li key={dish.id}>{dish.title} - {dish.count}</li>) }
       </ol>
     : null
   }
@@ -29,7 +29,7 @@ class OrderItem extends React.Component {
     const { order, addItems } = this.props
     const { showDishes } = this.state
     return (
-      <div className="order-item" onClick={this.handleClick}>
+      <div ref="orderItem" className="order-item" onClick={this.handleClick}>
         <div className="ord-header">
           <h3>Дата заказа {order.created_at}</h3>
           <span className="bsm">
@@ -38,17 +38,17 @@ class OrderItem extends React.Component {
           </span>
         </div>
         <div className="green">
-          Оформлен
+          { statuses[order.status] }
         </div>
-        <div>
-          <a>заказ #{order.id}</a>
+        <div style={{color: "#bba080", textDecoration: "underline"}}>
+          заказ {order.id}
         </div>
         {
           showDishes ?
-            <div className="order-dish-list">
-              { this.dishesList() }
-              <div className="z_btn" onClick={() => addItems(order.dishes)}>Повторить заказ</div>
-            </div>
+          <div className="order-dish-list">
+            {this.dishesList()}
+            <div className="z_btn" onClick={() => addItems(order.dishes)}>Повторить заказ</div>
+          </div>
           : null
         }
       </div>
@@ -58,7 +58,7 @@ class OrderItem extends React.Component {
 
 OrderItem.propTypes = {
   order: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     created_at: PropTypes.string,
     status: PropTypes.string,
     freezed_amount: PropTypes.number,
