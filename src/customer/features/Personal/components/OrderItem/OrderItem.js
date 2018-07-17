@@ -40,9 +40,7 @@ class OrderItem extends React.Component {
         <div className="green">
           { statuses[order.status] }
         </div>
-        <div style={{color: "#bba080", textDecoration: "underline"}}>
-          заказ {order.id}
-        </div>
+        <a className="gtcat">заказ {order.id}</a>
         {
           showDishes ?
           <div className="order-dish-list">

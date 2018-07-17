@@ -17,9 +17,9 @@ class Favorites extends React.Component {
 
   dishesList = () => {
     const { favorites } = this.props
-    return favorites ? favorites.map(dish =>
+    return favorites && favorites.length ? favorites.map(dish =>
       <Dish key={dish.id} {...dish} fav />
-    ) : null
+    ) : <div>Здесь пока ничего нет.</div>
   }
 
   render = () => {
