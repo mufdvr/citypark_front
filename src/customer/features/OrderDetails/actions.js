@@ -1,5 +1,5 @@
-import * as types from '../actionTypes'
-import * as apiConst from '../apiConst'
+import * as types from './actionTypes'
+import * as apiConst from './apiConst'
 import feedback from 'feedback'
 
 export const createOrder = (order, g_recaptcha_response) =>

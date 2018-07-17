@@ -2,9 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Captcha from 'react-google-recaptcha'
+import PhoneInput from 'react-phone-number-input/native'
+import 'react-phone-number-input/style.css'
 
 import { createUserData } from '../../models'
 import * as actions from '../../actions'
+import * as types from '../../actionTypes'
+import { SpinButton } from 'components'
 
 class SignUp extends React.Component {
 
@@ -15,13 +19,13 @@ class SignUp extends React.Component {
     }
   }
 
-  handleChange = event => {
-    const { name, value } = event.target
+  handleChange = prop => {
+    const { target } = prop
     this.setState(prev => ({
       ...prev,
       user: {
         ...prev.user,
-        [name]: value
+        ...(() => target ? {[target.name]: target.value} : prop)()
       }
     }))
   }
@@ -34,6 +38,8 @@ class SignUp extends React.Component {
 
   render = () => {
     const { REACT_APP_CAPTCHA_KEY } = process.env
+    const { fetching } = this.props
+    const { phone } = this.state.user
     return (
       <section id="sign-up-content">
         <div className="field required">
@@ -56,6 +62,18 @@ class SignUp extends React.Component {
             name="email"
           />
         </div>
+        <div className="field">
+          <label>Телефон</label>
+          <PhoneInput
+            onChange={phone => this.handleChange({ phone })}
+            countries={['RU']}
+            className="form-input"
+            displayInitialValueAsLocalNumber={false}
+            indicateInvalid={true}
+            value={phone}
+            placeholder="Телефон"
+           />
+        </div>
         <div className="field required">
           <label>Пароль</label>
           <input
@@ -72,7 +90,7 @@ class SignUp extends React.Component {
             className="form-input"
             onChange={this.handleChange}
             type="password"
-            placeholder="Пароль"
+            placeholder="Повторите пароль"
             name="password_confirmation"
           />
         </div>
@@ -80,12 +98,11 @@ class SignUp extends React.Component {
            sitekey = {REACT_APP_CAPTCHA_KEY}
            onChange = {g_recaptcha_response => this.setState({ g_recaptcha_response })}
          />
-          <button
-            className="btn"
-            onClick={this.handleSubmit}
-          >
-            Войти
-        </button>
+        <div className="button-wrapper">
+          <SpinButton spin={fetching === types.USER_SIGN_UP} className="z_btn" onClick={this.handleSubmit}>
+            Отправить
+          </SpinButton>
+        </div>
       </section>
     )
   }
@@ -94,6 +111,7 @@ class SignUp extends React.Component {
 
 const mapStateToProps = state => ({
   errors: state.personal.errors,
+  fetching: state.personal.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

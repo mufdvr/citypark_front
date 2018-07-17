@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { createUserSession } from '../../models'
+import { SpinButton } from 'components'
 import * as actions from '../../actions'
 import * as apiConst from '../../apiConst'
+import * as types from '../../actionTypes'
 
 class SignIn extends React.Component {
 
@@ -33,6 +35,7 @@ class SignIn extends React.Component {
   }
 
   render = () => {
+    const { fetching } = this.props
     return (
       <section id="sign-in-content">
         <div className="field">
@@ -62,10 +65,10 @@ class SignIn extends React.Component {
             <a href={apiConst.AUTH_ODNOKLASSNIKI}><div id="odnoklassniki" className="icon" /></a>
             <a href={apiConst.AUTH_TWITTER}><div id="twitter" className="icon" /></a>
           </div>
-          <div className="z_btn" onClick={this.handleSubmit}>
+          <SpinButton spin={fetching === types.USER_SIGN_IN} className="z_btn" onClick={this.handleSubmit}>
             Войти
-          </div>
-        </div>  
+          </SpinButton>
+        </div>
       </section>
     )
   }
@@ -73,7 +76,8 @@ class SignIn extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  errors: state.personal.errors
+  errors: state.personal.errors,
+  fetching: state.personal.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

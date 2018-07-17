@@ -4,9 +4,10 @@ import { bindActionCreators } from 'redux'
 import PhoneInput from 'react-phone-number-input/native'
 import 'react-phone-number-input/style.css'
 
-import { Breadcrumbs } from 'components'
+import { Breadcrumbs, SpinButton } from 'components'
 import * as links from '../../links'
 import * as actions from '../../actions'
+import * as types from '../../actionTypes'
 import { createUserData } from '../../models'
 
 class MyData extends React.Component {
@@ -44,6 +45,7 @@ class MyData extends React.Component {
 
   render = () => {
     const { name, email, phone } = this.state.user
+    const { fetching } = this.props
     return (
       <div className="light">
         <Breadcrumbs links={[ links.PERSONAL ]} />
@@ -102,7 +104,11 @@ class MyData extends React.Component {
               placeholder="Подтверждение"
             />
           </div>
-          <button onClick={this.handleSubmit}>Сохранить</button>
+          <div className="button-wrapper">
+            <SpinButton spin={fetching === types.USER_UPDATE} onClick={this.handleSubmit} className="z_btn">
+              Сохранить
+            </SpinButton>
+          </div>  
         </div>
       </div>
     )
@@ -110,7 +116,8 @@ class MyData extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.personal.payload.user
+  user: state.personal.payload.user,
+  fetching: state.personal.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

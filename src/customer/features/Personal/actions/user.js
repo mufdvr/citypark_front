@@ -18,14 +18,14 @@ export const updateUser = user =>
 export const signIn = user =>
   feedback.post(
     apiConst.SIGN_IN,
-    types.USER_CREATE_SESSION,
+    types.USER_SIGN_IN,
     { user }
   )
 
 export const signUp = (user, g_recaptcha_response) =>
   feedback.post(
     apiConst.USERS,
-    types.USER_CREATE,
+    types.USER_SIGN_UP,
     {
       user,
       g_recaptcha_response,

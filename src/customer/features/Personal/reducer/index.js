@@ -10,8 +10,8 @@ export default (state, action) => {
     [
       types.USER_SHOW,
       types.USER_UPDATE,
-      types.USER_CREATE,
-      types.USER_CREATE_SESSION,
+      types.USER_SIGN_IN,
+      types.USER_SIGN_UP,
       types.USER_DESTROY,
       types.FAVORITES_INDEX,
       types.FAVORITES_DESTROY,

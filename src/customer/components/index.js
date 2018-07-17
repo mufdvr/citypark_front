@@ -13,6 +13,7 @@ import PhotoGallery from './PhotoGallery'
 import Breadcrumbs from './Breadcrumbs'
 import RoomItem from './RoomItem'
 import NotFound from './NotFound'
+import SpinButton from './SpinButton'
 
 export {
   App,
@@ -30,4 +31,5 @@ export {
   Breadcrumbs,
   RoomItem,
   NotFound,
+  SpinButton
 }
