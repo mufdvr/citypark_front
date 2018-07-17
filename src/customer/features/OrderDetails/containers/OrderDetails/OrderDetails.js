@@ -8,18 +8,17 @@ import { withRouter } from "react-router-dom"
 import Select from 'react-select'
 import Captcha from 'react-google-recaptcha'
 import PhoneInput from 'react-phone-number-input/native'
+import 'react-phone-number-input/style.css'
 import 'react-select/dist/react-select.css'
 import 'moment/locale/ru'
 import 'react-datepicker/dist/react-datepicker.css'
-import 'react-phone-number-input/style.css'
 
 import { createOrder, validOrder } from '../../models'
 import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import * as constants from '../../constants'
-import { RestaurantAndCafe } from 'features'
-import { Cart } from 'features/Cart/containers'
+import { RestaurantAndCafe, Cart } from 'features'
 import { MonetaForm } from '../../components'
 
 
@@ -120,7 +119,7 @@ class OrderDetails extends React.Component {
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
      <div style={{position: "relative"}}>
-       <div id="order">
+       <div id="order" className="form-layout">
        <div id="order-header">
          <div id="logo" className="order-logo"/>
          <h2>Оформление заказа</h2>
@@ -284,7 +283,7 @@ class OrderDetails extends React.Component {
        </div>
        <div id="leaf-right" className="leaf leafs" />
        <div id="leaf-left" className="leaf leafs" />
-       <Cart />
+       <Cart.containers.Cart />
        <MonetaForm
          mntTransactionId={id}
          mntAmount={amount}
@@ -297,17 +296,13 @@ class OrderDetails extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.restcafe.payload.cart,
+  cart: state.cart.payload,
   order: state.order.payload.order
 })
 
-const mapDispatchToProps = dispatch => {
-  const { loadCartFromLocalstorage } = RestaurantAndCafe.actions.cart
-  return bindActionCreators({
-    ...actions.order,
-    ...RestaurantAndCafe.actions.cart,
-    loadCartFromLocalstorage,
-  }, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators({
+  ...actions,
+  ...Cart.actions
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(OrderDetails))

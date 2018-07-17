@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Captcha from 'react-google-recaptcha'
 
-import { createUserRegistration } from '../../models'
+import { createUserData } from '../../models'
 import * as actions from '../../actions'
 
 class SignUp extends React.Component {
@@ -11,7 +11,7 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: createUserRegistration()
+      user: createUserData()
     }
   }
 
@@ -97,7 +97,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  ...actions.auth
+  ...actions.user
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

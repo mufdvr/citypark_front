@@ -29,7 +29,7 @@ class OrderItem extends React.Component {
     const { order, addItems } = this.props
     const { showDishes } = this.state
     return (
-      <div ref="orderItem" className="order-item" onClick={this.handleClick}>
+      <div className="order-item" onClick={this.handleClick}>
         <div className="ord-header">
           <h3>Дата заказа {order.created_at}</h3>
           <span className="bsm">

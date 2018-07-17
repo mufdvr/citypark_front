@@ -21,7 +21,7 @@ class Layout extends React.Component {
       <div className="content">
         <div className="partbody" style={{paddingTop: "70px"}}>
         {
-          fetching === types.USER ? null :
+          fetching === types.USER_SHOW ? null :
             user && user.id ? route && renderRoutes(route.routes) : <TabSheet />
         }
         </div>
@@ -39,7 +39,7 @@ class Layout extends React.Component {
   })
 
   const mapDispatchToProps = dispatch => bindActionCreators ({
-    ...actions.auth
+    ...actions.user
   }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)

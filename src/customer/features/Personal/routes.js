@@ -10,7 +10,7 @@ const routes = [
       {
         path: links.PERSONAL.url,
         exact: true,
-        component: components.TabSheet,
+        component: containers.MyData,
       },
       {
         path: links.FAVORITES.url,

@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispath => bindActionCreators({
-  getUser: Personal.actions.auth.getUser,
+  getUser: Personal.actions.user.getUser,
   getNews: RestaurantAndCafe.actions.news.getNews
 }, dispath)
 

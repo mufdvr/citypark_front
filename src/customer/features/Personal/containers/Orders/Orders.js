@@ -17,7 +17,9 @@ class Orders extends React.Component {
 
   ordersList = () => {
     const { orders, addItems } = this.props
-    return orders ? orders.map(order => <OrderItem key={order.id} addItems={addItems} order={order} />) : null
+    return orders && orders.length ?
+      orders.map(order => <OrderItem key={order.id} addItems={addItems} order={order} />)
+      : <div>У Вас пока нет заказов.</div>
   }
 
   render = () =>

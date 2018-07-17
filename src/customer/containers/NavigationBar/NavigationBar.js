@@ -145,7 +145,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  signOut: Personal.actions.auth.signOut
+  signOut: Personal.actions.user.signOut
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar)

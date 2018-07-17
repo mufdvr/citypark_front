@@ -1,14 +1,7 @@
 #order {
   margin: 3% auto;
   width: 600px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: rgba(69, 49, 43, 0.6);
-  border: 1px solid #45312b;
-  border-radius: 10px;
   z-index: 2;
-  box-shadow: 0 20px 28px rgba(0,0,0,0.55), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #order h2 {
@@ -93,13 +86,6 @@ div.leafs {
   margin-right: 1rem;
 }
 
-.field {
-  margin-bottom: 0.8rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 textarea {
   resize: vertical;
   max-width: calc(100% - 1.2rem);
@@ -116,25 +102,6 @@ textarea {
 
 .react-datepicker__input-container, .react-datepicker-wrapper {
   display: block;
-}
-
-.required label::after {
-  content: " *";
-  color: red;
-}
-
-.form-input {
-  border-color: #d9d9d9 #ccc #b3b3b3;
-  color: #333;
-  border-radius: 4px;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  border: 1px solid #ccc;
-  display: block;
-  height: 33px;
-  width: calc(100% - 1.2rem);
-  font-size: 1em;
-  background-color: #fff;
 }
 
 .bl_cena>div {

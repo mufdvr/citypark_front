@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import { createUserSession } from '../../models'
 import * as actions from '../../actions'
+import * as apiConst from '../../apiConst'
 
 class SignIn extends React.Component {
 
@@ -54,12 +55,17 @@ class SignIn extends React.Component {
             name="password"
           />
         </div>
-          <button
-            className="btn"
-            onClick={this.handleSubmit}
-          >
+        <div id="auth-buttons">
+          <div id="social-auth">
+            <a href={apiConst.AUTH_FACEBOOK}><div id="facebook" className="icon" /></a>
+            <a href={apiConst.AUTH_VK}><div id="vk" className="icon" /></a>
+            <a href={apiConst.AUTH_ODNOKLASSNIKI}><div id="odnoklassniki" className="icon" /></a>
+            <a href={apiConst.AUTH_TWITTER}><div id="twitter" className="icon" /></a>
+          </div>
+          <div className="z_btn" onClick={this.handleSubmit}>
             Войти
-        </button>
+          </div>
+        </div>  
       </section>
     )
   }
@@ -71,7 +77,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  ...actions.auth
+  ...actions.user
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

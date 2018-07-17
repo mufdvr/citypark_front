@@ -5,20 +5,27 @@ import * as types from '../actionTypes'
 export const getUser = () =>
   feedback.get(
     apiConst.PROFILE,
-    types.USER
+    types.USER_SHOW
+  )
+
+export const updateUser = user =>
+  feedback.patch(
+    apiConst.USERS,
+    types.USER_UPDATE,
+    { user }
   )
 
 export const signIn = user =>
   feedback.post(
     apiConst.SIGN_IN,
-    types.USER,
+    types.USER_CREATE_SESSION,
     { user }
   )
 
 export const signUp = (user, g_recaptcha_response) =>
   feedback.post(
-    apiConst.SIGN_UP,
-    types.USER,
+    apiConst.USERS,
+    types.USER_CREATE,
     {
       user,
       g_recaptcha_response,
@@ -28,5 +35,5 @@ export const signUp = (user, g_recaptcha_response) =>
 export const signOut = () =>
   feedback.destroy(
     apiConst.SIGN_OUT,
-    types.USER
+    types.USER_DESTROY
   )

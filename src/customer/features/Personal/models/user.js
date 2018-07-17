@@ -4,11 +4,10 @@ const userSession = {
   remember_me: true
 }
 
-const userRegistartion = {
+const userData = {
   email: '',
   name: '',
-  password: '',
-  password_confirmation: ''
+  phone: '+7',
 }
 
 export const createUserSession = props => ({
@@ -16,7 +15,7 @@ export const createUserSession = props => ({
   ...props
 })
 
-export const createUserRegistration = props => ({
-  ...userRegistartion,
+export const createUserData = props => ({
+  ...userData,
   ...props
 })
