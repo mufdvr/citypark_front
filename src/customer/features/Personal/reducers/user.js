@@ -8,9 +8,7 @@ const initialState = {
 }
 
 export default (state = initialState, action) =>
-  {
-    console.log(state);
-  return feedback.reducer(
+  feedback.reducer(
     state,
     action,
     [
@@ -21,4 +19,3 @@ export default (state = initialState, action) =>
       types.USER_DESTROY
     ]
   )
-}

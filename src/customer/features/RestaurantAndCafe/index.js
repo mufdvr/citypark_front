@@ -4,12 +4,12 @@ import * as actions from './actions'
 import * as types from './actionTypes'
 import * as containers from './containers'
 import * as links from './links'
-import reducer from './reducer'
+import * as reducers from './reducers'
 
 export default {
   actions,
   types,
-  reducer,
+  reducers,
   containers,
   components,
   links,

@@ -15,7 +15,7 @@ class SideBar extends React.Component {
   render = () => {
     const { RESTAURANT, CAFE } = RestaurantAndCafe.links
     const { HOTEL_MAIN } = Hotel.links
-    const { newslist } = this.props
+    const { news } = this.props
     return (
       <div className="column">
         <div className="header">
@@ -57,14 +57,10 @@ class SideBar extends React.Component {
             <RestaurantContacts displayType={DISPLAY_TYPE}/>
             <Delivery displayType={DISPLAY_TYPE}/>
             <News displayType={DISPLAY_TYPE}>
-              {
-                newslist ?
-                  <NewsItem
-                    displayType={DISPLAY_TYPE}
-                    {...newslist[0]}
-                  />
-                : null
-              }
+              <NewsItem
+                displayType={DISPLAY_TYPE}
+                {...news[0]}
+              />
             </News>
             <RoomsCatalog displayType={DISPLAY_TYPE} />
             <HotelContacts displayType={DISPLAY_TYPE}/>
@@ -77,7 +73,7 @@ class SideBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  newslist: state.restcafe.payload.newslist,
+  news: state.news.payload
 })
 
 export default connect(mapStateToProps)(SideBar)

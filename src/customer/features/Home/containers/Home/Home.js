@@ -10,8 +10,8 @@ const DISPLAY_TYPE = "home"
 class Home extends React.Component {
 
   newslist = () => {
-    const { newslist } = this.props
-    return newslist ? newslist.map(item => <NewsItem key={item.id} displayType={DISPLAY_TYPE} {...item} />) : null
+    const { news } = this.props
+    return news ? news.map(item => <NewsItem key={item.id} displayType={DISPLAY_TYPE} {...item} />) : null
   }
 
   render = () =>
@@ -60,7 +60,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  newslist: state.restcafe.payload.newslist,
+  news: state.news.payload,
 })
 
 export default connect(mapStateToProps)(Home)

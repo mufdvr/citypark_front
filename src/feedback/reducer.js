@@ -9,7 +9,7 @@ const initialState = {
 export const getAction = type => {
   const fnd = /@@\w+/.exec(type)
   return fnd ? fnd[0] : null
-}  
+}
 
 export const getStatus = type => {
   const fnd = /\/\w+/.exec(type)
@@ -26,10 +26,7 @@ const defaultReducer = (state = initialState, { type, payload, errors } = {}, ac
       }),
       [SUCCESS]: () => ({
         fetching: null,
-        payload: {
-          ...state.payload,
-          ...payload
-        }
+        payload
       }),
       [FAILURE]: () => ({
         fetching: null,

@@ -1,4 +1,3 @@
-import { pushInPayload } from 'utils'
 import feedback, { getStatus, getAction, statuses } from 'feedback'
 import * as types from '../actionTypes'
 
@@ -12,13 +11,15 @@ const favoritesReducer = (state, action) => {
   if (getStatus(action.type) === statuses.SUCCESS)
     switch (getAction(action.type)) {
       case types.FAVORITES_DESTROY:
-        return pushInPayload(state, {
-          favorites: state.payload.favorites.filter(item => item.id !== action.payload.id)
-        })
+        return {
+          ...state,
+          payload: state.payload.filter(item => item.id !== action.payload.id)
+        }
       case types.ADD_TO_FAVORITES:
-        return pushInPayload(state, {
-          favorites: [...state.payload.favorites, action.payload.favorite_dish]
-        })
+        return {
+          ...state,
+          payload: [...state.payload, action.payload]
+        }
       default:
         return false
     }

@@ -10,8 +10,8 @@ import RestaurantAndCafe from 'features/RestaurantAndCafe'
 class MainLayout extends React.Component {
 
   componentDidMount = () => {
-    const { fetching_restcafe, fetching_user, getUser, getNews } = this.props
-    !fetching_restcafe && getNews(3)
+    const { fetching_news, fetching_user, getUser, getNews } = this.props
+    !fetching_news && getNews(3)
     !fetching_user && getUser()
   }
 
@@ -30,7 +30,7 @@ class MainLayout extends React.Component {
 
 const mapStateToProps = state => ({
   fetching_user: state.user.fetching,
-  fetching_restcafe: state.restcafe.fetching
+  fetching_news: state.news.fetching
 })
 
 const mapDispatchToProps = dispath => bindActionCreators({

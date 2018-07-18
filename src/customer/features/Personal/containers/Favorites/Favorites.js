@@ -43,7 +43,7 @@ class Favorites extends React.Component {
 
 const mapStateToProps = state => ({
   fetching: state.favorites.fetching,
-  favorites: state.favorite.payload
+  favorites: state.favorites.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators ({

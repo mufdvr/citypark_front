@@ -15,8 +15,8 @@ class News extends React.Component {
   }
 
   newslist = () => {
-    const { newslist } = this.props
-    return newslist.map(item => <NewsItem key={item.id} {...item} />)
+    const { news } = this.props
+    return news.map(item => <NewsItem key={item.id} {...item} />)
   }
 
   render = () => {
@@ -35,8 +35,8 @@ class News extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  newslist: state.restcafe.payload.newslist,
-  fetching: state.restcafe.fetching
+  news: state.news.payload,
+  fetching: state.news.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

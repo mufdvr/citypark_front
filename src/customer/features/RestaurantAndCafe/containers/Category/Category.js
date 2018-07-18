@@ -77,8 +77,8 @@ Category.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  fetching: state.restcafe.fetching,
-  categories: state.restcafe.payload.categories
+  fetching: state.categories.fetching,
+  categories: state.categories.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators ({

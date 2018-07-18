@@ -7,13 +7,11 @@ const initialState = {
   errors: {}
 }
 
-export default (state = initialState, action) => {
-  console.log(state);
-  return feedback.reducer(
+export default (state = initialState, action) =>
+  feedback.reducer(
     state,
     action,
     [
       types.ORDERS_INDEX
     ]
   )
-}

@@ -1,10 +1,10 @@
-import * as components from './components'
+import * as containers from './containers'
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component: components.Home
+    component: containers.Home
   }
 ]
 

@@ -1,7 +1,7 @@
 import routes from './routes'
-import * as components from './components'
+import * as containers from './containers'
 
 export default {
-  components,
+  containers,
   routes
 }

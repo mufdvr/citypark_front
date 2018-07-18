@@ -63,7 +63,6 @@ class OrderDetails extends React.Component {
       ...prev,
       invalidFields
     }))
-    //console.log(delivery_times);
     if (delivery_times) order.delivery_times = delivery_times._d
     !invalidFields.length && g_recaptcha_response && createOrder(order, g_recaptcha_response)
   }
@@ -300,7 +299,7 @@ class OrderDetails extends React.Component {
 const mapStateToProps = state => ({
   cart: state.cart.payload,
   user: state.user.payload,
-  order: state.order.payload.order
+  order: state.order.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
