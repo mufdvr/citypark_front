@@ -2,7 +2,17 @@ import favoritesReducer from './favoritesReducer'
 import feedback from 'feedback'
 import * as types from '../actionTypes'
 
-export default (state, action) => {
+const initialState = {
+  fetching: null,
+  payload: {
+    user: {},
+    favorites: [],
+    orders: []
+  },
+  errors: {}
+}
+
+export default (state = initialState, action) => {
   return favoritesReducer(state, action) ||
   feedback.reducer(
     state,

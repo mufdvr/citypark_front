@@ -26,10 +26,10 @@ class OrderDetails extends React.Component {
 
   constructor(props) {
     super(props)
-    const { cart } = props
+    const { cart, user: { name, phone } } = props
     const dishes_orders_attributes = filterCart(cart)
     this.state = {
-      order: createOrder({ dishes_orders_attributes }),
+      order: createOrder({ name, phone, dishes_orders_attributes }),
       invalidFields: [],
       desiredTimes: constants.DESIRED_TIMES[0],
       settlements: constants.SETTLEMENTS[0],
@@ -76,12 +76,12 @@ class OrderDetails extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order, history } = nextProps
+    const { cart, order, history, user: { name, phone} } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.url)
     const dishes_orders_attributes = filterCart(cart)
     this.setState(prev => ({
       ...prev,
-      order: createOrder({ dishes_orders_attributes }),
+      order: createOrder({ name, phone, dishes_orders_attributes }),
       ...deliveryAndTotalCost(cart)
     }))
     if (!order) return
@@ -114,7 +114,8 @@ class OrderDetails extends React.Component {
   }
 
   render = () => {
-    const { id, amount, mnt_signature, desiredTimes, settlements, freeDelivery, totalCost, invalidFields } = this.state
+    const { id, amount, mnt_signature, desiredTimes, settlements,
+      freeDelivery, totalCost, invalidFields, order: { name, phone } } = this.state
     const { clearCart } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
@@ -230,6 +231,7 @@ class OrderDetails extends React.Component {
              className="form-input"
              name="name"
              type="text"
+             value={name}
              placeholder="Имя"
            />
          </div>
@@ -241,7 +243,7 @@ class OrderDetails extends React.Component {
              className="form-input"
              displayInitialValueAsLocalNumber={false}
              indicateInvalid={true}
-             value={this.state.order.phone}
+             value={phone}
              placeholder="Контактный телефон"
             />
          </div>
@@ -297,6 +299,7 @@ class OrderDetails extends React.Component {
 
 const mapStateToProps = state => ({
   cart: state.cart.payload,
+  user: state.personal.payload.user,
   order: state.order.payload.order
 })
 
