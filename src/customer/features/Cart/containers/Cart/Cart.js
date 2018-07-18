@@ -29,14 +29,14 @@ class Cart extends React.Component {
 
   listItems = () => {
     const { cart, changeCount, deleteItem } = this.props
-    return cart ? cart.map(item =>
+    return cart.map(item =>
       <CartItem
         key={item.id}
         deleteItem={deleteItem}
         changeCount={changeCount}
         {...item}
       />
-    ) : null
+    )
   }
 
   componentWillReceiveProps = nextProps => {

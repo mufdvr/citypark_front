@@ -12,14 +12,14 @@ class Menu extends React.Component {
 
   categoriesList = () => {
     const { categories } = this.props
-    return categories ? categories.map((category, index) =>
+    return categories.map((category, index) =>
       <Category
         key={category.id}
         index={index}
         title={category.title}
         cookingTime={category.cooking_time}
       />
-    ) : null
+    )
   }
 
   componentDidMount = () => {

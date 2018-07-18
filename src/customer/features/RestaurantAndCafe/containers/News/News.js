@@ -16,7 +16,7 @@ class News extends React.Component {
 
   newslist = () => {
     const { newslist } = this.props
-    return newslist ? newslist.map(item => <NewsItem key={item.id} {...item} />) : null
+    return newslist.map(item => <NewsItem key={item.id} {...item} />)
   }
 
   render = () => {

@@ -102,7 +102,7 @@ class OrderDetails extends React.Component {
 
   cartList = () => {
     const { cart } = this.props
-    return cart ? cart.map((item, index) =>
+    return cart.map((item, index) =>
       <div key={index}>
         {
           item.images ? <img src={process.env.REACT_APP_BACK_ROOT + item.images.preview} alt="pic" /> : null
@@ -110,7 +110,7 @@ class OrderDetails extends React.Component {
         <p>{item.title}</p>
         <p>{item.cost}</p>
       </div>
-    ) : null
+    )
   }
 
   render = () => {

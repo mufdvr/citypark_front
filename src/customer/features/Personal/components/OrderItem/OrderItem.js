@@ -13,11 +13,11 @@ class OrderItem extends React.Component {
 
   dishesList = () => {
     const { order } = this.props
-    return order ?
+    return (
       <ol>
         { order.dishes.map(dish => <li key={dish.id}>{dish.title} - {dish.count}</li>) }
       </ol>
-    : null
+    )  
   }
 
   handleClick = () =>

@@ -6,8 +6,8 @@ const initialState = {
   fetching: null,
   payload: {
     user: {},
-    favorites: [],
-    orders: []
+    favorites: false,
+    orders: false
   },
   errors: {}
 }
