@@ -6,6 +6,6 @@ export default combineReducers({
   routing: routerReducer,
   restcafe: RestaurantAndCafe.reducer,
   order: OrderDetails.reducer,
-  personal: Personal.reducer,
-  cart: Cart.reducer
+  cart: Cart.reducer,
+  ...Personal.reducers,
 })

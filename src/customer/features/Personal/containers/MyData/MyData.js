@@ -108,7 +108,7 @@ class MyData extends React.Component {
             <SpinButton spin={fetching === types.USER_UPDATE} onClick={this.handleSubmit} className="z_btn">
               Сохранить
             </SpinButton>
-          </div>  
+          </div>
         </div>
       </div>
     )
@@ -116,8 +116,8 @@ class MyData extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.personal.payload.user,
-  fetching: state.personal.fetching
+  user: state.user.payload,
+  fetching: state.user.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

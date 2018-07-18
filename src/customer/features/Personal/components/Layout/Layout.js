@@ -33,9 +33,9 @@ class Layout extends React.Component {
 }
 
   const mapStateToProps = state => ({
-    user: state.personal.payload.user,
-    errors: state.personal.errors,
-    fetching: state.personal.fetching
+    user: state.user.payload,
+    errors: state.user.errors,
+    fetching: state.user.fetching
   })
 
   const mapDispatchToProps = dispatch => bindActionCreators ({

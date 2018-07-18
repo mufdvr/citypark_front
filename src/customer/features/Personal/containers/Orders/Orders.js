@@ -32,8 +32,8 @@ class Orders extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  fetching: state.personal.fetching,
-  orders: state.personal.payload.orders
+  fetching: state.orders.fetching,
+  orders: state.orders.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

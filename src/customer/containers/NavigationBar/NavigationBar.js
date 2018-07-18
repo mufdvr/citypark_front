@@ -141,7 +141,7 @@ class NavigationBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.personal.payload.user
+  user: state.user.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

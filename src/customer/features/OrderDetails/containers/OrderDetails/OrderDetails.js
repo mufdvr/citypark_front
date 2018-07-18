@@ -299,7 +299,7 @@ class OrderDetails extends React.Component {
 
 const mapStateToProps = state => ({
   cart: state.cart.payload,
-  user: state.personal.payload.user,
+  user: state.user.payload,
   order: state.order.payload.order
 })
 

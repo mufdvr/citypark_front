@@ -21,7 +21,7 @@ class Favorites extends React.Component {
      favorites.length ? favorites.map(dish =>
       <Dish key={dish.id} {...dish} fav />
      ) : <div>Здесь пока ничего нет.</div>
-    : null 
+    : null
   }
 
   render = () => {
@@ -42,8 +42,8 @@ class Favorites extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  fetching: state.personal.fetching,
-  favorites: state.personal.payload.favorites
+  fetching: state.favorites.fetching,
+  favorites: state.favorite.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators ({

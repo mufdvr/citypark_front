@@ -29,7 +29,7 @@ class MainLayout extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  fetching_user: state.personal.fetching,
+  fetching_user: state.user.fetching,
   fetching_restcafe: state.restcafe.fetching
 })
 

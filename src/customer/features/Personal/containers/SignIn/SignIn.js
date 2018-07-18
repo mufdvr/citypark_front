@@ -76,8 +76,8 @@ class SignIn extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  errors: state.personal.errors,
-  fetching: state.personal.fetching
+  errors: state.user.errors,
+  fetching: state.user.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

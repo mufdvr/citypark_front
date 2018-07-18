@@ -1,8 +1,14 @@
 import { pushInPayload } from 'utils'
-import { getStatus, getAction, statuses } from 'feedback'
+import feedback, { getStatus, getAction, statuses } from 'feedback'
 import * as types from '../actionTypes'
 
-export default (state, action) => {
+const initialState = {
+  fetching: null,
+  payload: false,
+  errors: {}
+}
+
+const favoritesReducer = (state, action) => {
   if (getStatus(action.type) === statuses.SUCCESS)
     switch (getAction(action.type)) {
       case types.FAVORITES_DESTROY:
@@ -17,3 +23,14 @@ export default (state, action) => {
         return false
     }
 }
+
+export default (state = initialState, action) =>
+  favoritesReducer(state, action) ||
+  feedback.reducer(
+    state,
+    action,
+    [
+      types.FAVORITES_INDEX,
+      types.FAVORITES_DESTROY,
+    ]
+  )
