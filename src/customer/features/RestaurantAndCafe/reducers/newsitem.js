@@ -3,9 +3,9 @@ import * as types from '../actionTypes'
 
 const initialState = {
   fetching: null,
-  payload: [],
+  payload: null,
   errors: {}
 }
 
 export default (state = initialState, action) =>
-  feedback.reducer(state, action, [types.NEWS_INDEX])
+  feedback.reducer(state, action, [types.NEWS_SHOW])

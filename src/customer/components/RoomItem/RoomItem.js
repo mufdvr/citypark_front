@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const RoomItem = ({ imageUrl, cost, link, title, description, displayType}) =>
+const RoomItem = ({ imageUrl, cost, link, description, displayType}) =>
   <div className={`room room_${displayType}`}>
     {
       displayType === "home" &&
@@ -14,7 +15,7 @@ const RoomItem = ({ imageUrl, cost, link, title, description, displayType}) =>
     }
     <div className={`r_body_${displayType}`}>
       <div className={`r_title r_title_${displayType}`}>
-        <a href={link}>{title}</a>
+        <Link to={link.url}>{link.title}</Link>
       </div>
       {
         displayType === "home" && <div className="r_ttx">{description}</div>
@@ -28,10 +29,12 @@ const RoomItem = ({ imageUrl, cost, link, title, description, displayType}) =>
 RoomItem.propTypes = {
   imageUrl: PropTypes.string,
   cost: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  displayType: PropTypes.string.isRequired
+  displayType: PropTypes.string.isRequired,
+  link: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+  })
 }
 
 export default RoomItem

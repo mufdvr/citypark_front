@@ -28,9 +28,9 @@ const NewsItem = ({ id, image, title, created_at, displayType }) =>
   </div>
 
 NewsItem.propTypes = {
-  created_at: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  created_at: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
   displayType: PropTypes.string.isRequired
 }
 

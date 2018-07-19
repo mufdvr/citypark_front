@@ -1,3 +1,4 @@
+import { toPayload } from 'utils'
 import feedback from 'feedback'
 import * as types from './actionTypes'
 
@@ -11,10 +12,7 @@ const orderReducer = (state, action) => {
   switch (action.type) {
     case types.LOAD_ORDER_FROM_LOCALSTORAGE:
       const order = JSON.parse(localStorage.getItem("order"))
-      return order ? {
-        ...state,
-        payload: order
-      } : state
+      return order ? toPayload(state, order) : state
     default: return false
   }
 }

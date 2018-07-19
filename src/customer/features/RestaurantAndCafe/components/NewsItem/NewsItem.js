@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { NEWS } from '../../links'
 
-const NewsItem = ({ id, title, image, created_at }) =>
+const NewsItem = ({ id, title, image, description, created_at }) =>
   <div className="page_list_wrapper">
     <div className="page_date">{created_at}</div>
     <div className="page_img">
@@ -11,6 +11,7 @@ const NewsItem = ({ id, title, image, created_at }) =>
     </div>
     <div className="description">
       <Link to={NEWS.url + '/' + id} className="dttl">{title}</Link><br/>
+      {description}
     </div>
   </div>
 

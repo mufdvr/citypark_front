@@ -56,12 +56,16 @@ class SideBar extends React.Component {
           <div className="shade">
             <RestaurantContacts displayType={DISPLAY_TYPE}/>
             <Delivery displayType={DISPLAY_TYPE}/>
-            <News displayType={DISPLAY_TYPE}>
-              <NewsItem
-                displayType={DISPLAY_TYPE}
-                {...news[0]}
-              />
-            </News>
+            {
+              news.length && news[0].title < 42 ?
+                <News displayType={DISPLAY_TYPE}>
+                  <NewsItem
+                    displayType={DISPLAY_TYPE}
+                    {...news[0]}
+                  />
+                </News>
+              : null
+            }
             <RoomsCatalog displayType={DISPLAY_TYPE} />
             <HotelContacts displayType={DISPLAY_TYPE}/>
           </div>

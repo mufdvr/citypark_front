@@ -1,3 +1,9 @@
+export const toPayload = (state, payload) => ({
+  ...state,
+  fetching: null,
+  payload
+})
+
 export const filterCart = cart =>
   cart && cart.map(item => ({
     dish_id: item.id,

@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case types.CART_ADD_ITEMS:
+    case types.CART_ADD_ITEMS: {
       let result = state.payload
       action.payload.forEach(item => {
         item.count = item.count || 1
@@ -25,6 +25,7 @@ export default (state = initialState, action) => {
         ...state,
         payload: result
       }
+    }
 
     case types.CART_CHANGE_ITEM_COUNT:
       return {
@@ -40,12 +41,13 @@ export default (state = initialState, action) => {
         payload: state.payload.filter(item => item.id !== action.id)
       }
 
-    case types.LOAD_CART_FROM_LOCALSTORAGE:
+    case types.LOAD_CART_FROM_LOCALSTORAGE: {
       const cart = JSON.parse(localStorage.getItem("cart"))
       return cart ? {
         ...state,
         payload: cart
       } : state
+    }  
 
     case types.CLEAR_CART:
       return { ...state, payload: []}
