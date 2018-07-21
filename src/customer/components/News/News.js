@@ -12,7 +12,7 @@ const News = ({ children, displayType }) =>
       </Link>
     </div>
     { children }
-    <div className="new_end" />
+    {/*<div className="new_end" />*/}
   </div>
 
 News.propTypes = {

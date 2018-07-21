@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import RestaurantAndCafe from 'features/RestaurantAndCafe'
 
-const NewsItem = ({ id, image, title, created_at, displayType }) =>
+const NewsItem = ({ id, image, title, description, created_at, displayType }) =>
   <div className="new">
     <div className={`n_foto n_foto_${displayType}`}>
       <img
@@ -22,8 +22,7 @@ const NewsItem = ({ id, image, title, created_at, displayType }) =>
           {title}
         </Link>
       </div>
-      <div className="n_ttx">
-      </div>
+      <div className="n_ttx">{description}</div>
     </div>
   </div>
 

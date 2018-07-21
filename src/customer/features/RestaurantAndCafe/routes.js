@@ -36,7 +36,7 @@ const routes = [
       {
         path: links.CHEF_BLOG.url,
         exact: true,
-        component: components.ChefBlog
+        component: containers.ChefBlog
       }
     ]
   }
