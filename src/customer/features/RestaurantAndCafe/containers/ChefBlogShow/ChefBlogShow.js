@@ -10,6 +10,7 @@ class ChefBlogShow extends React.Component {
 
   componentDidMount = () => {
     const { fetching, showBlogs, match: { params } } = this.props
+    console.log(params.id);
     !fetching && showBlogs(params.id)
   }
 
@@ -17,6 +18,8 @@ class ChefBlogShow extends React.Component {
     const { body } = this.props.blogsitem
     if (target && body) target.innerHTML = body
   }
+
+
 
   render = () => {
     if (!this.props.blogsitem) return <div />
@@ -36,12 +39,16 @@ class ChefBlogShow extends React.Component {
           </div>
           <h1>{title}</h1>
           <div ref={this.xss} />
-          <PhotoGallery items={
-            gallery.map(item => ({
-              image: REACT_APP_BACK_ROOT + item.image,
-              thumb: REACT_APP_BACK_ROOT + item.thumb
-            }))
-          } />
+          {
+            gallery ?
+              <PhotoGallery items={
+                gallery.map(item => ({
+                  image: REACT_APP_BACK_ROOT + item.image,
+                  thumb: REACT_APP_BACK_ROOT + item.thumb
+                }))
+              } />
+            : null
+          }
       </div>
     )
   }
