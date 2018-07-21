@@ -23,8 +23,8 @@ class Menu extends React.Component {
   }
 
   componentDidMount = () => {
-    const { fetching, getCategories } = this.props
-    !fetching && getCategories()
+    const { fetching, getCategories, loaded } = this.props
+    !fetching && !loaded && getCategories()
   }
 
   render = () => {
@@ -53,13 +53,19 @@ class Menu extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  fetching: state.categories.fetching,
-  categories: state.categories.payload
-})
+const mapStateToProps = state => {
+  const { fetching, payload } = state.categories
+  return {
+    fetching,
+    categories: payload,
+    loaded: !!payload.length
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.menu
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(Menu)
+export default WrappedComponent

@@ -76,4 +76,6 @@ const mapStateToProps = state => ({
   news: state.news.payload
 })
 
-export default connect(mapStateToProps)(SideBar)
+const ReduxWrapper = connect(mapStateToProps)
+const WrappedComponent = ReduxWrapper(SideBar)
+export default WrappedComponent

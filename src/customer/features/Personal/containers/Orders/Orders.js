@@ -11,8 +11,8 @@ import { Cart } from 'features'
 class Orders extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, getOrders } = this.props
-    !fetching && getOrders()
+    const { fetching, getOrders, loaded } = this.props
+    !fetching && !loaded && getOrders()
   }
 
   ordersList = () => {
@@ -31,10 +31,14 @@ class Orders extends React.Component {
     </div>
 }
 
-const mapStateToProps = state => ({
-  fetching: state.orders.fetching,
-  orders: state.orders.payload
-})
+const mapStateToProps = state => {
+  const { fetching, payload } = state.orders
+  return {
+    fetching,
+    orders: payload,
+    loaded: !!payload.length
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   addItems: Cart.actions.addItems,

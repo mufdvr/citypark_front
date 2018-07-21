@@ -264,7 +264,7 @@ class OrderDetails extends React.Component {
              {
                freeDelivery ? <div>&nbsp;</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
              }
-             <span style={{fontSize: "1.5em"}}>Итого: </span>
+             <span style={{fontSize: "1.5em"}}>К оплате: </span>
              <span className="bsm">
                <span className="bsm_n">{totalCost}</span><span style={{fontSize: "30px"}}>₽</span>
              </span>
@@ -307,4 +307,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   ...Cart.actions
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(OrderDetails))
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(withRouter(OrderDetails))
+export default WrappedComponent

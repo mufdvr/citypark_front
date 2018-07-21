@@ -11,8 +11,8 @@ import * as links from '../../links'
 class Favorites extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, getFavorites } = this.props
-    !fetching && getFavorites()
+    const { fetching, getFavorites, loaded } = this.props
+    !fetching && !loaded && getFavorites()
   }
 
   dishesList = () => {
@@ -41,13 +41,19 @@ class Favorites extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  fetching: state.favorites.fetching,
-  favorites: state.favorites.payload
-})
+const mapStateToProps = state => {
+  const { fetching, payload } = state.favorites
+  return {
+    fetching,
+    favorites: payload,
+    loaded: !!payload.length
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators ({
   ...actions.favorites,
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(Favorites)
+export default WrappedComponent

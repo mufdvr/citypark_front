@@ -10,6 +10,7 @@ export default (state = initialState, action) => {
     case types.CART_ADD_ITEMS: {
       let result = state.payload
       action.payload.forEach(item => {
+        //debugger
         item.count = item.count || 1
         let found = false
         for (let i = 0; i < state.payload.length; i++) {
@@ -19,7 +20,7 @@ export default (state = initialState, action) => {
             break
           } else if (i === state.payload.length - 1) found = false
         }
-        result = found ? [ ...result, ...state.payload ] : [ ...result, item ]
+        result = found ? [ ...state.payload ] : [ ...result, item ]
       })
       return {
         ...state,
@@ -47,7 +48,7 @@ export default (state = initialState, action) => {
         ...state,
         payload: cart
       } : state
-    }  
+    }
 
     case types.CLEAR_CART:
       return { ...state, payload: []}

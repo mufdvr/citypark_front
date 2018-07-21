@@ -10,8 +10,8 @@ import { REST_MAIN, CHEF_BLOG } from '../../links'
 class ChefBlog extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, blogs, getBlogs } = this.props
-    !fetching && !blogs.length && getBlogs()
+    const { fetching, loaded, getBlogs } = this.props
+    !fetching && !loaded && getBlogs()
   }
 
   list = () => {
@@ -32,13 +32,19 @@ class ChefBlog extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  blogs: state.blogs.payload,
-  fetching: state.blogs.fetching
-})
+const mapStateToProps = state => {
+  const { fetching, payload } = state.blogs
+  return {
+    fetching,
+    blogs: payload,
+    loaded: !!payload.length
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.blogs
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChefBlog)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(ChefBlog)
+export default WrappedComponent

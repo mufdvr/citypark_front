@@ -148,4 +148,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   signOut: Personal.actions.user.signOut
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(NavigationBar)
+export default WrappedComponent

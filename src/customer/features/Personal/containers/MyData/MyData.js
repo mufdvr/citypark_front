@@ -124,4 +124,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   updateUser: actions.user.updateUser
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyData)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(MyData)
+export default WrappedComponent

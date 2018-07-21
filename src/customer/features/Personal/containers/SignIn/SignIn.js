@@ -84,4 +84,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.user
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(SignIn)
+export default WrappedComponent

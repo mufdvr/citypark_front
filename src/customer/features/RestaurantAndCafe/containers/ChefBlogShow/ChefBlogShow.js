@@ -56,4 +56,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.blogs
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChefBlogShow)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(ChefBlogShow)
+export default WrappedComponent

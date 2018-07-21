@@ -106,7 +106,6 @@ class SignUp extends React.Component {
       </section>
     )
   }
-
 }
 
 const mapStateToProps = state => ({
@@ -118,4 +117,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.user
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(SignUp)
+export default WrappedComponent

@@ -63,4 +63,6 @@ const mapStateToProps = state => ({
   news: state.news.payload,
 })
 
-export default connect(mapStateToProps)(Home)
+const ReduxWrapper = connect(mapStateToProps)
+const WrappedComponent = ReduxWrapper(Home)
+export default WrappedComponent

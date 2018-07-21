@@ -10,8 +10,8 @@ import { REST_MAIN, NEWS } from '../../links'
 class News extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, getNews } = this.props
-    !fetching && getNews()
+    const { fetching, loaded, getNews } = this.props
+    !fetching && !loaded && getNews()
   }
 
   newslist = () => {
@@ -34,13 +34,19 @@ class News extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  news: state.news.payload,
-  fetching: state.news.fetching
-})
+const mapStateToProps = state => {
+  const { fetching, payload } = state.news
+  return {
+    fetching,
+    news: payload,
+    loaded: !!payload.length
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.news
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(News)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(News)
+export default WrappedComponent

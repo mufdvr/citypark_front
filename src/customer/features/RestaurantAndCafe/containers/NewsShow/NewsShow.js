@@ -49,4 +49,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.news
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsShow)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(NewsShow)
+export default WrappedComponent

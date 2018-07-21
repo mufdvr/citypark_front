@@ -38,4 +38,6 @@ const mapDispatchToProps = dispath => bindActionCreators({
   getNews: RestaurantAndCafe.actions.news.getNews
 }, dispath)
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout)
+const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(MainLayout)
+export default WrappedComponent
