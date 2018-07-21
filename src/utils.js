@@ -11,8 +11,6 @@ export const filterCart = cart =>
   }))
 
 export const cartTotal = cart => {
-  let total = 0
-  cart && cart.forEach(item => total += item.cost * item.count)
-  total -= Math.floor(total / 100) * 10
-  return total
+  const total = cart.reduce((sum, item) => sum += item.cost * item.count, 0)
+  return total - Math.floor(total / 100) * 10 //скидка
 }

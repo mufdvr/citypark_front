@@ -25,3 +25,6 @@ export const CHEF_BLOG = {
   url: REST_MAIN.url + '/chefblog',
   title: 'Блог шеф-повара'
 }
+export const CHEF_BLOG_SHOW = {
+  url: CHEF_BLOG.url + '/:id'
+}
