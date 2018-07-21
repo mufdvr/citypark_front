@@ -8,24 +8,13 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case types.CART_ADD_ITEMS: {
-      let result = state.payload
-      action.payload.forEach(item => {
-        //debugger
-        item.count = item.count || 1
-        let found = false
-        for (let i = 0; i < state.payload.length; i++) {
-          if (state.payload[i].id === item.id) {
-            state.payload[i].count += item.count
-            found = true
-            break
-          } else if (i === state.payload.length - 1) found = false
-        }
-        result = found ? [ ...state.payload ] : [ ...result, item ]
+      let payload = [...state.payload]
+      action.payload.forEach(actionItem => {
+        actionItem.count = actionItem.count || 1
+        const index = payload.findIndex(payloadItem => payloadItem.id === actionItem.id)
+        index !== -1 ? payload[index].count += actionItem.count : payload.push(actionItem)
       })
-      return {
-        ...state,
-        payload: result
-      }
+      return { ...state, payload }
     }
 
     case types.CART_CHANGE_ITEM_COUNT:

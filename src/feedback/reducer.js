@@ -36,8 +36,4 @@ const defaultReducer = (state = initialState, { type, payload, errors } = {}, ac
   }
   : state
 
-export const mountDefaultReducer = actionType =>
-  (state, action, _actionType = actionType) =>
-    defaultReducer(state, action, _actionType)
-
 export default defaultReducer
