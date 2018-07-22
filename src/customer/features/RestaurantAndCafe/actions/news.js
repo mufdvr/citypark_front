@@ -10,3 +10,8 @@ export const getNews = limit =>
 
 export const showNews = id =>
   feedback.get(api.NEWS + id, types.NEWS_SHOW)
+
+export const selectNews = id => ({
+  id,
+  type: types.NEWS_SELECT + feedback.statuses.SUCCESS
+})

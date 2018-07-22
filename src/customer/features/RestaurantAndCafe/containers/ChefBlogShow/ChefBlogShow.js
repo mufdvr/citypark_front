@@ -9,9 +9,9 @@ import { REST_MAIN, CHEF_BLOG } from '../../links'
 class ChefBlogShow extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, showBlogs, match: { params } } = this.props
-    console.log(params.id);
-    !fetching && showBlogs(params.id)
+    const { fetching, showBlogs, selectBlogs, blogs, match: { params } } = this.props
+    const id = Number(params.id)
+    blogs.length && blogs.find(blog => blog.id === id).body ? selectBlogs(id) : !fetching && showBlogs(id)
   }
 
   xss = target => {   //незабываем фильтровать <script> на бэке
@@ -19,10 +19,8 @@ class ChefBlogShow extends React.Component {
     if (target && body) target.innerHTML = body
   }
 
-
-
   render = () => {
-    if (!this.props.blogsitem) return <div />
+    if (!this.props.blogsitem.body) return <div />
     const { REACT_APP_BACK_ROOT } = process.env
     const { title, created_at, image, gallery } = this.props.blogsitem
     return (
@@ -38,7 +36,7 @@ class ChefBlogShow extends React.Component {
           	<img src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
           </div>
           <h1>{title}</h1>
-          <div ref={this.xss} />
+          <div key={Math.random()} ref={this.xss} />
           {
             gallery ?
               <PhotoGallery items={
@@ -54,10 +52,14 @@ class ChefBlogShow extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  blogsitem: state.blogsitem.payload,
-  fetching: state.blogsitem.fetching
-})
+const mapStateToProps = state => {
+  const { fetching, payload, blogsitem } = state.blogs
+  return {
+    blogs: payload,
+    blogsitem,
+    fetching
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.blogs

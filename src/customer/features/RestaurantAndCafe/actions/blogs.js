@@ -7,3 +7,8 @@ export const getBlogs = () =>
 
 export const showBlogs = id =>
   feedback.get(api.BLOGS + id, types.BLOGS_SHOW)
+
+export const selectBlogs = id => ({
+  id,
+  type: types.BLOGS_SELECT + feedback.statuses.SUCCESS
+})

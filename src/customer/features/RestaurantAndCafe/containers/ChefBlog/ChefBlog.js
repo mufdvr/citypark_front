@@ -33,11 +33,11 @@ class ChefBlog extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { fetching, payload } = state.blogs
+  const { fetching, payload, loaded } = state.blogs
   return {
     fetching,
     blogs: payload,
-    loaded: !!payload.length
+    loaded,
   }
 }
 

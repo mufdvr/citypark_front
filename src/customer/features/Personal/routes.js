@@ -5,7 +5,7 @@ import * as links from './links'
 const routes = [
   {
     path: links.PERSONAL.url,
-    component: components.Layout,
+    component: containers.Layout,
     routes: [
       {
         path: links.PERSONAL.url,

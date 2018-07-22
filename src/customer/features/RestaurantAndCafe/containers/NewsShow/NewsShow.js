@@ -9,8 +9,9 @@ import { REST_MAIN, NEWS } from '../../links'
 class NewsShow extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, showNews, match: { params } } = this.props
-    !fetching && showNews(params.id)
+    const { fetching, showNews, selectNews, news, match: { params } } = this.props
+    const id = Number(params.id)
+    news.length && news.find(news => news.id === id).body ? selectNews(id) : !fetching && showNews(id)
   }
 
   xss = target => {   //незабываем фильтровать <script> на бэке
@@ -19,7 +20,7 @@ class NewsShow extends React.Component {
   }
 
   render = () => {
-    if (!this.props.newsitem) return <div />
+    if (!this.props.newsitem.body) return <div />
     const { title, created_at, image } = this.props.newsitem
     return (
       <div className="light">
@@ -34,16 +35,20 @@ class NewsShow extends React.Component {
           	<img src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
           </div>
           <h1>{title}</h1>
-          <div ref={this.xss} />
+          <div key={Math.random()} ref={this.xss} />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  newsitem: state.newsitem.payload,
-  fetching: state.newsitem.fetching
-})
+const mapStateToProps = state => {
+  const { newsitem, payload, fetching } = state.news
+  return {
+    news: payload,
+    fetching,
+    newsitem
+  }
+}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.news

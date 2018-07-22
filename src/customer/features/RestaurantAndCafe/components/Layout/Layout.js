@@ -3,7 +3,7 @@ import { renderRoutes } from 'react-router-config'
 
 import { REST_MAIN } from '../../links'
 import { Header, Chef } from 'components'
-import { NavigationBar, SideBar } from 'containers'  
+import { NavigationBar, SideBar } from 'containers'
 
 export default ({ route }) =>
   <div style={{lineHeight: "22px"}}>
@@ -19,6 +19,6 @@ export default ({ route }) =>
         { route && renderRoutes(route.routes) }
       </div>
     </div>
-    <Chef />
+    {Chef()}
     <NavigationBar />
   </div>
