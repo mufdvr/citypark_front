@@ -25,7 +25,7 @@ class TabSheet extends React.Component {
   render = () => {
     return (
       <div className="light">
-        <Breadcrumbs links={[ links.PERSONAL ]} />
+        { Breadcrumbs({links:  [ links.PERSONAL ]}) }
         <div id="tab-sheet">
           <input id={SIGN_IN_TAB} type="radio" onChange={this.handleSelect} checked={this.state.selected === SIGN_IN_TAB} />
           <label htmlFor={SIGN_IN_TAB}>Вход</label>

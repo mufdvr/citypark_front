@@ -1,4 +1,4 @@
 import Layout from './Layout'
-import Main from './Main'
+import Contacts from './Contacts'
 
-export { Layout, Main }
+export { Layout, Contacts }

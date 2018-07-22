@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import { DELIVERY_PHOTO } from './background'
+import { RestaurantAndCafe } from 'features'
 
 const Delivery = ({ displayType }) =>
-  <a href="rest/menu/">
+  <Link to={RestaurantAndCafe.links.MENU.url}>
     <div className={`deliver_block deliver_block_${displayType}`}>
       <img
         alt="pic"
@@ -15,7 +17,7 @@ const Delivery = ({ displayType }) =>
         Доставка еды
       </div>
     </div>
-  </a>
+  </Link>
 
 Delivery.propTypes = {
   displayType: PropTypes.string.isRequired

@@ -26,7 +26,7 @@ class Orders extends React.Component {
   render = () =>
     <div className="light">
       <Cart.containers.Cart />
-      <Breadcrumbs links={[ links.PERSONAL, links.ORDERS ]} />
+      { Breadcrumbs({links:  [ links.PERSONAL, links.ORDERS ]}) }
       { this.ordersList() }
     </div>
 }

@@ -4,9 +4,9 @@ import * as images from './images'
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import { RESTAURANT, REST_MAIN } from '../../links'
 
-export default (props) =>
+export default () =>
   <div className="light">
-    <Breadcrumbs links={[ REST_MAIN, RESTAURANT ]} />
+    { Breadcrumbs({links:  [ REST_MAIN, RESTAURANT ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"
@@ -83,8 +83,7 @@ export default (props) =>
       </span>
     </p>
     <h4>
-      Забронировать столик или заказать доставку еды в Белореченске можно по телефону: +7-918-311-97-91 или на сайте РГК City Park
-      <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a> в разделе "Меню".
+      Забронировать столик или заказать доставку еды в Белореченске можно по телефону: +7-918-311-97-91 или на сайте РГК City Park <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a> в разделе "Меню".
     </h4>
     <PhotoGallery
       items={[

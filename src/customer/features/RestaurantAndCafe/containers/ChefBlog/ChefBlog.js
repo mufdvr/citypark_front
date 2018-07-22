@@ -22,7 +22,7 @@ class ChefBlog extends React.Component {
   render = () => {
     return (
       <div className="light">
-        <Breadcrumbs links={[ REST_MAIN, CHEF_BLOG ]} />
+        { Breadcrumbs({links:  [ REST_MAIN, CHEF_BLOG ]}) }
         <h3>&nbsp;В блоге нашего шеф-повара Дениса Троицкого вы найдете лучшие рецепты блюд ресторана City Park, а также удивительные кулинарные секреты.<br/>
         &nbsp;Следите за обновлениями!</h3>
         <p>&nbsp;</p>

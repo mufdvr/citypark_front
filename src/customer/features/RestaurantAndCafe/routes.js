@@ -10,7 +10,7 @@ const routes = [
       {
         path: links.REST_MAIN.url,
         exact: true,
-        component: components.Main
+        component: components.RestaurantAndCafe
       },
       {
         path: links.RESTAURANT.url,

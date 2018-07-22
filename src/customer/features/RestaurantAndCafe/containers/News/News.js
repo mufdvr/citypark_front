@@ -22,7 +22,7 @@ class News extends React.Component {
   render = () => {
     return (
       <div className="light">
-        <Breadcrumbs links={[ REST_MAIN, NEWS ]} />
+        { Breadcrumbs({links:  [ REST_MAIN, NEWS ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"
           title="РГК «City Park» - Летнее кафе"

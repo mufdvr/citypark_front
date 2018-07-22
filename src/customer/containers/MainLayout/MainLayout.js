@@ -21,8 +21,8 @@ class MainLayout extends React.Component {
       <div className="body">
         <div className="p1" />
         <div className="p2" />
-        {route && renderRoutes(route.routes)}
-        <Footer />
+        { route && renderRoutes(route.routes) }
+        { Footer() }
       </div>
     )
   }

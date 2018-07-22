@@ -9,7 +9,7 @@ const routes = [
       {
         path: links.HOTEL_MAIN.url,
         exact: true,
-        component: components.Main
+        component: components.Hotel
       },
       {
         path: links.CATALOG.url,

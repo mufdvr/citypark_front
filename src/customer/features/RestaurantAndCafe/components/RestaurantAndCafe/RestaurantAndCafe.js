@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import * as images from './images'
 import { SocShare, Breadcrumbs } from 'components'
-import { REST_MAIN } from '../../links'
+import { REST_MAIN, RESTAURANT, CAFE } from '../../links'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs links={[ REST_MAIN ]} />
+    { Breadcrumbs({links:  [ REST_MAIN ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"
       title="РГК «City Park» - Ресторан и летнее кафе"
@@ -19,14 +20,14 @@ export default () =>
         lineHeight: "1.5em",
         fontWeight: "normal"
       }}>Комфортный зал </span>
-      <a style={{
+      <Link style={{
         fontSize: "1.17em",
         lineHeight: "1.5em",
         fontWeight: "normal"
       }}
-        href="rest/restaurant.html">
+        to={RESTAURANT.url}>
         ресторана
-      </a>
+      </Link>
       <span style={{
         fontSize: "1.17em",
         lineHeight: "1.5em",
@@ -65,7 +66,7 @@ export default () =>
       Настоящая джазовая и классическая музыка, chill-out и танцевальные направления.
     </p>
     <h3 className="justifyleft">
-      Уютное <a href="rest/kafe.html">летнее кафе</a>
+      Уютное <Link to={CAFE.url}>летнее кафе</Link>
       , где вы всегда&nbsp;можете укрыться от городского зноя в&nbsp;прохладной тени или уединиться в застекленной охлаждаемой террасе.
     </h3>
     <p className="justifyleft">

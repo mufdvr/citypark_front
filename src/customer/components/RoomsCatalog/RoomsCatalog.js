@@ -13,27 +13,27 @@ const RoomsCatalog = ({ displayType }) => {
       <div className={`news_title news_title_${displayType}`}>
         <Link to={CATALOG.url}>{CATALOG.title}</Link>
       </div>
-      <RoomItem
-        displayType={displayType}
-        imageUrl={images.photo1}
-        cost="2500-3000"
-        link={SINGLE_ROOM}
-        description="Одноместные номера с двуспальной кроватью."
-      />
-      <RoomItem
-        displayType={displayType}
-        imageUrl={images.photo2}
-        cost="3000"
-        link={DOUBLE_ROOM}
-        description={"Двухместные номера с двумя односпальными кроватями или с двуспальной кроватью \"Евро\""}
-      />
-      <RoomItem
-        displayType={displayType}
-        imageUrl={images.photo3}
-        cost="5000"
-        link={VIP_ROOM}
-        description="Двухкомнатный номер (гостиная + спальня) с балконом."
-      />
+      { RoomItem({
+        displayType,
+        imageUrl: images.photo1,
+        cost: "2500-3000",
+        link: SINGLE_ROOM,
+        description: "Одноместные номера с двуспальной кроватью."
+      })}
+      { RoomItem({
+        displayType,
+        imageUrl: images.photo2,
+        cost: "3000",
+        link: DOUBLE_ROOM,
+        description: "Двухместные номера с двумя односпальными кроватями или с двуспальной кроватью \"Евро\""
+      })}
+      { RoomItem({
+        displayType,
+        imageUrl: images.photo3,
+        cost: "5000",
+        link: VIP_ROOM,
+        description: "Двухкомнатный номер (гостиная + спальня) с балконом."
+      })}
     </div>
   )
 }

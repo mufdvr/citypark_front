@@ -6,7 +6,7 @@ import { CONTACTS } from '../../links'
 
 export default () =>
 	<div className="light">
-		<Breadcrumbs links={[ CONTACTS ]} />
+		{ Breadcrumbs({links:  [ CONTACTS ]}) }
 		<SocShare
 			link="http://cityparkvip.ru/rest/"
 			title="РГК «City Park» - Ресторан и летнее кафе"

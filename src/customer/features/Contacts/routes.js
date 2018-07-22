@@ -8,7 +8,7 @@ const routes = [
     routes: [
       {
         path: links.CONTACTS.url,
-        component: components.Main
+        component: components.Contacts
       }
     ]
   }

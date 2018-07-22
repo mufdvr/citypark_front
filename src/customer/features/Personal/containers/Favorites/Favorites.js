@@ -27,7 +27,7 @@ class Favorites extends React.Component {
   render = () => {
     return (
       <div className="light">
-        <Breadcrumbs links={[ links.PERSONAL, links.FAVORITES ]} />
+        { Breadcrumbs({links:  [ links.PERSONAL, links.FAVORITES ]}) }
         <Cart />
         <div className="cat_wrapper" style={{top: 0}}>
           <div className="vrprig"><br/></div>

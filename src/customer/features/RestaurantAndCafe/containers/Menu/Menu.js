@@ -31,7 +31,7 @@ class Menu extends React.Component {
     return (
       <div className="light restaraunt-menu">
         <Cart />
-        <Breadcrumbs links={[ REST_MAIN, MENU ]} />
+        { Breadcrumbs({links:  [ REST_MAIN, MENU ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"
           title="РГК «City Park» - Летнее кафе"

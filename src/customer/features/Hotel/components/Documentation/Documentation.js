@@ -6,7 +6,7 @@ import * as images from './images'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs links={[ HOTEL_MAIN, DOCUMENTATION ]} />
+    { Breadcrumbs({links:  [ HOTEL_MAIN, DOCUMENTATION ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"
       title="РГК «City Park» - Ресторан и летнее кафе"

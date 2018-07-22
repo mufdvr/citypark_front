@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import * as images from './images'
-import { REST_MAIN, CAFE } from '../../links'
+import { REST_MAIN, CAFE, MENU } from '../../links'
 
 export default () =>
   <div className="light">
-    <Breadcrumbs links={[ REST_MAIN, CAFE ]} />
+    { Breadcrumbs({links:  [ REST_MAIN, CAFE ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"
@@ -65,7 +66,7 @@ export default () =>
       </strong>
     </p>
     <h3 className="justifyleft">
-      Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="http://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <a href="rest/menu/">"Меню"</a>
+      Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="http://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <Link to={MENU.url}>"Меню"</Link>
     </h3>
     <PhotoGallery
       items={[

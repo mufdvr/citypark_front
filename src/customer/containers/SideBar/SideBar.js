@@ -34,7 +34,7 @@ class SideBar extends React.Component {
                       borderTop: "1px solid #ffe5d0"
                     }}
                   >
-                  {CAFE.title}
+                    {CAFE.title}
                   </Link>
                   <Link to={HOTEL_MAIN.url} style={{borderTop: "1px solid #ffe5d0"}}>
                     {HOTEL_MAIN.title}
@@ -54,16 +54,13 @@ class SideBar extends React.Component {
 
         <div className="partbody">
           <div className="shade">
-            <RestaurantContacts displayType={DISPLAY_TYPE}/>
-            <Delivery displayType={DISPLAY_TYPE}/>
+            { RestaurantContacts({ displayType: DISPLAY_TYPE }) }
+            { Delivery({ displayType: DISPLAY_TYPE }) }
               <News displayType={DISPLAY_TYPE}>
-                <NewsItem
-                  displayType={DISPLAY_TYPE}
-                  {...news[0]}
-                />
+                { NewsItem({ displayType: DISPLAY_TYPE, ...news[0] }) }
               </News>
-            <RoomsCatalog displayType={DISPLAY_TYPE} />
-            <HotelContacts displayType={DISPLAY_TYPE}/>
+            { RoomsCatalog({ displayType: DISPLAY_TYPE }) }
+            { HotelContacts({ displayType: DISPLAY_TYPE }) }
           </div>
         </div>
 

@@ -19,7 +19,10 @@ const PhotoGallery = ({ items }) =>
   </div>
 
 PhotoGallery.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(PropTypes.shape({
+    thumb: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  }))
 }
 
 export default PhotoGallery

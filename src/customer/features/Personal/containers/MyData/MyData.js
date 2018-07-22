@@ -48,7 +48,7 @@ class MyData extends React.Component {
     const { fetching } = this.props
     return (
       <div className="light">
-        <Breadcrumbs links={[ links.PERSONAL ]} />
+        { Breadcrumbs({links:  [ links.PERSONAL ]}) }
         <div id="my-data" className="form-layout">
           <div className="field">
             <label>Имя</label>

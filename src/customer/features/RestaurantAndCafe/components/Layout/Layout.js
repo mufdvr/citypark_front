@@ -10,11 +10,11 @@ export default ({ route }) =>
     <div className="fold fold_side" />
     <SideBar />
     <div className="content">
-      <Header
-        side="left"
-        title={REST_MAIN.title}
-        link={REST_MAIN.url}
-      />
+      { Header({
+        side: "left",
+        title: REST_MAIN.title,
+        link: REST_MAIN.url
+      })}
       <div className="partbody">
         { route && renderRoutes(route.routes) }
       </div>

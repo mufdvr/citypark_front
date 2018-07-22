@@ -19,7 +19,10 @@ const Breadcrumbs = ({ links }) =>
   </div>
 
 Breadcrumbs.propTypes = {
-  links: PropTypes.array.isRequired
+  links: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+  }))
 }
 
 export default Breadcrumbs
