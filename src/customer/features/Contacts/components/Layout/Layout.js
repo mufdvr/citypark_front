@@ -8,7 +8,7 @@ import { NavigationBar, SideBar } from 'containers'
 export default ({ route }) =>
   <div style={{lineHeight: "22px"}}>
     <div className="fold fold_side" />
-    <SideBar />
+    <SideBar showRestaurantContacts={false} showHotelContacts={false} />
     <div className="content">
       { Header({
         side: "left",

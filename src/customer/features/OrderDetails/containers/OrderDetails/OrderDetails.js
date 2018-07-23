@@ -68,10 +68,9 @@ class OrderDetails extends React.Component {
   }
 
   componentDidMount = () => {
-    //loadOrderFromLocalstorage
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage } = this.props
-    !cart && loadCartFromLocalstorage()
+    const { cart, loadCartFromLocalstorage, loadOrderFromLocalstorage } = this.props
+    !cart && loadCartFromLocalstorage() && loadOrderFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -96,20 +95,10 @@ class OrderDetails extends React.Component {
   componentDidUpdate = () => {
     const { id } = this.state
     //localStorage.setItem("order", JSON.stringify(order))
-    id && MonetaForm.send()
-  }
-
-  cartList = () => {
-    const { cart } = this.props
-    return cart.map((item, index) =>
-      <div key={index}>
-        {
-          item.images ? <img src={process.env.REACT_APP_BACK_ROOT + item.images.preview} alt="pic" /> : null
-        }
-        <p>{item.title}</p>
-        <p>{item.cost}</p>
-      </div>
-    )
+    if (id) {
+      localStorage.clear()
+      MonetaForm.send()
+    }
   }
 
   render = () => {

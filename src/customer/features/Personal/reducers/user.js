@@ -3,7 +3,12 @@ import * as types from '../actionTypes'
 
 const initialState = {
   fetching: null,
-  payload: {},
+  payload: {
+    id: 0,
+    name: '',
+    role: 0,
+    email: ''
+  },
   errors: {}
 }
 
