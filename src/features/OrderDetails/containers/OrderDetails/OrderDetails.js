@@ -21,7 +21,6 @@ import * as constants from '../../constants'
 import { RestaurantAndCafe, Cart } from 'features'
 import { MonetaForm } from '../../components'
 
-
 class OrderDetails extends React.Component {
 
   constructor(props) {
