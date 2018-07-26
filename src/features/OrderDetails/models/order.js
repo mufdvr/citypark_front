@@ -4,19 +4,19 @@ const order = {
   delivery_times: null,
   name: '',
   phone: '+7',
-  city: '',
+  city: 'Белореченск',
   street: '',
   house: '',
   apartment: '',
   comment: '',
   hull: '',
   entrance: '',
+  delivery: true,
   dishes_orders_attributes: [],
 }
 
-export const validOrder = order => {
+export const validOrder = (order, attribs) => {
   let result = []
-  const attribs = ['name', 'city', 'street', 'house']
   attribs.forEach(attr => order[attr] === '' && result.push(attr))
   !(order.phone && isValidNumber(order.phone, 'RU')) && result.push('phone')
   return result
