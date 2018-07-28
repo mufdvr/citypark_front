@@ -7,12 +7,7 @@ import { OrderDetails } from 'features'
 import { cartTotal } from 'utils'
 import { CartItem } from '../../components'
 import * as actions from '../../actions'
-
-const CART_STATES = [
-  {left: '-500px'},
-  {left: '-352px'},
-  {left: '10px'}
-]
+import { CART_STATES } from './constants'
 
 class Cart extends React.Component {
   constructor(props) {
@@ -20,12 +15,14 @@ class Cart extends React.Component {
     this.state = {
       cartState: props.cart && props.cart.length ? 1 : 0
     }
+    this.isMobileView = window.innerWidth < 1100
   }
 
   handleClick = () =>
-    this.setState({
-      cartState: this.state.cartState ^ 0b11
-    })
+    this.setState(prev => ({
+      ...prev,
+      cartState: prev.cartState ^ 0b11
+    }))
 
   listItems = () => {
     const { cart, changeCount, deleteItem } = this.props

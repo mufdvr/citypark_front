@@ -77,12 +77,14 @@ div.leafs {
 }
 
 #submit {
+  display: flex;
+  justify-content: flex-end;
   background: rgba(69, 49, 43, 0.6);
   border-top: 1px solid #45312b;
   padding: 1.5rem;
 }
 
-#submit div:nth-child(2) {
+#submit div:nth-child(1) {
   margin-right: 1rem;
 }
 
@@ -107,3 +109,14 @@ textarea {
 .bl_cena>div {
   margin-bottom: 0.8rem;
 }
+
+@media screen and (max-width: 400px) {
+  #order {
+    width: auto;
+    margin-bottom: 50px;
+  }
+
+  #total {
+    flex-direction: column;
+  }
+}  

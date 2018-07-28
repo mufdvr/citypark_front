@@ -95,11 +95,11 @@ ul.mmenu li a {
   border-right: 1px solid rgba(0, 0, 0, 0);
 }
 
-ul.mmenu li a:hover {
-  /*background:#45312b;
+/*ul.mmenu li a:hover {
+  background:#45312b;
 		border-left:1px solid #f0d8be;
-		border-right:1px solid #f0d8be;*/
-}
+		border-right:1px solid #f0d8be;
+}*/
 
 ul.sub {
   display: block;
@@ -187,6 +187,8 @@ ul.sub li a:hover {
     display: block;
   }
   ul.mmenu {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     text-align: left;
     height: auto;
@@ -202,7 +204,7 @@ ul.sub li a:hover {
     height: auto;
     overflow: hidden;
   }
-  ul.mmenu li:hover {}
+  /*ul.mmenu li:hover {}*/
   ul.sub {
     display: block;
     position: relative;

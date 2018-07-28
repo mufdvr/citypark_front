@@ -1,7 +1,5 @@
-.fold_pr {
+.fold_cut {
+  width: 568px;
+  background-position-x: -568px;
   right: -193px;
-  background-position: center center;
-  width: 200px;
-  height: 200px;
-  background-size: cover;
 }

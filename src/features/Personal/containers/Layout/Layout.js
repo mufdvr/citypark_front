@@ -16,7 +16,7 @@ class Layout extends React.Component {
     const { route, user, fetching } = this.props
     return (
       <div style={{lineHeight: "22px"}}>
-      <div className="fold fold_pr" />
+      <div className="fold fold_cut" />
       <SideBar />
       <div className="content">
         <div className="partbody" style={{paddingTop: "70px"}}>

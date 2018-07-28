@@ -45,7 +45,7 @@ class DeliveryAddress extends Component {
           obtainingMethods.value === 1 ?
             <div>
               <div className="group">
-                <div className="field required" style={{ flexBasis: "42%" }}>
+                <div className="field required" style={{ flexBasis: "70%" }}>
                   <label>Населенный пункт</label>
                   <Select
                     clearable={false}

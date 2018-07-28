@@ -7,6 +7,7 @@ import RestaurantAndCafe from 'features/RestaurantAndCafe'
 import Hotel from 'features/Hotel'
 import Contacts from 'features/Contacts'
 import Personal from 'features/Personal'
+import { buttonStyles } from './constants'
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -16,9 +17,17 @@ class NavigationBar extends React.Component {
         false,
         false,
         false
-      ]
+      ],
+      visible: false
     }
+    this.isMobileView = window.innerWidth < 1100
   }
+
+  handleTotgleVisible = () => 
+    this.setState(prev => ({
+      ...prev,
+      visible: !prev.visible,
+    }))
 
   handleHover = (id) => {
     const { subMenuVisible } = this.state
@@ -41,12 +50,13 @@ class NavigationBar extends React.Component {
     const { CONTACTS } = Contacts.links
     const { PERSONAL, FAVORITES, ORDERS } = Personal.links
     const { user, signOut } = this.props
+    const { visible } = this.state
     return (
       <div className="mainmenu">
         <div className="menubody">
         	<div className="l_grad"></div>
           <div className="r_grad"></div>
-          <ul className="mmenu">
+          <ul className="mmenu" style={ this.isMobileView ? {left: visible ? 0 : "-300px"} : {}}>
             <li>
               <Link to="/" className="first active">Главная</Link>
             </li>
@@ -128,10 +138,10 @@ class NavigationBar extends React.Component {
                 : null
               }
             </li>
-    		    <div id="menu-btn">
-    			    <div id="mn1"></div>
+    		    <div id="menu-btn" onClick={this.handleTotgleVisible}>
+    			    <div id="mn1" style={ visible ? buttonStyles[2] : buttonStyles[0] }></div>
     			    <div id="mn2"></div>
-    			    <div id="mn3"></div>
+    			    <div id="mn3" style={ visible ? buttonStyles[3] : buttonStyles[1] }></div>
     		    </div>
           </ul>
         </div>

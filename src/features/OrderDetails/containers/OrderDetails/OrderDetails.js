@@ -117,10 +117,13 @@ class OrderDetails extends React.Component {
             </div>
           </div>
           <div id="submit">
-            <div onClick={this.handleSubmit} className="z_btn order-btn">Отправить<i style={{ color: "green" }} className="material-icons">done</i></div>
             <div onClick={clearCart} className="z_btn order-btn">
               Отмена
               <i style={{ color: "red" }} className="material-icons">close</i>
+            </div>
+            <div onClick={this.handleSubmit} className="z_btn order-btn">
+              Отправить
+              <i style={{ color: "green" }} className="material-icons">done</i>
             </div>
           </div>
         </div>

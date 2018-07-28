@@ -30,7 +30,7 @@ class DeliveryTimes extends Component {
   render = () => {
     const { desiredTimes, deliveryTimes } = this.state
     return (
-      <div className="group">
+      <div>
         <div className="field required">
           <label>Желаемое время</label>
           <Select
@@ -42,7 +42,7 @@ class DeliveryTimes extends Component {
         </div>
         {
           desiredTimes.value === 2 ?
-            <div className="field" style={{ flexBasis: "70%", marginLeft: "1rem" }}>
+            <div className="field">
               <DatePicker
                 className="form-input"
                 placeholderText="Выберите время"

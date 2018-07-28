@@ -4,7 +4,7 @@
 
 span.rur {
   font-family: "Times New Roman", Times, serif;
-  text-transform: uppercase; // text-transform: none;
+  text-transform: uppercase; /* text-transform: none;*/
 }
 
 span.rur span {
@@ -12,7 +12,7 @@ span.rur span {
   overflow: hidden;
   width: .45em;
   height: 1em;
-  margin: .2ex 0 0 -.55em; // display: none;
+  margin: .2ex 0 0 -.55em; /* display: none;*/
 }
 
 span.rur span:before {
@@ -71,17 +71,18 @@ span.rur span:before {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
   background-repeat: no-repeat;
   background-position-y: 700px;
 }
 
 .fold_home {
+  left: 0;
   right: 0;
   background-position-x: center;
 }
 
 .fold_side {
+  left: 0;
   right: -193px;
   background-position-x: right;
 }
