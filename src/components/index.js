@@ -14,6 +14,8 @@ import Breadcrumbs from './Breadcrumbs'
 import RoomItem from './RoomItem'
 import NotFound from './NotFound'
 import SpinButton from './SpinButton'
+import MonetaForm from './MonetaForm'
+import Spinner from './Spinner'
 
 export {
   App,
@@ -31,5 +33,7 @@ export {
   Breadcrumbs,
   RoomItem,
   NotFound,
-  SpinButton
+  SpinButton,
+  MonetaForm,
+  Spinner
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 import { RestaurantContacts, Delivery, Header, HotelContacts,
   RoomsCatalog, NewsItem, News, Chef } from 'components'
@@ -18,8 +19,10 @@ class Home extends React.Component {
   render = () => {
     const { REST_MAIN } = RestaurantAndCafe.links
     const { HOTEL_MAIN } = Hotel.links
+    const { REACT_APP_TITLE_PREFIX } = process.env
     return (
       <div>
+        <Helmet title={REACT_APP_TITLE_PREFIX + "Главная"} />
         <div className="fold fold_home" />
         <div className="part">
           { Header({
