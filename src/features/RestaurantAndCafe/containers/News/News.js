@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -6,6 +7,7 @@ import * as actions from '../../actions'
 import { SocShare, Breadcrumbs } from 'components'
 import { NewsItem } from '../../components'
 import { REST_MAIN, NEWS } from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
 
 class News extends React.Component {
 
@@ -22,6 +24,7 @@ class News extends React.Component {
   render = () => {
     return (
       <div className="light">
+        <Helmet title={TITLE_PREFIX + NEWS.title} />
         { Breadcrumbs({links:  [ REST_MAIN, NEWS ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"

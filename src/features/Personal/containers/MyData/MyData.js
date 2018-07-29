@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 import PhoneInput from 'react-phone-number-input/native'
 import 'react-phone-number-input/style.css'
 
 import { Breadcrumbs, SpinButton } from 'components'
-import * as links from '../../links'
+import { PERSONAL } from '../../links'
 import * as actions from '../../actions'
 import * as types from '../../actionTypes'
 import { createUserData } from '../../models'
+import { TITLE_PREFIX } from 'appConstants'
 
 class MyData extends React.Component {
 
@@ -48,7 +50,8 @@ class MyData extends React.Component {
     const { fetching } = this.props
     return (
       <div className="light">
-        { Breadcrumbs({links:  [ links.PERSONAL ]}) }
+        <Helmet title={TITLE_PREFIX + PERSONAL.title} />
+        { Breadcrumbs({links:  [ PERSONAL ]}) }
         <div id="my-data" className="form-layout">
           <div className="field">
             <label>Имя</label>

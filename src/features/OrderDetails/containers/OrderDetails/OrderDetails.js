@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
 import Captcha from 'react-google-recaptcha'
+import { Helmet } from 'react-helmet'
 
 import { createOrder, validOrder } from '../../models'
 import { filterCart } from 'utils'
@@ -12,6 +13,8 @@ import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
 import { MonetaForm } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
+import { ORDER_DETAILS } from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
 
 class OrderDetails extends React.Component {
 
@@ -84,6 +87,7 @@ class OrderDetails extends React.Component {
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
+        <Helmet title={TITLE_PREFIX + ORDER_DETAILS.title} />
         <div id="order" className="form-layout">
           <div id="order-header">
             <div id="logo" className="order-logo" />

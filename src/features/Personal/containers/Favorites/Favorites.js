@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 import { Breadcrumbs } from 'components'
 import { Dish } from 'features/RestaurantAndCafe/containers'
 import { Cart } from 'features/Cart/containers'
 import * as actions from '../../actions'
-import * as links from '../../links'
+import { PERSONAL, FAVORITES } from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
 
 class Favorites extends React.Component {
 
@@ -27,7 +29,8 @@ class Favorites extends React.Component {
   render = () => {
     return (
       <div className="light">
-        { Breadcrumbs({links:  [ links.PERSONAL, links.FAVORITES ]}) }
+        <Helmet title={TITLE_PREFIX + FAVORITES.title} />
+        { Breadcrumbs({links:  [ PERSONAL, FAVORITES ]}) }
         <Cart />
         <div className="cat_wrapper" style={{top: 0}}>
           <div className="vrprig"><br/></div>

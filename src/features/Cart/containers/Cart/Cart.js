@@ -69,7 +69,7 @@ class Cart extends React.Component {
           <div id="skidka">С учетом скидки 10%</div>
         </div>
         {
-          pathname !== OrderDetails.links.ORDER_DETAILS ?
+          pathname !== OrderDetails.links.ORDER_DETAILS.url ?
             <div className="zakaz_info" style={{display: "flex"}}>
               <div
                 onClick={clearCart}
@@ -78,7 +78,7 @@ class Cart extends React.Component {
                 Отмена<i style={{color: "red"}} className="material-icons">close</i>
             </div>
               <div
-                onClick={() => history.push(OrderDetails.links.ORDER_DETAILS)}
+                onClick={() => history.push(OrderDetails.links.ORDER_DETAILS.url)}
                 className="z_btn create-order-btn create-btn"
               >
                 Оформить заказ<i style={{color: "green"}} className="material-icons">done</i>

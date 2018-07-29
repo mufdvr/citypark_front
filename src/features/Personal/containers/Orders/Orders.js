@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 import { Breadcrumbs } from 'components'
 import * as actions from '../../actions'
-import * as links from '../../links'
+import { PERSONAL, ORDERS } from '../../links'
 import { OrderItem } from '../../components'
 import { Cart } from 'features'
+import { TITLE_PREFIX } from 'appConstants'
 
 class Orders extends React.Component {
 
@@ -25,8 +27,9 @@ class Orders extends React.Component {
 
   render = () =>
     <div className="light">
+      <Helmet title={TITLE_PREFIX + ORDERS.title} />
       <Cart.containers.Cart />
-      { Breadcrumbs({links:  [ links.PERSONAL, links.ORDERS ]}) }
+      { Breadcrumbs({links:  [ PERSONAL, ORDERS ]}) }
       { this.ordersList() }
     </div>
 }

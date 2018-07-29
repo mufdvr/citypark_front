@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { Category } from '../../containers'
 import { Cart } from 'features/Cart/containers'
 import { REST_MAIN, MENU } from '../../links'
 import * as actions from '../../actions'
+import { TITLE_PREFIX } from 'appConstants'
 
 class Menu extends React.Component {
 
@@ -30,6 +32,7 @@ class Menu extends React.Component {
   render = () => {
     return (
       <div className="light restaraunt-menu">
+        <Helmet title={TITLE_PREFIX + MENU.title} />
         <Cart />
         { Breadcrumbs({links:  [ REST_MAIN, MENU ]}) }
         <SocShare

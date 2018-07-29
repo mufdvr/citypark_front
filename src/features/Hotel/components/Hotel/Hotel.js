@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
 import * as links from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
+    <Helmet title={TITLE_PREFIX + links.HOTEL_MAIN.title} />
     { Breadcrumbs({links:  [ links.HOTEL_MAIN ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"

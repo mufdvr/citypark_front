@@ -1,12 +1,15 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { RoomListItem } from '../../components'
 import * as links from '../../links'
 import * as images from './images'
+import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
+    <Helmet title={TITLE_PREFIX + links.CATALOG.title} />
     { Breadcrumbs({links:  [ links.HOTEL_MAIN, links.CATALOG ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"

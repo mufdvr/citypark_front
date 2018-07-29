@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import * as images from './images'
 import { REST_MAIN, CAFE, MENU } from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
+    <Helmet title={TITLE_PREFIX + CAFE.title} />
     { Breadcrumbs({links:  [ REST_MAIN, CAFE ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
