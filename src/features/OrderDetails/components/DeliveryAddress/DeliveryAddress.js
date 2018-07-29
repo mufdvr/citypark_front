@@ -31,7 +31,7 @@ class DeliveryAddress extends Component {
 
   render = () => {
     const { obtainingMethods, settlements } = this.state
-    //const { invalidFields } = this.props
+    const { invalidFields } = this.props
     return (
       <div>
         <div className="field required">
@@ -56,12 +56,13 @@ class DeliveryAddress extends Component {
                     options={constants.SETTLEMENTS}
                   />
                 </div>
-                <div className="field required">
+                <div className={`field required${invalidFields.includes('street') ? ' error' : ''}`}>
                   <label>Улица, дом/корпус/строение</label>
                   <DaData 
                     className="form-input" 
                     settlement={settlements.value} 
                     onChange={street => this.handleChange({ street })}
+                    placeholder="Начните вводить адрес"
                   />
                 </div>
               </div>

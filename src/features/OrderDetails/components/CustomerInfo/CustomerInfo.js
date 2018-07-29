@@ -5,7 +5,7 @@ import 'react-phone-number-input/style.css'
 
 const CustomerInfo = ({ order: { name, phone, email }, onChange, invalidFields }) => {
   return [
-    <div className={`field required${invalidFields.includes('name') ? ' error' : ''}`}>
+    <div key="1" className={`field required${invalidFields.includes('name') ? ' error' : ''}`}>
       <label>Имя</label>
       <input
         onChange={onChange}
@@ -16,7 +16,7 @@ const CustomerInfo = ({ order: { name, phone, email }, onChange, invalidFields }
         placeholder="Имя"
       />
     </div>,
-    <div className="group">
+    <div key="2" className="group">
       <div className={`field required${invalidFields.includes('phone') ? ' error' : ''}`}>
         <label>Контактный телефон</label>
         <PhoneInput
@@ -41,7 +41,7 @@ const CustomerInfo = ({ order: { name, phone, email }, onChange, invalidFields }
         />
       </div>
     </div>,
-    <div className="field">
+    <div key="3" className="field">
       <label>Ваши пожелания</label>
       <textarea
         onChange={onChange}

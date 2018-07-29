@@ -34,6 +34,8 @@ class DaData extends React.Component {
 
   onInputChange = event => {
     const { value } = event.target
+    //const { onChange } = this.props
+    //onChange({value, valid: false})
     this.setState({
       query: value,
       inputQuery: value,
@@ -99,7 +101,7 @@ class DaData extends React.Component {
           },
           body: JSON.stringify({
             query: fullQueryPrefix + query,
-            count: 3
+            count: 5
           })
       }
       if (!fetching) {
@@ -136,10 +138,13 @@ class DaData extends React.Component {
       },  
       () => {
         this.fetchSuggestions()
-        setTimeout(() => this.setCursorToEnd(this.textInput), 100)
+        setTimeout(() => this.setCursorToEnd(this.refs.textInput), 100)
       })
       if (onChange) {
-        onChange(suggestions[index].unrestricted_value)
+        onChange({
+          value: suggestions[index].unrestricted_value,
+          isValid: suggestions[index].data.fias_level >= 8
+        })  
       }
     }
   }
@@ -167,7 +172,7 @@ class DaData extends React.Component {
         suggestionClass += ' react-dadata__suggestion--current'
       }
       return (
-        <div className={suggestionClass} key={suggestion.value} onMouseDown={() => this.onSuggestionClick(index)}>
+        <div className={suggestionClass} key={suggestion.value} onMouseDown={event => this.onSuggestionClick(index, event)}>
           <Highlighter
             highlightClassName="react-dadata--highlighted"
             searchWords={this.getHighlightWords()}
@@ -179,14 +184,15 @@ class DaData extends React.Component {
 
   render = () => {
     const { query, inputFocused, suggestionsVisible, suggestions } = this.state
-    const { className } = this.props
+    const { className, placeholder } = this.props
     return (
       <div className="react-dadata react-dadata__container">
         <div>
           <input
             className={className}
+            placeholder={placeholder}
             value={query}
-            ref={input => { this.textInput = input }}
+            ref="textInput"
             onChange={this.onInputChange}
             onKeyPress={this.onKeyPress}
             onKeyDown={this.onKeyPress}
@@ -213,6 +219,7 @@ class DaData extends React.Component {
 DaData.propTypes = {
   onChange: PropTypes.func,
   className: PropTypes.string,
+  placeholder: PropTypes.string,
   settlement: PropTypes.string.isRequired
 }
 

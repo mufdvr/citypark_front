@@ -46,7 +46,7 @@ class OrderDetails extends React.Component {
     const { order, g_recaptcha_response } = this.state
     const { createOrder, user: { id } } = this.props
     const invalidFields = validOrder(order,
-      order.delivery ? ['name', 'city', 'street', 'house'] : ['name'])
+      order.delivery ? ['name', 'city'] : ['name'])
     if (invalidFields) this.setState({ invalidFields })
     console.log(order)
     //!invalidFields.length && (id || g_recaptcha_response) && createOrder(order, g_recaptcha_response)
@@ -74,10 +74,15 @@ class OrderDetails extends React.Component {
       )
     } else {
       const dishes_orders_attributes = filterCart(cart)
-      this.setState({
-        order: createOrder({ name, phone, dishes_orders_attributes }),
+      this.setState(prev => ({
+        ...prev,
+        order: { 
+          ...prev.order,
+          phone: phone ? phone : prev.order.phone,
+          name, dishes_orders_attributes 
+        },
         ...deliveryAndTotalCost(cart, delivery)
-      })
+      }))
     }
   }
 

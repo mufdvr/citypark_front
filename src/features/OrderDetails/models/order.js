@@ -19,6 +19,7 @@ export const validOrder = (order, attribs) => {
   let result = []
   attribs.forEach(attr => order[attr] === '' && result.push(attr))
   !(order.phone && isValidNumber(order.phone, 'RU')) && result.push('phone')
+  !order.street.isValid && result.push('street')
   return result
 }
 
