@@ -4,9 +4,9 @@ export const OBTAINING_METHODS = [
 ]
 
 export const SETTLEMENTS = [
-  { value: 1, label: 'Белореченск' },
-  { value: 2, label: 'п. Родники' },
-  { value: 3, label: 'п. Южный' },
-  { value: 4, label: 'п. Заречный' },
-  { value: 5, label: 'п. Садовый' }
+  { value: 'г Белореченск', label: 'Белореченск' },
+  { value: 'поселок Родники', label: 'п. Родники' },
+  { value: 'поселок Южный', label: 'п. Южный' },
+  { value: 'поселок Заречный', label: 'п. Заречный' },
+  { value: 'поселок Садовый', label: 'п. Садовый' }
 ]

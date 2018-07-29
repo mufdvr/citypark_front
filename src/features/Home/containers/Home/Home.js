@@ -6,6 +6,7 @@ import { RestaurantContacts, Delivery, Header, HotelContacts,
   RoomsCatalog, NewsItem, News, Chef } from 'components'
 import { NavigationBar } from 'containers'
 import { RestaurantAndCafe, Hotel } from 'features'
+import { TITLE_PREFIX } from 'appConstants'
 
 const DISPLAY_TYPE = "home"
 
@@ -19,10 +20,9 @@ class Home extends React.Component {
   render = () => {
     const { REST_MAIN } = RestaurantAndCafe.links
     const { HOTEL_MAIN } = Hotel.links
-    const { REACT_APP_TITLE_PREFIX } = process.env
     return (
       <div>
-        <Helmet title={REACT_APP_TITLE_PREFIX + "Главная"} />
+        <Helmet title={TITLE_PREFIX + "Главная"} />
         <div className="fold fold_home" />
         <div className="part">
           { Header({

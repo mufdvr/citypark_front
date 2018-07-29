@@ -45,13 +45,14 @@ class OrderDetails extends React.Component {
     const invalidFields = validOrder(order,
       order.delivery ? ['name', 'city', 'street', 'house'] : ['name'])
     if (invalidFields) this.setState({ invalidFields })
-    !invalidFields.length && (id || g_recaptcha_response) && createOrder(order, g_recaptcha_response)
+    console.log(order)
+    //!invalidFields.length && (id || g_recaptcha_response) && createOrder(order, g_recaptcha_response)
   }
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
     const { cart, loadCartFromLocalstorage, loadOrderFromLocalstorage } = this.props
-    !cart && loadCartFromLocalstorage() && loadOrderFromLocalstorage()
+    !cart && loadCartFromLocalstorage()// && loadOrderFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -89,7 +90,7 @@ class OrderDetails extends React.Component {
             <h2>Оформление заказа</h2>
           </div>
           <div id="order-content">
-            <DeliveryTimes onChange={this.handleChange} />
+            <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}

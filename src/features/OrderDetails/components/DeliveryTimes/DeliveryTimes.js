@@ -19,9 +19,10 @@ class DeliveryTimes extends Component {
   }
 
   handleChange = prop => {
-    const { deliveryTimes } = prop
+    const { deliveryTimes, desiredTimes } = prop
     const { onChange } = this.props
-    deliveryTimes && onChange({ delivery_times: deliveryTimes._d })
+    deliveryTimes && onChange(deliveryTimes._d)
+    desiredTimes === 1 && onChange('')
     this.setState({
       ...prop
     })

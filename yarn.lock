@@ -3385,6 +3385,10 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+highlight-words-core@^1.0.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.0.tgz#232bec301cbf2a4943d335dc748ce70e9024f3b1"
+
 history@^4.7.2:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/history/-/history-4.7.2.tgz#22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b"
@@ -5919,6 +5923,12 @@ react-async-script@>=0.9.1:
   dependencies:
     prop-types ">=15.5.0"
 
+react-dadata@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-dadata/-/react-dadata-1.2.0.tgz#23107a3ddeede12b9069fd06dd084d1fa616b9b7"
+  dependencies:
+    react-highlight-words "^0.8.1"
+
 react-datepicker@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-1.5.0.tgz#7eacd9609313189c84a21bb7421486054939a4b2"
@@ -6009,6 +6019,13 @@ react-helmet@^5.2.0:
     object-assign "^4.1.1"
     prop-types "^15.5.4"
     react-side-effect "^1.1.0"
+
+react-highlight-words@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/react-highlight-words/-/react-highlight-words-0.8.1.tgz#072fa0a5e52810aae8428686d50ba05f94b1d6dc"
+  dependencies:
+    highlight-words-core "^1.0.2"
+    prop-types "^15.5.8"
 
 react-input-autosize@^2.1.2:
   version "2.2.1"

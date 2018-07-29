@@ -4,6 +4,7 @@ import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
 import * as constants from './constants'
+import { DaData } from '../'
 
 class DeliveryAddress extends Component {
 
@@ -16,20 +17,21 @@ class DeliveryAddress extends Component {
   }
 
   handleChange = prop => {
-    const { target, settlements, obtainingMethods } = prop
+    const { target, settlements, obtainingMethods, street } = prop
     const { onChange } = this.props
     if (target) {
       onChange({ [target.name]: target.value })
     } else {
       settlements && onChange({ city: settlements.label })
       obtainingMethods && onChange({ delivery: obtainingMethods.value === 1 })
+      street && onChange({ street })
       this.setState({ ...prop })
     }
   }  
 
   render = () => {
     const { obtainingMethods, settlements } = this.state
-    const { invalidFields } = this.props
+    //const { invalidFields } = this.props
     return (
       <div>
         <div className="field required">
@@ -45,7 +47,7 @@ class DeliveryAddress extends Component {
           obtainingMethods.value === 1 ?
             <div>
               <div className="group">
-                <div className="field required" style={{ flexBasis: "70%" }}>
+                <div className="field required" style={{ flexBasis: "70%", marginRight: "1rem" }}>
                   <label>Населенный пункт</label>
                   <Select
                     clearable={false}
@@ -54,56 +56,12 @@ class DeliveryAddress extends Component {
                     options={constants.SETTLEMENTS}
                   />
                 </div>
-                <div className={`field required${invalidFields.includes('street') ? ' error' : ''}`} style={{ marginLeft: "1rem" }}>
-                  <label>Улица</label>
-                  <input
-                    onChange={this.handleChange}
-                    className="form-input"
-                    name="street"
-                    type="text"
-                    placeholder="Улица"
-                  />
-                </div>
-              </div>
-              <div className="group">
-                <div className={`field required${invalidFields.includes('house') ? ' error' : ''}`}>
-                  <label>Дом</label>
-                  <input
-                    onChange={this.handleChange}
-                    className="form-input"
-                    name="house"
-                    type="text"
-                    placeholder="Дом"
-                  />
-                </div>
-                <div className="field" style={{ marginLeft: "1rem" }}>
-                  <label>Корпус</label>
-                  <input
-                    onChange={this.handleChange}
-                    className="form-input"
-                    name="hull"
-                    type="text"
-                    placeholder="Корпус"
-                  />
-                </div>
-                <div className="field" style={{ marginLeft: "1rem" }}>
-                  <label>Квартира</label>
-                  <input
-                    onChange={this.handleChange}
-                    className="form-input"
-                    name="apartment"
-                    type="text"
-                    placeholder="Квартира"
-                  />
-                </div>
-                <div className="field" style={{ marginLeft: "1rem" }}>
-                  <label>Подъезд</label>
-                  <input
-                    onChange={this.handleChange}
-                    className="form-input"
-                    name="entrance"
-                    type="text"
-                    placeholder="Подъезд"
+                <div className="field required">
+                  <label>Улица, дом/корпус/строение</label>
+                  <DaData 
+                    className="form-input" 
+                    settlement={settlements.value} 
+                    onChange={street => this.handleChange({ street })}
                   />
                 </div>
               </div>
