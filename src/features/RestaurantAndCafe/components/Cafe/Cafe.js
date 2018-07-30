@@ -9,14 +9,14 @@ import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
-    <Helmet title={TITLE_PREFIX + CAFE.title} />
+    <Helmet title={TITLE_PREFIX + CAFE.TITLE} />
     { Breadcrumbs({links:  [ REST_MAIN, CAFE ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"
       image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
     />
-    <h1>{CAFE.title}</h1>
+    <h1>{CAFE.TITLE}</h1>
     <h2>
       <span style={{fontSize: "1.17em", fontWeight: "normal", lineHeight: "1.5em"}}>
         Уютное летнее кафе, где вы всегда&nbsp;можете укрыться от городского зноя в&nbsp;
@@ -69,7 +69,7 @@ export default () =>
       </strong>
     </p>
     <h3 className="justifyleft">
-      Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="http://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <Link to={MENU.url}>"Меню"</Link>
+      Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="http://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <Link to={MENU.URL}>"Меню"</Link>
     </h3>
     <PhotoGallery
       items={[

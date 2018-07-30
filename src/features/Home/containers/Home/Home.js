@@ -27,8 +27,8 @@ class Home extends React.Component {
         <div className="part">
           { Header({
             side: "left",
-            title: REST_MAIN.title,
-            link: REST_MAIN.url
+            title: REST_MAIN.TITLE,
+            link: REST_MAIN.URL
           })}
           <div className="partbody partbody_home" style={{float: "right"}}>
             <div className="light">
@@ -44,8 +44,8 @@ class Home extends React.Component {
         <div className="part">
           { Header({
             side: "right",
-            title: HOTEL_MAIN.title,
-            link: HOTEL_MAIN.url
+            title: HOTEL_MAIN.TITLE,
+            link: HOTEL_MAIN.URL
           })}
           <div className="partbody">
             <div className="shade">

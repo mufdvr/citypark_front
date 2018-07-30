@@ -16,6 +16,7 @@ import NotFound from './NotFound'
 import SpinButton from './SpinButton'
 import MonetaForm from './MonetaForm'
 import Spinner from './Spinner'
+import ErrorBox from './ErrorBox'
 
 export {
   App,
@@ -35,5 +36,6 @@ export {
   NotFound,
   SpinButton,
   MonetaForm,
-  Spinner
+  Spinner,
+  ErrorBox
 }

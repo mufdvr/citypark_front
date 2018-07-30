@@ -1,12 +1,12 @@
 export const PERSONAL = {
-  url: '/personal',
-  title: 'Личный кабинет'
+  URL: '/personal',
+  TITLE: 'Личный кабинет'
 }
 export const FAVORITES = {
-  url: PERSONAL.url + '/favorites',
-  title: 'Избранное'
+  URL: PERSONAL.URL + '/favorites',
+  TITLE: 'Избранное'
 }
 export const ORDERS = {
-  url: PERSONAL.url + '/orders',
-  title: 'Заказы'
+  URL: PERSONAL.URL + '/orders',
+  TITLE: 'Заказы'
 }

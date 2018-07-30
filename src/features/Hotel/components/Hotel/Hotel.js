@@ -8,7 +8,7 @@ import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
-    <Helmet title={TITLE_PREFIX + links.HOTEL_MAIN.title} />
+    <Helmet title={TITLE_PREFIX + links.HOTEL_MAIN.TITLE} />
     { Breadcrumbs({links:  [ links.HOTEL_MAIN ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"
@@ -19,7 +19,7 @@ export default () =>
     <p><strong><span style={{lineHeight: "1.5em"}}>В гостинице 12 номеров площадью от 19 до 45 м2, все они соответствуют категории "Люкс". <br/></span></strong></p>
     <h2>
       <span style={{lineHeight: "1.5em"}}>
-        <Link to={links.CATALOG.url}>
+        <Link to={links.CATALOG.URL}>
           Посмотреть каталог номеров
         </Link>
       </span>
@@ -43,7 +43,7 @@ export default () =>
       <strong style={{lineHeight: "1.5em"}}>Заезд с животными запрещен.<br/></strong><strong style={{lineHeight: "1.5em"}}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
     <p>&nbsp;</p>
     <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;
-    <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <Link to={links.CATALOG.url}>"Каталог номеров"</Link>.</h4>
+    <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <Link to={links.CATALOG.URL}>"Каталог номеров"</Link>.</h4>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p align="CENTER"><span>ИНФОРМАЦИЯ ОБ ИСПОЛНИТЕЛЕ И О ПРЕДОСТАВЛЯЕМЫХ ИСПОЛНИТЕЛЕМ ГОСТИНИЧНЫХ УСЛУГАХ</span></p>

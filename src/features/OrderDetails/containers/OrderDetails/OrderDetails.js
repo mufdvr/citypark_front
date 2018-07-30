@@ -11,7 +11,7 @@ import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
-import { MonetaForm } from 'components'
+import { MonetaForm, ErrorBox } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
 import { ORDER_DETAILS } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
@@ -45,11 +45,20 @@ class OrderDetails extends React.Component {
   handleSubmit = () => {
     const { order, g_recaptcha_response } = this.state
     const { createOrder, user: { id } } = this.props
-    const invalidFields = validOrder(order,
-      order.delivery ? ['name', 'city'] : ['name'])
+    const invalidFields = validOrder(order)
     if (invalidFields) this.setState({ invalidFields })
-    console.log(order)
-    //!invalidFields.length && (id || g_recaptcha_response) && createOrder(order, g_recaptcha_response)
+    if (!invalidFields.length && (id || g_recaptcha_response)) { 
+      createOrder({
+        ...order,
+        street: order.street.value || ''
+      }, g_recaptcha_response)
+      /*console.log({
+        ...order,
+        street: order.street.value || ''
+      })*/
+    } else {
+      ErrorBox.create(['Заполните все необходимые поля!'])
+    }  
   }
 
   componentDidMount = () => {
@@ -60,7 +69,7 @@ class OrderDetails extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     const { cart, order: { id, delivery, amount, mnt_signature }, history, user: { name, phone } } = nextProps
-    !cart.length && history.push(RestaurantAndCafe.links.MENU.url)
+    !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (mnt_signature) { //заказ создан, рендерим форму монеты
       localStorage.clear()
       ReactDOM.render(
@@ -92,7 +101,7 @@ class OrderDetails extends React.Component {
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
-        <Helmet title={TITLE_PREFIX + ORDER_DETAILS.title} />
+        <Helmet title={TITLE_PREFIX + ORDER_DETAILS.TITLE} />
         <div id="order" className="form-layout">
           <div id="order-header">
             <div id="logo" className="order-logo" />

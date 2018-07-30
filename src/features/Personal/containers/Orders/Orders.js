@@ -27,7 +27,7 @@ class Orders extends React.Component {
 
   render = () =>
     <div className="light">
-      <Helmet title={TITLE_PREFIX + ORDERS.title} />
+      <Helmet title={TITLE_PREFIX + ORDERS.TITLE} />
       <Cart.containers.Cart />
       { Breadcrumbs({links:  [ PERSONAL, ORDERS ]}) }
       { this.ordersList() }

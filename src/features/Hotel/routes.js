@@ -3,33 +3,33 @@ import * as links from './links'
 
 const routes = [
   {
-    path: links.HOTEL_MAIN.url,
+    path: links.HOTEL_MAIN.URL,
     component: components.Layout,
     routes: [
       {
-        path: links.HOTEL_MAIN.url,
+        path: links.HOTEL_MAIN.URL,
         exact: true,
         component: components.Hotel
       },
       {
-        path: links.CATALOG.url,
+        path: links.CATALOG.URL,
         exact: true,
         component: components.RoomCatalog
       },
       {
-        path: links.DOCUMENTATION.url,
+        path: links.DOCUMENTATION.URL,
         component: components.Documentation
       },
       {
-        path: links.SINGLE_ROOM.url,
+        path: links.SINGLE_ROOM.URL,
         component: components.SingleRoom
       },
       {
-        path: links.DOUBLE_ROOM.url,
+        path: links.DOUBLE_ROOM.URL,
         component: components.DoubleRoom
       },
       {
-        path: links.VIP_ROOM.url,
+        path: links.VIP_ROOM.URL,
         component: components.VipRoom
       }
     ]

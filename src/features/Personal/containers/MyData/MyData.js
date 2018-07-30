@@ -50,7 +50,7 @@ class MyData extends React.Component {
     const { fetching } = this.props
     return (
       <div className="light">
-        <Helmet title={TITLE_PREFIX + PERSONAL.title} />
+        <Helmet title={TITLE_PREFIX + PERSONAL.TITLE} />
         { Breadcrumbs({links:  [ PERSONAL ]}) }
         <div id="my-data" className="form-layout">
           <div className="field">

@@ -61,74 +61,74 @@ class NavigationBar extends React.Component {
               <Link to="/" className="first active">Главная</Link>
             </li>
             <li onMouseOver={() => this.handleHover(0)} onMouseOut={() => this.handleHover(0)}>
-              <Link to={REST_MAIN.url}>
-                {REST_MAIN.title}
+              <Link to={REST_MAIN.URL}>
+                {REST_MAIN.TITLE}
               </Link>
               <ul className={`sub ${this.state.subMenuVisible[0] ? "fade-in" : "fade-out"}`}>
                 <li>
-                  <Link to={RESTAURANT.url}>
-                    {RESTAURANT.title}
+                  <Link to={RESTAURANT.URL}>
+                    {RESTAURANT.TITLE}
                   </Link>
                 </li>
                 <li>
-                  <Link to={CAFE.url}>
-                    {CAFE.title}
+                  <Link to={CAFE.URL}>
+                    {CAFE.TITLE}
                   </Link>
                 </li>
                 <li>
-                  <Link to={NEWS.url}>
-                    {NEWS.title}
+                  <Link to={NEWS.URL}>
+                    {NEWS.TITLE}
                   </Link>
                 </li>
                 <li>
-                  <Link to={MENU.url}>
-                    {MENU.title}
+                  <Link to={MENU.URL}>
+                    {MENU.TITLE}
                   </Link>
                 </li>
                 <li>
-                  <Link to={CHEF_BLOG.url}>
-                    {CHEF_BLOG.title}
+                  <Link to={CHEF_BLOG.URL}>
+                    {CHEF_BLOG.TITLE}
                   </Link>
                 </li>
               </ul>
             </li>
             <li onMouseOver={() => this.handleHover(1)} onMouseOut={() => this.handleHover(1)}>
-              <Link to={HOTEL_MAIN.url}>
-                {HOTEL_MAIN.title}
+              <Link to={HOTEL_MAIN.URL}>
+                {HOTEL_MAIN.TITLE}
               </Link>
               <ul className={`sub ${this.state.subMenuVisible[1] ? "fade-in" : "fade-out"}`}>
                 <li>
-                  <Link to={CATALOG.url}>
-                    {CATALOG.title}
+                  <Link to={CATALOG.URL}>
+                    {CATALOG.TITLE}
                   </Link>
                 </li>
                 <li>
-                  <Link to={DOCUMENTATION.url}>
-                    {DOCUMENTATION.title}
+                  <Link to={DOCUMENTATION.URL}>
+                    {DOCUMENTATION.TITLE}
                   </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to={CONTACTS.url}>
-                {CONTACTS.title}
+              <Link to={CONTACTS.URL}>
+                {CONTACTS.TITLE}
               </Link>
             </li>
             <li onMouseOver={() => this.handleHover(2)} onMouseOut={() => this.handleHover(2)}>
-              <Link to={PERSONAL.url}>
-                { user && user.id ? user.name : PERSONAL.title }
+              <Link to={PERSONAL.URL}>
+                { user && user.id ? user.name : PERSONAL.TITLE }
               </Link>
               {
                 user && user.id ?
                   <ul className={`sub ${this.state.subMenuVisible[2] ? "fade-in" : "fade-out"}`}>
                     <li>
-                      <Link to={FAVORITES.url}>
-                        {FAVORITES.title}
+                      <Link to={FAVORITES.URL}>
+                        {FAVORITES.TITLE}
                       </Link>
                     </li>
                     <li>
-                      <Link to={ORDERS.url}>
-                        {ORDERS.title}
+                      <Link to={ORDERS.URL}>
+                        {ORDERS.TITLE}
                       </Link>
                     </li>
                     <li>

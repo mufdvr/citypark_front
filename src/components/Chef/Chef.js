@@ -24,7 +24,7 @@ export default () => {
               className="povar_ava"
             />
             <div className="povar_txt">
-              <Link to={CHEF_BLOG.url}>{CHEF_BLOG.title}</Link>
+              <Link to={CHEF_BLOG.URL}>{CHEF_BLOG.TITLE}</Link>
               Блог нашего шеф-повара Дениса Троицкого
             </div>
           </div>

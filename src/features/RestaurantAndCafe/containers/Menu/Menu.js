@@ -32,7 +32,7 @@ class Menu extends React.Component {
   render = () => {
     return (
       <div className="light restaraunt-menu">
-        <Helmet title={TITLE_PREFIX + MENU.title} />
+        <Helmet title={TITLE_PREFIX + MENU.TITLE} />
         <Cart />
         { Breadcrumbs({links:  [ REST_MAIN, MENU ]}) }
         <SocShare

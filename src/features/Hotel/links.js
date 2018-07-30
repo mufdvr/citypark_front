@@ -1,24 +1,24 @@
 export const HOTEL_MAIN = {
-  url: '/hotel',
-  title: 'Отель-люкс'
+  URL: '/hotel',
+  TITLE: 'Отель-люкс'
 }
 export const CATALOG = {
-  url: HOTEL_MAIN.url + '/catalog',
-  title: 'Каталог номеров'
+  URL: HOTEL_MAIN.URL + '/catalog',
+  TITLE: 'Каталог номеров'
 }
 export const DOCUMENTATION = {
-  url: HOTEL_MAIN.url + '/documentation',
-  title: 'Документация'
+  URL: HOTEL_MAIN.URL + '/documentation',
+  TITLE: 'Документация'
 }
 export const SINGLE_ROOM = {
-  url: CATALOG.url + '/single',
-  title: "Одноместные номера"
+  URL: CATALOG.URL + '/single',
+  TITLE: "Одноместные номера"
 }
 export const DOUBLE_ROOM = {
-  url: CATALOG.url + '/double',
-  title: "Двухместные номера"
+  URL: CATALOG.URL + '/double',
+  TITLE: "Двухместные номера"
 }
 export const VIP_ROOM = {
-  url: CATALOG.url + '/vip',
-  title: "VIP-номер"
+  URL: CATALOG.URL + '/vip',
+  TITLE: "VIP-номер"
 }

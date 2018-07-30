@@ -7,7 +7,7 @@ import RestaurantAndCafe from 'features/RestaurantAndCafe'
 const News = ({ children, displayType }) =>
   <div className={`news_block news_block_${displayType}`}>
     <div className={`news_title news_title_${displayType}`}>
-      <Link to={RestaurantAndCafe.links.NEWS.url}>
+      <Link to={RestaurantAndCafe.links.NEWS.URL}>
         Новости и мероприятия
       </Link>
     </div>

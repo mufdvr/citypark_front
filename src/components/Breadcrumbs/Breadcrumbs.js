@@ -12,7 +12,7 @@ const Breadcrumbs = ({ links }) =>
             <span>&gt;</span><span style={{textDecoration: "underline", margin: "0 10px"}}>{link.title}</span>
           </span>
         : <span key={index}>
-          <span>&gt;</span><Link to={link.url}>{link.title}</Link>
+          <span>&gt;</span><Link to={link.URL}>{link.TITLE}</Link>
         </span>
       )
     }
@@ -20,8 +20,8 @@ const Breadcrumbs = ({ links }) =>
 
 Breadcrumbs.propTypes = {
   links: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    TITLE: PropTypes.string.isRequired,
+    URL: PropTypes.string.isRequired
   }))
 }
 

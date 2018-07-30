@@ -15,7 +15,7 @@ const RoomItem = ({ imageUrl, cost, link, description, displayType}) =>
     }
     <div className={`r_body_${displayType}`}>
       <div className={`r_title r_title_${displayType}`}>
-        <Link to={link.url}>{link.title}</Link>
+        <Link to={link.URL}>{link.TITLE}</Link>
       </div>
       {
         displayType === "home" && <div className="r_ttx">{description}</div>

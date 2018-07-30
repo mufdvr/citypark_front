@@ -4,11 +4,11 @@ import * as links from './links'
 
 const routes = [
   {
-    path: links.ORDER_DETAILS.url,
+    path: links.ORDER_DETAILS.URL,
     component: components.Layout,
     routes: [
       {
-        path: links.ORDER_DETAILS.url,
+        path: links.ORDER_DETAILS.URL,
         component: containers.OrderDetails
       }
     ]

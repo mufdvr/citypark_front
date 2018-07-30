@@ -10,7 +10,7 @@ const NewsItem = ({ id, title, image, description, created_at }) =>
       <img src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
     </div>
     <div className="description">
-      <Link to={NEWS.url + '/' + id} className="dttl">{title}</Link><br/>
+      <Link to={NEWS.URL + '/' + id} className="dttl">{title}</Link><br/>
       {description}
     </div>
   </div>

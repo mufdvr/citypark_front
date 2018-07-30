@@ -9,9 +9,9 @@ export default ({ route, location: { pathname } }) => {
 
   const sideBarVariants = () => {
     switch (pathname) {
-      case MENU.url:
+      case MENU.URL:
         return <SideBar showDelivery={false} showHotelContacts={false} />
-      case NEWS.url:
+      case NEWS.URL:
         return <SideBar showNews={false} />
       default:
         return <SideBar />
@@ -25,8 +25,8 @@ export default ({ route, location: { pathname } }) => {
       <div className="content">
         { Header({
           side: "left",
-          title: REST_MAIN.title,
-          link: REST_MAIN.url
+          title: REST_MAIN.TITLE,
+          link: REST_MAIN.URL
         })}
         <div className="partbody">
           { route && renderRoutes(route.routes) }

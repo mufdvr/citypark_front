@@ -6,7 +6,7 @@ import { DELIVERY_PHOTO } from './background'
 import { RestaurantAndCafe } from 'features'
 
 const Delivery = ({ displayType }) =>
-  <Link to={RestaurantAndCafe.links.MENU.url}>
+  <Link to={RestaurantAndCafe.links.MENU.URL}>
     <div className={`deliver_block deliver_block_${displayType}`}>
       <img
         alt="pic"

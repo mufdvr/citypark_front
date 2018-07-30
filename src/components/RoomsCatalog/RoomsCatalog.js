@@ -11,7 +11,7 @@ const RoomsCatalog = ({ displayType }) => {
   return (
     <div className={`room_catalog room_catalog_${displayType}`}>
       <div className={`news_title news_title_${displayType}`}>
-        <Link to={CATALOG.url}>{CATALOG.title}</Link>
+        <Link to={CATALOG.URL}>{CATALOG.TITLE}</Link>
       </div>
       { RoomItem({
         displayType,

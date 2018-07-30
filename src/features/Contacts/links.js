@@ -1,4 +1,4 @@
 export const CONTACTS = {
-  url: '/contacts',
-  title: 'Контакты'
+  URL: '/contacts',
+  TITLE: 'Контакты'
 }

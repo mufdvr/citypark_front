@@ -8,14 +8,14 @@ import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
-    <Helmet title={TITLE_PREFIX + RESTAURANT.title} />
+    <Helmet title={TITLE_PREFIX + RESTAURANT.TITLE} />
     { Breadcrumbs({links:  [ REST_MAIN, RESTAURANT ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/kafe.html"
       title="РГК «City Park» - Летнее кафе"
       image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
     />
-    <h1>{RESTAURANT.title}</h1>
+    <h1>{RESTAURANT.TITLE}</h1>
     <h2>
       <span
         style={{

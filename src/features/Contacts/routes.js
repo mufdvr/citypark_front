@@ -3,11 +3,11 @@ import * as links from './links'
 
 const routes = [
   {
-    path: links.CONTACTS.url,
+    path: links.CONTACTS.URL,
     component: components.Layout,
     routes: [
       {
-        path: links.CONTACTS.url,
+        path: links.CONTACTS.URL,
         component: components.Contacts
       }
     ]

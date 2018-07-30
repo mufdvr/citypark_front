@@ -1,30 +1,30 @@
 export const REST_MAIN = {
-  url: '/rest',
-  title: 'Ресторан и летнее кафе'
+  URL: '/rest',
+  TITLE: 'Ресторан и летнее кафе'
 }
 export const RESTAURANT = {
-  url: REST_MAIN.url + '/restaurant',
-  title: 'Ресторан'
+  URL: REST_MAIN.URL + '/restaurant',
+  TITLE: 'Ресторан'
 }
 export const CAFE = {
-  url: REST_MAIN.url + '/cafe',
-  title: 'Летнее кафе'
+  URL: REST_MAIN.URL + '/cafe',
+  TITLE: 'Летнее кафе'
 }
 export const NEWS = {
-  url: REST_MAIN.url + '/news',
-  title: 'Новости и мероприятия'
+  URL: REST_MAIN.URL + '/news',
+  TITLE: 'Новости и мероприятия'
 }
 export const NEWS_SHOW = {
-  url: NEWS.url + '/:id'
+  URL: NEWS.URL + '/:id'
 }
 export const MENU = {
-  url: REST_MAIN.url + '/menu',
-  title: 'Меню'
+  URL: REST_MAIN.URL + '/menu',
+  TITLE: 'Меню'
 }
 export const CHEF_BLOG = {
-  url: REST_MAIN.url + '/chefblog',
-  title: 'Блог шеф-повара'
+  URL: REST_MAIN.URL + '/chefblog',
+  TITLE: 'Блог шеф-повара'
 }
 export const CHEF_BLOG_SHOW = {
-  url: CHEF_BLOG.url + '/:id'
+  URL: CHEF_BLOG.URL + '/:id'
 }

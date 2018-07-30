@@ -18,7 +18,7 @@ const NewsItem = ({ id, image, title, description, created_at, displayType }) =>
         {created_at}
       </div>
       <div className="n_title">
-        <Link to={RestaurantAndCafe.links.NEWS.url + '/' + id}>
+        <Link to={RestaurantAndCafe.links.NEWS.URL + '/' + id}>
           {title}
         </Link>
       </div>

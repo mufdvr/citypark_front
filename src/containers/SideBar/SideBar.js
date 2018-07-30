@@ -25,20 +25,20 @@ class SideBar extends React.Component {
               <div className="leaf">
                 <Link to="/" id="logo" />
                 <div className="slogan">
-                  <Link to={RESTAURANT.url} style={{borderBottom: "1px solid #46312a"}}>
-                    {RESTAURANT.title}
+                  <Link to={RESTAURANT.URL} style={{borderBottom: "1px solid #46312a"}}>
+                    {RESTAURANT.TITLE}
                   </Link>
                   <Link
-                    to={CAFE.url}
+                    to={CAFE.URL}
                     style={{
                       borderBottom: "1px solid #46312a",
                       borderTop: "1px solid #ffe5d0"
                     }}
                   >
-                    {CAFE.title}
+                    {CAFE.TITLE}
                   </Link>
-                  <Link to={HOTEL_MAIN.url} style={{borderTop: "1px solid #ffe5d0"}}>
-                    {HOTEL_MAIN.title}
+                  <Link to={HOTEL_MAIN.URL} style={{borderTop: "1px solid #ffe5d0"}}>
+                    {HOTEL_MAIN.TITLE}
                   </Link>
                 </div>
                 <div className="h_title">

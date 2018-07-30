@@ -9,7 +9,7 @@ import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
-    <Helmet title={TITLE_PREFIX + REST_MAIN.title} />
+    <Helmet title={TITLE_PREFIX + REST_MAIN.TITLE} />
     { Breadcrumbs({links:  [ REST_MAIN ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"
@@ -28,7 +28,7 @@ export default () =>
         lineHeight: "1.5em",
         fontWeight: "normal"
       }}
-        to={RESTAURANT.url}>
+        to={RESTAURANT.URL}>
         ресторана
       </Link>
       <span style={{
@@ -69,7 +69,7 @@ export default () =>
       Настоящая джазовая и классическая музыка, chill-out и танцевальные направления.
     </p>
     <h3 className="justifyleft">
-      Уютное <Link to={CAFE.url}>летнее кафе</Link>
+      Уютное <Link to={CAFE.URL}>летнее кафе</Link>
       , где вы всегда&nbsp;можете укрыться от городского зноя в&nbsp;прохладной тени или уединиться в застекленной охлаждаемой террасе.
     </h3>
     <p className="justifyleft">

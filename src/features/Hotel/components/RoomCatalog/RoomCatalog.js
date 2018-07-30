@@ -9,7 +9,7 @@ import { TITLE_PREFIX } from 'appConstants'
 
 export default () =>
   <div className="light">
-    <Helmet title={TITLE_PREFIX + links.CATALOG.title} />
+    <Helmet title={TITLE_PREFIX + links.CATALOG.TITLE} />
     { Breadcrumbs({links:  [ links.HOTEL_MAIN, links.CATALOG ]}) }
     <SocShare
       link="http://cityparkvip.ru/rest/"

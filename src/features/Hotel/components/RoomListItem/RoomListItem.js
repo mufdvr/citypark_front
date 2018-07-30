@@ -8,7 +8,7 @@ const RoomListItem = ({ image, description, cost, freeCount, link }) =>
       <img src={image} alt="img" />
     </div>
     <div className="room_list_txt">
-      <div className="room_list_title"><Link to={link.url}>{link.title}</Link></div>
+      <div className="room_list_title"><Link to={link.URL}>{link.TITLE}</Link></div>
       {description}
       <div className="r_summ r_summ_side" style={{position: "absolute", bottom: "10px"}}><span className="s">{cost}</span> ₽/сутки</div>
     </div>
@@ -38,7 +38,7 @@ const RoomListItem = ({ image, description, cost, freeCount, link }) =>
 
 RoomListItem.propTypes = {
   link: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    TITLE: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired
   }),
   description: PropTypes.string.isRequired,

@@ -4,42 +4,42 @@ import * as links from './links'
 
 const routes = [
   {
-    path: links.REST_MAIN.url,
+    path: links.REST_MAIN.URL,
     component: components.Layout,
     routes: [
       {
-        path: links.REST_MAIN.url,
+        path: links.REST_MAIN.URL,
         exact: true,
         component: components.RestaurantAndCafe
       },
       {
-        path: links.RESTAURANT.url,
+        path: links.RESTAURANT.URL,
         component: components.Restaurant
       },
       {
-        path: links.CAFE.url,
+        path: links.CAFE.URL,
         component: components.Cafe
       },
       {
-        path: links.NEWS.url,
+        path: links.NEWS.URL,
         exact: true,
         component: containers.News
       },
       {
-        path: links.NEWS_SHOW.url,
+        path: links.NEWS_SHOW.URL,
         component: containers.NewsShow
       },
       {
-        path: links.MENU.url,
+        path: links.MENU.URL,
         component: containers.Menu
       },
       {
-        path: links.CHEF_BLOG.url,
+        path: links.CHEF_BLOG.URL,
         exact: true,
         component: containers.ChefBlog
       },
       {
-        path: links.CHEF_BLOG_SHOW.url,
+        path: links.CHEF_BLOG_SHOW.URL,
         component: containers.ChefBlogShow
       }
     ]

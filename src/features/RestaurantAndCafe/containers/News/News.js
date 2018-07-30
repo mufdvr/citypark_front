@@ -24,7 +24,7 @@ class News extends React.Component {
   render = () => {
     return (
       <div className="light">
-        <Helmet title={TITLE_PREFIX + NEWS.title} />
+        <Helmet title={TITLE_PREFIX + NEWS.TITLE} />
         { Breadcrumbs({links:  [ REST_MAIN, NEWS ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"

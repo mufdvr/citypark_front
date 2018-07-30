@@ -10,7 +10,7 @@ const ChefBlogDishItem = ({ id, title, description, created_at, image }) =>
       <img width="260" height="170" src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
     </div>
     <div className="room_list_txt">
-      <div className="room_list_title"><Link to={CHEF_BLOG.url + '/' + id}>{title}</Link></div>
+      <div className="room_list_title"><Link to={CHEF_BLOG.URL + '/' + id}>{title}</Link></div>
       {description}
     </div>
 

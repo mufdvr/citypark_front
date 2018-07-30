@@ -12,8 +12,8 @@ export default ({ route }) =>
     <div className="content">
       { Header({
         side: "left",
-        title: CONTACTS.title,
-        link: CONTACTS.url
+        title: CONTACTS.TITLE,
+        link: CONTACTS.URL
       })}
       <div className="partbody">
         { route && renderRoutes(route.routes) }

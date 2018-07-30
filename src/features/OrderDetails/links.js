@@ -1,4 +1,4 @@
 export const ORDER_DETAILS = {
-  url: '/order',
-  title: 'Оформление заказа'
+  URL: '/order',
+  TITLE: 'Оформление заказа'
 }  

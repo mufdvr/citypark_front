@@ -3,20 +3,20 @@ import * as links from './links'
 
 const routes = [
   {
-    path: links.PERSONAL.url,
+    path: links.PERSONAL.URL,
     component: containers.Layout,
     routes: [
       {
-        path: links.PERSONAL.url,
+        path: links.PERSONAL.URL,
         exact: true,
         component: containers.MyData,
       },
       {
-        path: links.FAVORITES.url,
+        path: links.FAVORITES.URL,
         component: containers.Favorites
       },
       {
-        path: links.ORDERS.url,
+        path: links.ORDERS.URL,
         component: containers.Orders
       }
     ]

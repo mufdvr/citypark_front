@@ -22,7 +22,7 @@ class DeliveryTimes extends Component {
     const { deliveryTimes, desiredTimes } = prop
     const { onChange } = this.props
     deliveryTimes && onChange(deliveryTimes._d)
-    desiredTimes === 1 && onChange('')
+    desiredTimes && desiredTimes.value === 1 && onChange(null)
     this.setState({
       ...prop
     })

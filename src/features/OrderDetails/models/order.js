@@ -15,11 +15,12 @@ const order = {
   dishes_orders_attributes: [],
 }
 
-export const validOrder = (order, attribs) => {
+export const validOrder = order => {
   let result = []
+  const attribs = order.delivery ? ['name', 'city'] : ['name']
   attribs.forEach(attr => order[attr] === '' && result.push(attr))
   !(order.phone && isValidNumber(order.phone, 'RU')) && result.push('phone')
-  !order.street.isValid && result.push('street')
+  order.delivery && !order.street.isValid && result.push('street')
   return result
 }
 

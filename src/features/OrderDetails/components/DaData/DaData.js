@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Highlighter from 'react-highlight-words'
 
-import { QUERY_PREFIX } from './constants'
+import { QUERY_PREFIX, MAX_SUGGESTIONS } from './constants'
 
 class DaData extends React.Component {
   constructor(props) {
@@ -101,7 +101,7 @@ class DaData extends React.Component {
           },
           body: JSON.stringify({
             query: fullQueryPrefix + query,
-            count: 5
+            count: MAX_SUGGESTIONS
           })
       }
       if (!fetching) {
@@ -130,6 +130,7 @@ class DaData extends React.Component {
   selectSuggestion = index => {
     const { suggestions } = this.state
     const { onChange } = this.props
+    const { textInput } = this.refs
     if (suggestions.length >= index - 1) {
       this.setState({ 
         query: suggestions[index].unrestricted_value, 
@@ -138,7 +139,7 @@ class DaData extends React.Component {
       },  
       () => {
         this.fetchSuggestions()
-        setTimeout(() => this.setCursorToEnd(this.refs.textInput), 100)
+        setTimeout(() => this.setCursorToEnd(textInput), 100)
       })
       if (onChange) {
         onChange({
