@@ -7,6 +7,8 @@ import { QUERY_PREFIX, MAX_SUGGESTIONS } from './constants'
 class DaData extends React.Component {
   constructor(props) {
     super(props)
+    this.fetching = false
+    this.skipValidation = false
     this.state = {
       query: '',
       inputQuery: '',
@@ -14,7 +16,6 @@ class DaData extends React.Component {
       suggestions: [],
       suggestionIndex: -1,
       suggestionsVisible: true,
-      fetching: false
     }
   }
 
@@ -30,12 +31,12 @@ class DaData extends React.Component {
     if (this.state.suggestions.length === 0) {
       this.fetchSuggestions()
     }
-  }
+  } 
 
   onInputChange = event => {
     const { value } = event.target
-    //const { onChange } = this.props
-    //onChange({value, valid: false})
+    const { onChange } = this.props
+    this.skipValidation && onChange({value, isValid: true})
     this.setState({
       query: value,
       inputQuery: value,
@@ -83,7 +84,7 @@ class DaData extends React.Component {
   }
 
   fetchSuggestions = () => {
-      const { fetching, query } = this.state
+      const { query } = this.state
       const { settlement } = this.props
       const fullQueryPrefix = QUERY_PREFIX + settlement + ', '
       const { REACT_APP_DADATA_API_KEY } = process.env
@@ -104,13 +105,14 @@ class DaData extends React.Component {
             count: MAX_SUGGESTIONS
           })
       }
-      if (!fetching) {
-        this.setState({ fetching: true })
+      if (!this.fetching) {
+        this.fetching = true
         fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address", options)
           .then(response => checkResponse(response)
             .then(payload => {
+              this.fetching = false
+              this.skipValidation = false
               this.setState({ 
-                fetching: false,
                 suggestions: payload.suggestions.map(suggestion => ({
                   ...suggestion,
                   unrestricted_value: suggestion.unrestricted_value.replace(fullQueryPrefix, '') 
@@ -118,7 +120,10 @@ class DaData extends React.Component {
                 suggestionIndex: -1 
               })
             })
-          ).catch(() => { this.setState({ fetching: false }) })
+          ).catch(() => { 
+            this.fetching = false
+            this.skipValidation = true
+          })
       }    
     }
 

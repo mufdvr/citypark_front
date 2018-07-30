@@ -30,7 +30,7 @@ class Favorites extends React.Component {
     return (
       <div className="light">
         <Helmet title={TITLE_PREFIX + FAVORITES.TITLE} />
-        { Breadcrumbs({links:  [ PERSONAL, FAVORITES ]}) }
+        { Breadcrumbs({links: [ PERSONAL, FAVORITES ]}) }
         <Cart />
         <div className="cat_wrapper" style={{top: 0}}>
           <div className="vrprig"><br/></div>

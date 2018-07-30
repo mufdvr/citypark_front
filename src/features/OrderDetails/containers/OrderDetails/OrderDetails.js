@@ -11,7 +11,7 @@ import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
-import { MonetaForm, ErrorBox } from 'components'
+import { MonetaForm, ErrorBox, Spinner } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
 import { ORDER_DETAILS } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
@@ -47,18 +47,18 @@ class OrderDetails extends React.Component {
     const { createOrder, user: { id } } = this.props
     const invalidFields = validOrder(order)
     if (invalidFields) this.setState({ invalidFields })
-    if (!invalidFields.length && (id || g_recaptcha_response)) { 
-      createOrder({
+    if (!invalidFields.length && (id || g_recaptcha_response)) {
+      /*createOrder({
         ...order,
         street: order.street.value || ''
-      }, g_recaptcha_response)
-      /*console.log({
+      }, g_recaptcha_response)*/
+      console.log({
         ...order,
         street: order.street.value || ''
-      })*/
+      })
     } else {
       ErrorBox.create(['Заполните все необходимые поля!'])
-    }  
+    }
   }
 
   componentDidMount = () => {
@@ -85,10 +85,10 @@ class OrderDetails extends React.Component {
       const dishes_orders_attributes = filterCart(cart)
       this.setState(prev => ({
         ...prev,
-        order: { 
+        order: {
           ...prev.order,
           phone: phone ? phone : prev.order.phone,
-          name, dishes_orders_attributes 
+          name, dishes_orders_attributes
         },
         ...deliveryAndTotalCost(cart, delivery)
       }))
@@ -97,10 +97,11 @@ class OrderDetails extends React.Component {
 
   render = () => {
     const { freeDelivery, totalCost, invalidFields, order } = this.state
-    const { clearCart, user: { id } } = this.props
+    const { clearCart, fetching, user: { id } } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
+        {fetching ? Spinner() : null}
         <Helmet title={TITLE_PREFIX + ORDER_DETAILS.TITLE} />
         <div id="order" className="form-layout">
           <div id="order-header">
@@ -126,7 +127,7 @@ class OrderDetails extends React.Component {
               }
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div>&nbsp;</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  freeDelivery ? <div>Бесплатная доставка</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">
@@ -157,7 +158,8 @@ class OrderDetails extends React.Component {
 const mapStateToProps = state => ({
   cart: state.cart.payload,
   user: state.user.payload,
-  order: state.order.payload
+  order: state.order.payload,
+  fetching: state.order.fetching
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
