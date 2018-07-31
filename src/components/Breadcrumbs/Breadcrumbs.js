@@ -9,7 +9,7 @@ const Breadcrumbs = ({ links }) =>
       links.map((link, index) =>
         index === links.length - 1 ?
           <span key={index}>
-            <span>&gt;</span><span style={{textDecoration: "underline", margin: "0 10px"}}>{link.title}</span>
+            <span>&gt;</span><span style={{textDecoration: "underline", margin: "0 10px"}}>{link.TITLE}</span>
           </span>
         : <span key={index}>
           <span>&gt;</span><Link to={link.URL}>{link.TITLE}</Link>

@@ -8,7 +8,7 @@ import 'react-phone-number-input/style.css'
 import { createUserData } from '../../models'
 import * as actions from '../../actions'
 import * as types from '../../actionTypes'
-import { SpinButton } from 'components'
+import { SpinButton, ErrorBox } from 'components'
 
 class SignUp extends React.Component {
 
@@ -34,6 +34,11 @@ class SignUp extends React.Component {
     const { user, g_recaptcha_response } = this.state
     const { signUp } = this.props
     signUp(user, g_recaptcha_response)
+  }
+
+  componentWillReceiveProps = nextProps => {
+    const { fetching, errors } = nextProps
+    !fetching && !errors.msg ? ErrorBox.clear() : errors.msg && ErrorBox.create(errors.msg)
   }
 
   render = () => {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { createUserSession } from '../../models'
-import { SpinButton } from 'components'
+import { SpinButton, ErrorBox } from 'components'
 import * as actions from '../../actions'
 import * as apiConst from '../../apiConst'
 import * as types from '../../actionTypes'
@@ -32,6 +32,11 @@ class SignIn extends React.Component {
     const { user } = this.state
     const { signIn } = this.props
     signIn(user)
+  }
+
+  componentWillReceiveProps = nextProps => {
+    const { fetching, errors } = nextProps
+    !fetching && !errors.msg ? ErrorBox.clear() : errors.msg && ErrorBox.create(errors.msg)
   }
 
   render = () => {

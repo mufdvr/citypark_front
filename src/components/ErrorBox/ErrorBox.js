@@ -11,7 +11,7 @@ class ErrorBox extends React.Component {
   }
 
   static create(messages) {
-    ReactDOM.render(<ErrorBox messages={messages} />, document.getElementById('portal'))
+    ReactDOM.render(<ErrorBox key={Math.random()} messages={messages} />, document.getElementById('portal'))
   }
 
   static clear() {
@@ -25,12 +25,18 @@ class ErrorBox extends React.Component {
 
   messagesList = () => {
     const { messages } = this.props
-    return messages ? messages.map((msg, index) => <p key={index}>{msg}</p>) : null
+    switch (typeof(messages)) {
+      case 'object':
+        return messages.map((msg, index) => <p key={index}>{msg}</p>)
+      case 'string':
+        return <p>{messages}</p>
+      default:  
+    }
   }
    
   componentDidMount = () => {
     const { autoClose } = this.props
-    autoClose && setTimeout(this.handleClick, 3000)
+    autoClose && setTimeout(this.handleClick, 5000)
   } 
 
   componentWillReceiveProps = nextProps =>
@@ -54,7 +60,7 @@ ErrorBox.defaultProps = {
 }
 
 ErrorBox.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.string),
+  messages: PropTypes.any.isRequired,
   autoClose: PropTypes.bool
 }
 

@@ -48,16 +48,16 @@ class OrderDetails extends React.Component {
     const invalidFields = validOrder(order)
     if (invalidFields) this.setState({ invalidFields })
     if (!invalidFields.length && (id || g_recaptcha_response)) {
-      /*createOrder({
+      createOrder({
         ...order,
         street: order.street.value || ''
-      }, g_recaptcha_response)*/
-      console.log({
+      }, g_recaptcha_response)
+      /*console.log({
         ...order,
         street: order.street.value || ''
-      })
+      })*/
     } else {
-      ErrorBox.create(['Заполните все необходимые поля!'])
+      ErrorBox.create('Заполните все необходимые поля!')
     }
   }
 
