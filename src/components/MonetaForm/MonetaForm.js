@@ -19,6 +19,7 @@ class MonetaForm extends React.Component {
         <input type="hidden" name="MNT_AMOUNT" value={mntAmount} />
         <input type="hidden" name="MNT_SIGNATURE" value={mntSignature} />
         <input type="hidden" name="paymentSystem.unitId" value={paymentType} />
+        <input type="hidden" name="javascriptEnabled" value="true"/ >
         <input ref="submit" type="submit" style={{display: 'none'}} />
       </form>
     )
