@@ -16,6 +16,6 @@ const backdropStyle = {
 export default () =>
   <div style={backdropStyle}>
     <div className="spinner-container">
-      <div class="loader">Loading...</div>
+      <div className="loader">Loading...</div>
     </div>
   </div>
