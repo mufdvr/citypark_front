@@ -6,5 +6,5 @@ export const PROFILE                 = REACT_APP_API_PLACEHOLDER + '/profile'
 export const FAVORITES               = REACT_APP_API_PLACEHOLDER + '/favorites/'
 export const ORDERS                  = REACT_APP_API_PLACEHOLDER + '/orders'
 
-export const AUTH_VK                 = REACT_APP_API_GATEWAY + USERS + '/auth/vkontakte'
-export const AUTH_ODNOKLASSNIKI      = REACT_APP_API_GATEWAY + USERS + '/auth/odnoklassniki'
+export const AUTH_VK                 = USERS + '/auth/vkontakte'
+export const AUTH_ODNOKLASSNIKI      = USERS + '/auth/odnoklassniki'

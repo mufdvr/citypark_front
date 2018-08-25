@@ -5,6 +5,9 @@
   "proxy": {
     "/api/v1": {
       "target": "http://localhost:4000"
+    },
+    "/uploads": {
+      "target": "http://localhost:4000"
     }
   },
   "dependencies": {
