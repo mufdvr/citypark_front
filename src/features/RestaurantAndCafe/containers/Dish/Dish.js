@@ -39,7 +39,7 @@ class Dish extends React.Component {
               : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
             : null
           }
-          <div onClick={() => addItems([{id, title, cost}])} className="z_btn">Добавить в список заказа</div>
+          <div onClick={() => addItems([{id, title, cost}])} className="z_btn" style={{marginRight: "1rem"}}>В корзину</div>
         </div>
       </div>
     )
