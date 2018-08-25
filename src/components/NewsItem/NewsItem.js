@@ -10,7 +10,7 @@ const NewsItem = ({ id, image, title, description, created_at, displayType }) =>
       <img
         className={`cover-${displayType}`}
         alt="pic"
-        src={process.env.REACT_APP_BACK_ROOT + image}
+        src={process.env.REACT_APP_API_GATEWAY + image}
       />
     </div>
     <div className={`n_body_${displayType}`}>

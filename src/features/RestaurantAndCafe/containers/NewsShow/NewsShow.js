@@ -32,7 +32,7 @@ class NewsShow extends React.Component {
         />
         <div className="page_date">{created_at}</div>
         <div className="page_img">
-        	<img src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
+        	<img src={process.env.REACT_APP_API_GATEWAY + image} alt="pic" />
         </div>
         <h1>{title}</h1>
         <div key={Math.random()} ref={this.xss} />

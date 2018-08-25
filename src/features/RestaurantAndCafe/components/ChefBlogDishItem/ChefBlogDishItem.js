@@ -7,7 +7,7 @@ import { CHEF_BLOG } from '../../links'
 const ChefBlogDishItem = ({ id, title, description, created_at, image }) =>
   <div className="room_list" style={{background: "0"}}>
     <div className="room_list_img" style={{border: "2px solid #45312b"}}>
-      <img width="260" height="170" src={process.env.REACT_APP_BACK_ROOT + image} alt="pic" />
+      <img width="260" height="170" src={process.env.REACT_APP_API_GATEWAY + image} alt="pic" />
     </div>
     <div className="room_list_txt">
       <div className="room_list_title"><Link to={CHEF_BLOG.URL + '/' + id}>{title}</Link></div>

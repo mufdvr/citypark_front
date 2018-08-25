@@ -18,8 +18,8 @@ class Dish extends React.Component {
             <div className="bludo_img">
               <ReactFancyBox
                 className="gmg"
-                thumbnail={process.env.REACT_APP_BACK_ROOT + images.preview}
-                image={process.env.REACT_APP_BACK_ROOT + images.full}
+                thumbnail={process.env.REACT_APP_API_GATEWAY + images.preview}
+                image={process.env.REACT_APP_API_GATEWAY + images.full}
               />
             </div>
           : <div />
