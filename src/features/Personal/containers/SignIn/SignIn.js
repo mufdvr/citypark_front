@@ -65,10 +65,8 @@ class SignIn extends React.Component {
         </div>
         <div id="auth-buttons">
           <div id="social-auth">
-            <a href={apiConst.AUTH_FACEBOOK}><div id="facebook" className="icon" /></a>
             <a href={apiConst.AUTH_VK}><div id="vk" className="icon" /></a>
             <a href={apiConst.AUTH_ODNOKLASSNIKI}><div id="odnoklassniki" className="icon" /></a>
-            <a href={apiConst.AUTH_TWITTER}><div id="twitter" className="icon" /></a>
           </div>
           <SpinButton spin={fetching === types.USER_SIGN_IN} className="z_btn" onClick={this.handleSubmit}>
             Войти

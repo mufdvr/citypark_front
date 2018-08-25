@@ -1,6 +1,6 @@
 export const PERSONAL = {
   URL: '/personal',
-  TITLE: 'Личный кабинет'
+  TITLE: 'Войти'
 }
 export const FAVORITES = {
   URL: PERSONAL.URL + '/favorites',
