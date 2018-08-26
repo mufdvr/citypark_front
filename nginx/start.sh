@@ -1,12 +1,13 @@
 #!/bin/sh
 
 echo "setting nginx conf ..."
-echo "APP_API_PLACEHOLDER": $APP_API_PLACEHOLDER
-echo "APP_API_GATEWAY": $APP_API_GATEWAY
-echo "APP_HOST": $APP_HOST
+echo "API_PLACEHOLDER": $API_PLACEHOLDER
+echo "UPLOADS_PLACEHOLDER": $UPLOADS_PLACEHOLDER
+echo "BACKEND_GATEWAY": $BACKEND_GATEWAY
+echo "HOST": $HOST
 
 # replace env for nginx conf
-envsubst '$APP_API_PLACEHOLDER $APP_API_GATEWAY $APP_HOST' < /etc/nginx/conf.d/app.conf.template > /etc/nginx/conf.d/default.conf
+envsubst '$API_PLACEHOLDER $UPLOADS_PLACEHOLDER $BACKEND_GATEWAY $HOST' < /etc/nginx/conf.d/app.conf.template > /etc/nginx/conf.d/default.conf
 
 # start nginx
 nginx -g 'daemon off;'

@@ -18,8 +18,8 @@ class Dish extends React.Component {
             <div className="bludo_img">
               <ReactFancyBox
                 className="gmg"
-                thumbnail={process.env.REACT_APP_API_GATEWAY + images.preview}
-                image={process.env.REACT_APP_API_GATEWAY + images.full}
+                thumbnail={images.preview}
+                image={images.full}
               />
             </div>
           : <div />
@@ -33,13 +33,15 @@ class Dish extends React.Component {
             <span className="gramm">{weight}</span>
             <span className="bsm"><span className="bsm_n">{cost}</span><span style={{fontSize:"30px"}}>₽</span></span>
           </div>
-          {
-            user && user.id ?
-              fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
-              : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
-            : null
-          }
-          <div onClick={() => addItems([{id, title, cost}])} className="z_btn" style={{marginRight: "1rem"}}>В корзину</div>
+          <div className="dish-buttons">
+            {
+              user && user.id ?
+                fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
+                : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
+              : null
+            }
+            <div onClick={() => addItems([{id, title, cost}])} className="z_btn">В корзину</div>
+          </div>  
         </div>
       </div>
     )

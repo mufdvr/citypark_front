@@ -1,4 +1,4 @@
-const { REACT_APP_API_PLACEHOLDER, REACT_APP_API_GATEWAY }         = process.env
+const { REACT_APP_API_PLACEHOLDER }         = process.env
 export const SIGN_IN                 = REACT_APP_API_PLACEHOLDER + '/users/sign_in'
 export const USERS                   = REACT_APP_API_PLACEHOLDER + '/users'
 export const SIGN_OUT                = REACT_APP_API_PLACEHOLDER + '/users/sign_out'

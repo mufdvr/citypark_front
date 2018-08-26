@@ -21,7 +21,6 @@ class ChefBlogShow extends React.Component {
 
   render = () => {
     if (!this.props.blogsitem.body) return <div />
-    const { REACT_APP_API_GATEWAY } = process.env
     const { title, created_at, image, gallery } = this.props.blogsitem
     return (
       <div className="light">
@@ -33,7 +32,7 @@ class ChefBlogShow extends React.Component {
         />
         <div className="page_date">{created_at}</div>
         <div className="page_img">
-        	<img src={process.env.REACT_APP_API_GATEWAY + image} alt="pic" />
+        	<img src={image} alt="pic" />
         </div>
         <h1>{title}</h1>
         <div key={Math.random()} ref={this.xss} />
@@ -41,8 +40,8 @@ class ChefBlogShow extends React.Component {
           gallery ?
             <PhotoGallery items={
               gallery.map(item => ({
-                image: REACT_APP_API_GATEWAY + item.image,
-                thumb: REACT_APP_API_GATEWAY + item.thumb
+                image: item.image,
+                thumb: item.thumb
               }))
             } />
           : null

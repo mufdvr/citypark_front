@@ -7,7 +7,7 @@ const NewsItem = ({ id, title, image, description, created_at }) =>
   <div className="page_list_wrapper">
     <div className="page_date">{created_at}</div>
     <div className="page_img">
-      <img src={process.env.REACT_APP_API_GATEWAY + image} alt="pic" />
+      <img src={image} alt="pic" />
     </div>
     <div className="description">
       <Link to={NEWS.URL + '/' + id} className="dttl">{title}</Link><br/>
