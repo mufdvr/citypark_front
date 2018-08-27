@@ -24,7 +24,7 @@ class ChefBlogShow extends React.Component {
     const { title, created_at, image, gallery } = this.props.blogsitem
     return (
       <div className="light">
-        { Breadcrumbs({links:  [ REST_MAIN, CHEF_BLOG, {title} ]}) }
+        { Breadcrumbs({links:  [ REST_MAIN, CHEF_BLOG, {TITLE: title} ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"
           title="РГК «City Park» - Летнее кафе"

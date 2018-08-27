@@ -24,7 +24,7 @@ class NewsShow extends React.Component {
     const { title, created_at, image } = this.props.newsitem
     return (
       <div className="light">
-        { Breadcrumbs({links:  [ REST_MAIN, NEWS, {title} ]}) }
+        { Breadcrumbs({links:  [ REST_MAIN, NEWS, {TITLE: title} ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"
           title="РГК «City Park» - Летнее кафе"

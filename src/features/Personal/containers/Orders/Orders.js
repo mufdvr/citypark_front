@@ -25,13 +25,17 @@ class Orders extends React.Component {
     : null
   }
 
-  render = () =>
-    <div className="light">
-      <Helmet title={TITLE_PREFIX + ORDERS.TITLE} />
-      <Cart.containers.Cart />
-      { Breadcrumbs({links:  [ PERSONAL, ORDERS ]}) }
-      { this.ordersList() }
-    </div>
+  render = () => {
+    const { user } = this.props
+    return (
+      <div className="light">
+        <Helmet title={TITLE_PREFIX + ORDERS.TITLE} />
+        <Cart.containers.Cart />
+        { Breadcrumbs({links:  [ { TITLE: user.name, URL: PERSONAL.URL }, ORDERS ]}) }
+        { this.ordersList() }
+      </div>
+    )  
+  }  
 }
 
 const mapStateToProps = state => {
@@ -39,7 +43,8 @@ const mapStateToProps = state => {
   return {
     fetching,
     orders: payload,
-    loaded: !!payload.length
+    loaded: !!payload.length,
+    user: state.user.payload
   }
 }
 

@@ -27,10 +27,11 @@ class Favorites extends React.Component {
   }
 
   render = () => {
+    const { user } = this.props
     return (
       <div className="light">
         <Helmet title={TITLE_PREFIX + FAVORITES.TITLE} />
-        { Breadcrumbs({links: [ PERSONAL, FAVORITES ]}) }
+        { Breadcrumbs({links: [ { TITLE: user.name, URL: PERSONAL.URL }, FAVORITES ]}) }
         <Cart />
         <div className="cat_wrapper" style={{top: 0}}>
           <div className="vrprig"><br/></div>
@@ -49,7 +50,8 @@ const mapStateToProps = state => {
   return {
     fetching,
     favorites: payload,
-    loaded: !!payload.length
+    loaded: !!payload.length,
+    user: state.user.payload
   }
 }
 
