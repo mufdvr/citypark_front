@@ -16,7 +16,8 @@ FROM nginx:alpine
 ARG APP_ROOT
 ENV APP_DIR=$APP_ROOT
 RUN rm -rf /etc/nginx/conf.d
-COPY nginx/app.conf /etc/nginx/conf.d/app.conf.template
+RUN mkdir /usr/share/nginx/files
+COPY nginx/default.conf.template /etc/nginx/conf.d/
 COPY nginx/nginx.conf /etc/nginx/
 COPY nginx/start.sh ./
 COPY --from=build ${APP_ROOT}/build /usr/share/nginx/html/
