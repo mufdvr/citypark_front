@@ -1,26 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FromStyles from './MonetaForm.css'
 import { Spinner } from 'components'
 
 class MonetaForm extends React.Component {
 
-  componentDidMount = () => this.refs.submit.click()
+  addLink = target => {
+    let cssLink = document.createElement("link")
+    cssLink.href = FromStyles
+    cssLink.rel = "stylesheet"
+    cssLink.type = "text/css"
+    target.contentDocument.head.appendChild(cssLink)
+  }
+  handleClick = () => {
+    window.frames.widget.postMessage('{"m_type":"request","m_val":"submitForm"}', "*");
+  }
 
   render = () => {
     const { mntTransactionId, mntAmount, mntSignature, paymentType } = this.props
     const { REACT_APP_MNT_ID, REACT_APP_ASSISTANT, REACT_APP_MNT_TEST_MODE, REACT_APP_MNT_CURRENCY_CODE } = process.env
     return (
-      <form method="post" action={REACT_APP_ASSISTANT}>
-        { Spinner() }
-        <input type="hidden" name="MNT_ID" value={REACT_APP_MNT_ID} />
-        <input type="hidden" name="MNT_TEST_MODE" value={REACT_APP_MNT_TEST_MODE} />
-        <input type="hidden" name="MNT_CURRENCY_CODE" value={REACT_APP_MNT_CURRENCY_CODE} />
-        <input type="hidden" name="MNT_TRANSACTION_ID" value={mntTransactionId} />
-        <input type="hidden" name="MNT_AMOUNT" value={mntAmount} />
-        <input type="hidden" name="MNT_SIGNATURE" value={mntSignature} />
-        <input type="hidden" name="paymentSystem.unitId" value={paymentType} />
-        <input ref="submit" type="submit" style={{display: 'none'}} />
-      </form>
+      <div>
+      <iframe name="widget" ref={this.addLink} onLoad={() => console.log(77777777)} id="widget" style={{width: "100%", height: "650px"}} 
+        src={"https://demo.moneta.ru/assistant.widget?" +
+        "MNT_ID=" + REACT_APP_MNT_ID +
+        "&MNT_TEST_MODE=" + REACT_APP_MNT_TEST_MODE +
+        "&MNT_CURRENCY_CODE=" + REACT_APP_MNT_CURRENCY_CODE +
+        "&MNT_TRANSACTION_ID=" + mntTransactionId +
+        "&MNT_AMOUNT=" + mntAmount +
+        "&MNT_SIGNATURE=" + mntSignature +
+        "&paymentSystem.unitId=" + paymentType}
+      >
+        Ваш браузер не поддерживает плавающие фреймы!
+      </iframe>
+      <button onClick={this.handleClick}>btn</button>
+      </div>
     )
   }
 }

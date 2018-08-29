@@ -71,16 +71,8 @@ class OrderDetails extends React.Component {
     const { cart, order: { id, delivery, amount, mnt_signature }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (mnt_signature) { //заказ создан, рендерим форму монеты
-      localStorage.clear()
-      ReactDOM.render(
-        <MonetaForm
-          mntTransactionId={id}
-          mntAmount={amount}
-          mntSignature={mnt_signature}
-          paymentType="43674"
-        />,
-        document.querySelector('#portal')
-      )
+      //localStorage.clear()
+      
     } else {
       const dishes_orders_attributes = filterCart(cart)
       this.setState(prev => ({
@@ -97,7 +89,7 @@ class OrderDetails extends React.Component {
 
   render = () => {
     const { freeDelivery, totalCost, invalidFields, order } = this.state
-    const { clearCart, fetching, user: { id } } = this.props
+    const { clearCart, fetching, user: { id }, order: { amount, mnt_signature } } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
@@ -108,6 +100,25 @@ class OrderDetails extends React.Component {
             <div id="logo" className="order-logo" />
             <h2>Оформление заказа</h2>
           </div>
+          {/*
+            mnt_signature ? 
+              <MonetaForm
+                mntTransactionId={this.props.order.id}
+                mntAmount={amount}
+                mntSignature={mnt_signature}
+                paymentType="43674"
+              />
+            :
+          */    
+         //https://demo.moneta.ru/assistant.widget?MNT_ID=50951076&MNT_TEST_MODE=1&MNT_CURRENCY_CODE=RUB&MNT_TRANSACTION_ID=3&MNT_AMOUNT=320.00&MNT_SIGNATURE=125c20d1f7d6fc61f2701838bf335f72&paymentSystem.unitId=43674
+         1 === 1 ? 
+              <MonetaForm
+                mntTransactionId="3"
+                mntAmount="320.00"
+                mntSignature="125c20d1f7d6fc61f2701838bf335f72"
+                paymentType="43674"
+              />
+            :
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
@@ -136,6 +147,7 @@ class OrderDetails extends React.Component {
               </div>
             </div>
           </div>
+          }
           <div id="submit">
             <div onClick={clearCart} className="z_btn order-btn">
               Отмена
