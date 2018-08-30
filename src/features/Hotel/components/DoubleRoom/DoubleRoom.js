@@ -1,17 +1,21 @@
 import React from 'react'
 import ReactFancyBox from 'react-fancybox'
+import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
-import * as links from '../../links'
+import { HOTEL_MAIN, CATALOG, DOUBLE_ROOM } from '../../links'
 import * as images from './images'
+import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 export default () =>
   <div className="light">
-    { Breadcrumbs({links:  [ links.HOTEL_MAIN, links.CATALOG, links.DOUBLE_ROOM ]}) }
+    <Helmet title={ TITLE_PREFIX + DOUBLE_ROOM.TITLE } />
+    { Breadcrumbs({links:  [ HOTEL_MAIN, CATALOG, DOUBLE_ROOM ]}) }
     <SocShare
-      link="http://cityparkvip.ru/rest/"
-      title="РГК «City Park» - Ресторан и летнее кафе"
-      image="http://cityparkvip.ru/assets/templates/citypark/site-preview.jpg"
+      link={baseUrl() + DOUBLE_ROOM.URL}
+      title={TITLE_PREFIX + DOUBLE_ROOM.TITLE}
+      image={baseUrl() + "/files/images/double_room.jpg"}
     />
     <div className="room_info_block">
       <div className="room_preview_img">

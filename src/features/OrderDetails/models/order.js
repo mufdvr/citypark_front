@@ -4,6 +4,7 @@ const order = {
   delivery_times: null,
   name: '',
   phone: '+7',
+  email: '',
   city: 'Белореченск',
   street: '',
   house: '',

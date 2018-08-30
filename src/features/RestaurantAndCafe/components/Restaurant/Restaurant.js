@@ -5,15 +5,16 @@ import * as images from './images'
 import { SocShare, PhotoGallery, Breadcrumbs } from 'components'
 import { RESTAURANT, REST_MAIN } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 export default () =>
   <div className="light">
     <Helmet title={TITLE_PREFIX + RESTAURANT.TITLE} />
     { Breadcrumbs({links:  [ REST_MAIN, RESTAURANT ]}) }
     <SocShare
-      link="http://cityparkvip.ru/rest/kafe.html"
-      title="РГК «City Park» - Летнее кафе"
-      image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
+      link={baseUrl() + RESTAURANT.URL}
+      title={TITLE_PREFIX + RESTAURANT.TITLE}
+      image={baseUrl() + "/files/images/restaurant.jpg"}
     />
     <h1>{RESTAURANT.TITLE}</h1>
     <h2>

@@ -4,6 +4,11 @@ export const toPayload = (state, payload) => ({
   payload
 })
 
+export const baseUrl = () => {
+  const { protocol, host } = window.location
+  return protocol + "//" + host
+}
+
 export const filterCart = cart =>
   cart && cart.map(item => ({
     dish_id: item.id,
