@@ -27,4 +27,7 @@
     width: 100%;
     min-height: 100px;
   }
+  .fold_home {
+    background:rgba(212,181,142,0.5);
+  }
 }

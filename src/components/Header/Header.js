@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-
+import { Link, withRouter } from 'react-router-dom'
 import * as images from './images'
 
 const RIGHT = 'right'
@@ -17,16 +16,16 @@ const TITLE_CLASSES = {
   [LEFT]:  'h_title_left'
 }
 
-const Header = ({ side, title, link }) =>
+const Header = ({ side, title, link, location: { pathname } }) =>
   <div className="header">
     <div className="h_img" style={{backgroundImage: `url(${{[LEFT]: () => images.left, [RIGHT]: () => images.right}[side]()})`}}>
       <div className="h_title">
-        <div className="h_title_bg" style={{backgroundPosition: side}}>
+        <div className='h_title_bg h_title_mobile' style={{backgroundPosition: side}}>
           <div
             className={GRADIENT_CLASSES[side]}
             style={{height: "75px"}}>
           </div>
-          <Link className={TITLE_CLASSES[side]} to={link}>
+          <Link className={`${TITLE_CLASSES[side]} ${window.innerWidth < 800 ? 'h_mobile' : ''}`} to={link}>
             {title}
           </Link>
         </div>
@@ -40,4 +39,4 @@ Header.propTypes = {
   link: PropTypes.string.isRequired
 }
 
-export default Header
+export default withRouter(Header)

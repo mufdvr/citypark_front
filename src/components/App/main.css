@@ -21,7 +21,7 @@ span.rur span:before {
 
 /*-----------------------*/
 
-.body {
+.body, .body_home {
   position: relative;
   display: block;
   width: 100%;
@@ -283,9 +283,15 @@ a:hover {
     height: 400px;
     background: url(/images/pagelogo.png) center no-repeat, rgba(212, 181, 142, 0.5);
   }
+  .fold_home {
+    background-image: none;
+  }
   .body {
-    display: 100%;
     min-width: 300px;
+  }
+  .body_home {
+    min-width: 300px;
+    background-image: none;
   }
   .partbody {
     width: 100%;
