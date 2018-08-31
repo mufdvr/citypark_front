@@ -7,7 +7,7 @@ import { OrderDetails } from 'features'
 import { cartTotal } from 'utils'
 import { CartItem } from '../../components'
 import * as actions from '../../actions'
-import { CART_STATES } from './constants'
+import { CART_STATES, MOBILE_VIEW_OFFSET_STATES } from './constants'
 
 class Cart extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Cart extends React.Component {
     this.state = {
       cartState: props.cart && props.cart.length ? 1 : 0
     }
-    this.isMobileView = window.innerWidth < 1100
+    this.mobileViewOffsetStates = window.innerWidth < 800 ? MOBILE_VIEW_OFFSET_STATES : 0
   }
 
   handleClick = () =>
@@ -49,13 +49,18 @@ class Cart extends React.Component {
 
   componentDidMount = () => this.props.loadCartFromLocalstorage()
 
+  componentDidUpdate = () => {
+    const { cartState } = this.state
+    if (cartState + this.mobileViewOffsetStates === 4) this.refs.shopping.style = `top: ${-this.refs.shopping.offsetHeight}px`
+  }
+
   render = () => {
     const { cartState } = this.state
     const { cart, clearCart, history, location: { pathname } } = this.props
     const _cartTotal = cartTotal(cart)
     const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY } = process.env
     return (
-      <div className="shopping" style={CART_STATES[cartState]}>
+      <div ref="shopping" className="shopping" style={CART_STATES[cartState + this.mobileViewOffsetStates]}>
         <div className="t_list">
           {this.listItems()}
         </div>

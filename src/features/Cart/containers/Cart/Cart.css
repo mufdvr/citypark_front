@@ -184,7 +184,7 @@
   border-right: 1px solid #000;
   float: right;
   line-height: 20px;
-  background: ;
+  /*background: ;*/
   overflow: hidden;
 }
 
@@ -299,9 +299,8 @@
     width: 300px;
     height: auto;
     overflow: visible;
-    top: auto;
+    top: 0;
     left: 0;
-    bottom: 100%;
     margin-bottom: 50px;
   }
   .t_list {
