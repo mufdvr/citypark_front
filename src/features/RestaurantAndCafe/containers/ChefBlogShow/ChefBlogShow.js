@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 import * as actions from '../../actions'
 import { Breadcrumbs, SocShare, PhotoGallery } from 'components'
 import { REST_MAIN, CHEF_BLOG } from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 class ChefBlogShow extends React.Component {
 
@@ -24,6 +27,7 @@ class ChefBlogShow extends React.Component {
     const { title, created_at, image, gallery } = this.props.blogsitem
     return (
       <div className="light">
+        <Helmet title={ TITLE_PREFIX + title } />
         { Breadcrumbs({links:  [ REST_MAIN, CHEF_BLOG, {TITLE: title} ]}) }
         <SocShare
           link="http://cityparkvip.ru/rest/kafe.html"

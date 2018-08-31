@@ -26,8 +26,8 @@ export default () =>
 	  <p>&nbsp;</p>
 	  <h1>Соц. сети:</h1>
 	  <h3>
-		  ВК: <a href="http://vk.com/cityparkvip">vk.com/cityparkvip</a><br/>
-			ОК: <a href="http://ok.ru/cityparkvip">ok.ru/cityparkvip</a><br/>
+		  ВК: <a href="https://vk.com/cityparkvip">vk.com/cityparkvip</a><br/>
+			ОК: <a href="https://ok.ru/cityparkvip">ok.ru/cityparkvip</a><br/>
 			Instagram: <a href="https://www.instagram.com/cityparkvipru/">cityparkvipru</a><br/><br/>
 		</h3>
 	  <p>&nbsp;</p>

@@ -30,10 +30,10 @@ export default () =>
 
     <div className="footer">
       <div className="social">
-        <a href="http://vk.com/cityparkvip">
+        <a href="https://vk.com/cityparkvip">
           <div className="soc vk" />
         </a>
-        <a href="http://ok.ru/group/53650509856994">
+        <a href="https://ok.ru/group/53650509856994">
           <div className="soc ok" />
         </a>
         <a href="https://www.instagram.com/cityparkvipru/">

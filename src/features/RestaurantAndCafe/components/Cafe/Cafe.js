@@ -70,7 +70,7 @@ export default () =>
       </strong>
     </p>
     <h3 className="justifyleft">
-      Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="http://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <Link to={MENU.URL}>"Меню"</Link>
+      Забронировать столик или заказать доставку еды по Белореченску вы можете по телефону +7-918-311-97-91 или на сайте РГК City Park <a title="РГК City Park Белореченск. Доставка еды." href="https://cityparkvip.ru/">www.cityparkvip.ru</a> в разделе <Link to={MENU.URL}>"Меню"</Link>
     </h3>
     <PhotoGallery
       items={[

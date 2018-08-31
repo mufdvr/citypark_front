@@ -44,7 +44,7 @@ export default () =>
       <strong style={{lineHeight: "1.5em"}}>Заезд с животными запрещен.<br/></strong><strong style={{lineHeight: "1.5em"}}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
     <p>&nbsp;</p>
     <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;
-    <a title="City Park Белореченск" href="http://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <Link to={CATALOG.URL}>"Каталог номеров"</Link>.</h4>
+    <a title="City Park Белореченск" href="https://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <Link to={CATALOG.URL}>"Каталог номеров"</Link>.</h4>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p align="CENTER"><span>ИНФОРМАЦИЯ ОБ ИСПОЛНИТЕЛЕ И О ПРЕДОСТАВЛЯЕМЫХ ИСПОЛНИТЕЛЕМ ГОСТИНИЧНЫХ УСЛУГАХ</span></p>

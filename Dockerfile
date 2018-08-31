@@ -21,5 +21,5 @@ COPY nginx/default.conf.template /etc/nginx/conf.d/
 COPY nginx/nginx.conf /etc/nginx/
 COPY nginx/start.sh ./
 COPY --from=build ${APP_ROOT}/build /usr/share/nginx/html/
-EXPOSE 80
+EXPOSE 80 443
 ENTRYPOINT [ "./start.sh" ]
