@@ -15,7 +15,7 @@ export default () =>
     <SocShare
       link={baseUrl() + DOUBLE_ROOM.URL}
       title={TITLE_PREFIX + DOUBLE_ROOM.TITLE}
-      image={baseUrl() + "/files/images/double_room.jpg"}
+      image={baseUrl() + images.double_room}
     />
     <div className="room_info_block">
       <div className="room_preview_img">

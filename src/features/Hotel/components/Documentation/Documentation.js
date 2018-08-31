@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import { PhotoGallery, SocShare, Breadcrumbs } from 'components'
 import { HOTEL_MAIN, DOCUMENTATION } from '../../links'
 import * as images from './images'
+import * as commonImages from 'images'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
 
@@ -14,7 +15,7 @@ export default () =>
     <SocShare
       link={baseUrl() + DOCUMENTATION.URL}
       title={TITLE_PREFIX + DOCUMENTATION.TITLE}
-      image={baseUrl() + "/files/images/site-preview.jpg"}
+      image={baseUrl() + commonImages.sitePreview}
     />
   	<p>Политика ООО "Олимп" в отношении обработки персональных данных&nbsp;</p>
     <PhotoGallery

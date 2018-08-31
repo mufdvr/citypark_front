@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
 import * as images from './images'
+import * as commonImages from 'images'
 import { CONTACTS } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
@@ -14,7 +15,7 @@ export default () =>
 		<SocShare
       link={baseUrl() + CONTACTS.URL}
       title={TITLE_PREFIX + CONTACTS.TITLE}
-      image={baseUrl() + "/files/images/hotel.jpg"}
+      image={baseUrl() + commonImages.citypark}
     />
 		<h1>Ресторанно-гостиничный комплекс City Park</h1>
 	  <h1><img src={images.fasad} alt="fasad" width="450" height="300" /></h1>

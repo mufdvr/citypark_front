@@ -5,6 +5,7 @@ import { SocShare, Breadcrumbs } from 'components'
 import { RoomListItem } from '../../components'
 import { HOTEL_MAIN, CATALOG, SINGLE_ROOM, DOUBLE_ROOM, VIP_ROOM } from '../../links'
 import * as images from './images'
+import * as commonImages from 'images'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
 
@@ -15,7 +16,7 @@ export default () =>
     <SocShare
       link={baseUrl() + CATALOG.URL}
       title={TITLE_PREFIX + CATALOG.TITLE}
-      image={baseUrl() + "/files/images/site-preview.jpg"}
+      image={baseUrl() + commonImages.sitePreview}
     />
     { RoomListItem({
       description: "Одноместные номера с двуспальной кроватью.",

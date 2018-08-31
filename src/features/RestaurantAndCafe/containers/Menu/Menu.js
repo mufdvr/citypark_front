@@ -8,6 +8,7 @@ import { Category } from '../../containers'
 import { Cart } from 'features/Cart/containers'
 import { REST_MAIN, MENU } from '../../links'
 import * as actions from '../../actions'
+import * as images from './images'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
 
@@ -39,7 +40,7 @@ class Menu extends React.Component {
         <SocShare
           link={baseUrl() + MENU.URL}
           title={TITLE_PREFIX + MENU.TITLE}
-          image={baseUrl() + "/files/images/menu.jpg"}
+          image={baseUrl() + images.menu}
         />
         <h2>
           <span>&nbsp;При заказе на вынос скидка с чека 10%!</span></h2>

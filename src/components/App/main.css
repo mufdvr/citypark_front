@@ -322,7 +322,9 @@ a:hover {
 }
 
 @media screen and (max-width: 400px) {
-  .p1, .p2 {}
+  .p1, .p2 {
+    
+  }
   .light {
     padding: 37px 2px 25px 2px;
     margin-left: 0;

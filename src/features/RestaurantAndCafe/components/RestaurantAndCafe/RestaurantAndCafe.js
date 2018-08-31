@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
 import * as images from './images'
+import * as commonImages from 'images'
 import { SocShare, Breadcrumbs } from 'components'
-import { REST_MAIN, RESTAURANT, CAFE } from '../../links'
+import { REST_MAIN, RESTAURANT, CAFE, MENU } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
 
@@ -15,7 +16,7 @@ export default () =>
     <SocShare
       link={baseUrl() + REST_MAIN.URL}
       title={TITLE_PREFIX + REST_MAIN.TITLE}
-      image={baseUrl() + "/files/images/site-preview.jpg"}
+      image={baseUrl() + commonImages.sitePreview}
     />
     <h1>Ресторан и летнее кафе</h1>
     <h2>
@@ -91,7 +92,7 @@ export default () =>
       />
       &nbsp; &nbsp;
       <br/>
-      Насладитесь <a href="rest/menu/">восхитительными блюдами</a> европейской и японской кухни от&nbsp;
+      Насладитесь <Link to={MENU.URL}>восхитительными блюдами</Link> европейской и японской кухни от&nbsp;
       первоклассных поваров, а также приятными прохладительными напитками из&nbsp;широкого ассортимента бара.
       <br/>
       Через большие окна террасы в холодное время года вы можете наслаждаться великолепным пейзажем городского парка.

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import * as actions from '../../actions'
+import * as images from 'images'
 import { SocShare, Breadcrumbs } from 'components'
 import { NewsItem } from '../../components'
 import { REST_MAIN, NEWS } from '../../links'
@@ -30,7 +31,7 @@ class News extends React.Component {
         <SocShare
           link={baseUrl() + NEWS.URL}
           title={TITLE_PREFIX + NEWS.TITLE}
-          image={baseUrl() + "/files/images/site-preview.jpg"}
+          image={baseUrl() + images.sitePreview}
         />
         { this.newslist() }
       </div>

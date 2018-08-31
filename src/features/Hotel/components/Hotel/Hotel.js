@@ -6,6 +6,7 @@ import { SocShare, Breadcrumbs } from 'components'
 import { HOTEL_MAIN, CATALOG } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
+import * as images from 'images'
 
 export default () => 
   <div className="light">
@@ -14,7 +15,7 @@ export default () =>
     <SocShare
       link={baseUrl() + HOTEL_MAIN.URL}
       title={TITLE_PREFIX + HOTEL_MAIN.TITLE}
-      image={baseUrl() + "/files/images/hotel.jpg"}
+      image={baseUrl() + images.citypark}
     />
     <h2>Отель-люкс City Park — это в<span style={{lineHeight: "1.5em"}}>ысококлассная гостиница в Белореченске с номерами&nbsp;</span><span style={{lineHeight: "1.5em"}}>различных категорий.</span></h2>
     <p><strong><span style={{lineHeight: "1.5em"}}>В гостинице 12 номеров площадью от 19 до 45 м2, все они соответствуют категории "Люкс". <br/></span></strong></p>

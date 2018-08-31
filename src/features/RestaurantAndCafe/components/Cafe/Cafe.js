@@ -15,7 +15,7 @@ export default () =>
     <SocShare
       link={baseUrl() + CAFE.URL}
       title={TITLE_PREFIX + CAFE.TITLE}
-      image={baseUrl() + "/files/panorama_obrez.jpg"}
+      image={baseUrl() + images.panoramaObrez}
     />
     <h1>{CAFE.TITLE}</h1>
     <h2>
