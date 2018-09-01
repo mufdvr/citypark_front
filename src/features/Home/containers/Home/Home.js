@@ -37,7 +37,7 @@ class Home extends React.Component {
     if (Object.keys(rooms).length === 0) return null
     const free_rooms = Object.values(rooms).reduce((count, room) => count + room)
     return (
-      <div className="ost_rooms">
+      <div className="ost_rooms_home">
         <div className="rn">{free_rooms ? free_rooms : null}</div>
         <div className="rntxt">{this.freeRoomsText(free_rooms)}</div>
         <div className="ost_end"></div>

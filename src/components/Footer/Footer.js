@@ -47,10 +47,10 @@ export default () =>
       </div>
       <div className="evrika">
         <p>Разработка сайта</p>
-        <a href="http://evrikapr.ru">
+        <a href="http://evrikapr.ru" target="_blank" rel="noopener noreferrer">
           <div className="evrikalogo" />
         </a>
-        <a href="http://sorc.ru">
+        <a href="http://sorc.ru" target="_blank" rel="noopener noreferrer">
           <div className="sorclogo" />
         </a>
       </div>

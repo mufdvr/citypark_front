@@ -293,6 +293,9 @@ a:hover {
     min-width: 300px;
     background-image: none;
   }
+  .room_info_block {
+    float: none;
+  }
   .partbody {
     width: 100%;
     overflow: hidden;
@@ -324,6 +327,15 @@ a:hover {
 @media screen and (max-width: 400px) {
   .p1, .p2 {
     
+  }
+  .summ {
+    color: #f9b89c;
+    font-size: 45px;
+  }
+  .room_text {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 40px;
   }
   .light {
     padding: 37px 2px 25px 2px;
