@@ -312,7 +312,7 @@ a:hover {
     padding: 37px 25px 25px 25px;
     margin-right: 0;
   }
-  .column .deliver_block, .news_block, .room_catalog, .ost_rooms, .p1, .p2 {
+  .column .deliver_block, .news_block_side, .room_catalog_side, .ost_rooms, .p1, .p2 {
     display: none;
   }
   .content {

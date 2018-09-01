@@ -113,7 +113,15 @@
   width: 80px;
   height: 53px;
   margin-top: 10px;
-  background: url(/images/evlogo.png) no-repeat;
+  margin-right: 20px;
+}
+
+.sorclogo {
+  position: relative;
+  display: inline-block;
+  width: 118px;
+  height: 53px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 800px) {

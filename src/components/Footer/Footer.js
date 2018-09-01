@@ -46,8 +46,12 @@ export default () =>
         </div>
       </div>
       <div className="evrika">
-        <p>Разработка сайта</p><a href="http://evrikapr.ru">
+        <p>Разработка сайта</p>
+        <a href="http://evrikapr.ru">
           <div className="evrikalogo" />
+        </a>
+        <a href="http://sorc.ru">
+          <div className="sorclogo" />
         </a>
       </div>
     </div>
