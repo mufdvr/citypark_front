@@ -19,8 +19,8 @@ class MainLayout extends React.Component {
     const { route, location: { pathname } } = this.props
     return (
       <div className="body">
-        <div className={ pathname === "/" ? 'p1' : 'p_off'} />
-        <div className={ pathname === "/" ? 'p2' : 'p_off'} />
+        <div className={ pathname === "/" ? 'p1' : 'p1 p_off'} />
+        <div className={ pathname === "/" ? 'p2' : 'p2 p_off'} />
         { route && renderRoutes(route.routes) }
         { Footer() }
       </div>

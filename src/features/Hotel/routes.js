@@ -1,6 +1,8 @@
+import React from 'react'
 import * as containers from './containers'
 import * as components from './components'
 import * as links from './links'
+import { NotFound } from 'components'
 
 const routes = [
   {
@@ -32,6 +34,10 @@ const routes = [
       {
         path: links.VIP_ROOM.URL,
         component: components.VipRoom
+      },
+      {
+        path: '*',
+        component: () => <NotFound />
       }
     ]
   }
