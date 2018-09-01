@@ -1,3 +1,4 @@
+import * as containers from './containers'
 import * as components from './components'
 import * as links from './links'
 
@@ -14,7 +15,7 @@ const routes = [
       {
         path: links.CATALOG.URL,
         exact: true,
-        component: components.RoomCatalog
+        component: containers.RoomCatalog
       },
       {
         path: links.DOCUMENTATION.URL,

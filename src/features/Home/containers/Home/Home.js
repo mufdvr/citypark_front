@@ -17,6 +17,34 @@ class Home extends React.Component {
     return news.map(item => <NewsItem key={item.id} displayType={DISPLAY_TYPE} {...item} />)
   }
 
+  freeRoomsText = roomsCount => {
+    switch (roomsCount) {
+      case 0:
+        return <span>Нет свободных<br/>номеров</span>
+      case 1:
+        return <span>cвободный<br/>номер</span>
+      case 2:
+      case 3:
+      case 4:
+        return <span>свободных<br/>номера</span>
+      default:
+        return <span>свободных<br/>номеров</span>
+    }
+  }  
+
+  freeRooms = () => {
+    const { rooms } = this.props
+    if (Object.keys(rooms).length === 0) return null
+    const free_rooms = Object.values(rooms).reduce((count, room) => count + room)
+    return (
+      <div className="ost_rooms">
+        <div className="rn">{free_rooms ? free_rooms : null}</div>
+        <div className="rntxt">{this.freeRoomsText(free_rooms)}</div>
+        <div className="ost_end"></div>
+      </div>
+    )
+  }
+
   render = () => {
     const { REST_MAIN } = RestaurantAndCafe.links
     const { HOTEL_MAIN } = Hotel.links
@@ -50,11 +78,7 @@ class Home extends React.Component {
           <div className="partbody">
             <div className="shade">
               <RoomsCatalog displayType={DISPLAY_TYPE} />
-              <div className="ost_rooms">
-                <div className="rn">1</div>
-                <div className="rntxt">свободный<br/>номер</div>
-                <div className="ost_end"></div>
-              </div>
+              { this.freeRooms() }
               { HotelContacts({ displayType: DISPLAY_TYPE }) }
             </div>
           </div>
@@ -69,6 +93,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   news: state.news.payload,
+  rooms: state.rooms.payload
 })
 
 const ReduxWrapper = connect(mapStateToProps)

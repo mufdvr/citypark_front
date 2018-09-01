@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import ReactFancyBox from 'react-fancybox'
 import { Helmet } from 'react-helmet'
 
@@ -7,8 +8,9 @@ import { HOTEL_MAIN, CATALOG, DOUBLE_ROOM } from '../../links'
 import * as images from './images'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
+import { freeRoomsText } from '../../utils'
 
-export default () =>
+const DoubleRoom = ({ rooms: { double_rooms } }) =>
   <div className="light">
     <Helmet title={ TITLE_PREFIX + DOUBLE_ROOM.TITLE } />
     { Breadcrumbs({links:  [ HOTEL_MAIN, CATALOG, DOUBLE_ROOM ]}) }
@@ -28,8 +30,8 @@ export default () =>
       </div>
       <div className="room_summ" style={{position: "relative"}}><span className="summ">3000</span> ₽/сутки</div>
       <div className="room_empty" style={{position: "relative", float: "left", marginTop: "10px"}}>
-        <div className="re_num">6</div>
-        <div className="re_txt">свободных номеров<br/>такого типа</div>
+        <div className="re_num">{ double_rooms ? double_rooms : null }</div>
+        <div className="re_txt">{freeRoomsText(double_rooms)}</div>
       </div>
     </div>
     <div className="room_text">
@@ -53,3 +55,11 @@ export default () =>
       <p>&nbsp;</p>
     </div>
   </div>
+
+const mapStateToProps = state => ({
+  rooms: state.rooms.payload
+})
+
+const ReduxWrapper = connect(mapStateToProps)
+const WrappedComponent = ReduxWrapper(DoubleRoom)
+export default WrappedComponent

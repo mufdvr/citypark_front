@@ -25,3 +25,14 @@
   color: #f0d8be;
   text-shadow: -1px -1px 0 #563e31;
 }
+
+.not_found {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#383027',endColorstr='#a2856d',GradientType=0);
+  zoom: 1;
+  background: linear-gradient(to top, #383027, #a2856d);
+  text-align: center;
+}
