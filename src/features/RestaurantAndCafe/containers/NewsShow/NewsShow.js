@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Helmet } from 'react-helmet'
 
 import * as actions from '../../actions'
 import { Breadcrumbs, SocShare } from 'components'
 import { REST_MAIN, NEWS } from '../../links'
+import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 class NewsShow extends React.Component {
 
@@ -21,14 +24,15 @@ class NewsShow extends React.Component {
 
   render = () => {
     if (!this.props.newsitem.body) return <div />
-    const { title, created_at, image } = this.props.newsitem
+    const { newsitem: { title, created_at, image }, match: { params } } = this.props
     return (
       <div className="light">
+        <Helmet title={ TITLE_PREFIX + title } />
         { Breadcrumbs({links:  [ REST_MAIN, NEWS, {TITLE: title} ]}) }
         <SocShare
-          link="http://cityparkvip.ru/rest/kafe.html"
-          title="РГК «City Park» - Летнее кафе"
-          image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
+          link={ baseUrl() + NEWS.URL + '/' + params.id }
+          title={ TITLE_PREFIX + title }
+          image={ baseUrl() + image }
         />
         <div className="page_date">{created_at}</div>
         <div className="page_img">

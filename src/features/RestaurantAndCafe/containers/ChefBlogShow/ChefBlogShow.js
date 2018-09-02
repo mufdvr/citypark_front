@@ -7,7 +7,7 @@ import * as actions from '../../actions'
 import { Breadcrumbs, SocShare, PhotoGallery } from 'components'
 import { REST_MAIN, CHEF_BLOG } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
-//import { baseUrl } from 'utils'
+import { baseUrl } from 'utils'
 
 class ChefBlogShow extends React.Component {
 
@@ -24,15 +24,15 @@ class ChefBlogShow extends React.Component {
 
   render = () => {
     if (!this.props.blogsitem.body) return <div />
-    const { title, created_at, image, gallery } = this.props.blogsitem
+    const { blogsitem: { title, created_at, image, gallery }, match: { params } } = this.props
     return (
       <div className="light">
         <Helmet title={ TITLE_PREFIX + title } />
         { Breadcrumbs({links:  [ REST_MAIN, CHEF_BLOG, {TITLE: title} ]}) }
         <SocShare
-          link="http://cityparkvip.ru/rest/kafe.html"
-          title="РГК «City Park» - Летнее кафе"
-          image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
+          link={ baseUrl() + CHEF_BLOG.URL + '/' + params.id }
+          title={ TITLE_PREFIX + title }
+          image={ baseUrl() + image }
         />
         <div className="page_date">{created_at}</div>
         <div className="page_img">
