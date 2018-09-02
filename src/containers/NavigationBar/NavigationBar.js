@@ -20,7 +20,6 @@ class NavigationBar extends React.Component {
       ],
       visible: false
     }
-    this.isMobileView = window.innerWidth < 1100
   }
 
   handleTotgleVisible = () => 
@@ -40,6 +39,24 @@ class NavigationBar extends React.Component {
     visible: false
   })
 
+  updateDimensions = () => {
+    this.setState({
+      isMobileView: window.innerWidth < 1100
+    })
+  }
+
+  componentWillMount = () => {
+    this.updateDimensions()
+  }
+
+  componentDidMount = () => {
+    window.addEventListener("resize", this.updateDimensions)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.updateDimensions)
+  }
+
   componentWillReceiveProps = (nextProps) => {
     const { user } = nextProps
     const { subMenuVisible } = this.state
@@ -54,13 +71,13 @@ class NavigationBar extends React.Component {
     const { CONTACTS } = Contacts.links
     const { PERSONAL, FAVORITES, ORDERS } = Personal.links
     const { user, signOut } = this.props
-    const { visible } = this.state
+    const { visible, isMobileView } = this.state
     return (
       <div className="mainmenu">
         <div className="menubody">
         	<div className="l_grad"></div>
           <div className="r_grad"></div>
-          <ul className="mmenu" style={ this.isMobileView ? {left: visible ? 0 : "-300px"} : {}}>
+          <ul className="mmenu" style={ isMobileView ? {left: visible ? 0 : "-300px"} : {}}>
             <li onClick={this.handleClick}>
               <Link to="/" className="first active">Главная</Link>
             </li>

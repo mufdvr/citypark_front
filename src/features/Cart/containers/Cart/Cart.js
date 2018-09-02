@@ -15,7 +15,6 @@ class Cart extends React.Component {
     this.state = {
       cartState: props.cart && props.cart.length ? 1 : 0
     }
-    this.mobileViewOffsetStates = window.innerWidth < 800 ? MOBILE_VIEW_OFFSET_STATES : 0
   }
 
   handleClick = () =>
@@ -47,20 +46,37 @@ class Cart extends React.Component {
     cart && localStorage.setItem("cart", JSON.stringify(cart))
   }
 
-  componentDidMount = () => this.props.loadCartFromLocalstorage()
+  componentDidMount = () => {
+    window.addEventListener("resize", this.updateDimensions)
+    this.props.loadCartFromLocalstorage()
+  }  
 
   componentDidUpdate = () => {
-    const { cartState } = this.state
-    if (cartState + this.mobileViewOffsetStates === 4) this.refs.shopping.style = `top: ${-this.refs.shopping.offsetHeight}px`
+    const { cartState, mobileViewOffsetStates } = this.state
+    if (cartState + mobileViewOffsetStates === 4) this.refs.shopping.style = `top: ${-this.refs.shopping.offsetHeight}px`
+  }
+
+  updateDimensions = () => {
+    this.setState({
+      mobileViewOffsetStates: window.innerWidth < 800 ? MOBILE_VIEW_OFFSET_STATES : 0
+    })
+  }
+
+  componentWillMount = () => {
+    this.updateDimensions()
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.updateDimensions)
   }
 
   render = () => {
-    const { cartState } = this.state
+    const { cartState, mobileViewOffsetStates } = this.state
     const { cart, clearCart, history, location: { pathname } } = this.props
     const _cartTotal = cartTotal(cart)
     const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY } = process.env
     return (
-      <div ref="shopping" className="shopping" style={CART_STATES[cartState + this.mobileViewOffsetStates]}>
+      <div ref="shopping" className="shopping" style={CART_STATES[cartState + mobileViewOffsetStates]}>
         <div className="t_list">
           {this.listItems()}
         </div>

@@ -82,7 +82,7 @@ server {
     proxy_set_header Connection "upgrade";
   }
 
-  location ${ADMIN_PLACEHOLDER} {
+  location ${ADMIN_PLACEHOLDER}/ {
     proxy_pass         http://citypark_admin:80/;
     proxy_http_version 1.1;
     proxy_set_header   X-Real-IP $remote_addr;
