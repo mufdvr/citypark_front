@@ -63,7 +63,7 @@ class OrderDetails extends React.Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage, loadOrderFromLocalstorage } = this.props
+    const { cart, loadCartFromLocalstorage, /*loadOrderFromLocalstorage*/ } = this.props
     !cart && loadCartFromLocalstorage()// && loadOrderFromLocalstorage()
   }
 

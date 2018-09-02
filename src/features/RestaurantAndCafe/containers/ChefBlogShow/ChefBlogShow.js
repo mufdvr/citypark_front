@@ -7,7 +7,7 @@ import * as actions from '../../actions'
 import { Breadcrumbs, SocShare, PhotoGallery } from 'components'
 import { REST_MAIN, CHEF_BLOG } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
-import { baseUrl } from 'utils'
+//import { baseUrl } from 'utils'
 
 class ChefBlogShow extends React.Component {
 

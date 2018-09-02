@@ -74,7 +74,7 @@ class Cart extends React.Component {
     const { cartState, mobileViewOffsetStates } = this.state
     const { cart, clearCart, history, location: { pathname } } = this.props
     const _cartTotal = cartTotal(cart)
-    const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY } = process.env
+    const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY, REACT_APP_SHOPON } = process.env
     return (
       <div ref="shopping" className="shopping" style={CART_STATES[cartState + mobileViewOffsetStates]}>
         <div className="t_list">
@@ -90,22 +90,28 @@ class Cart extends React.Component {
           <div id="skidka">С учетом скидки 10%</div>
         </div>
         {
-          pathname !== OrderDetails.links.ORDER_DETAILS.URL ?
-            <div className="zakaz_info" style={{display: "flex"}}>
-              <div
-                onClick={clearCart}
-                className="z_btn create-order-btn cancel-btn"
-              >
-                Отмена<i style={{color: "red"}} className="material-icons">close</i>
-            </div>
-              <div
-                onClick={() => history.push(OrderDetails.links.ORDER_DETAILS.URL)}
-                className="z_btn create-order-btn create-btn"
-              >
-                Оформить заказ<i style={{color: "green"}} className="material-icons">done</i>
+          REACT_APP_SHOPON === "true" ? 
+            pathname !== OrderDetails.links.ORDER_DETAILS.URL ?
+              <div className="zakaz_info" style={{display: "flex"}}>
+                <div
+                  onClick={clearCart}
+                  className="z_btn create-order-btn cancel-btn"
+                >
+                  Отмена<i style={{color: "red"}} className="material-icons">close</i>
+                </div>
+                <div
+                  onClick={() => history.push(OrderDetails.links.ORDER_DETAILS.URL)}
+                  className="z_btn create-order-btn create-btn"
+                >
+                  Оформить заказ<i style={{color: "green"}} className="material-icons">done</i>
+                </div>
               </div>
-            </div>
-          : null
+            : null
+          :
+            <div className="zakaz_info">
+              <div style={{fontSize: "24px", lineHeight: "24px"}}>8-918-311-97-91</div>
+              Пожалуйста, позвоните по этому номеру и продиктуйте ваш заказ.
+            </div> 
         }
         <div id="s_open_btn" onClick={this.handleClick}>
           <div></div>

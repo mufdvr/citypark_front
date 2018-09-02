@@ -15,7 +15,7 @@ const NewsItem = ({ id, image, title, description, created_at, displayType }) =>
     </div>
     <div className={`n_body_${displayType}`}>
       <div className={`n_date n_date_${displayType}`}>
-        {created_at}
+        { created_at ? created_at.split(' ')[0] : null }
       </div>
       <div className="n_title">
         <Link to={RestaurantAndCafe.links.NEWS.URL + '/' + id}>

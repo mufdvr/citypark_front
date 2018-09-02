@@ -72,6 +72,7 @@ class NavigationBar extends React.Component {
     const { PERSONAL, FAVORITES, ORDERS } = Personal.links
     const { user, signOut } = this.props
     const { visible, isMobileView } = this.state
+    const { REACT_APP_SHOPON } = process.env
     return (
       <div className="mainmenu">
         <div className="menubody">
@@ -135,30 +136,34 @@ class NavigationBar extends React.Component {
                 {CONTACTS.TITLE}
               </Link>
             </li>
-            <li onClick={this.handleClick} onMouseOver={() => this.handleHover(2)} onMouseOut={() => this.handleHover(2)}>
-              <Link to={PERSONAL.URL}>
-                { user && user.id ? user.name : PERSONAL.TITLE }
-              </Link>
-              {
-                user && user.id ?
-                  <ul className={`sub ${this.state.subMenuVisible[2] ? "fade-in" : "fade-out"}`}>
-                    <li onClick={this.handleClick}>
-                      <Link to={FAVORITES.URL}>
-                        {FAVORITES.TITLE}
-                      </Link>
-                    </li>
-                    <li onClick={this.handleClick}>
-                      <Link to={ORDERS.URL}>
-                        {ORDERS.TITLE}
-                      </Link>
-                    </li>
-                    <li onClick={this.handleClick}>
-                      <a onClick={signOut}>Выход</a>
-                    </li>
-                  </ul>
-                : null
-              }
-            </li>
+            { 
+              REACT_APP_SHOPON === "true" ? 
+                <li onClick={this.handleClick} onMouseOver={() => this.handleHover(2)} onMouseOut={() => this.handleHover(2)}>
+                  <Link to={PERSONAL.URL}>
+                    { user && user.id ? user.name : PERSONAL.TITLE }
+                  </Link>
+                  {
+                    user && user.id ?
+                      <ul className={`sub ${this.state.subMenuVisible[2] ? "fade-in" : "fade-out"}`}>
+                        <li onClick={this.handleClick}>
+                          <Link to={FAVORITES.URL}>
+                            {FAVORITES.TITLE}
+                          </Link>
+                        </li>
+                        <li onClick={this.handleClick}>
+                          <Link to={ORDERS.URL}>
+                            {ORDERS.TITLE}
+                          </Link>
+                        </li>
+                        <li onClick={this.handleClick}>
+                          <a onClick={signOut}>Выход</a>
+                        </li>
+                      </ul>
+                    : null
+                  }
+                </li>
+              : null
+            }    
     		    <div id="menu-btn" onClick={this.handleTotgleVisible}>
     			    <div id="mn1" style={ visible ? buttonStyles[2] : buttonStyles[0] }></div>
     			    <div id="mn2"></div>

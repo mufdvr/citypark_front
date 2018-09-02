@@ -12,6 +12,7 @@ class Dish extends React.Component {
   render = () => {
     const { id, title, cost, description, weight, addItems, addToFavorites, 
       delFavorite, can_order, images, user, fav } = this.props
+    const { REACT_APP_SHOPON } = process.env  
     return (
       <div className="bludo">
         {
@@ -43,7 +44,9 @@ class Dish extends React.Component {
                   : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
                 : null
               }
-              <div onClick={() => addItems([{id, title, cost}])} className="z_btn">В корзину</div>
+              <div onClick={() => addItems([{id, title, cost}])} className="z_btn">
+                { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в список заказа" }
+              </div>
              </div>
             : 
             <div className="dish-cant_order">
