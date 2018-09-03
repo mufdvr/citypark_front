@@ -45,7 +45,7 @@ class Category extends React.Component {
     const { body, documentElement } = document
     let scrollTop = window.pageYOffset || documentElement.scrollTop || body.scrollTop
     let clientTop = documentElement.clientTop || body.clientTop || 0
-    window.scrollTo(0, rect.top + scrollTop - clientTop - 30)
+    window.scrollTo(0, rect.top + scrollTop - clientTop - 50)
   }
 
   render = () => {

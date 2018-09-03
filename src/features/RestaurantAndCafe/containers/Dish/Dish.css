@@ -106,9 +106,6 @@
     float: none;
     margin-top: 10px;
   }
-}
-
-@media screen and (max-width: 400px) {
   .bludo_txt {
     position: relative;
     margin-left: 0;
@@ -119,7 +116,10 @@
     margin-top: 20px;
     margin-left: 0;
   }
-  .bludo_img {
+}
+
+@media screen and (max-width: 400px) {
+  .bludo_img, .thumbnail > img {
     width: 270px;
     height: 150px;
   }
