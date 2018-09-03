@@ -41,7 +41,7 @@ class NavigationBar extends React.Component {
 
   updateDimensions = () => {
     this.setState({
-      isMobileView: window.innerWidth < 1100
+      isMobileView: window.innerWidth < 1024
     })
   }
 

@@ -40,12 +40,20 @@ class Category extends React.Component {
     ) : null
   }
 
+  goTop = () => {
+    const rect = this.refs.categtitle.getBoundingClientRect()
+    const { body, documentElement } = document
+    let scrollTop = window.pageYOffset || documentElement.scrollTop || body.scrollTop
+    let clientTop = documentElement.clientTop || body.clientTop || 0
+    window.scrollTo(0, rect.top + scrollTop - clientTop - 30)
+  }
+
   render = () => {
     const { title, cookingTime } = this.props
     const { visible, fetching } = this.state
     return (
       <div>
-        <div className="menu_cat_title">
+        <div ref="categtitle" className="menu_cat_title">
           <div className="mcl"></div>
           <div className="mcr"></div>
           <div className="mctt">
@@ -60,7 +68,7 @@ class Category extends React.Component {
           <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
           <div className="cat_content">
             { this.dishesList() }
-            <a className="gtcat">Наверх к категории</a>
+            <a onClick={this.goTop} className="gtcat">Наверх к категории</a>
           </div>
         </div>
       </div>

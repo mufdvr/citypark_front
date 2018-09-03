@@ -48,6 +48,7 @@ class Cart extends React.Component {
 
   componentDidMount = () => {
     window.addEventListener("resize", this.updateDimensions)
+    //window.addEventListener("orientationchange", this.updateDimensions)
     this.props.loadCartFromLocalstorage()
   }  
 
@@ -58,7 +59,7 @@ class Cart extends React.Component {
 
   updateDimensions = () => {
     this.setState({
-      mobileViewOffsetStates: window.innerWidth < 800 ? MOBILE_VIEW_OFFSET_STATES : 0
+      mobileViewOffsetStates: window.innerWidth < 1024 ? MOBILE_VIEW_OFFSET_STATES : 0
     })
   }
 
@@ -68,6 +69,7 @@ class Cart extends React.Component {
 
   componentWillUnmount = () => {
     window.removeEventListener("resize", this.updateDimensions)
+    //window.removeEventListener("orientationchange", this.updateDimensions)
   }
 
   render = () => {

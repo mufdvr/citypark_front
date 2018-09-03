@@ -322,20 +322,18 @@ a:hover {
     position: relative;
     margin-right: 0;
   }
-}
 
-@media screen and (max-width: 400px) {
-  .p1, .p2 {
-    
-  }
-  .summ {
-    color: #f9b89c;
-    font-size: 45px;
-  }
   .room_text {
     position: relative;
     margin-left: 20px;
     margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .summ {
+    color: #f9b89c;
+    font-size: 45px;
   }
   .light {
     padding: 37px 2px 25px 2px;
