@@ -44,7 +44,7 @@ const mapStateToProps = state => {
   return {
     fetching,
     news: payload,
-    loaded: !!payload.length
+    loaded: !!payload.length > 3
   }
 }
 

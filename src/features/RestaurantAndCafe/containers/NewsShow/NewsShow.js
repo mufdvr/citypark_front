@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Helmet } from 'react-helmet'
 
 import * as actions from '../../actions'
-import { Breadcrumbs, SocShare } from 'components'
+import { Breadcrumbs, SocShare, PhotoGallery } from 'components'
 import { REST_MAIN, NEWS } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
@@ -24,7 +24,7 @@ class NewsShow extends React.Component {
 
   render = () => {
     if (!this.props.newsitem.body) return <div />
-    const { newsitem: { title, created_at, image }, match: { params } } = this.props
+    const { newsitem: { title, created_at, image, gallery }, match: { params } } = this.props
     return (
       <div className="light">
         <Helmet title={ TITLE_PREFIX + title } />
@@ -40,6 +40,16 @@ class NewsShow extends React.Component {
         </div>
         <h1>{title}</h1>
         <div key={Math.random()} ref={this.xss} />
+        {
+          gallery ?
+            <PhotoGallery items={
+              gallery.map(item => ({
+                image: item.image,
+                thumb: item.thumb
+              }))
+            } />
+          : null
+        }
       </div>
     )
   }
