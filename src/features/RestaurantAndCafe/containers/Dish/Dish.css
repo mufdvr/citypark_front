@@ -119,7 +119,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  .bludo_img, .thumbnail > img {
+  .bludo_img, .bludo_img > .react-fancybox > .thumbnail > img {
     width: 270px;
     height: 150px;
   }
