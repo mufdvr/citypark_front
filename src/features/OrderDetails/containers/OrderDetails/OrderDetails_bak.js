@@ -63,7 +63,7 @@ class OrderDetails extends React.Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage, loadOrderFromLocalstorage } = this.props
+    const { cart, loadCartFromLocalstorage, /*loadOrderFromLocalstorage*/ } = this.props
     !cart && loadCartFromLocalstorage()// && loadOrderFromLocalstorage()
   }
 
@@ -71,8 +71,16 @@ class OrderDetails extends React.Component {
     const { cart, order: { id, delivery, amount, mnt_signature }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (mnt_signature) { //заказ создан, рендерим форму монеты
-      //localStorage.clear()
-      
+      localStorage.clear()
+      ReactDOM.render(
+        <MonetaForm
+          mntTransactionId={id}
+          mntAmount={amount}
+          mntSignature={mnt_signature}
+          paymentType="43674"
+        />,
+        document.querySelector('#portal')
+      )
     } else {
       const dishes_orders_attributes = filterCart(cart)
       this.setState(prev => ({
@@ -89,7 +97,7 @@ class OrderDetails extends React.Component {
 
   render = () => {
     const { freeDelivery, totalCost, invalidFields, order } = this.state
-    const { clearCart, fetching, user: { id }, order: { amount, mnt_signature } } = this.props
+    const { clearCart, fetching, user: { id } } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
@@ -100,15 +108,6 @@ class OrderDetails extends React.Component {
             <div id="logo" className="order-logo" />
             <h2>Оформление заказа</h2>
           </div>
-          {
-            1 == 1 ? 
-              <MonetaForm
-                mntTransactionId={this.props.order.id}
-                mntAmount={amount}
-                mntSignature={mnt_signature}
-                paymentType="43674"
-              />
-            :  
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
@@ -128,7 +127,7 @@ class OrderDetails extends React.Component {
               }
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div>Бесплатная доставка</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  freeDelivery ? <div/> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">
@@ -137,7 +136,6 @@ class OrderDetails extends React.Component {
               </div>
             </div>
           </div>
-          }
           <div id="submit">
             <div onClick={clearCart} className="z_btn order-btn">
               Отмена
