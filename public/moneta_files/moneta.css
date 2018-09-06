@@ -1,0 +1,50 @@
+.form_button {
+  display: none;
+}
+
+.field-totalAmount > dd {
+  font-family: 'PT Serif', serif;
+  font-size: 38px;
+  line-height: 38px;
+  padding: 10px 20px;
+  background: #45312b;
+  color: #ff9b86;
+  border-radius: 30px;
+  margin: 0;
+}
+
+.field-totalAmount > dt {
+  font-family: Helvetica, sans-serif;
+  color: #e9cba7;
+  font-size: 24px;
+  font-weight: normal;
+  margin-right: 10px;
+  float: none;
+  width: auto;
+  clear: none;
+}
+
+.field-totalAmount {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.input-label {
+  color: #e9cba7;
+  font-size: 1.1em;
+}
+
+.ps-selector {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.tab-pslist {
+  float: none !important;
+}
+
+.page-wrapper {
+  display: block;
+}

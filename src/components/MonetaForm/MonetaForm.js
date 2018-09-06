@@ -14,6 +14,7 @@ class MonetaForm extends React.Component {
   }
 
   render = () => {
+    //https://demo.moneta.ru/assistant.widget
     const { mntTransactionId, mntAmount, mntSignature, paymentType } = this.props
     const { REACT_APP_MNT_ID, REACT_APP_ASSISTANT, REACT_APP_MNT_TEST_MODE, REACT_APP_MNT_CURRENCY_CODE } = process.env
     return (

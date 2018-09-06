@@ -103,9 +103,9 @@ class OrderDetails extends React.Component {
           {
             1 == 1 ? 
               <MonetaForm
-                mntTransactionId={this.props.order.id}
-                mntAmount={amount}
-                mntSignature={mnt_signature}
+                mntTransactionId="3"
+                mntAmount="320.00"
+                mntSignature="125c20d1f7d6fc61f2701838bf335f72"
                 paymentType="43674"
               />
             :  
