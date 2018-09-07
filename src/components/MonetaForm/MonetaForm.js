@@ -4,24 +4,40 @@ import FromStyles from './MonetaForm.css'
 import { Spinner } from 'components'
 
 class MonetaForm extends React.Component {
-
-  addLink = target => {
-    let cssLink = document.createElement("link")
-    cssLink.href = FromStyles
-    cssLink.rel = "stylesheet"
-    cssLink.type = "text/css"
-    target.contentDocument.head.appendChild(cssLink)
+  constructor(props) {
+    super(props)
+    this.state = {
+      frameHeight: "670px"
+    }
   }
+   
   handleClick = () => {
     window.frames.widget.postMessage('{"m_type":"request","m_val":"submitForm"}', "*");
   }
 
+  handleFrameLoad = () => {
+    //window.frames.widget.postMessage('{"m_type":"request","m_val":"widgetSize"}', "*")
+  }
+
+  listener = event => {
+    const msg = JSON.parse(event.data);
+    this.setState({
+      frameHeight: msg.height + "px"
+    })
+  }
+
+  componentDidMount = () => {
+    window.addEventListener ? window.addEventListener("message", this.listener)
+    : window.attachEvent("onmessage", this.listener)
+  }
+
   render = () => {
+    //https://demo.moneta.ru/assistant.widget
+    const { frameHeight } = this.state
     const { mntTransactionId, mntAmount, mntSignature, paymentType } = this.props
     const { REACT_APP_MNT_ID, REACT_APP_ASSISTANT, REACT_APP_MNT_TEST_MODE, REACT_APP_MNT_CURRENCY_CODE } = process.env
     return (
-      <div>
-      <iframe name="widget" ref={this.addLink} onLoad={() => console.log(77777777)} id="widget" style={{width: "100%", height: "650px"}} 
+      <iframe onLoad={this.handleFrameLoad} name="widget" id="widget" style={{width: "100%", height: frameHeight}} 
         src={"https://demo.moneta.ru/assistant.widget?" +
         "MNT_ID=" + REACT_APP_MNT_ID +
         "&MNT_TEST_MODE=" + REACT_APP_MNT_TEST_MODE +
@@ -33,8 +49,6 @@ class MonetaForm extends React.Component {
       >
         Ваш браузер не поддерживает плавающие фреймы!
       </iframe>
-      <button onClick={this.handleClick}>btn</button>
-      </div>
     )
   }
 }

@@ -4,6 +4,13 @@
   justify-content: flex-end;
 }
 
+.dish-cant_order {
+  position: relative;	
+  float: right; 
+  color: #e9cba7; 
+  text-shadow: -1px -1px 0 #000;
+}
+
 .dish-buttons div:first-child {
   margin-right: 1rem;
 }
@@ -99,9 +106,6 @@
     float: none;
     margin-top: 10px;
   }
-}
-
-@media screen and (max-width: 400px) {
   .bludo_txt {
     position: relative;
     margin-left: 0;
@@ -112,7 +116,10 @@
     margin-top: 20px;
     margin-left: 0;
   }
-  .bludo_img {
+}
+
+@media screen and (max-width: 400px) {
+  .bludo_img, .bludo_img > .react-fancybox > .thumbnail > img {
     width: 270px;
     height: 150px;
   }

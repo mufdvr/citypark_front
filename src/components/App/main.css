@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Serif&subset=latin,cyrillic-ext);
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Serif&subset=latin,cyrillic-ext');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 /*------ Знак рубля ------*/
 
@@ -21,7 +21,7 @@ span.rur span:before {
 
 /*-----------------------*/
 
-.body {
+.body, .body_home {
   position: relative;
   display: block;
   width: 100%;
@@ -283,9 +283,18 @@ a:hover {
     height: 400px;
     background: url(/images/pagelogo.png) center no-repeat, rgba(212, 181, 142, 0.5);
   }
+  .fold_home {
+    background-image: none;
+  }
   .body {
-    display: 100%;
     min-width: 300px;
+  }
+  .body_home {
+    min-width: 300px;
+    background-image: none;
+  }
+  .room_info_block {
+    float: none;
   }
   .partbody {
     width: 100%;
@@ -306,17 +315,26 @@ a:hover {
     padding: 37px 25px 25px 25px;
     margin-right: 0;
   }
-  .column .deliver_block, .news_block, .room_catalog, .ost_rooms, .p1, .p2 {
+  .column .deliver_block, .news_block_side, .room_catalog_side, .ost_rooms, .p_off {
     display: none;
   }
   .content {
     position: relative;
     margin-right: 0;
   }
+
+  .room_text {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 40px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-  .p1, .p2 {}
+  .summ {
+    color: #f9b89c;
+    font-size: 45px;
+  }
   .light {
     padding: 37px 2px 25px 2px;
     margin-left: 0;

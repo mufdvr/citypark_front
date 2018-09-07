@@ -7,7 +7,7 @@ export const RESTAURANT = {
   TITLE: 'Ресторан'
 }
 export const CAFE = {
-  URL: REST_MAIN.URL + '/cafe',
+  URL: REST_MAIN.URL + '/kafe',
   TITLE: 'Летнее кафе'
 }
 export const NEWS = {
@@ -22,7 +22,7 @@ export const MENU = {
   TITLE: 'Меню'
 }
 export const CHEF_BLOG = {
-  URL: REST_MAIN.URL + '/chefblog',
+  URL: REST_MAIN.URL + '/shefblog',
   TITLE: 'Блог шеф-повара'
 }
 export const CHEF_BLOG_SHOW = {

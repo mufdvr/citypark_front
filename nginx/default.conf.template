@@ -1,3 +1,9 @@
+ssl_session_cache   shared:SSL:10m;
+ssl_session_timeout 5m;
+ssl_prefer_server_ciphers on;
+ssl_stapling on;
+resolver 8.8.8.8;
+
 # Caches information about open FDs, freqently accessed files.
 open_file_cache max=1000 inactive=20s; 
 open_file_cache_valid 30s; 
@@ -54,11 +60,30 @@ gzip_types
 gzip_disable "msie6";
 
 server {
-  listen 80;
+  listen 443 ssl;
   server_name ${FRONTEND_SERVER_NAME};
+
+  keepalive_timeout   60;
+  ssl_certificate      /etc/ssl/certificate_bundled.crt;
+  ssl_certificate_key  /etc/ssl/privatekey.key;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers  "HIGH:!RC4:!aNULL:!MD5:!kEDH";
+  add_header Strict-Transport-Security 'max-age=604800';
+
   # API Proxy
   location ${API_PLACEHOLDER}/ {
     proxy_pass         ${BACKEND_GATEWAY}${API_PLACEHOLDER}/;
+    proxy_http_version 1.1;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-NginX-Proxy    true;
+    proxy_set_header Host $host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+
+  location ${ADMIN_PLACEHOLDER}/ {
+    proxy_pass         http://citypark_admin:80/;
     proxy_http_version 1.1;
     proxy_set_header   X-Real-IP $remote_addr;
     proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -100,12 +125,7 @@ server {
 }
 
 server {
-    listen 80;
-    server_name ${ADMIN_SERVER_NAME};
-
-    location / {
-        proxy_pass         ${ADMIN_GATEWAY};
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   Host      $host;
-    }
-}  
+  listen 80 default_server;
+  server_name _;
+  return 301 https://$host$request_uri;
+}

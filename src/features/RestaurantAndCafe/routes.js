@@ -1,6 +1,8 @@
+import React from 'react'
 import * as components from './components'
 import * as containers from './containers'
 import * as links from './links'
+import { NotFound } from 'components'
 
 const routes = [
   {
@@ -41,6 +43,10 @@ const routes = [
       {
         path: links.CHEF_BLOG_SHOW.URL,
         component: containers.ChefBlogShow
+      },
+      {
+        path: '*',
+        component: () => <NotFound />
       }
     ]
   }

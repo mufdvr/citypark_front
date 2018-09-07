@@ -9,6 +9,10 @@ import * as actions from '../../actions'
 import * as types from '../../actionTypes'
 
 class Layout extends React.Component {
+  constructor(props) {
+    super(props)
+    this.isMobileView = window.innerWidth < 800
+  }
 
   componentDidMount = () => this.props.getUser()
 
@@ -17,9 +21,9 @@ class Layout extends React.Component {
     return (
       <div style={{lineHeight: "22px"}}>
       <div className="fold fold_cut" />
-      <SideBar />
+      { this.isMobileView ? null : <SideBar /> }
       <div className="content">
-        <div className="partbody" style={{paddingTop: "70px"}}>
+        <div className="partbody partbody_personal">
         {
           fetching === types.USER_SHOW ? null :
             user && user.id ? route && renderRoutes(route.routes) : <TabSheet />

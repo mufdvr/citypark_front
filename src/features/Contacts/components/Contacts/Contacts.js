@@ -3,18 +3,20 @@ import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
 import * as images from './images'
+import * as commonImages from 'images'
 import { CONTACTS } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 export default () =>
 	<div className="light">
 	  <Helmet title={TITLE_PREFIX + CONTACTS.TITLE} />
 		{ Breadcrumbs({links:  [ CONTACTS ]}) }
 		<SocShare
-			link="http://cityparkvip.ru/rest/"
-			title="РГК «City Park» - Ресторан и летнее кафе"
-			image="http://cityparkvip.ru/assets/templates/citypark/site-preview.jpg"
-		/>
+      link={baseUrl() + CONTACTS.URL}
+      title={TITLE_PREFIX + CONTACTS.TITLE}
+      image={baseUrl() + commonImages.citypark}
+    />
 		<h1>Ресторанно-гостиничный комплекс City Park</h1>
 	  <h1><img src={images.fasad} alt="fasad" width="450" height="300" /></h1>
 	  <h1>Адрес:</h1>
@@ -25,8 +27,8 @@ export default () =>
 	  <p>&nbsp;</p>
 	  <h1>Соц. сети:</h1>
 	  <h3>
-		  ВК: <a href="http://vk.com/cityparkvip">vk.com/cityparkvip</a><br/>
-			ОК: <a href="http://ok.ru/cityparkvip">ok.ru/cityparkvip</a><br/>
+		  ВК: <a href="https://vk.com/cityparkvip">vk.com/cityparkvip</a><br/>
+			ОК: <a href="https://ok.ru/cityparkvip">ok.ru/cityparkvip</a><br/>
 			Instagram: <a href="https://www.instagram.com/cityparkvipru/">cityparkvipru</a><br/><br/>
 		</h3>
 	  <p>&nbsp;</p>

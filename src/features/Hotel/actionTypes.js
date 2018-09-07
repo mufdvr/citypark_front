@@ -1,0 +1,1 @@
+export const ROOMS_INDEX = '@@ROOMS_INDEX'

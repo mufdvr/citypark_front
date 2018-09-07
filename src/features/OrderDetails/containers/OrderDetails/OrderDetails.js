@@ -100,25 +100,15 @@ class OrderDetails extends React.Component {
             <div id="logo" className="order-logo" />
             <h2>Оформление заказа</h2>
           </div>
-          {/*
-            mnt_signature ? 
-              <MonetaForm
-                mntTransactionId={this.props.order.id}
-                mntAmount={amount}
-                mntSignature={mnt_signature}
-                paymentType="43674"
-              />
-            :
-          */    
-         //https://demo.moneta.ru/assistant.widget?MNT_ID=50951076&MNT_TEST_MODE=1&MNT_CURRENCY_CODE=RUB&MNT_TRANSACTION_ID=3&MNT_AMOUNT=320.00&MNT_SIGNATURE=125c20d1f7d6fc61f2701838bf335f72&paymentSystem.unitId=43674
-         1 === 1 ? 
+          {
+            1 == 1 ? 
               <MonetaForm
                 mntTransactionId="3"
                 mntAmount="320.00"
                 mntSignature="125c20d1f7d6fc61f2701838bf335f72"
                 paymentType="43674"
               />
-            :
+            :  
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />

@@ -10,7 +10,9 @@ import { Personal, Cart } from 'features'
 class Dish extends React.Component {
 
   render = () => {
-    const { id, title, cost, description, weight, addItems, addToFavorites, delFavorite, images, user, fav } = this.props
+    const { id, title, cost, description, weight, addItems, addToFavorites, 
+      delFavorite, can_order, images, user, fav } = this.props
+    const { REACT_APP_SHOPON } = process.env  
     return (
       <div className="bludo">
         {
@@ -33,15 +35,25 @@ class Dish extends React.Component {
             <span className="gramm">{weight}</span>
             <span className="bsm"><span className="bsm_n">{cost}</span><span style={{fontSize:"30px"}}>₽</span></span>
           </div>
-          <div className="dish-buttons">
-            {
-              user && user.id ?
-                fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
-                : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
-              : null
-            }
-            <div onClick={() => addItems([{id, title, cost}])} className="z_btn">В корзину</div>
-          </div>  
+          {
+            can_order ?
+              <div className="dish-buttons">
+              {
+                user && user.id ?
+                  fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
+                  : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
+                : null
+              }
+              <div onClick={() => addItems([{id, title, cost}])} className="z_btn">
+                { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в список заказа" }
+              </div>
+             </div>
+            : 
+            <div className="dish-cant_order">
+              Не подается на вынос.<br/>Попробуйте в City Park!
+            </div> 
+          }
+           
         </div>
       </div>
     )

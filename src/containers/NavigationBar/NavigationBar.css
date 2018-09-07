@@ -169,7 +169,7 @@ ul.sub li a:hover {
   color: #FFF;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1023px) {
   .fade-out {
     visibility: visible;
     opacity: 1;

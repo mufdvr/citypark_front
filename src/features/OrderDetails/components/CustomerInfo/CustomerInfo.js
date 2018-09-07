@@ -37,7 +37,7 @@ const CustomerInfo = ({ order: { name, phone, email }, onChange, invalidFields }
           name="email"
           type="text"
           value={email}
-          placeholder="Имя"
+          placeholder="Email"
         />
       </div>
     </div>,

@@ -1,17 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import ReactFancyBox from 'react-fancybox'
+import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs, PhotoGallery } from 'components'
-import * as links from '../../links'
+import { HOTEL_MAIN, CATALOG, VIP_ROOM } from '../../links'
 import * as images from './images'
+import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
+import { freeRoomsText } from '../../utils'
 
-export default () =>
+const VipRoom = ({ rooms: {vip_room} }) =>
   <div className="light">
-    { Breadcrumbs({links:  [ links.HOTEL_MAIN, links.CATALOG, links.VIP_ROOM ]}) }
+    <Helmet title={ TITLE_PREFIX + VIP_ROOM.TITLE } />
+    { Breadcrumbs({links:  [ HOTEL_MAIN, CATALOG, VIP_ROOM ]}) }
     <SocShare
-      link="http://cityparkvip.ru/rest/"
-      title="РГК «City Park» - Ресторан и летнее кафе"
-      image="http://cityparkvip.ru/assets/templates/citypark/site-preview.jpg"
+      link={baseUrl() + VIP_ROOM.URL}
+      title={TITLE_PREFIX + VIP_ROOM.TITLE}
+      image={baseUrl() + images.vip_room}
     />
     <div className="room_info_block">
       <div className="room_preview_img">
@@ -24,8 +30,8 @@ export default () =>
       </div>
       <div className="room_summ" style={{position: "relative"}}><span className="summ">5000</span> ₽/сутки</div>
       <div className="room_empty" style={{position: "relative", float: "left", marginTop: "10px"}}>
-        <div className="re_num"></div>
-        <div className="re_txt">Нет свободных номеров<br/>такого типа</div>
+        <div className="re_num">{ vip_room ? vip_room : null }</div>
+        <div className="re_txt">{freeRoomsText(vip_room)}</div>
       </div>
     </div>
     <div className="room_text">
@@ -68,3 +74,11 @@ export default () =>
       ]}
     />
   </div>
+
+const mapStateToProps = state => ({
+  rooms: state.rooms.payload
+})
+
+const ReduxWrapper = connect(mapStateToProps)
+const WrappedComponent = ReduxWrapper(VipRoom)
+export default WrappedComponent

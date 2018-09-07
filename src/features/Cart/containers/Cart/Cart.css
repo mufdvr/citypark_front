@@ -184,7 +184,7 @@
   border-right: 1px solid #000;
   float: right;
   line-height: 20px;
-  background: ;
+  /*background: ;*/
   overflow: hidden;
 }
 
@@ -276,14 +276,14 @@
   width: 100%;
 }
 
-@media screen and (max-width: 800px) {
+/*@media screen and (max-width: 800px) {
   .go_top {
     right: 5px;
     bottom: 5px;
   }
-}
+}*/
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 1023px) {
   /* Адаптация корзины заказа */
   #s_open_btn {
     width: 70px;
@@ -299,9 +299,8 @@
     width: 300px;
     height: auto;
     overflow: visible;
-    top: auto;
+    top: 0;
     left: 0;
-    bottom: 100%;
     margin-bottom: 50px;
   }
   .t_list {

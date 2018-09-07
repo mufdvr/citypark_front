@@ -8,7 +8,9 @@ import { Category } from '../../containers'
 import { Cart } from 'features/Cart/containers'
 import { REST_MAIN, MENU } from '../../links'
 import * as actions from '../../actions'
+import * as images from './images'
 import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 class Menu extends React.Component {
 
@@ -36,9 +38,9 @@ class Menu extends React.Component {
         <Cart />
         { Breadcrumbs({links:  [ REST_MAIN, MENU ]}) }
         <SocShare
-          link="http://cityparkvip.ru/rest/kafe.html"
-          title="РГК «City Park» - Летнее кафе"
-          image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
+          link={baseUrl() + MENU.URL}
+          title={TITLE_PREFIX + MENU.TITLE}
+          image={baseUrl() + images.menu}
         />
         <h2>
           <span>&nbsp;При заказе на вынос скидка с чека 10%!</span></h2>

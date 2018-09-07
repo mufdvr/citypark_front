@@ -7,7 +7,7 @@ import { OrderDetails } from 'features'
 import { cartTotal } from 'utils'
 import { CartItem } from '../../components'
 import * as actions from '../../actions'
-import { CART_STATES } from './constants'
+import { CART_STATES, MOBILE_VIEW_OFFSET_STATES } from './constants'
 
 class Cart extends React.Component {
   constructor(props) {
@@ -15,7 +15,6 @@ class Cart extends React.Component {
     this.state = {
       cartState: props.cart && props.cart.length ? 1 : 0
     }
-    this.isMobileView = window.innerWidth < 1100
   }
 
   handleClick = () =>
@@ -47,15 +46,39 @@ class Cart extends React.Component {
     cart && localStorage.setItem("cart", JSON.stringify(cart))
   }
 
-  componentDidMount = () => this.props.loadCartFromLocalstorage()
+  componentDidMount = () => {
+    window.addEventListener("resize", this.updateDimensions)
+    //window.addEventListener("orientationchange", this.updateDimensions)
+    this.props.loadCartFromLocalstorage()
+  }  
+
+  componentDidUpdate = () => {
+    const { cartState, mobileViewOffsetStates } = this.state
+    if (cartState + mobileViewOffsetStates === 4) this.refs.shopping.style = `top: ${-this.refs.shopping.offsetHeight}px`
+  }
+
+  updateDimensions = () => {
+    this.setState({
+      mobileViewOffsetStates: window.innerWidth < 1024 ? MOBILE_VIEW_OFFSET_STATES : 0
+    })
+  }
+
+  componentWillMount = () => {
+    this.updateDimensions()
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.updateDimensions)
+    //window.removeEventListener("orientationchange", this.updateDimensions)
+  }
 
   render = () => {
-    const { cartState } = this.state
+    const { cartState, mobileViewOffsetStates } = this.state
     const { cart, clearCart, history, location: { pathname } } = this.props
     const _cartTotal = cartTotal(cart)
-    const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY } = process.env
+    const { REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY, REACT_APP_SHOPON } = process.env
     return (
-      <div className="shopping" style={CART_STATES[cartState]}>
+      <div ref="shopping" className="shopping" style={CART_STATES[cartState + mobileViewOffsetStates]}>
         <div className="t_list">
           {this.listItems()}
         </div>
@@ -69,22 +92,28 @@ class Cart extends React.Component {
           <div id="skidka">С учетом скидки 10%</div>
         </div>
         {
-          pathname !== OrderDetails.links.ORDER_DETAILS.URL ?
-            <div className="zakaz_info" style={{display: "flex"}}>
-              <div
-                onClick={clearCart}
-                className="z_btn create-order-btn cancel-btn"
-              >
-                Отмена<i style={{color: "red"}} className="material-icons">close</i>
-            </div>
-              <div
-                onClick={() => history.push(OrderDetails.links.ORDER_DETAILS.URL)}
-                className="z_btn create-order-btn create-btn"
-              >
-                Оформить заказ<i style={{color: "green"}} className="material-icons">done</i>
+          REACT_APP_SHOPON === "true" ? 
+            pathname !== OrderDetails.links.ORDER_DETAILS.URL ?
+              <div className="zakaz_info" style={{display: "flex"}}>
+                <div
+                  onClick={clearCart}
+                  className="z_btn create-order-btn cancel-btn"
+                >
+                  Отмена<i style={{color: "red"}} className="material-icons">close</i>
+                </div>
+                <div
+                  onClick={() => history.push(OrderDetails.links.ORDER_DETAILS.URL)}
+                  className="z_btn create-order-btn create-btn"
+                >
+                  Оформить заказ<i style={{color: "green"}} className="material-icons">done</i>
+                </div>
               </div>
-            </div>
-          : null
+            : null
+          :
+            <div className="zakaz_info">
+              <div style={{fontSize: "24px", lineHeight: "24px"}}>8-918-311-97-91</div>
+              Пожалуйста, позвоните по этому номеру и продиктуйте ваш заказ.
+            </div> 
         }
         <div id="s_open_btn" onClick={this.handleClick}>
           <div></div>

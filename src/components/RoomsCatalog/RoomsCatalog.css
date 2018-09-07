@@ -6,7 +6,7 @@
   margin-bottom: 10px;
 }
 
-.ost_rooms {
+.ost_rooms, .ost_rooms_home {
   position: relative;
   display: block;
   clear: both;
@@ -43,7 +43,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  .ost_rooms {
+  .ost_rooms, .ost_rooms_home {
     font-size: 26px;
     margin-top: 40px;
     border-top: 1px solid #f6dfc4;

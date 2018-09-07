@@ -1,6 +1,8 @@
+import React from 'react'
 import * as containers from './containers'
 import * as links from './links'
-
+import { NotFound } from 'components'
+ 
 const routes = [
   {
     path: links.PERSONAL.URL,
@@ -18,6 +20,10 @@ const routes = [
       {
         path: links.ORDERS.URL,
         component: containers.Orders
+      },
+      {
+        path: '*',
+        component: () => <NotFound />
       }
     ]
   }

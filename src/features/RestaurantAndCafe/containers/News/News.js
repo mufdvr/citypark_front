@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import * as actions from '../../actions'
+import * as images from 'images'
 import { SocShare, Breadcrumbs } from 'components'
 import { NewsItem } from '../../components'
 import { REST_MAIN, NEWS } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
+import { baseUrl } from 'utils'
 
 class News extends React.Component {
 
@@ -27,9 +29,9 @@ class News extends React.Component {
         <Helmet title={TITLE_PREFIX + NEWS.TITLE} />
         { Breadcrumbs({links:  [ REST_MAIN, NEWS ]}) }
         <SocShare
-          link="http://cityparkvip.ru/rest/kafe.html"
-          title="РГК «City Park» - Летнее кафе"
-          image="http://cityparkvip.ru/assets/images/restoran_i_kafe/2CAM5105 Panorama_obrez.jpg"
+          link={baseUrl() + NEWS.URL}
+          title={TITLE_PREFIX + NEWS.TITLE}
+          image={baseUrl() + images.sitePreview}
         />
         { this.newslist() }
       </div>
@@ -42,7 +44,7 @@ const mapStateToProps = state => {
   return {
     fetching,
     news: payload,
-    loaded: !!payload.length
+    loaded: !!payload.length > 3
   }
 }
 

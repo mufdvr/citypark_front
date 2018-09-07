@@ -5,3 +5,13 @@
 .h_title_left {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAABCAYAAAB+BHOnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAABFSURBVHjaYvz//z8DGmBkwA5wiRMjT6ocqW5gJFOMkYZmUWo/NdxPqX2UyNObT6rf6RmnhNxGihpK0+2gAgAAAAD//wMA/RIDNTJsaOgAAAAASUVORK5CYII=') right top repeat-y;
 }
+
+@media screen and (max-width: 800px) {
+  .h_title_right {
+    background: none;
+  }
+  
+  .h_title_left {
+    background: none;
+  }
+}  
