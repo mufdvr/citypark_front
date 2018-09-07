@@ -110,7 +110,7 @@ textarea {
   margin-bottom: 0.8rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 620px) {
   #order {
     width: auto;
     margin-bottom: 50px;
