@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
@@ -11,9 +10,9 @@ import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
-import { MonetaForm, ErrorBox, Spinner } from 'components'
+import { ErrorBox, Spinner } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
-import { ORDER_DETAILS } from '../../links'
+import { ORDER_DETAILS, PAYMENT } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
 class OrderDetails extends React.Component {
@@ -52,10 +51,6 @@ class OrderDetails extends React.Component {
         ...order,
         street: order.street.value || ''
       }, g_recaptcha_response)
-      /*console.log({
-        ...order,
-        street: order.street.value || ''
-      })*/
     } else {
       ErrorBox.create('Заполните все необходимые поля!')
     }
@@ -63,16 +58,17 @@ class OrderDetails extends React.Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage, loadOrderFromLocalstorage } = this.props
+    const { cart, loadCartFromLocalstorage } = this.props
     !cart && loadCartFromLocalstorage()// && loadOrderFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order: { id, delivery, amount, mnt_signature }, history, user: { name, phone } } = nextProps
+    const { cart, order, order: { delivery, mnt_signature }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (mnt_signature) { //заказ создан, рендерим форму монеты
       //localStorage.clear()
-      
+      localStorage.setItem("order", JSON.stringify(order))
+      history.push(PAYMENT.URL)
     } else {
       const dishes_orders_attributes = filterCart(cart)
       this.setState(prev => ({
@@ -89,7 +85,7 @@ class OrderDetails extends React.Component {
 
   render = () => {
     const { freeDelivery, totalCost, invalidFields, order } = this.state
-    const { clearCart, fetching, user: { id }, order: { amount, mnt_signature } } = this.props
+    const { clearCart, fetching, user: { id } } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
@@ -98,17 +94,8 @@ class OrderDetails extends React.Component {
         <div id="order" className="form-layout">
           <div id="order-header">
             <div id="logo" className="order-logo" />
-            <h2>Оформление заказа</h2>
+            <h2>{ORDER_DETAILS.TITLE}</h2>
           </div>
-          {
-            1 == 1 ? 
-              <MonetaForm
-                mntTransactionId="3"
-                mntAmount="320.00"
-                mntSignature="125c20d1f7d6fc61f2701838bf335f72"
-                paymentType="43674"
-              />
-            :  
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
@@ -137,14 +124,13 @@ class OrderDetails extends React.Component {
               </div>
             </div>
           </div>
-          }
           <div id="submit">
             <div onClick={clearCart} className="z_btn order-btn">
               Отмена
               <i style={{ color: "red" }} className="material-icons">close</i>
             </div>
             <div onClick={this.handleSubmit} className="z_btn order-btn">
-              Отправить
+              Далее
               <i style={{ color: "green" }} className="material-icons">done</i>
             </div>
           </div>

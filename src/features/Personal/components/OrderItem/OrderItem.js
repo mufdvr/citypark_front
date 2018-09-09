@@ -1,9 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 import statuses from './statuses'
-import { MonetaForm } from 'components'
 
 class OrderItem extends React.Component {
   constructor(props) {
@@ -28,16 +26,7 @@ class OrderItem extends React.Component {
     }))
 
   handlePayment = () => {
-    const { id, amount, mnt_signature } = this.props.signature
-    id && ReactDOM.render(
-      <MonetaForm
-        mntTransactionId={id}
-        mntAmount={amount}
-        mntSignature={mnt_signature}
-        paymentType="43674"
-      />, 
-      document.querySelector('#portal')
-    )  
+    const { id, amount, mnt_signature } = this.props.signature  
   }  
 
   render = () => {

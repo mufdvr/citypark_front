@@ -14,7 +14,6 @@ import Breadcrumbs from './Breadcrumbs'
 import RoomItem from './RoomItem'
 import NotFound from './NotFound'
 import SpinButton from './SpinButton'
-import MonetaForm from './MonetaForm'
 import Spinner from './Spinner'
 import ErrorBox from './ErrorBox'
 
@@ -35,7 +34,6 @@ export {
   RoomItem,
   NotFound,
   SpinButton,
-  MonetaForm,
   Spinner,
   ErrorBox
 }

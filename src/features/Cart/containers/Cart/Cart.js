@@ -48,7 +48,6 @@ class Cart extends React.Component {
 
   componentDidMount = () => {
     window.addEventListener("resize", this.updateDimensions)
-    //window.addEventListener("orientationchange", this.updateDimensions)
     this.props.loadCartFromLocalstorage()
   }  
 
