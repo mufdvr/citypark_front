@@ -11,7 +11,7 @@ import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
 import { ErrorBox, Spinner } from 'components'
-import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
+import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
 import { ORDER_DETAILS, PAYMENT } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
@@ -19,7 +19,7 @@ class OrderDetails extends React.Component {
 
   constructor(props) {
     super(props)
-    const { cart, user: { name, phone } } = props
+    let { cart, user: { name, phone } } = props
     const dishes_orders_attributes = filterCart(cart)
     this.state = {
       order: createOrder({ name, phone, dishes_orders_attributes }),
@@ -51,6 +51,7 @@ class OrderDetails extends React.Component {
         ...order,
         street: order.street.value || ''
       }, g_recaptcha_response)
+      //console.log(order)
     } else {
       ErrorBox.create('Заполните все необходимые поля!')
     }
@@ -59,7 +60,7 @@ class OrderDetails extends React.Component {
   componentDidMount = () => {
     window.scrollTo(0, 0)
     const { cart, loadCartFromLocalstorage } = this.props
-    !cart && loadCartFromLocalstorage()// && loadOrderFromLocalstorage()
+    !cart && loadCartFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -98,6 +99,7 @@ class OrderDetails extends React.Component {
           </div>
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
+            <PaymentType onChange={this.handleChange} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}

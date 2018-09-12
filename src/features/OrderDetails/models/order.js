@@ -13,6 +13,8 @@ const order = {
   hull: '',
   entrance: '',
   delivery: true,
+  payment_type: 'cash',
+  surrender_from: 0,
   dishes_orders_attributes: [],
 }
 

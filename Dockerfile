@@ -4,9 +4,9 @@ FROM node:10 AS build
 ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 ENV PATH ${APP_ROOT}/node_modules/.bin:$PATH
+RUN yarn global add react-scripts@1.1.4
 COPY package*.json yarn.lock ./
 RUN yarn
-RUN yarn add global react-scripts@1.1.4
 COPY public ./public
 COPY src ./src
 COPY .env* ./
