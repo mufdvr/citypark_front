@@ -68,7 +68,6 @@ class OrderDetails extends React.Component {
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (mnt_signature) { //заказ создан, рендерим форму монеты
       //localStorage.clear()
-      localStorage.setItem("order", JSON.stringify(order))
       history.push(PAYMENT.URL)
     } else {
       const dishes_orders_attributes = filterCart(cart)

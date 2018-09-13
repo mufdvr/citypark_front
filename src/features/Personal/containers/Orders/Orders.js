@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import { Breadcrumbs } from 'components'
 import * as actions from '../../actions'
 import { PERSONAL, ORDERS } from '../../links'
-import { OrderItem } from '../../components'
+import { OrderItem } from '../../containers'
 import { Cart } from 'features'
 import { TITLE_PREFIX } from 'appConstants'
 

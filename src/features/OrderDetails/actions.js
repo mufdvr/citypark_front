@@ -15,3 +15,8 @@ export const createOrder = (order, g_recaptcha_response) =>
 export const loadOrderFromLocalstorage = () => ({
   type: types.LOAD_ORDER_FROM_LOCALSTORAGE
 })
+
+export const pushOrder = order => ({
+  type: types.ORDERS_PUSH,
+  payload: order
+})

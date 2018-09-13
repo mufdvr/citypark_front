@@ -37,10 +37,10 @@ class OrderDetails extends React.Component {
   }
 
   componentDidMount = () => {
-    const { loadOrderFromLocalstorage, order: { mnt_signature } } = this.props
+    const { loadOrderFromLocalstorage, order } = this.props
+    order.mnt_signature ? localStorage.setItem("order", JSON.stringify(order)) : loadOrderFromLocalstorage()
     window.addEventListener ? window.addEventListener("message", this.listener)
-    : window.attachEvent("onmessage", this.listener)
-    !mnt_signature && loadOrderFromLocalstorage()
+      : window.attachEvent("onmessage", this.listener)
   }
 
   render = () => {
