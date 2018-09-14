@@ -64,7 +64,7 @@ class OrderDetails extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order, order: { delivery, mnt_signature }, history, user: { name, phone } } = nextProps
+    const { cart, order: { delivery, mnt_signature }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (mnt_signature) { //заказ создан, рендерим форму монеты
       //localStorage.clear()

@@ -32,7 +32,7 @@ class OrderDetails extends React.Component {
   listener = event => {
     const msg = JSON.parse(event.data);
     this.setState({
-      frameHeight: msg.height + "px"
+      frameHeight: Number(msg.height) + 10 + "px"
     })
   }
 
@@ -60,10 +60,11 @@ class OrderDetails extends React.Component {
             mnt_signature ? 
               <iframe 
                 onLoad={this.handleFrameLoad} 
-                name="widget" 
+                name="moneta_widget" 
+                title="Moneta"
                 id="widget" 
                 style={{width: "100%", height: frameHeight}} 
-                src={"https://demo.moneta.ru/assistant.widget?" +
+                src={REACT_APP_ASSISTANT + "?" +
                 "MNT_ID=" + REACT_APP_MNT_ID +
                 "&MNT_TEST_MODE=" + REACT_APP_MNT_TEST_MODE +
                 "&MNT_CURRENCY_CODE=" + REACT_APP_MNT_CURRENCY_CODE +
