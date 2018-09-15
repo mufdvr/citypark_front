@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
@@ -11,16 +10,16 @@ import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
-import { MonetaForm, ErrorBox, Spinner } from 'components'
-import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
-import { ORDER_DETAILS } from '../../links'
+import { ErrorBox, Spinner } from 'components'
+import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
+import { ORDER_DETAILS, PAYMENT, ACCEPTED } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
 class OrderDetails extends React.Component {
 
   constructor(props) {
     super(props)
-    const { cart, user: { name, phone } } = props
+    let { cart, user: { name, phone } } = props
     const dishes_orders_attributes = filterCart(cart)
     this.state = {
       order: createOrder({ name, phone, dishes_orders_attributes }),
@@ -52,10 +51,7 @@ class OrderDetails extends React.Component {
         ...order,
         street: order.street.value || ''
       }, g_recaptcha_response)
-      /*console.log({
-        ...order,
-        street: order.street.value || ''
-      })*/
+      //console.log(order)
     } else {
       ErrorBox.create('Заполните все необходимые поля!')
     }
@@ -63,24 +59,18 @@ class OrderDetails extends React.Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage, /*loadOrderFromLocalstorage*/ } = this.props
-    !cart && loadCartFromLocalstorage()// && loadOrderFromLocalstorage()
+    const { cart, loadCartFromLocalstorage } = this.props
+    !cart && loadCartFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order: { id, delivery, amount, mnt_signature }, history, user: { name, phone } } = nextProps
+    const { cart, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
-    if (mnt_signature) { //заказ создан, рендерим форму монеты
-      localStorage.clear()
-      ReactDOM.render(
-        <MonetaForm
-          mntTransactionId={id}
-          mntAmount={amount}
-          mntSignature={mnt_signature}
-          paymentType="43674"
-        />,
-        document.querySelector('#portal')
-      )
+    if (accepted) {
+      history.push(ACCEPTED.URL)
+    } else if (mnt_signature) {
+      //localStorage.clear()
+      history.push(PAYMENT.URL)
     } else {
       const dishes_orders_attributes = filterCart(cart)
       this.setState(prev => ({
@@ -106,10 +96,11 @@ class OrderDetails extends React.Component {
         <div id="order" className="form-layout">
           <div id="order-header">
             <div id="logo" className="order-logo" />
-            <h2>Оформление заказа</h2>
+            <h2>{ORDER_DETAILS.TITLE}</h2>
           </div>
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
+            <PaymentType onChange={this.handleChange} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}
@@ -127,7 +118,7 @@ class OrderDetails extends React.Component {
               }
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div/> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  freeDelivery ? <div>Бесплатная доставка</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">
@@ -142,7 +133,7 @@ class OrderDetails extends React.Component {
               <i style={{ color: "red" }} className="material-icons">close</i>
             </div>
             <div onClick={this.handleSubmit} className="z_btn order-btn">
-              Отправить
+              Далее
               <i style={{ color: "green" }} className="material-icons">done</i>
             </div>
           </div>

@@ -9,7 +9,17 @@ const routes = [
     routes: [
       {
         path: links.ORDER_DETAILS.URL,
+        exact: true,
         component: containers.OrderDetails
+      },
+      {
+        path: links.PAYMENT.URL,
+        exact: true,
+        component: containers.Payment
+      },
+      {
+        path: links.ACCEPTED,
+        component: components.Accepted
       }
     ]
   }

@@ -13,6 +13,8 @@ const orderReducer = (state, action) => {
     case types.LOAD_ORDER_FROM_LOCALSTORAGE:
       const order = JSON.parse(localStorage.getItem("order"))
       return order ? toPayload(state, order) : state
+    case types.ORDERS_PUSH:
+      return toPayload(state, action.payload)  
     default: return false
   }
 }

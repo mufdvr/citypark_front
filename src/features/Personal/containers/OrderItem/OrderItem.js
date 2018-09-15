@@ -1,9 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
 import statuses from './statuses'
-import { MonetaForm } from 'components'
+import { OrderDetails } from 'features'
 
 class OrderItem extends React.Component {
   constructor(props) {
@@ -28,16 +30,9 @@ class OrderItem extends React.Component {
     }))
 
   handlePayment = () => {
-    const { id, amount, mnt_signature } = this.props.signature
-    id && ReactDOM.render(
-      <MonetaForm
-        mntTransactionId={id}
-        mntAmount={amount}
-        mntSignature={mnt_signature}
-        paymentType="43674"
-      />, 
-      document.querySelector('#portal')
-    )  
+    const { pushOrder, signature, history } = this.props
+    pushOrder(signature)
+    history.push(OrderDetails.links.PAYMENT.URL)
   }  
 
   render = () => {
@@ -87,4 +82,11 @@ OrderItem.propTypes = {
   addItems: PropTypes.func.isRequired
 }
 
-export default OrderItem
+const mapDispatchToProps = dispatch => bindActionCreators({
+  pushOrder: OrderDetails.actions.pushOrder
+}, dispatch)
+
+const ReduxWrapper = connect(null, mapDispatchToProps)
+const WrappedComponent = ReduxWrapper(withRouter(OrderItem))
+export default WrappedComponent
+
