@@ -7,7 +7,7 @@ import { Hotel } from 'features'
 import * as images from './images'
 
 const RoomsCatalog = ({ displayType }) => {
-  const { CATALOG, SINGLE_ROOM, DOUBLE_ROOM, VIP_ROOM } = Hotel.links
+  const { CATALOG, SINGLE_ROOM, DOUBLE_ROOM, /*VIP_ROOM*/ } = Hotel.links
   return (
     <div className={`room_catalog room_catalog_${displayType}`}>
       <div className={`news_title news_title_${displayType}`}>
