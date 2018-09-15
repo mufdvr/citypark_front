@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { renderRoutes } from 'react-router-config'
+import { NotificationContainer } from 'react-notifications'
+import 'react-notifications/lib/notifications.css';
 
 import { Footer } from 'components'
 import { Personal, RestaurantAndCafe, Hotel } from 'features'
@@ -23,6 +25,7 @@ class MainLayout extends React.Component {
         <div className={ pathname === "/" ? 'p2' : 'p2 p_off'} />
         { route && renderRoutes(route.routes) }
         { Footer() }
+        <NotificationContainer />
       </div>
     )
   }

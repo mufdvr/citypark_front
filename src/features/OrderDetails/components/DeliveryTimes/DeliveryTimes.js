@@ -58,7 +58,10 @@ class DeliveryTimes extends Component {
                 locale="ru"
                 excludeTimes={[moment().hours(1).minutes(30), moment().hours(2).minutes(0), moment().hours(2).minutes(30),
                 moment().hours(3).minutes(0), moment().hours(3).minutes(30), moment().hours(4).minutes(0),
-                moment().hours(4).minutes(30), moment().hours(5).minutes(0), moment().hours(5).minutes(30)]}
+                moment().hours(4).minutes(30), moment().hours(5).minutes(0), moment().hours(5).minutes(30),
+                moment().hours(6).minutes(0), moment().hours(6).minutes(30), moment().hours(7).minutes(0),
+                moment().hours(7).minutes(30), moment().hours(8).minutes(0), moment().hours(8).minutes(30),
+                moment().hours(9).minutes(0), moment().hours(9).minutes(30) ]}
                 minDate={moment()}
                 maxDate={moment().add(5, "days")}
               />

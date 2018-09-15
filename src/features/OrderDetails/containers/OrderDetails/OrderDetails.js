@@ -4,13 +4,14 @@ import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
 import Captcha from 'react-google-recaptcha'
 import { Helmet } from 'react-helmet'
+import { NotificationManager} from 'react-notifications'
 
 import { createOrder, validOrder } from '../../models'
 import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
-import { ErrorBox, Spinner } from 'components'
+import { Spinner } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
 import { ORDER_DETAILS, PAYMENT, ACCEPTED } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
@@ -53,7 +54,7 @@ class OrderDetails extends React.Component {
       }, g_recaptcha_response)
       //console.log(order)
     } else {
-      ErrorBox.create('Заполните все необходимые поля!')
+      NotificationManager.error('Заполните все необходимые поля!', '', 3000)
     }
   }
 
