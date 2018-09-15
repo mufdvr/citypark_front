@@ -59,7 +59,8 @@ class OrderDetails extends React.Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage } = this.props
+    const { cart, loadCartFromLocalstorage, orderClear } = this.props
+    orderClear()
     !cart && loadCartFromLocalstorage()
   }
 
