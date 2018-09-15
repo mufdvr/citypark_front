@@ -2,7 +2,7 @@
   display: none;
 }
 
-.field-totalAmount > dd {
+.field-totalAmount > dd, .field-amount {
   font-family: 'PT Serif', serif;
   font-size: 38px;
   line-height: 38px;
@@ -31,7 +31,7 @@
   width: 100%;
 }
 
-.input-label {
+.input-label, .notice {
   color: #e9cba7;
   font-size: 1.1em;
 }

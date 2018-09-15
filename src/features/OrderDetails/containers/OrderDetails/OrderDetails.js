@@ -12,7 +12,7 @@ import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
 import { ErrorBox, Spinner } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
-import { ORDER_DETAILS, PAYMENT } from '../../links'
+import { ORDER_DETAILS, PAYMENT, ACCEPTED } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
 class OrderDetails extends React.Component {
@@ -64,9 +64,11 @@ class OrderDetails extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order: { delivery, mnt_signature }, history, user: { name, phone } } = nextProps
+    const { cart, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
-    if (mnt_signature) { //заказ создан, рендерим форму монеты
+    if (accepted) {
+      history.push(ACCEPTED.URL)
+    } else if (mnt_signature) {
       //localStorage.clear()
       history.push(PAYMENT.URL)
     } else {

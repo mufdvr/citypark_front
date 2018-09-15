@@ -33,13 +33,13 @@ const RoomCatalog = ({ rooms: {single_rooms, double_rooms, vip_room} }) =>
       image: images.catalog2,
       link: DOUBLE_ROOM
     }) }
-    { RoomListItem({
+    { /*RoomListItem({
       description: "Двухкомнатный номер (гостиная + спальня) с балконом.",
       cost: "5000",
       freeCount: vip_room,
       image: images.catalog3,
       link: VIP_ROOM
-    }) }
+    }) */}
 
   </div>
 

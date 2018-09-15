@@ -27,13 +27,13 @@ const RoomsCatalog = ({ displayType }) => {
         link: DOUBLE_ROOM,
         description: "Двухместные номера с двумя односпальными кроватями или с двуспальной кроватью \"Евро\""
       })}
-      { RoomItem({
+      { /*RoomItem({
         displayType,
         imageUrl: images.photo3,
         cost: "5000",
         link: VIP_ROOM,
         description: "Двухкомнатный номер (гостиная + спальня) с балконом."
-      })}
+      })*/}
     </div>
   )
 }

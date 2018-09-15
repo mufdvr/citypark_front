@@ -16,6 +16,10 @@ const routes = [
         path: links.PAYMENT.URL,
         exact: true,
         component: containers.Payment
+      },
+      {
+        path: links.ACCEPTED,
+        component: components.Accepted
       }
     ]
   }

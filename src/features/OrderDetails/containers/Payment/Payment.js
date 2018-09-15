@@ -20,7 +20,7 @@ class OrderDetails extends React.Component {
   }
    
   handleClick = () => {
-    window.frames.widget.postMessage('{"m_type":"request","m_val":"submitForm"}', "*");
+    window.frames.monetaWidget.postMessage('{"m_type":"request","m_val":"submitForm"}', "*");
   }
 
   handleFrameLoad = () => {
@@ -60,7 +60,7 @@ class OrderDetails extends React.Component {
             mnt_signature ? 
               <iframe 
                 onLoad={this.handleFrameLoad} 
-                name="moneta_widget" 
+                name="monetaWidget" 
                 title="Moneta"
                 id="widget" 
                 style={{width: "100%", height: frameHeight}} 
@@ -82,7 +82,7 @@ class OrderDetails extends React.Component {
               Отмена
               <i style={{ color: "red" }} className="material-icons">close</i>
             </div>
-            <div onClick={this.handleSubmit} className="z_btn order-btn">
+            <div onClick={this.handleClick} className="z_btn order-btn">
               Далее
               <i style={{ color: "green" }} className="material-icons">done</i>
             </div>

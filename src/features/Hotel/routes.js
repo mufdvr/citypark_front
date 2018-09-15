@@ -31,10 +31,10 @@ const routes = [
         path: links.DOUBLE_ROOM.URL,
         component: components.DoubleRoom
       },
-      {
+      /*{
         path: links.VIP_ROOM.URL,
         component: components.VipRoom
-      },
+      },*/
       {
         path: '*',
         component: () => <NotFound />

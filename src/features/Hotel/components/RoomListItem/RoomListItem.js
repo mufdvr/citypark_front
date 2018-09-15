@@ -27,12 +27,19 @@ const RoomListItem = ({ image, description, cost, freeCount, link }) =>
             case 3:
             case 4:
               return freeCount + " свободных номера"
-            default:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:  
               return freeCount + " свободных номеров"
+            default:
+              return ''
           }
         })()
       }
-      <br/>такого типа</div>
+      { freeCount ? <span><br/>такого типа</span> : null }
+      </div>
     </div>
   </div>
 

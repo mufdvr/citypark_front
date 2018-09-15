@@ -12,7 +12,7 @@ class MainLayout extends React.Component {
     const { fetching_news, fetching_user, getUser, getNews, fetching_rooms, getRooms } = this.props
     !fetching_news && getNews(3)
     !fetching_user && getUser()
-    !fetching_rooms && getRooms()
+    //!fetching_rooms && getRooms()
   }
 
   render = () => {

@@ -10,7 +10,13 @@ export const freeRoomsText = (freeCount) => {
     case 3:
     case 4:
       return <span>свободных номера<br/>такого типа</span>
-    default:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
       return <span>свободных номеров<br/>такого типа</span>
+    default: 
+      return ''  
   }
 }
