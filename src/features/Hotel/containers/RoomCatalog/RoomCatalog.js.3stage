@@ -4,13 +4,13 @@ import { Helmet } from 'react-helmet'
 
 import { SocShare, Breadcrumbs } from 'components'
 import { RoomListItem } from '../../components'
-import { HOTEL_MAIN, CATALOG, SINGLE_ROOM, DOUBLE_ROOM, VIP_ROOM } from '../../links'
+import { HOTEL_MAIN, CATALOG, SINGLE_ROOM, DOUBLE_ROOM } from '../../links'
 import * as images from './images'
 import * as commonImages from 'images'
 import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
 
-const RoomCatalog = ({ rooms: {single_rooms, double_rooms, vip_room} }) =>
+const RoomCatalog = ({ rooms: {single_rooms, double_rooms} }) =>
   <div className="light">
     <Helmet title={TITLE_PREFIX + CATALOG.TITLE} />
     { Breadcrumbs({links:  [ HOTEL_MAIN, CATALOG ]}) }
@@ -32,13 +32,6 @@ const RoomCatalog = ({ rooms: {single_rooms, double_rooms, vip_room} }) =>
       freeCount: double_rooms,
       image: images.catalog2,
       link: DOUBLE_ROOM
-    }) }
-    { RoomListItem({
-      description: "Двухкомнатный номер (гостиная + спальня) с балконом.",
-      cost: "5000",
-      freeCount: vip_room,
-      image: images.catalog3,
-      link: VIP_ROOM
     }) }
 
   </div>

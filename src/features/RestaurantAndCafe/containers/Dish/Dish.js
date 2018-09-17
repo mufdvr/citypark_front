@@ -12,8 +12,9 @@ class Dish extends React.Component {
 
   handleAddItems = items => {
     const { addItems } = this.props
+    const { REACT_APP_SHOPON } = process.env 
     addItems(items)
-    NotificationManager.success(`"${items[0].title}" добавлено в корзину`, '', 1500)
+    NotificationManager.success(`"${items[0].title}" добавлено в ${ REACT_APP_SHOPON === "true" ? 'корзину' : 'список заказа' }`, '', 1500)
   }
 
   handeAddToFavorites = (id, title) =>{
