@@ -56,7 +56,8 @@
 
 .footer {
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 145px;
 }
@@ -154,6 +155,8 @@
   }
   .footer {
     height: auto;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
   }
   .social {

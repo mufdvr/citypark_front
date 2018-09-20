@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import * as images from './images'
+import { PublicOffer } from 'features'
 
 export default () =>
   <div>
@@ -29,6 +31,7 @@ export default () =>
     </div>
 
     <div className="footer">
+      <Link style={{marginTop: "1.5rem"}} to={PublicOffer.links.PUBLIC_OFFER.URL}>{PublicOffer.links.PUBLIC_OFFER.TITLE}</Link>
       <div className="social">
         <a href="https://vk.com/cityparkvip">
           <div className="soc vk" />

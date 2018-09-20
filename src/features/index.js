@@ -5,6 +5,7 @@ import Hotel from './Hotel'
 import OrderDetails from './OrderDetails'
 import Personal from './Personal'
 import RestaurantAndCafe from './RestaurantAndCafe'
+import PublicOffer from './PublicOffer'
 
 export {
   Cart,
@@ -13,5 +14,6 @@ export {
   Hotel,
   OrderDetails,
   Personal,
-  RestaurantAndCafe
+  RestaurantAndCafe,
+  PublicOffer
 }
