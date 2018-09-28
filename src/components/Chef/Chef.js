@@ -40,7 +40,7 @@ export default () => {
             <div className="pb_end"></div>
             <div className="pb_txt">
               <div>
-                <Link to="rest/shefblog/proverka.html">Фриттата</Link>
+                <Link to="/rest/shefblog/2">Фриттата</Link>
                 Итальянский омлет фриттата
               </div>
             </div>

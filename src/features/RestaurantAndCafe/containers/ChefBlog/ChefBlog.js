@@ -14,6 +14,7 @@ class ChefBlog extends React.Component {
   componentDidMount = () => {
     const { fetching, loaded, getBlogs } = this.props
     !fetching && !loaded && getBlogs()
+    window.scrollTo(0, 0)
   }
 
   list = () => {
