@@ -50,7 +50,7 @@ class DaData extends React.Component {
       case 40: {
         // Arrow down
         event.preventDefault()
-        if (suggestionIndex < suggestions.length) {
+        if (suggestionIndex < suggestions.length - 1) {
           let newSuggestionIndex = suggestionIndex + 1
           let newInputQuery = suggestions[newSuggestionIndex].unrestricted_value
           this.setState({ 
@@ -168,9 +168,9 @@ class DaData extends React.Component {
   getHighlightWords = () => {
     const { inputQuery } = this.state
     const wordsToPass = ['г', 'респ', 'ул', 'р-н', 'село', 'деревня', 'поселок', 'пр-д', 'пл', 'к', 'кв', 'обл', 'д']
-    return inputQuery.replace(',', '').split(' ').filter(word => wordsToPass.indexOf(word) < 0)
+    return inputQuery.replace(/[,/\\?$*[\]()]/g, '').split(' ').filter(word => wordsToPass.indexOf(word) < 0)
   }
-
+s
   suggestionsList = () =>
     this.state.suggestions.map((suggestion, index) => {
       let suggestionClass = 'react-dadata__suggestion'
