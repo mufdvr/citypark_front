@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import * as images from './images'
-import { PublicOffer } from 'features'
+import { PublicOffer, PrivatePolicy } from 'features'
 
 export default () =>
   <div>
@@ -31,7 +31,10 @@ export default () =>
     </div>
 
     <div className="footer">
-      <Link style={{marginTop: "1.5rem"}} to={PublicOffer.links.PUBLIC_OFFER.URL}>{PublicOffer.links.PUBLIC_OFFER.TITLE}</Link>
+      <div className="footer-links">
+        <Link style={{ marginTop: "1.5rem" }} to={PublicOffer.links.PUBLIC_OFFER.URL}>{PublicOffer.links.PUBLIC_OFFER.TITLE}</Link>
+        <Link style={{ marginTop: "1.5rem" }} to={PrivatePolicy.links.PRIVATE_POLICY.URL}>{PrivatePolicy.links.PRIVATE_POLICY.TITLE}</Link>
+      </div>
       <div className="social">
         <a href="https://vk.com/cityparkvip">
           <div className="soc vk" />
