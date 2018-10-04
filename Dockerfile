@@ -16,8 +16,8 @@ RUN yarn build
 FROM nginx:alpine
 ARG APP_ROOT
 ENV APP_DIR=$APP_ROOT
-RUN rm -rf /etc/nginx/conf.d
-RUN mkdir /usr/share/nginx/files
+RUN rm -rf /etc/nginx/conf.d && mkdir /usr/share/nginx/files && mkdir /usr/share/nginx/uploads
+COPY nginx/ssl /etc/ssl
 COPY nginx/default.conf.template /etc/nginx/conf.d/
 COPY nginx/nginx.conf /etc/nginx/
 COPY nginx/start.sh ./
