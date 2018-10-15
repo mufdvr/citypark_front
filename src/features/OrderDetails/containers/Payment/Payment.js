@@ -29,18 +29,18 @@ class OrderDetails extends React.Component {
     })
   }
 
-  listener = event => {
+  /*listener = event => {
     const msg = JSON.parse(event.data);
     this.setState({
       frameHeight: Number(msg.height) + 10 + "px"
     })
-  }
+  }*/
 
   componentDidMount = () => {
     const { loadOrderFromLocalstorage, order } = this.props
     order.mnt_signature ? localStorage.setItem("order", JSON.stringify(order)) : loadOrderFromLocalstorage()
-    window.addEventListener ? window.addEventListener("message", this.listener)
-      : window.attachEvent("onmessage", this.listener)
+    //window.addEventListener ? window.addEventListener("message", this.listener)
+    //  : window.attachEvent("onmessage", this.listener)
   }
 
   render = () => {
@@ -70,8 +70,7 @@ class OrderDetails extends React.Component {
                 "&MNT_CURRENCY_CODE=" + REACT_APP_MNT_CURRENCY_CODE +
                 "&MNT_TRANSACTION_ID=" + id +
                 "&MNT_AMOUNT=" + amount +
-                "&MNT_SIGNATURE=" + mnt_signature +
-                "&paymentSystem.unitId=43674"}
+                "&MNT_SIGNATURE=" + mnt_signature}
               >
                 Ваш браузер не поддерживает плавающие фреймы!
               </iframe>
