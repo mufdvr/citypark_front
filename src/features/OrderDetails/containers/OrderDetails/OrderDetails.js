@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
 import Captcha from 'react-google-recaptcha'
 import { Helmet } from 'react-helmet'
-import { NotificationManager} from 'react-notifications'
+import { NotificationManager } from 'react-notifications'
 
 import { createOrder, validOrder } from '../../models'
 import { filterCart } from 'utils'
@@ -52,7 +52,6 @@ class OrderDetails extends React.Component {
         ...order,
         street: order.street.value || ''
       }, g_recaptcha_response)
-      //console.log(order)
     } else {
       NotificationManager.error('Заполните все необходимые поля!', '', 3000)
     }
@@ -66,9 +65,12 @@ class OrderDetails extends React.Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
+    const { cart, errors, fetching, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
-    if (accepted) {
+    if (!fetching && errors.msg) {
+      NotificationManager.error(errors.msg, '', 3000)
+    }
+    else if (accepted) {
       history.push(ACCEPTED.URL)
     } else if (mnt_signature) {
       //localStorage.clear()
@@ -89,7 +91,7 @@ class OrderDetails extends React.Component {
 
   render = () => {
     const { freeDelivery, totalCost, invalidFields, order } = this.state
-    const { clearCart, fetching, user: { id } } = this.props
+    const { clearCart, fetching } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
@@ -102,25 +104,21 @@ class OrderDetails extends React.Component {
           </div>
           <div id="order-content">
             <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
-            <PaymentType onChange={this.handleChange} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
+            <PaymentType delivery={order.delivery} onChange={this.handleChange} />
             <CustomerInfo
               onChange={this.handleChange}
               invalidFields={invalidFields}
               order={order}
             />
             <div id="total">
-              {
-                !id ?
-                  <Captcha
-                    sitekey={REACT_APP_CAPTCHA_KEY}
-                    onChange={g_recaptcha_response => this.setState({ g_recaptcha_response })}
-                  />
-                  : <div />
-              }
+              <Captcha
+                sitekey={REACT_APP_CAPTCHA_KEY}
+                onChange={g_recaptcha_response => this.setState({ g_recaptcha_response })}
+              />
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div>Бесплатная доставка</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  freeDelivery ? <div /> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">
@@ -152,7 +150,8 @@ const mapStateToProps = state => ({
   cart: state.cart.payload,
   user: state.user.payload,
   order: state.order.payload,
-  fetching: state.order.fetching
+  fetching: state.order.fetching,
+  errors: state.order.errors
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -63,7 +63,7 @@ class DeliveryTimes extends Component {
                 moment().hours(7).minutes(30), moment().hours(8).minutes(0), moment().hours(8).minutes(30),
                 moment().hours(9).minutes(0), moment().hours(9).minutes(30) ]}
                 minDate={moment()}
-                maxDate={moment().add(5, "days")}
+                maxDate={moment().add(3, "days")}
               />
             </div>
           : null
