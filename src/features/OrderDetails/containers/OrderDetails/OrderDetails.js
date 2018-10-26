@@ -13,6 +13,7 @@ import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
 import { Spinner } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
+import { constants } from '../../components/PaymentType'
 import { ORDER_DETAILS, PAYMENT, ACCEPTED } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
@@ -30,14 +31,15 @@ class OrderDetails extends React.Component {
   }
 
   handleChange = prop => {
-    const { target, delivery } = prop
+    const { target, delivery, payment_type } = prop
     const { cart } = this.props
     this.setState(prev => ({
       ...prev,
       ...(() => delivery !== undefined ? deliveryAndTotalCost(cart, delivery) : {})(),
       order: {
         ...prev.order,
-        ...(() => target ? { [target.name]: target.value } : prop)()
+        ...(() => target ? { [target.name]: target.value } : prop)(),
+        ...(() => payment_type === constants.PAYMENT_TYPES[0].value ? { delivery_times: '' } : {})(),
       }
     }))
   }
@@ -103,9 +105,13 @@ class OrderDetails extends React.Component {
             <h2>{ORDER_DETAILS.TITLE}</h2>
           </div>
           <div id="order-content">
-            <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
-            <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <PaymentType delivery={order.delivery} onChange={this.handleChange} />
+            { 
+              order.payment_type === constants.PAYMENT_TYPES[1].value ? 
+                <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
+              : null 
+            }    
+            <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}
               invalidFields={invalidFields}
@@ -118,7 +124,7 @@ class OrderDetails extends React.Component {
               />
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div /> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  freeDelivery ? <div>&nbsp;</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">

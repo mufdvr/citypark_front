@@ -1,6 +1,6 @@
 export const CART_STATES = [
   {left: '-500px'},
-  {left: '-352px'},
+  {left: '-367px'},
   {left: '10px'},
   {top: '-1000px'},
   {top: '-206px'},

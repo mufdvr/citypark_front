@@ -9,7 +9,7 @@ class PaymentType extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      payment_type: PAYMENT_TYPES[0],
+      payment_type: PAYMENT_TYPES[1],
       surrender_from: ''
     }
   }
@@ -20,7 +20,7 @@ class PaymentType extends React.Component {
     this.setState({ 
       ...(() => target ? { [target.name]: target.value } : prop)()
     })
-    onChange({...(() => target ? { [target.name]: target.value } : { payment_type: prop.payment_type.value} )()})
+    onChange({...(() => target ? { [target.name]: target.value } : { payment_type: prop.payment_type.value } )()})
   }
 
   render = () => {

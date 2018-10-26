@@ -16,7 +16,7 @@ export default () => {
         <div id="order-content">
           <div class="congratulation">
             <img src="/images/success.png" alt="pic" />
-            <span>Ваш заказ приянт</span>
+            <span>Ваш заказ принят</span>
           </div>
         </div>
         <div id="submit">

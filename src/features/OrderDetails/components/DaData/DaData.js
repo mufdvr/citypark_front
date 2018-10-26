@@ -170,7 +170,7 @@ class DaData extends React.Component {
     const wordsToPass = ['г', 'респ', 'ул', 'р-н', 'село', 'деревня', 'поселок', 'пр-д', 'пл', 'к', 'кв', 'обл', 'д']
     return inputQuery.replace(/[,/\\?$*[\]()]/g, '').split(' ').filter(word => wordsToPass.indexOf(word) < 0)
   }
-s
+
   suggestionsList = () =>
     this.state.suggestions.map((suggestion, index) => {
       let suggestionClass = 'react-dadata__suggestion'
@@ -187,6 +187,18 @@ s
         </div>
       )
     })
+
+  componentWillReceiveProps = nextProps => { //очищаем инпут при смене нас пункта
+    const { onChange, settlement } = this.props
+    if (settlement !== nextProps.settlement) {
+      this.setState({ 
+        query: '' 
+      }, onChange({
+        value: '',
+        isValid: false
+      }))
+    } 
+  }
 
   render = () => {
     const { query, inputFocused, suggestionsVisible, suggestions } = this.state

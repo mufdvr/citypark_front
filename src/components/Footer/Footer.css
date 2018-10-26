@@ -147,6 +147,7 @@
     height: auto;
     width: 100%;
     right: 0;
+    margin-bottom: -5px;
   }
   .adress {
     position: absolute;

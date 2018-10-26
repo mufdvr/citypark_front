@@ -53,13 +53,13 @@ class Dish extends React.Component {
             can_order ?
               <div className="dish-buttons">
               {
-                user && user.id ?
+                user && user.id && REACT_APP_SHOPON === "true" ?
                   fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
                   : <div onClick={() => this.handeAddToFavorites(id, title)} className="z_btn">В избранное</div>
                 : null
               }
               <div onClick={() => this.handleAddItems([{id, title, cost}])} className="z_btn">
-                { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в список заказа" }
+                { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в заказ" }
               </div>
              </div>
             : 
