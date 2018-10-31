@@ -24,6 +24,7 @@ class OrderDetails extends React.Component {
   }
 
   handleFrameLoad = () => {
+    console.log(document.getElementById("widget").contentWindow.location)
     this.setState({
       frameLoading: false
     })

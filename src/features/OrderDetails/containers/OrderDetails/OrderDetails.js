@@ -26,6 +26,7 @@ class OrderDetails extends React.Component {
     this.state = {
       order: createOrder({ name, phone, dishes_orders_attributes }),
       invalidFields: [],
+      accepted: true,
       ...deliveryAndTotalCost(cart)
     }
   }
@@ -92,7 +93,7 @@ class OrderDetails extends React.Component {
   }
 
   render = () => {
-    const { freeDelivery, totalCost, invalidFields, order } = this.state
+    const { freeDelivery, totalCost, invalidFields, order, accepted } = this.state
     const { clearCart, fetching } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
@@ -106,11 +107,11 @@ class OrderDetails extends React.Component {
           </div>
           <div id="order-content">
             <PaymentType delivery={order.delivery} onChange={this.handleChange} />
-            { 
-              order.payment_type === constants.PAYMENT_TYPES[1].value ? 
+            {
+              order.payment_type === constants.PAYMENT_TYPES[1].value ?
                 <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
-              : null 
-            }    
+                : null
+            }
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}
@@ -132,13 +133,25 @@ class OrderDetails extends React.Component {
                 </span>
               </div>
             </div>
+            <div style={{marginTop: '1rem'}}>
+            <input
+              id="accept-checkbox"
+              type="checkbox"
+              checked={accepted}
+              onChange={() => this.setState(prev => ({
+                ...prev,
+                accepted: !prev.accepted
+              }))}
+            />
+            <label htmlFor="accept-checkbox">С <a target="_blank" href="/private_policy">политикой конфиденциальности</a> согласен</label>
+            </div>
           </div>
           <div id="submit">
             <div onClick={clearCart} className="z_btn order-btn">
               Отмена
               <i style={{ color: "red" }} className="material-icons">close</i>
             </div>
-            <div onClick={this.handleSubmit} className="z_btn order-btn">
+            <div onClick={() => accepted && this.handleSubmit()} className={`z_btn order-btn${accepted ? '' : ' next_button-disabled'}`}>
               Далее
               <i style={{ color: "green" }} className="material-icons">done</i>
             </div>

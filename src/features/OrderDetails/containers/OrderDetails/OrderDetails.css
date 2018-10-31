@@ -84,8 +84,18 @@ div.leafs {
   padding: 1.5rem;
 }
 
-#submit div:nth-child(1) {
+#submit > div:nth-child(1) {
   margin-right: 1rem;
+}
+
+.next_button-disabled {
+  color: gray;
+}
+
+.next_button-disabled:hover {
+  text-decoration: none;
+  color: gray;
+  background: inherit;
 }
 
 textarea {
