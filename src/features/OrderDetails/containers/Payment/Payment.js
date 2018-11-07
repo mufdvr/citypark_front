@@ -15,10 +15,11 @@ class OrderDetails extends React.Component {
     super(props)
     this.state = {
       frameHeight: "670px",
-      frameLoading: true
+      frameLoading: true,
+      finish: false
     }
   }
-   
+
   handleClick = () => {
     window.frames.monetaWidget.postMessage('{"m_type":"request","m_val":"submitForm"}', "*");
   }
@@ -30,24 +31,26 @@ class OrderDetails extends React.Component {
     })
   }
 
-  /*listener = event => {
-    const msg = JSON.parse(event.data);
-    this.setState({
+  listener = event => {
+    const msg = JSON.parse(event.data)
+    msg.m_type === 'finish' && this.setState({ finish: true })
+    /*this.setState({
       frameHeight: Number(msg.height) + 10 + "px"
-    })
-  }*/
+    })*/
+  }
 
   componentDidMount = () => {
     const { loadOrderFromLocalstorage, order } = this.props
+    window.scrollTo(0, 0)
     order.mnt_signature ? localStorage.setItem("order", JSON.stringify(order)) : loadOrderFromLocalstorage()
-    //window.addEventListener ? window.addEventListener("message", this.listener)
-    //  : window.attachEvent("onmessage", this.listener)
+    window.addEventListener ? window.addEventListener("message", this.listener)
+      : window.attachEvent("onmessage", this.listener)
   }
 
   render = () => {
-    const { frameHeight, frameLoading } = this.state
+    const { frameHeight, frameLoading, finish } = this.state
     const { REACT_APP_MNT_ID, REACT_APP_ASSISTANT, REACT_APP_MNT_TEST_MODE, REACT_APP_MNT_CURRENCY_CODE } = process.env
-    const { order: {id, amount, mnt_signature } } = this.props
+    const { order: { id, amount, mnt_signature } } = this.props
     return (
       <div style={{ position: "relative" }}>
         {frameLoading ? Spinner() : null}
@@ -57,35 +60,39 @@ class OrderDetails extends React.Component {
             <div id="logo" className="order-logo" />
             <h2>{PAYMENT.TITLE}</h2>
           </div>
-          { 
-            mnt_signature ? 
-              <iframe 
-                onLoad={this.handleFrameLoad} 
-                name="monetaWidget" 
+          {
+            mnt_signature ?
+              <iframe
+                onLoad={this.handleFrameLoad}
+                name="monetaWidget"
                 title="Moneta"
-                id="widget" 
-                style={{width: "100%", height: frameHeight}} 
+                id="widget"
+                style={{ width: "100%", height: frameHeight }}
                 src={REACT_APP_ASSISTANT + "?" +
-                "MNT_ID=" + REACT_APP_MNT_ID +
-                "&MNT_TEST_MODE=" + REACT_APP_MNT_TEST_MODE +
-                "&MNT_CURRENCY_CODE=" + REACT_APP_MNT_CURRENCY_CODE +
-                "&MNT_TRANSACTION_ID=" + id +
-                "&MNT_AMOUNT=" + amount +
-                "&MNT_SIGNATURE=" + mnt_signature}
+                  "MNT_ID=" + REACT_APP_MNT_ID +
+                  "&MNT_TEST_MODE=" + REACT_APP_MNT_TEST_MODE +
+                  "&MNT_CURRENCY_CODE=" + REACT_APP_MNT_CURRENCY_CODE +
+                  "&MNT_TRANSACTION_ID=" + id +
+                  "&MNT_AMOUNT=" + amount +
+                  "&MNT_SIGNATURE=" + mnt_signature}
               >
                 Ваш браузер не поддерживает плавающие фреймы!
               </iframe>
-            : null
-          }    
+              : null
+          }
           <div id="submit">
-            <div className="z_btn order-btn">
-              Отмена
-              <i style={{ color: "red" }} className="material-icons">close</i>
-            </div>
-            <div onClick={this.handleClick} className="z_btn order-btn">
-              Далее
-              <i style={{ color: "green" }} className="material-icons">done</i>
-            </div>
+            {
+              finish ? null : [
+                <div key="1" className="z_btn order-btn">
+                  Отмена
+                  <i style={{ color: "red" }} className="material-icons">close</i>
+                </div>,
+                <div key="2" onClick={this.handleClick} className="z_btn order-btn">
+                  Далее
+                  <i style={{ color: "green" }} className="material-icons">done</i>
+                </div>
+              ]
+            }
           </div>
         </div>
         <div id="leaf-right" className="leaf leafs" />
