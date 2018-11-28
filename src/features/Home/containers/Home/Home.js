@@ -60,7 +60,7 @@ class Home extends React.Component {
           })}
           <div className="partbody partbody_home" style={{float: "right"}}>
             <div className="light">
-              { Delivery({ displayType: DISPLAY_TYPE }) }
+              <Delivery displayType={DISPLAY_TYPE} />
               <News displayType={DISPLAY_TYPE}>
                 { this.newslist() }
               </News>

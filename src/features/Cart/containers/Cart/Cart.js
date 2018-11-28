@@ -110,7 +110,7 @@ class Cart extends React.Component {
             : null
           :
             <div className="zakaz_info">
-              <div style={{fontSize: "24px", lineHeight: "24px"}}>8-918-311-97-91</div>
+              <div style={{fontSize: "24px", lineHeight: "24px"}}><a className="contacts" href="tel:+79183119791">8-918-311-97-91</a></div>
               Пожалуйста, позвоните по этому номеру и продиктуйте ваш заказ.
             </div> 
         }

@@ -15,7 +15,6 @@ import RoomItem from './RoomItem'
 import NotFound from './NotFound'
 import SpinButton from './SpinButton'
 import Spinner from './Spinner'
-import ErrorBox from './ErrorBox'
 
 export {
   App,
@@ -35,5 +34,4 @@ export {
   NotFound,
   SpinButton,
   Spinner,
-  ErrorBox
 }

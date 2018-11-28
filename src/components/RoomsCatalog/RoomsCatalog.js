@@ -7,7 +7,7 @@ import { Hotel } from 'features'
 import * as images from './images'
 
 const RoomsCatalog = ({ displayType }) => {
-  const { CATALOG, SINGLE_ROOM, DOUBLE_ROOM, /*VIP_ROOM*/ } = Hotel.links
+  const { CATALOG, SINGLE_ROOM, DOUBLE_ROOM, VIP_ROOM } = Hotel.links
   return (
     <div className={`room_catalog room_catalog_${displayType}`}>
       <div className={`news_title news_title_${displayType}`}>
@@ -27,13 +27,13 @@ const RoomsCatalog = ({ displayType }) => {
         link: DOUBLE_ROOM,
         description: "Двухместные номера с двумя односпальными кроватями или с двуспальной кроватью \"Евро\""
       })}
-      { /*RoomItem({
+      { RoomItem({
         displayType,
         imageUrl: images.photo3,
         cost: "5000",
         link: VIP_ROOM,
         description: "Двухкомнатный номер (гостиная + спальня) с балконом."
-      })*/}
+      })}
     </div>
   )
 }

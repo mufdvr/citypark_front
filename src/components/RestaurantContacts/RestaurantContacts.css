@@ -5,6 +5,11 @@
   border-radius: 5px;
 }
 
+.contacts {
+  text-decoration: none;
+  color: inherit;
+}
+
 .rest_contacts_home {
   margin-top: 30px;
   background: #45312b;

@@ -15,6 +15,8 @@ const orderReducer = (state, action) => {
       return order ? toPayload(state, order) : state
     case types.ORDERS_PUSH:
       return toPayload(state, action.payload)  
+    case types.ORDERS_CLEAR:
+      return toPayload(state, {})  
     default: return false
   }
 }

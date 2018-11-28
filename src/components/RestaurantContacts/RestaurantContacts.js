@@ -5,8 +5,8 @@ const RestarauntContacts = ({ displayType }) =>
   <div className={`rest_contacts rest_contacts_${displayType}`}>
     Забронировать столик
     <span>в ресторане или летнем кафе</span>
-    <div>8-918-311-97-91</div>
-    <div>8 (86155) 3-30-03</div>
+    <div><a className="contacts" href="tel:+79183119791">8-918-311-97-91</a></div>
+    <div><a className="contacts" href="tel:+78615533003">8 (86155) 3-30-03</a></div>
   </div>
 
 RestarauntContacts.propTypes = {

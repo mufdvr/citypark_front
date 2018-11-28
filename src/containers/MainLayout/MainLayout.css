@@ -1,1 +1,8 @@
+.notification-success {
+  background-color: #45312b;
+}
 
+.notification {
+  box-shadow: 0 0 8px 2px #999; 
+  color: #f6dfc4;
+}  

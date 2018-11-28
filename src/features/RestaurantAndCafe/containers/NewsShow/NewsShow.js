@@ -15,6 +15,7 @@ class NewsShow extends React.Component {
     const { fetching, showNews, selectNews, news, match: { params } } = this.props
     const id = Number(params.id)
     news.length && news.find(news => news.id === id).body ? selectNews(id) : !fetching && showNews(id)
+    window.scrollTo(0, 0)
   }
 
   xss = target => {   //незабываем фильтровать <script> на бэке

@@ -1,9 +1,4 @@
-import Home from 'features/Home'
-import RestaurantAndCafe from 'features/RestaurantAndCafe'
-import OrderDetails from 'features/OrderDetails'
-import Hotel from 'features/Hotel'
-import Contacts from 'features/Contacts'
-import Personal from 'features/Personal'
+import { Contacts, Hotel, Personal, OrderDetails, Home, RestaurantAndCafe, PublicOffer, PrivatePolicy } from 'features'
 import { MainLayout } from 'containers'
 import { NotFound } from 'components'
 
@@ -18,6 +13,8 @@ const routes = [
       ...Hotel.routes,
       ...Contacts.routes,
       ...Personal.routes,
+      ...PublicOffer.routes,
+      ...PrivatePolicy.routes,
       {
         path: '*',
         component: NotFound

@@ -16,6 +16,10 @@ export const loadOrderFromLocalstorage = () => ({
   type: types.LOAD_ORDER_FROM_LOCALSTORAGE
 })
 
+export const orderClear = () => ({
+  type: types.ORDERS_CLEAR
+})
+
 export const pushOrder = order => ({
   type: types.ORDERS_PUSH,
   payload: order

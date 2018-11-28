@@ -15,6 +15,7 @@ class ChefBlogShow extends React.Component {
     const { fetching, showBlogs, selectBlogs, blogs, match: { params } } = this.props
     const id = Number(params.id)
     blogs.length && blogs.find(blog => blog.id === id).body ? selectBlogs(id) : !fetching && showBlogs(id)
+    window.scrollTo(0, 0)
   }
 
   xss = target => {   //незабываем фильтровать <script> на бэке

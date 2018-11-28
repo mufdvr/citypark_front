@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { NotificationManager } from 'react-notifications'
 
 import { createUserSession } from '../../models'
-import { SpinButton, ErrorBox } from 'components'
+import { SpinButton } from 'components'
 import * as actions from '../../actions'
 import * as apiConst from '../../apiConst'
 import * as types from '../../actionTypes'
@@ -36,7 +37,7 @@ class SignIn extends React.Component {
 
   componentWillReceiveProps = nextProps => {
     const { fetching, errors } = nextProps
-    !fetching && !errors.msg ? ErrorBox.clear() : errors.msg && ErrorBox.create(errors.msg)
+    !fetching && errors.msg && NotificationManager.error(errors.msg, '', 3000)
   }
 
   render = () => {

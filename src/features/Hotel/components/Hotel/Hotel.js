@@ -8,40 +8,41 @@ import { TITLE_PREFIX } from 'appConstants'
 import { baseUrl } from 'utils'
 import * as images from 'images'
 
-export default () => 
+export default () =>
   <div className="light">
     <Helmet title={TITLE_PREFIX + HOTEL_MAIN.TITLE} />
-    { Breadcrumbs({links:  [ HOTEL_MAIN ]}) }
+    {Breadcrumbs({ links: [HOTEL_MAIN] })}
     <SocShare
       link={baseUrl() + HOTEL_MAIN.URL}
       title={TITLE_PREFIX + HOTEL_MAIN.TITLE}
       image={baseUrl() + images.citypark}
     />
-    <h2>Отель-люкс City Park — это в<span style={{lineHeight: "1.5em"}}>ысококлассная гостиница в Белореченске с номерами&nbsp;</span><span style={{lineHeight: "1.5em"}}>различных категорий.</span></h2>
-    <p><strong><span style={{lineHeight: "1.5em"}}>В гостинице Вас ждут номера площадью от 19 до 45 м2, все они соответствуют категории "Люкс". <br/></span></strong></p>
+    <h2>Отель-люкс City Park — это в<span style={{ lineHeight: "1.5em" }}>ысококлассная гостиница в Белореченске с номерами&nbsp;</span><span style={{ lineHeight: "1.5em" }}>различных категорий.</span></h2>
+    <p><strong><span style={{ lineHeight: "1.5em" }}>В гостинице 12 номеров площадью от 19 до 45 м2, все они соответствуют категории "Люкс". <br /></span></strong></p>
     <h2>
-      <span style={{lineHeight: "1.5em"}}>
+      <span style={{ lineHeight: "1.5em" }}>
         <Link to={CATALOG.URL}>
           Посмотреть каталог номеров
         </Link>
       </span>
-      <strong><span style={{lineHeight: "1.5em"}}><br/><br/></span></strong>
+      <strong><span style={{ lineHeight: "1.5em" }}><br /><br /></span></strong>
     </h2>
-    <p>201 — одноместный номер с двуспальной кроватью, с балконом. Площадь 23 кв.м. + балкон 7 кв.м.<br/>204 — одноместный номер с двуспальной кроватью. Площадь 19 кв.м.&nbsp;<br/>203, 206 — двухместные номера с двумя односпальными кроватями
-      ( с возможностью сдвига). Площадь 23-25 кв.м.&nbsp;<br/>202, 205 — двухместные номера с двуспальной кроватью евро. Площадь 23-25 кв.м.&nbsp;.</p>
-    <p><strong><span style={{lineHeight: "1.5em"}}><br/></span></strong><span style={{lineHeight: "1.5em"}}>В номере 201 (одноместный с двуспальной кроватью) есть просторный балкон,&nbsp;</span><span style={{lineHeight: "1.5em"}}>выходящие на кроны многолетних парковых деревьев; <br/>здесь вы можете полной грудью насладиться&nbsp;чистейшим вечерним воздухом, сидя на&nbsp;плетеных стульях ручной работы.</span></p>
-    <p><strong><span style={{lineHeight: "1.5em"}}>&nbsp;</span></strong></p>
-    <p><strong>Общая комплектация номеров:</strong><br/>•&nbsp;сплит-система;<br/>• Smart TV с функцией 3D;<br/>•&nbsp;сейф;<br/>•&nbsp;холодильник;<br/>•&nbsp;шкаф-гардероб;<br/>• прикроватные тумбы; <br/>•&nbsp;журнальный столик;<br/>•&nbsp;пуф;<br/>•&nbsp;комод;<br/>•&nbsp;внутренний
+    <p>201 — одноместный номер с двуспальной кроватью, с балконом. Площадь 23 кв.м. + балкон 7 кв.м.<br />204, 304 — одноместные номера с двуспальной кроватью. Площадь 19 кв.м.&nbsp;<br />203, 206, 302, 303 — двухместные номера с двумя односпальными кроватями
+      ( с возможностью сдвига). Площадь 23-25 кв.м.&nbsp;<br />202, 205, 305, 306 — двухместные номера с двуспальной кроватью евро. Площадь 23-25 кв.м.&nbsp;<br />301 — VIP-номер. Двухкомнатный (гостиная + спальня) с балконом. Площадь 45 кв.м. + балкон 7кв.м.
+      Номер имеет расширенную комплектацию (ознакомиться).</p>
+    <p><strong><span style={{ lineHeight: "1.5em" }}><br /></span></strong><span style={{ lineHeight: "1.5em" }}>В номерах 201 (одноместный с двуспальной кроватью) и 301 (VIP-номер, двухкомнатный) есть просторные балконы,&nbsp;</span><span style={{ lineHeight: "1.5em" }}>выходящие на кроны многолетних парковых деревьев; <br />здесь вы можете полной грудью насладиться&nbsp;чистейшим вечерним воздухом, сидя на&nbsp;плетеных стульях ручной работы.</span></p>
+    <p><strong><span style={{ lineHeight: "1.5em" }}>&nbsp;</span></strong></p>
+    <p><strong>Общая комплектация номеров:</strong><br />•&nbsp;сплит-система;<br />• Smart TV с функцией 3D;<br />•&nbsp;сейф;<br />•&nbsp;холодильник;<br />•&nbsp;шкаф-гардероб;<br />• прикроватные тумбы; <br />•&nbsp;журнальный столик;<br />•&nbsp;пуф;<br />•&nbsp;комод;<br />•&nbsp;внутренний
       телефон.
-      <br/><br/><strong>Санузел:</strong> душевая кабинка, фен, туалетные принадлежности.</p>
+      <br /><br /><strong>Санузел:</strong> душевая кабинка, фен, туалетные принадлежности.</p>
     <p>&nbsp;</p>
-    <p><strong style={{lineHeight: "1.5em"}}><span style={{lineHeight: "1.5em"}}>На всей территории РГК City Park доступен бесплатный&nbsp;Wi-fi&nbsp;</span></strong></p>
+    <p><strong style={{ lineHeight: "1.5em" }}><span style={{ lineHeight: "1.5em" }}>На всей территории РГК City Park доступен бесплатный&nbsp;Wi-fi&nbsp;</span></strong></p>
     <h3>Дополнительные услуги:</h3>
-    <p>• заказ завтрака в номер (стоимость завтрака не входит в стоимость номера);<br/>•&nbsp;заказ еды из ресторана City Park;<br/>•&nbsp;детская кровать до 3-х лет.<br/>•&nbsp;услуги прачечной и глажки (платно).</p>
+    <p>• заказ завтрака в номер (стоимость завтрака не входит в стоимость номера);<br />•&nbsp;заказ еды из ресторана City Park;<br />•&nbsp;детская кровать до 3-х лет.<br />•&nbsp;услуги прачечной и глажки (платно).</p>
     <p>&nbsp;</p>
     <h3>Правила размещения:</h3>
-    <p><br/>Заселение производится по паспорту или водительскому удостоверению. <br/>Оплатить можно как наличными, так и банковской картой.<br/>За бронирование плата не взимается.<br/>
-      <strong style={{lineHeight: "1.5em"}}>Заезд с животными запрещен.<br/></strong><strong style={{lineHeight: "1.5em"}}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
+    <p>Номер VIP – не более четырех гостей, в остальные номера – не более двух.<br />Заселение производится по паспорту или водительскому удостоверению. <br />Оплатить можно как наличными, так и банковской картой.<br />За бронирование плата не взимается.<br />
+      <strong style={{ lineHeight: "1.5em" }}>Заезд с животными запрещен.<br /></strong><strong style={{ lineHeight: "1.5em" }}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
     <p>&nbsp;</p>
     <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;
     <a title="City Park Белореченск" href="https://cityparkvip.ru/" target="_blank" rel="noopener noreferrer">www.cityparkvip.ru</a>&nbsp;в разделе <Link to={CATALOG.URL}>"Каталог номеров"</Link>.</h4>
@@ -52,8 +53,8 @@ export default () =>
     <p align="CENTER">&nbsp;</p>
     <table width="100%" border="1" cellSpacing="0" cellPadding="4">
       <colgroup>
-        <col width="128*"/>
-        <col width="128*"/>
+        <col width="128*" />
+        <col width="128*" />
       </colgroup>
       <tbody>
         <tr valign="TOP">
@@ -248,8 +249,8 @@ export default () =>
     <p align="CENTER"><span>Категории номеров и цены 2016г.</span></p>
     <table width="100%" border="1" cellSpacing="0" cellPadding="4">
       <colgroup>
-        <col width="128*"/>
-        <col width="128*"/>
+        <col width="128*" />
+        <col width="128*" />
       </colgroup>
       <tbody>
         <tr valign="TOP">
@@ -258,6 +259,14 @@ export default () =>
           </td>
           <td width="50%">
             <p align="CENTER"><span>цена</span></p>
+          </td>
+        </tr>
+        <tr valign="TOP">
+          <td width="50%">
+            <p align="LEFT"><span>«Люкс»*</span></p>
+          </td>
+          <td width="50%">
+            <p align="CENTER"><span>5000</span></p>
           </td>
         </tr>
         <tr valign="TOP">
@@ -295,59 +304,170 @@ export default () =>
     <p align="CENTER"><span>Завтраки</span></p>
     <p lang="en-US" align="CENTER"><span>Breakfast</span></p>
     <p align="LEFT">&nbsp;</p>
-    <p dir="ltr"><span>Яйца вареные (2 шт) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 руб</span></p>
-    <p dir="ltr"><span>Boiled eggs (2 pieces) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;30 rub</span></p>
-    <p dir="ltr"><span>Самса с сыром (110 гр) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100руб</span></p>
-    <p dir="ltr"><span>Samsa with cheese (110 g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;100rub</span></p>
-    <p dir="ltr"><span>Самса с мясом (110гр) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100 руб </span></p>
-    <p dir="ltr"><span>Samsa with meat (110 g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;100rub</span><span>&nbsp;</span></p>
-    <p dir="ltr"><span>Омлет (130гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 80 руб</span></p>
-    <p dir="ltr"><span>Omellete (130g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 80rub</span></p>
-    <p dir="ltr"><span>Омлет с копченостями (150гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;120 руб</span></p>
-    <p dir="ltr"><span>Omellete with Smoked Meat (150g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 120rub</span></p>
-    <p dir="ltr"><span>Омлет с сыром (150гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 110 руб </span></p>
-    <p dir="ltr"><span>Omellete with Cheese (150g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 110rub</span></p>
-    <p dir="ltr"><span>Овсяная каша с фруктами (100гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50 руб</span></p>
-    <p dir="ltr"><span>Oatmeal with Fruits &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50rub</span></p>
-    <p dir="ltr"><span>Салат свекольный (свекла, яблоко, орех, масло растительное) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;100 руб</span></p>
-    <p dir="ltr"><span>Beetroot salad (beetroot,vegetable oil, walnut, apple) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100rub</span></p>
-    <p dir="ltr"><span>Салат с капустой (капуста, морковь, черри, масло оливковое, зелень) &nbsp; &nbsp; &nbsp; &nbsp;100 руб</span></p>
-    <p dir="ltr"><span>Salad with cabbage (cabbage, carrots, tomato, olive oil, parsley) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100rub</span></p>
-    <p dir="ltr"><span>Кускус с овощами (кускус,тыква,цукини,лук,чеснок,черри) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 200 руб</span></p>
-    <p dir="ltr"><span>Couscous with vegetables (couscous, pumpkin, zucchini, onion, garlic, tomato) &nbsp;200 rub</span></p>
-    <p dir="ltr"><span>Ризотто с грибами (грибы, лук, черри, чеснок, зелень) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;180 руб</span></p>
-    <p dir="ltr"><span>Risotto with mushrooms (mushrooms, onions, garlic, tomatoes, garlic, parsley) &nbsp;180rub</span></p>
-    <p dir="ltr"><span>Блины с топпингом (100гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 60 руб</span></p>
-    <p dir="ltr"><span>Blintz with Topping (100g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;60rub</span></p>
-    <p dir="ltr"><span>Блины со сгущенкой (100гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;60 руб</span></p>
-    <p dir="ltr"><span>Blintz with Condensed Milk (100g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 60rub</span></p>
-    <p dir="ltr"><span>Блины с медом (100гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 80 руб</span></p>
-    <p dir="ltr"><span>Blintz with Honey (100g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 80rub</span></p>
-    <p dir="ltr"><span>Блины фаршированные творогом (150гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;120 руб </span></p>
-    <p dir="ltr"><span>Blintz with Cottage Cheese Filling (150g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 120rub</span></p>
-    <p dir="ltr"><span>Рататуй (200гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;180руб</span></p>
-    <p dir="ltr"><span>Ratatouille (200g) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;180rub</span></p>
-    <p dir="ltr"><span>Штрудель (яблочный,ягодный,творожный ) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 220 руб</span></p>
-    <p dir="ltr"><span> Strudel (apple, berry, cottage) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 220rub</span></p>
-    <p dir="ltr"><span>Чизкейк (ванильный, шоколадный, ягодный) 150гр &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;180руб</span></p>
-    <p dir="ltr"><span>Cheesecake ( vanilla , chocolate , berry) 150g &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 180rub</span></p>
-    <p dir="ltr"><span>Фрукты в ассортименте: виноград(100гр) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;70 руб</span></p>
-    <p dir="ltr"><span>Fruit Assortment:Grape(100gr) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;70rub</span></p>
-    <p dir="ltr"><span>апельсин, банан, яблоко, груша, киви &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50 руб</span></p>
-    <p dir="ltr"><span>orange,banana,apple,pear,kiwi &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50rub </span><span>&nbsp;</span><span>&nbsp;&nbsp;&nbsp;</span><span>&nbsp;&nbsp;</span></p>
-    <p dir="ltr"><span>Хлеб белый, черный (1шт) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10 руб</span></p>
-    <p dir="ltr"><span>Black,whiye bread (per 1 piece) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10rub</span></p>
-    <p dir="ltr"><span>Бутерброды сборные:</span></p>
-    <p dir="ltr"><span>Хлеб белый, черный (1шт) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10 руб</span></p>
-    <p dir="ltr"><span>Ветчина 30 гр &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 35 руб</span></p>
-    <p dir="ltr"><span>Сыр Российский 30 гр &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 30 руб</span></p>
-    <p dir="ltr"><span>Масло сливочное 20гр &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 16 руб</span></p>
-    <p dir="ltr"><span>Sandwiches:</span></p>
-    <p dir="ltr"><span>Bread white, black (1 piece) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 rub</span></p>
-    <p dir="ltr"><span>Ham 30 gr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35 rub</span></p>
-    <p dir="ltr"><span>Cheese Russian 30 gr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 rub</span></p>
-    <p dir="ltr"><span>Butter 20gr &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16 rub</span></p>
-    <p><span>&nbsp;</span></p>
+    <table dir="ltr" border="1" cellSpacing="0" cellPadding="0">
+      <colgroup>
+        <col width="600" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>Яйца вареные (2 шт)</td><td>30 руб</td>
+        </tr>
+        <tr>
+          <td>Boiled eggs (2 pieces)</td><td>30 rub</td>
+        </tr>
+        <tr>
+          <td>Самса с сыром (110 гр)</td><td>100 руб</td>
+        </tr>
+        <tr>
+          <td>Samsa with cheese (110 g)</td><td>100rub</td>
+        </tr>
+        <tr>
+          <td>Самса с мясом (110гр)</td><td>100 руб</td>
+        </tr>
+        <tr>
+          <td>Samsa with meat (110 g)</td><td>100rub</td>
+        </tr>
+        <tr>
+          <td>Омлет (130гр)</td><td>80 руб</td>
+        </tr>
+        <tr>
+          <td>Omellete (130g)</td><td>80rub</td>
+        </tr>
+        <tr>
+          <td>Омлет с копченостями (150гр)</td><td>120 руб</td>
+        </tr>
+        <tr>
+          <td>Omellete with Smoked Meat (150g)</td><td>120rub</td>
+        </tr>
+        <tr>
+          <td>Омлет с сыром (150гр)</td><td>110 руб</td>
+        </tr>
+        <tr>
+          <td>Omellete with Cheese (150g)</td><td>110rub</td>
+        </tr>
+        <tr>
+          <td>Овсяная каша с фруктами (100гр)</td><td>50 руб</td>
+        </tr>
+        <tr>
+          <td>Oatmeal with Fruits</td><td>50rub</td>
+        </tr>
+        <tr>
+          <td>Салат свекольный (свекла, яблоко, орех, масло растительное)</td><td>100 руб</td>
+        </tr>
+        <tr>
+          <td>Beetroot salad (beetroot,vegetable oil, walnut, apple)</td><td>100rub</td>
+        </tr>
+        <tr>
+          <td>Салат с капустой (капуста, морковь, черри, масло оливковое, зелень)</td><td>100 руб</td>
+        </tr>
+        <tr>
+          <td>Salad with cabbage (cabbage, carrots, tomato, olive oil, parsley)</td><td>100rub</td>
+        </tr>
+        <tr>
+          <td>Кускус с овощами (кускус,тыква,цукини,лук,чеснок,черри)</td><td>200 руб</td>
+        </tr>
+        <tr>
+          <td>Couscous with vegetables (couscous, pumpkin, zucchini, onion, garlic, tomato)</td><td>200 rub</td>
+        </tr>
+        <tr>
+          <td>Ризотто с грибами (грибы, лук, черри, чеснок, зелень)</td><td>180 руб</td>
+        </tr>
+        <tr>
+          <td>Risotto with mushrooms (mushrooms, onions, garlic, tomatoes, garlic, parsley)</td><td>180rub</td>
+        </tr>
+        <tr>
+          <td>Блины с топпингом (100гр)</td><td>60 руб</td>
+        </tr>
+        <tr>
+          <td>Blintz with Topping (100g)</td><td>60rub</td>
+        </tr>
+        <tr>
+          <td>Блины со сгущенкой (100гр)</td><td>60 руб</td>
+        </tr>
+        <tr>
+          <td>Blintz with Condensed Milk (100g)</td><td>60rub</td>
+        </tr>
+        <tr>
+          <td>Блины с медом (100гр)</td><td>80 руб</td>
+        </tr>
+        <tr>
+          <td>Blintz with Honey (100g)</td><td>80rub</td>
+        </tr>
+        <tr>
+          <td>Блины фаршированные творогом (150гр)</td><td>120 руб</td>
+        </tr>
+        <tr>
+          <td>Blintz with Cottage Cheese Filling (150g)</td><td>120rub</td>
+        </tr>
+        <tr>
+          <td>Рататуй (200гр)</td><td>180руб</td>
+        </tr>
+        <tr>
+          <td>Ratatouille (200g)</td><td>180rub</td>
+        </tr>
+        <tr>
+          <td>Штрудель (яблочный,ягодный,творожный )</td><td>220 руб</td>
+        </tr>
+        <tr>
+          <td>Strudel (apple, berry, cottage)</td><td>220rub</td>
+        </tr>
+        <tr>
+          <td>Чизкейк (ванильный, шоколадный, ягодный) 150гр</td><td>180руб</td>
+        </tr>
+        <tr>
+          <td>Cheesecake ( vanilla , chocolate , berry) 150g</td><td>180rub</td>
+        </tr>
+        <tr>
+          <td>Фрукты в ассортименте: виноград(100гр)</td><td>70 руб</td>
+        </tr>
+        <tr>
+          <td>Fruit Assortment:Grape(100gr)</td><td>70rub</td>
+        </tr>
+        <tr>
+          <td>апельсин, банан, яблоко, груша, киви</td><td>50 руб</td>
+        </tr>
+        <tr>
+          <td>orange,banana,apple,pear,kiwi</td><td>50rub</td>
+        </tr>
+        <tr>
+          <td>Хлеб белый, черный (1шт)</td><td>10 руб</td>
+        </tr>
+        <tr>
+          <td>Black,whiye bread (per 1 piece)</td><td>10rub</td>
+        </tr>
+        <tr>
+          <td>Бутерброды сборные:</td><td></td>
+        </tr>
+        <tr>
+          <td>Хлеб белый, черный (1шт)</td><td>10 руб</td>
+        </tr>
+        <tr>
+          <td>Ветчина 30 гр</td><td>35 руб</td>
+        </tr>
+        <tr>
+          <td>Сыр Российский 30 гр</td><td>30 руб</td>
+        </tr>
+        <tr>
+          <td>Масло сливочное 20гр</td><td>16 руб</td>
+        </tr>
+        <tr>
+          <td>Sandwiches:</td><td></td>
+        </tr>
+        <tr>
+          <td>Bread white, black (1 piece)</td><td>10 rub</td>
+        </tr>
+        <tr>
+          <td>Ham 30 gr</td><td>35 rub</td>
+        </tr>
+        <tr>
+          <td>Cheese Russian 30 gr</td><td>30 rub</td>
+        </tr>
+        <tr>
+          <td>Butter 20gr</td><td>16 rub</td>
+        </tr>
+      </tbody>
+    </table>
+    <p />
     <p lang="en-US" align="LEFT">&nbsp;</p>
     <p lang="ru-RU" align="CENTER">&nbsp;</p>
     <p lang="ru-RU" align="CENTER"><span>Заказ завтраков принимается до 01:00</span></p>
@@ -364,10 +484,10 @@ export default () =>
     <p align="LEFT">&nbsp;</p>
     <table dir="ltr" border="1" cellSpacing="0" cellPadding="0">
       <colgroup>
-        <col width="254"/>
-        <col width="81"/>
-        <col width="259"/>
-        <col width="72"/>
+        <col width="254" />
+        <col width="81" />
+        <col width="259" />
+        <col width="72" />
       </colgroup>
       <tbody>
         <tr>
@@ -531,18 +651,35 @@ export default () =>
     <p align="LEFT">&nbsp;</p>
     <p align="LEFT">&nbsp;</p>
     <p align="LEFT">&nbsp;</p>
-    <p align="LEFT"><span><span>Стирка &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Глажка</span></span>
-    </p>
-    <p align="LEFT">&nbsp;</p>
-    <p align="LEFT"><span><span>Футболка 50 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50</span></span>
-    </p>
-    <p align="LEFT"><span><span>Шорты &nbsp; &nbsp; 50 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50</span></span>
-    </p>
-    <p align="LEFT"><span><span>Рубашка &nbsp;100 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;100</span></span>
-    </p>
-    <p align="LEFT"><span>Джинсы &nbsp;100 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100</span></p>
-    <p align="LEFT"><span>Брюки &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100</span></p>
-    <p align="LEFT"><span>Спортивные брюки 100 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100</span></p>
+    <table dir="ltr" border="1" cellSpacing="0" cellPadding="0">
+      <colgroup>
+        <col width="254"/>
+        <col width="100"/>
+      </colgroup>
+      <tbody>
+        <tr>
+          <td/><td>Стирка</td><td>Глажка</td>
+        </tr>
+        <tr>
+          <td>Футболка</td><td>50</td><td>50</td>
+        </tr> 
+        <tr>
+          <td>Шорты</td><td>50</td><td>50</td>
+        </tr> 
+        <tr>
+          <td>Рубашка</td><td>100</td><td>100</td>
+        </tr> 
+        <tr>
+          <td>Джинсы</td><td>100</td><td>100</td>
+        </tr> 
+        <tr>
+          <td>Брюки</td><td>100</td><td>100</td>
+        </tr> 
+        <tr>
+          <td>Спортивные брюки</td><td>100</td><td>100</td>
+        </tr> 
+      </tbody>
+    </table>    
     <p align="LEFT"><span><span>&nbsp;</span></span>
     </p>
     <p align="LEFT">&nbsp;</p>
@@ -572,94 +709,94 @@ export default () =>
     <p align="CENTER">&nbsp;</p>
     <p align="CENTER">&nbsp;</p>
     <p align="CENTER"><span><span><span lang="ru-RU">Правила проживания в гостинице</span></span>
-      </span>
+    </span>
     </p>
     <p align="CENTER">&nbsp;</p>
     <ul>
       <li>
         <p lang="ru-RU" align="LEFT"><span><span><span>Размещение Гостя осуществляется по предоставлению Администратору паспорта или водительское удостоверение и внесении 100% оплаты минимум за сутки проживания в гостинице</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Если Вы иностранный гражданин, будьте готовы представить следующие документы: паспорт; миграционную карту; визу (при необходимости); свидетельство о временном проживании в России (при необходимости).&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Администратор гостиницы не изымает паспорт или другой документ на период Вашего у нас отдыха.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
     </ul>
     <p align="CENTER">&nbsp;</p>
     <p align="JUSTIFY"><span><span><span>При заселении в отель Вы получаете ключ от номера.</span></span>
-      </span>
+    </span>
     </p>
     <p align="CENTER">&nbsp;</p>
     <ul>
       <li>
         <p align="JUSTIFY"><span><span><span>Для сохранности документов, материальных средств или драгоценностей в каждом номере есть сейф, которым Вы можете воспользоваться. Также, вся территория гостиничного комплекса, кроме номеров и санузлов, находится под круглосуточным видеонаблюдением.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>После того, как Вы вселились в номер, пожалуйста, внимательно осмотрите его на пр едмет неисправности или недостатков, если таковые обнаружены обратитесь к Администратору с просьбой их устранить. Убедительная просьба, не осуществлять самостоятельный ремонт электроприборов и оборудования.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Мы не принимаем на отдых с животными, птицами, рептилиями и другими представителями фауны.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>В номерах гостиницы не предусмотрены условия для самостоятельного приготовления пищи.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Пожалуйста, соблюдайте Правила противопожарной безопасности. Курить в гостиничном номере категорически запрещено!</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Запрещено приносить и хранить оружие, взрывчатые и легко воспламеняющиеся, едкие, ядовитые, наркотические вещества и иные опасные предметы; гости, имеющие по роду своей деятельности право на ношение и хранение оружия, обязаны по требованию Администратора гостиничного комплекса предоставить документы, удостоверяющие данное право.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Неприемлемо шуметь в номере или на территории гостиницы после 23:00</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Крайне нежелательно устраивать семейные разборки или пьяные дебоши в гостинице.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
       <li>
         <p align="JUSTIFY"><span><span><span>Пожалуйста, соблюдайте чистоту на территории Гостиничного комплекса. Для сбора мусора предназначены урны и пепельницы.&nbsp;</span></span>
-          </span>
+        </span>
         </p>
       </li>
     </ul>
     <p align="CENTER">&nbsp;</p>
     <p align="JUSTIFY"><span><span><span>Если у Вас возникают вопросы или сложности с обслуживанием в гостинице, не стесняйтесь обращаться к администратору.</span></span>
-      </span>
+    </span>
     </p>
     <p align="CENTER">&nbsp;</p>
     <p align="JUSTIFY"><span><span><span>Ущерб, нанесенный гостиничному комплексу, возмещается отдыхающим (ответственным лицом от группы отдыхающих) на месте в полном объеме наличным или банковской картой. Ущерб рассчитывается администрацией по прайс-листу.</span></span>
-      </span>
+    </span>
     </p>
     <p align="CENTER">&nbsp;</p>
     <p align="JUSTIFY"><span><span><span>За нарушение правил общественного порядка, пожарной безопасности, умышленное нанесение вреда здоровью и имуществу других Гостей, пребывающих в гостинице, порчу имущества гостиницы, оскорбление администрации, обслуживающего персонала или отдыхающих, Администрация вправе отказать виновным в дальнейшем пребывании на территории гостиницы без возмещения стоимости проживания.&nbsp;</span></span>
-      </span>
+    </span>
     </p>
     <p align="CENTER">&nbsp;</p>
     <p align="LEFT"><span><span><span><span>Администрация гостиничного комплекса оставляет за собой право не предоставлять услуги проживания лицам, находящимся в алкогольном, наркотическом опьянении или под действием психотропных препаратов.</span></span>
-      </span>
-      </span>
+    </span>
+    </span>
     </p>
     <p align="CENTER"><span><span lang="ru-RU">&nbsp;</span></span>
     </p>
@@ -671,8 +808,8 @@ export default () =>
     <p align="CENTER"><span><span>к информации об исполнителе и о предоставляемых исполнителем гостиничых услугах</span></span>
     </p>
     <p align="CENTER"><span><strong>Памятка о правилах пожарной безопасности в гостинице</strong></span></p>
-    <p align="CENTER"><span><strong>Уважаемые гости!</strong></span><span><br/></span><strong>Просим соблюдать правила пожарной безопасности</strong>.</p>
-    <p><span>Уходя из номера, не забывайте выключить телевизор, радиоприёмник, кондиционер, лампы освещения и электронагревательные приборы.<br/>Напоминаем Вам, что запрещается накрывать включенные торшеры и настольные лампы предметами из&nbsp;горючего материала.<br/>Курить в здании гостиницы разрешается только в специально отведённых местах, категорически запрещается курение в постели.<br/>Запрещается хранение в номере взрыво - пожароопасных веществ и материалов.</span></p>
+    <p align="CENTER"><span><strong>Уважаемые гости!</strong></span><span><br /></span><strong>Просим соблюдать правила пожарной безопасности</strong>.</p>
+    <p><span>Уходя из номера, не забывайте выключить телевизор, радиоприёмник, кондиционер, лампы освещения и электронагревательные приборы.<br />Напоминаем Вам, что запрещается накрывать включенные торшеры и настольные лампы предметами из&nbsp;горючего материала.<br />Курить в здании гостиницы разрешается только в специально отведённых местах, категорически запрещается курение в постели.<br />Запрещается хранение в номере взрыво - пожароопасных веществ и материалов.</span></p>
     <p><span><strong>Если Вы прибыли в гостиницу в первый раз, постарайтесь хорошо запомнить расположение выходов и&nbsp;лестниц, ознакомьтесь с планом эвакуации и местонахождением первичных средств пожаротушения.</strong></span></p>
     <h3 className="western"><span><span>В случае пожара в Вашем номере:</span></span></h3>
     <ol>
@@ -704,8 +841,8 @@ export default () =>
         <p><span>С прибытием к месту происшествия пожарных подойдите к&nbsp;окну и подайте знак об&nbsp;оказании Вам помощи. Переждать пожар можно на&nbsp;балконе или в&nbsp;лоджии, при&nbsp;этом необходимо закрыть за&nbsp;собой балконную дверь.</span></p>
       </li>
     </ol>
-    <p align="RIGHT"><br/><br/></p>
-    <p align="CENTER"><br/><br/></p>
+    <p align="RIGHT"><br /><br /></p>
+    <p align="CENTER"><br /><br /></p>
     <p align="CENTER"><span><strong>Приложение №8</strong></span></p>
     <p align="CENTER"><span><span>к информации об исполнителе и о предоставляемых исполнителем гостиничых услугах</span></span>
     </p>

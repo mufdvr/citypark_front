@@ -4,14 +4,16 @@ import { bindActionCreators } from 'redux'
 import { withRouter } from "react-router-dom"
 import Captcha from 'react-google-recaptcha'
 import { Helmet } from 'react-helmet'
+import { NotificationManager } from 'react-notifications'
 
 import { createOrder, validOrder } from '../../models'
 import { filterCart } from 'utils'
 import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
-import { ErrorBox, Spinner } from 'components'
+import { Spinner } from 'components'
 import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
+import { constants } from '../../components/PaymentType'
 import { ORDER_DETAILS, PAYMENT, ACCEPTED } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
@@ -24,19 +26,21 @@ class OrderDetails extends React.Component {
     this.state = {
       order: createOrder({ name, phone, dishes_orders_attributes }),
       invalidFields: [],
+      accepted: true,
       ...deliveryAndTotalCost(cart)
     }
   }
 
   handleChange = prop => {
-    const { target, delivery } = prop
+    const { target, delivery, payment_type } = prop
     const { cart } = this.props
     this.setState(prev => ({
       ...prev,
       ...(() => delivery !== undefined ? deliveryAndTotalCost(cart, delivery) : {})(),
       order: {
         ...prev.order,
-        ...(() => target ? { [target.name]: target.value } : prop)()
+        ...(() => target ? { [target.name]: target.value } : prop)(),
+        ...(() => payment_type === constants.PAYMENT_TYPES[0].value ? { delivery_times: '' } : {})(),
       }
     }))
   }
@@ -51,22 +55,25 @@ class OrderDetails extends React.Component {
         ...order,
         street: order.street.value || ''
       }, g_recaptcha_response)
-      //console.log(order)
     } else {
-      ErrorBox.create('Заполните все необходимые поля!')
+      NotificationManager.error('Заполните все необходимые поля!', '', 3000)
     }
   }
 
   componentDidMount = () => {
     window.scrollTo(0, 0)
-    const { cart, loadCartFromLocalstorage } = this.props
+    const { cart, loadCartFromLocalstorage, orderClear } = this.props
+    orderClear()
     !cart && loadCartFromLocalstorage()
   }
 
   componentWillReceiveProps = (nextProps) => {
-    const { cart, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
+    const { cart, errors, fetching, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
-    if (accepted) {
+    if (!fetching && errors.msg) {
+      NotificationManager.error(errors.msg, '', 3000)
+    }
+    else if (accepted) {
       history.push(ACCEPTED.URL)
     } else if (mnt_signature) {
       //localStorage.clear()
@@ -86,8 +93,8 @@ class OrderDetails extends React.Component {
   }
 
   render = () => {
-    const { freeDelivery, totalCost, invalidFields, order } = this.state
-    const { clearCart, fetching, user: { id } } = this.props
+    const { freeDelivery, totalCost, invalidFields, order, accepted } = this.state
+    const { clearCart, fetching } = this.props
     const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
@@ -99,8 +106,12 @@ class OrderDetails extends React.Component {
             <h2>{ORDER_DETAILS.TITLE}</h2>
           </div>
           <div id="order-content">
-            <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
-            <PaymentType onChange={this.handleChange} />
+            <PaymentType delivery={order.delivery} onChange={this.handleChange} />
+            {
+              order.payment_type === constants.PAYMENT_TYPES[1].value ?
+                <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
+                : null
+            }
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}
@@ -108,17 +119,13 @@ class OrderDetails extends React.Component {
               order={order}
             />
             <div id="total">
-              {
-                !id ?
-                  <Captcha
-                    sitekey={REACT_APP_CAPTCHA_KEY}
-                    onChange={g_recaptcha_response => this.setState({ g_recaptcha_response })}
-                  />
-                  : <div />
-              }
+              <Captcha
+                sitekey={REACT_APP_CAPTCHA_KEY}
+                onChange={g_recaptcha_response => this.setState({ g_recaptcha_response })}
+              />
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div>Бесплатная доставка</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  freeDelivery ? <div>&nbsp;</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">
@@ -126,13 +133,25 @@ class OrderDetails extends React.Component {
                 </span>
               </div>
             </div>
+            <div style={{marginTop: '1rem'}}>
+            <input
+              id="accept-checkbox"
+              type="checkbox"
+              checked={accepted}
+              onChange={() => this.setState(prev => ({
+                ...prev,
+                accepted: !prev.accepted
+              }))}
+            />
+            <label htmlFor="accept-checkbox">С <a target="_blank" href="/private_policy">политикой конфиденциальности</a> согласен</label>
+            </div>
           </div>
           <div id="submit">
             <div onClick={clearCart} className="z_btn order-btn">
               Отмена
               <i style={{ color: "red" }} className="material-icons">close</i>
             </div>
-            <div onClick={this.handleSubmit} className="z_btn order-btn">
+            <div onClick={() => accepted && this.handleSubmit()} className={`z_btn order-btn${accepted ? '' : ' next_button-disabled'}`}>
               Далее
               <i style={{ color: "green" }} className="material-icons">done</i>
             </div>
@@ -150,7 +169,8 @@ const mapStateToProps = state => ({
   cart: state.cart.payload,
   user: state.user.payload,
   order: state.order.payload,
-  fetching: state.order.fetching
+  fetching: state.order.fetching,
+  errors: state.order.errors
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -1,0 +1,63 @@
+.ui.list .list>.item, .ui.list>.item, ol.ui.list li {
+  display: list-item;
+  table-layout: fixed;
+  list-style-position: outside
+}
+
+.ui.list>.item, ol.ui.list li {
+  padding: .21428571em 0;
+  line-height: 1.14285714em
+}
+
+.ui.list .list>.item:first-child, .ui.list>.item:first-child, ol.ui.list li:first-child {
+  padding-top: 0
+}
+
+.ui.list .list>.item:last-child, .ui.list>.item:last-child, ol.ui.list li:last-child {
+  padding-bottom: 0
+}
+
+.ui.list .list, ol.ui.list ol {
+  clear: both;
+  margin: 0;
+  padding: .75em 0 .25em .5em
+}
+
+.ui.list .list>.item, ol.ui.list ol li {
+  padding: .14285714em 0;
+  line-height: inherit
+}
+
+.ui.ordered.list, .ui.ordered.list .list, ol.ui.list, ol.ui.list ol {
+  counter-reset: ordered;
+  margin-left: 1.25rem;
+  list-style-type: none
+}
+
+.ui.ordered.list .list>.item:before, .ui.ordered.list>.item:before, ol.ui.list li:before {
+  position: absolute;
+  top: auto;
+  left: auto;
+  user-select: none;
+  pointer-events: none;
+  margin-left: -1.25rem;
+  counter-increment: ordered;
+  content: counters(ordered, ".") " ";
+  text-align: right;
+  color: white;
+  vertical-align: middle;
+  opacity: .8
+}
+
+.ui.ordered.list .list, ol.ui.list ol {
+  margin-left: 1em
+}
+
+ol.ui.list ol li:before {
+  margin-left: -2.4em
+}
+
+ol.ui.list ol li ol li:before {
+  margin-left: -2.8em
+}
+

@@ -9,7 +9,7 @@ class PaymentType extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      payment_type: PAYMENT_TYPES[0],
+      payment_type: PAYMENT_TYPES[1],
       surrender_from: ''
     }
   }
@@ -20,13 +20,12 @@ class PaymentType extends React.Component {
     this.setState({ 
       ...(() => target ? { [target.name]: target.value } : prop)()
     })
-    //const param = {...(() => target ? { [target.name]: target.value } : { payment_type: prop.paymentType.value} )()}
-    //console.log(param)
-    onChange({...(() => target ? { [target.name]: target.value } : { payment_type: prop.payment_type.value} )()})
+    onChange({...(() => target ? { [target.name]: target.value } : { payment_type: prop.payment_type.value } )()})
   }
 
   render = () => {
     const { payment_type, surrender_from } = this.state
+    const { delivery } = this.props
     return(
       <div className="group">
         <div className="field required">
@@ -39,7 +38,7 @@ class PaymentType extends React.Component {
           />
         </div>
         {
-          payment_type.value === PAYMENT_TYPES[0].value ?
+          payment_type.value === PAYMENT_TYPES[0].value && delivery ?
             <div className="field" style={{ marginLeft: "1rem" }}>
               <label>Сдача с</label>
               <input

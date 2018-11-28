@@ -56,7 +56,7 @@ class SideBar extends React.Component {
         <div className="partbody">
           <div className="shade">
             { showRestaurantContacts && RestaurantContacts({ displayType: DISPLAY_TYPE }) }
-            { showDelivery && Delivery ({ displayType: DISPLAY_TYPE }) }
+            { showDelivery ? <Delivery displayType={DISPLAY_TYPE} /> : null }
             {
               showNews ?
                 <News displayType={DISPLAY_TYPE}>

@@ -4,13 +4,27 @@ import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 import ReactFancyBox from 'react-fancybox'
 import 'react-fancybox/lib/fancybox.css'
+import { NotificationManager} from 'react-notifications'
 
 import { Personal, Cart } from 'features'
 
 class Dish extends React.Component {
 
+  handleAddItems = items => {
+    const { addItems } = this.props
+    const { REACT_APP_SHOPON } = process.env 
+    addItems(items)
+    NotificationManager.success(`"${items[0].title}" добавлено в ${ REACT_APP_SHOPON === "true" ? 'корзину' : 'список заказа' }`, '', 1500)
+  }
+
+  handeAddToFavorites = (id, title) =>{
+    const { addToFavorites } = this.props
+    addToFavorites(id)
+    NotificationManager.success(`"${title}" добавлено в избранное`, '', 1500)
+  }
+
   render = () => {
-    const { id, title, cost, description, weight, addItems, addToFavorites, 
+    const { id, title, cost, description, weight, 
       delFavorite, can_order, images, user, fav } = this.props
     const { REACT_APP_SHOPON } = process.env  
     return (
@@ -39,13 +53,13 @@ class Dish extends React.Component {
             can_order ?
               <div className="dish-buttons">
               {
-                user && user.id ?
+                user && user.id && REACT_APP_SHOPON === "true" ?
                   fav ? <div onClick={() => delFavorite(id)} className="z_btn">Удалить</div>
-                  : <div onClick={() => addToFavorites(id)} className="z_btn">В избранное</div>
+                  : <div onClick={() => this.handeAddToFavorites(id, title)} className="z_btn">В избранное</div>
                 : null
               }
-              <div onClick={() => addItems([{id, title, cost}])} className="z_btn">
-                { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в список заказа" }
+              <div onClick={() => this.handleAddItems([{id, title, cost}])} className="z_btn">
+                { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в заказ" }
               </div>
              </div>
             : 

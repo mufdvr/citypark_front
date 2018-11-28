@@ -56,9 +56,16 @@
 
 .footer {
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 145px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .social {
@@ -140,6 +147,7 @@
     height: auto;
     width: 100%;
     right: 0;
+    margin-bottom: -5px;
   }
   .adress {
     position: absolute;
@@ -154,6 +162,8 @@
   }
   .footer {
     height: auto;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
   }
   .social {
