@@ -8,6 +8,7 @@ import * as actions from '../../actions'
 import { Spinner } from 'components'
 import { PAYMENT } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
+import { Cart, Personal, RestaurantAndCafe } from 'features'
 
 class OrderDetails extends React.Component {
 
@@ -24,25 +25,49 @@ class OrderDetails extends React.Component {
     window.frames.monetaWidget.postMessage('{"m_type":"request","m_val":"submitForm"}', "*");
   }
 
+  handleFinishClick = () => {
+    const { history, user } = this.props
+    const { ORDERS } = Personal.links
+    const { MENU } = RestaurantAndCafe.links
+    user.id ? history.push(ORDERS.URL) : history.push(MENU.URL)
+  }
+
   handleFrameLoad = () => {
-    console.log(document.getElementById("widget").contentWindow.location)
     this.setState({
       frameLoading: false
     })
   }
 
   listener = event => {
-    const msg = JSON.parse(event.data)
-    msg.m_type === 'finish' && this.setState({ finish: true })
-    /*this.setState({
-      frameHeight: Number(msg.height) + 10 + "px"
-    })*/
+    try {
+      const msg = JSON.parse(event.data)
+      const { clearCart } = this.props
+      switch (msg.m_type) {
+        case 'finish':
+          localStorage.clear()
+          clearCart()
+          this.setState({ finish: true })
+          break
+        case 'error':
+          this.setState({ finish: true })
+          break
+        default:
+      }
+      /*this.setState({
+        frameHeight: Number(msg.height) + 10 + "px"
+      })*/
+    }
+    catch (e) {
+      console.error(e)
+    }
   }
 
   componentDidMount = () => {
-    const { loadOrderFromLocalstorage, order } = this.props
+    const { loadOrderFromLocalstorage, order, history } = this.props
+    const { mnt_signature } = order
     window.scrollTo(0, 0)
-    order.mnt_signature ? localStorage.setItem("order", JSON.stringify(order)) : loadOrderFromLocalstorage()
+    mnt_signature ? localStorage.setItem("order", JSON.stringify(order)) : loadOrderFromLocalstorage()
+    !mnt_signature && !localStorage.getItem("order") && history.push('/')
     window.addEventListener ? window.addEventListener("message", this.listener)
       : window.attachEvent("onmessage", this.listener)
   }
@@ -65,6 +90,7 @@ class OrderDetails extends React.Component {
               <iframe
                 onLoad={this.handleFrameLoad}
                 name="monetaWidget"
+                scrolling="no"
                 title="Moneta"
                 id="widget"
                 style={{ width: "100%", height: frameHeight }}
@@ -82,16 +108,19 @@ class OrderDetails extends React.Component {
           }
           <div id="submit">
             {
-              finish ? null : [
-                <div key="1" className="z_btn order-btn">
-                  Отмена
-                  <i style={{ color: "red" }} className="material-icons">close</i>
-                </div>,
-                <div key="2" onClick={this.handleClick} className="z_btn order-btn">
+              finish ?
+                <div className="z_btn order-btn" onClick={this.handleFinishClick}>
                   Далее
+                </div> : [
+                  <div key="1" className="z_btn order-btn">
+                    Отмена
+                  <i style={{ color: "red" }} className="material-icons">close</i>
+                  </div>,
+                  <div key="2" onClick={this.handleClick} className="z_btn order-btn">
+                    Далее
                   <i style={{ color: "green" }} className="material-icons">done</i>
-                </div>
-              ]
+                  </div>
+                ]
             }
           </div>
         </div>
@@ -104,11 +133,13 @@ class OrderDetails extends React.Component {
 
 const mapStateToProps = state => ({
   order: state.order.payload,
-  fetching: state.order.fetching
+  fetching: state.order.fetching,
+  user: state.user.payload
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  ...actions
+  ...actions,
+  ...Cart.actions
 }, dispatch)
 
 const ReduxWrapper = connect(mapStateToProps, mapDispatchToProps)

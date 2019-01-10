@@ -1,7 +1,15 @@
 html, body {
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+div, p, span, img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
 .congratulation {
   color: #f6dfc4;
   border-radius: 12px;
@@ -13,6 +21,7 @@ html, body {
   display: flex;
   align-items: center;
 }
+
 .congratulation img {
   margin-right: 20px;
 }

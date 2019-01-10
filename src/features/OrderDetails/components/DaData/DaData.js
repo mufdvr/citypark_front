@@ -27,9 +27,12 @@ class DaData extends React.Component {
   }
 
   onInputBlur = () => {
+    const { suggestionIndex, suggestions } = this.state
     this.setState({ inputFocused: false })
-    if (this.state.suggestions.length === 0) {
+    if (suggestions.length === 0) {
       this.fetchSuggestions()
+    } else {
+      suggestionIndex >= 0 && this.selectSuggestion(suggestionIndex)
     }
   } 
 

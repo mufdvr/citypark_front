@@ -2,12 +2,11 @@
 <html lang="ru">
 
 <head>
-  <meta charset="utf-8">
   <title>РГК «City Park»</title>
   <script src="/payment/frame.js"></script>
   <script>
     (function () {
-      sendWebMessage({ m_type: 'finish' })
+      sendWebMessage({ m_type: 'error' })
     }).call(this);
   </script>
   <link rel="stylesheet" type="text/css" href="/payment/frame.css">
@@ -17,8 +16,7 @@
   <div class="congratulation">
     <img src="/images/success.png" />
     <div>
-      <p>Операция проведена успешно, ваш заказ принят.</p>
-      <p>Ожидайте звонка от оператора.</p>
+      <p>Не возможно завершить операцию</p>
     </div>
   </div>
 </body>
