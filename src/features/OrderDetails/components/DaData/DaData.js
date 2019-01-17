@@ -28,11 +28,25 @@ class DaData extends React.Component {
 
   onInputBlur = () => {
     const { suggestionIndex, suggestions } = this.state
+    const { onChange } = this.props
     this.setState({ inputFocused: false })
-    if (suggestions.length === 0) {
-      this.fetchSuggestions()
-    } else {
-      suggestionIndex >= 0 && this.selectSuggestion(suggestionIndex)
+    switch (suggestions.length) {
+      case 0: 
+        this.fetchSuggestions()
+        break
+      case 1: 
+        this.setState({ query: suggestions[0].unrestricted_value }) 
+        onChange({
+          value: suggestions[0].unrestricted_value,
+          isValid: suggestions[0].data.fias_level >= 8
+        })
+        break
+      default: 
+        suggestionIndex >= 0 && this.selectSuggestion(suggestionIndex)
+        onChange({
+          value: '',
+          isValid: false
+        })
     }
   } 
 
