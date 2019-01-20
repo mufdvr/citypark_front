@@ -12,8 +12,7 @@ import { deliveryAndTotalCost } from './utils'
 import * as actions from '../../actions'
 import { RestaurantAndCafe, Cart } from 'features'
 import { Spinner } from 'components'
-import { DeliveryAddress, DeliveryTimes, CustomerInfo, PaymentType } from '../../components'
-import { constants } from '../../components/PaymentType'
+import { DeliveryAddress, DeliveryTimes, CustomerInfo } from '../../components'
 import { ORDER_DETAILS, PAYMENT, ACCEPTED } from '../../links'
 import { TITLE_PREFIX } from 'appConstants'
 
@@ -32,21 +31,21 @@ class OrderDetails extends React.Component {
   }
 
   handleChange = prop => {
-    const { target, delivery, payment_type } = prop
+    const { target, delivery, deliveryPrice } = prop
     const { cart } = this.props
     this.setState(prev => ({
       ...prev,
-      ...(() => delivery !== undefined ? deliveryAndTotalCost(cart, delivery) : {})(),
+      ...(() => delivery !== undefined || deliveryPrice ? deliveryAndTotalCost(cart, delivery, deliveryPrice) : {})(),
       order: {
         ...prev.order,
-        ...(() => target ? { [target.name]: target.value } : prop)(),
-        ...(() => payment_type === constants.PAYMENT_TYPES[0].value ? { delivery_times: '' } : {})(),
+        ...(() => target ? { [target.name]: target.value } : prop)()
       }
     }))
   }
 
   handleSubmit = () => {
     const { order, g_recaptcha_response } = this.state
+    delete order.deliveryPrice
     const { createOrder, user: { id } } = this.props
     const invalidFields = validOrder(order)
     if (invalidFields) this.setState({ invalidFields })
@@ -69,6 +68,7 @@ class OrderDetails extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     const { cart, errors, fetching, order: { delivery, mnt_signature, accepted }, history, user: { name, phone } } = nextProps
+    const { deliveryPrice } = this.state.order
     !cart.length && history.push(RestaurantAndCafe.links.MENU.URL)
     if (!fetching && errors.msg) {
       NotificationManager.error(errors.msg, '', 3000)
@@ -87,15 +87,15 @@ class OrderDetails extends React.Component {
           phone: phone ? phone : prev.order.phone,
           name, dishes_orders_attributes
         },
-        ...deliveryAndTotalCost(cart, delivery)
+        ...deliveryAndTotalCost(cart, delivery, deliveryPrice)
       }))
     }
   }
 
   render = () => {
-    const { freeDelivery, totalCost, invalidFields, order, accepted } = this.state
+    const { totalCost, invalidFields, order, accepted, deliveryPrice } = this.state
     const { clearCart, fetching } = this.props
-    const { REACT_APP_DELIVERY_COST, REACT_APP_CAPTCHA_KEY } = process.env
+    const { REACT_APP_CAPTCHA_KEY } = process.env
     return (
       <div style={{ position: "relative" }}>
         {fetching ? Spinner() : null}
@@ -106,12 +106,7 @@ class OrderDetails extends React.Component {
             <h2>{ORDER_DETAILS.TITLE}</h2>
           </div>
           <div id="order-content">
-            <PaymentType delivery={order.delivery} onChange={this.handleChange} />
-            {
-              order.payment_type === constants.PAYMENT_TYPES[1].value ?
-                <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
-                : null
-            }
+            <DeliveryTimes onChange={delivery_times => this.handleChange({ delivery_times })} />
             <DeliveryAddress onChange={this.handleChange} invalidFields={invalidFields} />
             <CustomerInfo
               onChange={this.handleChange}
@@ -125,7 +120,7 @@ class OrderDetails extends React.Component {
               />
               <div className="bl_cena">
                 {
-                  freeDelivery ? <div>&nbsp;</div> : <div>Стоимость доставки: {REACT_APP_DELIVERY_COST}₽</div>
+                  order.delivery ? <div>Стоимость доставки: {deliveryPrice}₽</div> : <div>&nbsp;</div> 
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">

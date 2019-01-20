@@ -1,5 +1,4 @@
 import { isValidNumber } from 'libphonenumber-js'
-import { constants } from '../components/PaymentType'
 
 const order = {
   delivery_times: null,
@@ -10,8 +9,6 @@ const order = {
   street: '',
   comment: '',
   delivery: true,
-  payment_type: constants.PAYMENT_TYPES[1].value,
-  surrender_from: 0,
   dishes_orders_attributes: [],
 }
 

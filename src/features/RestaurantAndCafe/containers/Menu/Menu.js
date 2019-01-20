@@ -16,16 +16,17 @@ class Menu extends React.Component {
 
   categoriesList = () => {
     const { categories } = this.props
+    const { categoryTitle } = this.props.match.params
     return categories.map((category, index) =>
       <Category
         key={category.id}
+        selected={categoryTitle}
         index={index}
         title={category.title}
         cookingTime={category.cooking_time}
       />
     )
   }
-
   componentDidMount = () => {
     const { fetching, getCategories, loaded } = this.props
     !fetching && !loaded && getCategories()

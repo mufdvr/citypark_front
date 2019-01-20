@@ -22,7 +22,7 @@ class DeliveryAddress extends Component {
     if (target) {
       onChange({ [target.name]: target.value })
     } else {
-      settlements && onChange({ city: settlements.label })
+      settlements && onChange({ city: settlements.label, deliveryPrice: settlements.price })
       obtainingMethods && onChange({ delivery: obtainingMethods.value === 1 })
       street && onChange({ street })
       this.setState({ ...prop })

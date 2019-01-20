@@ -32,6 +32,10 @@ const routes = [
         component: containers.NewsShow
       },
       {
+        path: links.MENU.URL + "/:categoryTitle",
+        component: containers.Menu
+      },
+      {
         path: links.MENU.URL,
         component: containers.Menu
       },

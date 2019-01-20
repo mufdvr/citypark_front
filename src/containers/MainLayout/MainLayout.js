@@ -11,10 +11,10 @@ import { Personal, RestaurantAndCafe, Hotel } from 'features'
 class MainLayout extends React.Component {
 
   componentDidMount = () => {
-    const { fetching_news, fetching_user, getUser, getNews, fetching_rooms, getRooms } = this.props
-    !fetching_news && getNews(3)
-    !fetching_user && getUser()
-    !fetching_rooms && getRooms()
+    const { fetchingNews, fetchingUser, getUser, getNews, fetchingRooms, getRooms } = this.props
+    !fetchingNews && getNews(3)
+    !fetchingUser && getUser()
+    !fetchingRooms && getRooms()
   }
 
   render = () => {
@@ -32,9 +32,9 @@ class MainLayout extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  fetching_user: state.user.fetching,
-  fetching_news: state.news.fetching,
-  fetching_rooms: state.rooms.fetching
+  fetchingUser: state.user.fetching,
+  fetchingNews: state.news.fetching,
+  fetchingRooms: state.rooms.fetching
 })
 
 const mapDispatchToProps = dispath => bindActionCreators({
