@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 
 import { Dish } from '../../containers'
 import * as actions from '../../actions'
+import { transliterate } from 'utils'
+import { baseUrl } from 'utils'
+import { MENU } from '../../links'
 
 class Category extends React.Component {
   constructor(props) {
@@ -22,15 +25,27 @@ class Category extends React.Component {
     })
   }
 
+  componentDidMount = () => {
+    const { selected, title } = this.props
+    if (selected === transliterate(title)) {
+      this.goTop()
+      this.handleClick()
+    }
+  }
+
   handleClick = event => {
-    const { categories, index, getDishes } = this.props
-    const { visible } = this.state
-    event.preventDefault()
-    this.setState({
-      visible: categories[index].dishes && !visible,
-      fetching: !categories[index].dishes
-    })
-    !categories[index].dishes && getDishes(categories[index].id)
+    try {
+      const { categories, index, getDishes } = this.props
+      const { visible } = this.state
+      event && event.preventDefault()
+      this.setState({
+        visible: categories[index].dishes && !visible,
+        fetching: !categories[index].dishes
+      })
+      !categories[index].dishes && getDishes(categories[index].id)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   dishesList = () => {
@@ -57,17 +72,17 @@ class Category extends React.Component {
           <div className="mcl"></div>
           <div className="mcr"></div>
           <div className="mctt">
-            { fetching ? <div className="cwait" /> : null }
-            <a onClick={this.handleClick}>
+            {fetching ? <div className="cwait" /> : null}
+            <a href={baseUrl() + MENU.URL + '/' + transliterate(title)} onClick={this.handleClick}>
               {title}
             </a>
           </div>
           <div className="mshade"></div>
         </div>
-        <div className="cat_wrapper" style={ visible ? null : {height: 0} }>
-          <div className="vrprig">Время приготовления<br/>{cookingTime}</div>
+        <div className="cat_wrapper" style={visible ? null : { height: 0 }}>
+          <div className="vrprig">Время приготовления<br />{cookingTime}</div>
           <div className="cat_content">
-            { this.dishesList() }
+            {this.dishesList()}
             <a onClick={this.goTop} className="gtcat">Наверх к категории</a>
           </div>
         </div>
@@ -89,7 +104,7 @@ const mapStateToProps = state => ({
   categories: state.categories.payload
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators ({
+const mapDispatchToProps = dispatch => bindActionCreators({
   ...actions.menu,
 }, dispatch)
 

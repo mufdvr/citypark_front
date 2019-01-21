@@ -27,16 +27,37 @@ class DaData extends React.Component {
   }
 
   onInputBlur = () => {
+    const { suggestionIndex, suggestions } = this.state
+    const { onChange } = this.props
     this.setState({ inputFocused: false })
-    if (this.state.suggestions.length === 0) {
-      this.fetchSuggestions()
+    switch (suggestions.length) {
+      case 0:
+        this.fetchSuggestions()
+        break
+      case 1:
+        this.setState({ query: suggestions[0].unrestricted_value })
+        onChange({
+          value: suggestions[0].unrestricted_value,
+          isValid: suggestions[0].data.fias_level >= 8
+        })
+        break
+      default:
+        if (suggestionIndex >= 0) {
+          this.selectSuggestion(suggestionIndex)
+        } else {
+          this.setState({ query: suggestions[0].unrestricted_value })
+          onChange({
+            value: suggestions[0].unrestricted_value,
+            isValid: suggestions[0].data.fias_level >= 8
+          })
+        }
     }
-  } 
+  }
 
   onInputChange = event => {
     const { value } = event.target
     const { onChange } = this.props
-    this.skipValidation && onChange({value, isValid: true})
+    this.skipValidation && onChange({ value, isValid: true })
     this.setState({
       query: value,
       inputQuery: value,
@@ -53,9 +74,9 @@ class DaData extends React.Component {
         if (suggestionIndex < suggestions.length - 1) {
           let newSuggestionIndex = suggestionIndex + 1
           let newInputQuery = suggestions[newSuggestionIndex].unrestricted_value
-          this.setState({ 
-            suggestionIndex: newSuggestionIndex, 
-            query: newInputQuery 
+          this.setState({
+            suggestionIndex: newSuggestionIndex,
+            query: newInputQuery
           })
         }
         break
@@ -66,9 +87,9 @@ class DaData extends React.Component {
         if (suggestionIndex >= 0) {
           let newSuggestionIndex = suggestionIndex - 1
           let newInputQuery = newSuggestionIndex === -1 ? inputQuery : suggestions[newSuggestionIndex].unrestricted_value
-          this.setState({ 
-            suggestionIndex: newSuggestionIndex, 
-            query: newInputQuery 
+          this.setState({
+            suggestionIndex: newSuggestionIndex,
+            query: newInputQuery
           })
         }
         break
@@ -80,52 +101,52 @@ class DaData extends React.Component {
         break
       }
       default:
-    }  
+    }
   }
 
   fetchSuggestions = () => {
-      const { query } = this.state
-      const { settlement } = this.props
-      const fullQueryPrefix = QUERY_PREFIX + settlement + ', '
-      const { REACT_APP_DADATA_API_KEY } = process.env
-      const checkResponse = response =>
-        new Promise((resolve, reject) => {
-          response.ok ? response.json().then(json => resolve(json)) : reject()
-        })
-      const options = {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Token ' + REACT_APP_DADATA_API_KEY,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            query: fullQueryPrefix + query,
-            count: MAX_SUGGESTIONS
-          })
-      }
-      if (!this.fetching) {
-        this.fetching = true
-        fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address", options)
-          .then(response => checkResponse(response)
-            .then(payload => {
-              this.fetching = false
-              this.skipValidation = false
-              this.setState({ 
-                suggestions: payload.suggestions.map(suggestion => ({
-                  ...suggestion,
-                  unrestricted_value: suggestion.unrestricted_value.replace(fullQueryPrefix, '') 
-                })), 
-                suggestionIndex: -1 
-              })
-            })
-          ).catch(() => { 
-            this.fetching = false
-            this.skipValidation = true
-          })
-      }    
+    const { query } = this.state
+    const { settlement } = this.props
+    const fullQueryPrefix = QUERY_PREFIX + settlement + ', '
+    const { REACT_APP_DADATA_API_KEY } = process.env
+    const checkResponse = response =>
+      new Promise((resolve, reject) => {
+        response.ok ? response.json().then(json => resolve(json)) : reject()
+      })
+    const options = {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Token ' + REACT_APP_DADATA_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: fullQueryPrefix + query,
+        count: MAX_SUGGESTIONS
+      })
     }
+    if (!this.fetching) {
+      this.fetching = true
+      fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address", options)
+        .then(response => checkResponse(response)
+          .then(payload => {
+            this.fetching = false
+            this.skipValidation = false
+            this.setState({
+              suggestions: payload.suggestions.map(suggestion => ({
+                ...suggestion,
+                unrestricted_value: suggestion.unrestricted_value.replace(fullQueryPrefix, '')
+              })),
+              suggestionIndex: -1
+            })
+          })
+        ).catch(() => {
+          this.fetching = false
+          this.skipValidation = true
+        })
+    }
+  }
 
   onSuggestionClick = (index, event) => {
     event.stopPropagation()
@@ -137,20 +158,20 @@ class DaData extends React.Component {
     const { onChange } = this.props
     const { textInput } = this.refs
     if (suggestions.length >= index - 1) {
-      this.setState({ 
-        query: suggestions[index].unrestricted_value, 
-        suggestionsVisible: false, 
-        inputQuery: suggestions[index].unrestricted_value 
-      },  
-      () => {
-        this.fetchSuggestions()
-        setTimeout(() => this.setCursorToEnd(textInput), 100)
-      })
+      this.setState({
+        query: suggestions[index].unrestricted_value,
+        suggestionsVisible: false,
+        inputQuery: suggestions[index].unrestricted_value
+      },
+        () => {
+          this.fetchSuggestions()
+          setTimeout(() => this.setCursorToEnd(textInput), 100)
+        })
       if (onChange) {
         onChange({
           value: suggestions[index].unrestricted_value,
           isValid: suggestions[index].data.fias_level >= 8
-        })  
+        })
       }
     }
   }
@@ -191,13 +212,13 @@ class DaData extends React.Component {
   componentWillReceiveProps = nextProps => { //очищаем инпут при смене нас пункта
     const { onChange, settlement } = this.props
     if (settlement !== nextProps.settlement) {
-      this.setState({ 
-        query: '' 
+      this.setState({
+        query: ''
       }, onChange({
         value: '',
         isValid: false
       }))
-    } 
+    }
   }
 
   render = () => {
@@ -225,7 +246,7 @@ class DaData extends React.Component {
               <div className="react-dadata__suggestion-note">
                 Выберите вариант или продолжите ввод
               </div>
-              { this.suggestionsList() }
+              {this.suggestionsList()}
             </div>
             : null
         }

@@ -13,8 +13,8 @@ import { TITLE_PREFIX } from 'appConstants'
 class Orders extends React.Component {
 
   componentDidMount = () => {
-    const { fetching, getOrders, loaded } = this.props
-    !fetching && !loaded && getOrders()
+    const { fetching, getOrders } = this.props
+    !fetching && getOrders()
   }
 
   ordersList = () => {
@@ -43,7 +43,6 @@ const mapStateToProps = state => {
   return {
     fetching,
     orders: payload,
-    loaded: !!payload.length,
     user: state.user.payload
   }
 }
