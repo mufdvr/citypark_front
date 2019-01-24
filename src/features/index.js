@@ -7,6 +7,7 @@ import Personal from './Personal'
 import RestaurantAndCafe from './RestaurantAndCafe'
 import PublicOffer from './PublicOffer'
 import PrivatePolicy from './ProvatePolicy'
+import Feedback from './Feedback'
 
 export {
   Cart,
@@ -17,5 +18,6 @@ export {
   Personal,
   RestaurantAndCafe,
   PublicOffer,
-  PrivatePolicy
+  PrivatePolicy,
+  Feedback
 }

@@ -149,8 +149,8 @@ class DaData extends React.Component {
   }
 
   onSuggestionClick = (index, event) => {
-    event.stopPropagation()
     this.selectSuggestion(index)
+    event.stopPropagation()
   }
 
   selectSuggestion = index => {
@@ -161,6 +161,7 @@ class DaData extends React.Component {
       this.setState({
         query: suggestions[index].unrestricted_value,
         suggestionsVisible: false,
+        suggestionIndex: index,
         inputQuery: suggestions[index].unrestricted_value
       },
         () => {

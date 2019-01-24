@@ -1,0 +1,21 @@
+.fold_cut {
+  width: 568px;
+  background-position-x: -568px;
+  right: -193px;
+}
+
+.partbody_personal {
+  padding-top: 70px;
+}
+
+@media screen and (max-width: 800px) {
+  .fold_cut {
+    width: 100%;
+    background-position-x: center;
+    right: 0;
+  }
+
+  .partbody_personal {
+    padding-top: 0;
+  }
+}  

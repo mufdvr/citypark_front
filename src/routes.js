@@ -1,4 +1,4 @@
-import { Contacts, Hotel, Personal, OrderDetails, Home, RestaurantAndCafe, PublicOffer, PrivatePolicy } from 'features'
+import { Contacts, Hotel, Personal, OrderDetails, Home, RestaurantAndCafe, PublicOffer, PrivatePolicy, Feedback } from 'features'
 import { MainLayout } from 'containers'
 import { NotFound } from 'components'
 
@@ -15,6 +15,7 @@ const routes = [
       ...Personal.routes,
       ...PublicOffer.routes,
       ...PrivatePolicy.routes,
+      ...Feedback.routes,
       {
         path: '*',
         component: NotFound
