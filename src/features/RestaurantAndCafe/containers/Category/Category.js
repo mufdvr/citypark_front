@@ -71,9 +71,9 @@ class Category extends React.Component {
         <div ref="categtitle" className="menu_cat_title">
           <div className="mcl"></div>
           <div className="mcr"></div>
-          <div className="mctt">
+          <div className="mctt" onClick={this.handleClick}>
             {fetching ? <div className="cwait" /> : null}
-            <a href={baseUrl() + MENU.URL + '/' + transliterate(title)} onClick={this.handleClick}>
+            <a href={baseUrl() + MENU.URL + '/' + transliterate(title)}>
               {title}
             </a>
           </div>

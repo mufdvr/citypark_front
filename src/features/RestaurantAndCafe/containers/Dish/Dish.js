@@ -24,7 +24,7 @@ class Dish extends React.Component {
   }
 
   render = () => {
-    const { id, title, cost, description, weight, 
+    const { id, title, cost, description, discount, weight, 
       delFavorite, can_order, images, user, fav } = this.props
     const { REACT_APP_SHOPON } = process.env  
     return (
@@ -58,13 +58,13 @@ class Dish extends React.Component {
                   : <div onClick={() => this.handeAddToFavorites(id, title)} className="z_btn">В избранное</div>
                 : null
               }
-              <div onClick={() => this.handleAddItems([{id, title, cost}])} className="z_btn">
+              <div onClick={() => this.handleAddItems([{id, title, cost, discount}])} className="z_btn">
                 { REACT_APP_SHOPON === "true" ? "В корзину" : "Добавить в заказ" }
               </div>
              </div>
             : 
             <div className="dish-cant_order">
-              Не подается на вынос.<br/>Попробуйте в City Park!
+              Онлайн продажа не доступна.<br/>Звоните по номеру <a href="tel:+79183119791">8-918-311-97-91</a>.
             </div> 
           }
            

@@ -15,10 +15,8 @@ export const filterCart = cart =>
     dish_count: item.count
   }))
 
-export const cartTotal = cart => {
-  const total = cart.reduce((sum, item) => sum += item.cost * item.count, 0)
-  return total - Math.floor(total * 0.1) //скидка
-}
+export const cartTotal = cart => 
+  cart.reduce((sum, item) => sum += item.discount ? item.cost * item.count : (item.cost * item.count) * 0.9, 0)
 
 export const transliterate = (text, engToRus) => {
   const rus = "щ   ш  ч  ц  ю  я  ё  ж  ъ  ы  э  а б в г д е з и й к л м н о п р с т у ф х ь".split(/ +/g)
