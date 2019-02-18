@@ -84,7 +84,7 @@ class Cart extends React.Component {
         <div className="basket_summ">
           {
             _cartTotal >= Number(REACT_APP_MIN_AMOUNT_TO_FREE_DELIVERY) ?
-              <div id="free_dost">Бесплатная доставка!</div>
+              <div id="free_dost">Бесплатная доставка по городу!</div>
             : null
           }
           Сумма заказа: <span id="t_all_summ">{_cartTotal}</span>₽
