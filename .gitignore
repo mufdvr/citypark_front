@@ -9,7 +9,8 @@
 # production
 /build
 
-/nginx/ssl
+/nginx/ssl/*.crt
+/nginx/ssl/*.key
 
 # misc
 .DS_Store
