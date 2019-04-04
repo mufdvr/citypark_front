@@ -8,10 +8,11 @@ import { renderRoutes } from 'react-router-config'
 
 import routes from 'routes'
 
-const App = () =>
-  <Provider store={store}>
+const App = () => {
+  return <Provider store={store}>
     <ConnectedRouter history={history}>{renderRoutes(routes)}</ConnectedRouter>
   </Provider>
+}
 
 
 export default App
