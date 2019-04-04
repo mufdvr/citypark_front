@@ -3,8 +3,8 @@ ARG APP_ROOT=/app
 FROM node:10 AS build
 ARG APP_ROOT
 WORKDIR ${APP_ROOT}
+ENV NODE_ENV=production
 ENV PATH ${APP_ROOT}/node_modules/.bin:$PATH
-RUN yarn global add react-scripts@1.1.4
 COPY package*.json yarn.lock ./
 RUN yarn
 COPY public ./public
