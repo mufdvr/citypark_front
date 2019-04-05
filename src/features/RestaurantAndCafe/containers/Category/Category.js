@@ -83,7 +83,7 @@ class Category extends React.Component {
           <div className="vrprig">Время приготовления<br />{cookingTime}</div>
           <div className="cat_content">
             {this.dishesList()}
-            <a onClick={this.goTop} className="gtcat">Наверх к категории</a>
+            <div onClick={this.goTop} className="gtcat">Наверх к категории</div>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ class NavigationBar extends React.Component {
     }
   }
 
-  handleTotgleVisible = () => 
+  handleTotgleVisible = () =>
     this.setState(prev => ({
       ...prev,
       visible: !prev.visible,
@@ -136,8 +136,8 @@ class NavigationBar extends React.Component {
                 {CONTACTS.TITLE}
               </Link>
             </li>
-            { 
-              REACT_APP_SHOPON === "true" ? 
+            {
+              REACT_APP_SHOPON === "true" ?
                 <li onClick={this.handleClick} onMouseOver={() => this.handleHover(2)} onMouseOut={() => this.handleHover(2)}>
                   <Link to={PERSONAL.URL}>
                     { user && user.id ? user.name : PERSONAL.TITLE }
@@ -163,7 +163,7 @@ class NavigationBar extends React.Component {
                   }
                 </li>
               : null
-            }    
+            }
     		    <div id="menu-btn" onClick={this.handleTotgleVisible}>
     			    <div id="mn1" style={ visible ? buttonStyles[2] : buttonStyles[0] }></div>
     			    <div id="mn2"></div>

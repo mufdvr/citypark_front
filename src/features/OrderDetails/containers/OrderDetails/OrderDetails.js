@@ -120,7 +120,7 @@ class OrderDetails extends React.Component {
               />
               <div className="bl_cena">
                 {
-                  order.delivery ? <div>Стоимость доставки: {deliveryPrice}₽</div> : <div>&nbsp;</div> 
+                  order.delivery ? <div>Стоимость доставки: {deliveryPrice}₽</div> : <div>&nbsp;</div>
                 }
                 <span style={{ fontSize: "1.5em" }}>К оплате: </span>
                 <span className="bsm">

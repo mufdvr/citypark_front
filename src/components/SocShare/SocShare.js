@@ -13,7 +13,7 @@ const Share = ({ link, title, image }) =>
           quickServices.map(service =>
             <a
               key={service}
-              rel="nofollow"
+              rel="nofollow noopener noreferrer"
               target="_blank"
               title={capitalize(service)}
               className={`b-share__handle b-share__link b-share-btn__${service}`}
