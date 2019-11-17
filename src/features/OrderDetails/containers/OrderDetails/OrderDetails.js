@@ -46,14 +46,18 @@ class OrderDetails extends React.Component {
   handleSubmit = () => {
     const { order, g_recaptcha_response } = this.state
     delete order.deliveryPrice
+
     const { createOrder, user: { id } } = this.props
     const invalidFields = validOrder(order)
     if (invalidFields) this.setState({ invalidFields })
     if (!invalidFields.length && (id || g_recaptcha_response)) {
       createOrder({
         ...order,
-        street: order.street.value || ''
+        street: order.address.street || '',
+        street_kladr_id: order.address.street_kladr_id || '',
+        house: order.address.house || ''
       }, g_recaptcha_response)
+      //console.log(order)
     } else {
       NotificationManager.error('Заполните все необходимые поля!', '', 3000)
     }
