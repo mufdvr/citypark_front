@@ -52,7 +52,7 @@ class OrderDetails extends React.Component {
     if (!invalidFields.length && (id || g_recaptcha_response)) {
       createOrder({
         ...order,
-        street: order.street.value || ''
+        street: order.delivery ? order.street.value : ''
       }, g_recaptcha_response)
     } else {
       NotificationManager.error('Заполните все необходимые поля!', '', 3000)
