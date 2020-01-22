@@ -53,9 +53,9 @@ class OrderDetails extends React.Component {
     if (!invalidFields.length && (id || g_recaptcha_response)) {
       createOrder({
         ...order,
-        street: order.address.street || '',
-        street_kladr_id: order.address.street_kladr_id || '',
-        house: order.address.house || ''
+        street: order.delivery ? order.address.street : '',
+        street_kladr_id: order.delivery ? order.address.street_kladr_id : '',
+        house: order.delivery ? order.address.house : ''
       }, g_recaptcha_response)
       //console.log(order)
     } else {
