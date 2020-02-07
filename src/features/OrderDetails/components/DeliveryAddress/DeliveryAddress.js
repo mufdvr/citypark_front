@@ -17,17 +17,17 @@ class DeliveryAddress extends Component {
   }
 
   handleChange = prop => {
-    const { target, settlements, obtainingMethods, street } = prop
+    const { target, settlements, obtainingMethods, address } = prop
     const { onChange } = this.props
     if (target) {
       onChange({ [target.name]: target.value })
     } else {
       settlements && onChange({ city: settlements.label, deliveryPrice: settlements.price })
       obtainingMethods && onChange({ delivery: obtainingMethods.value === 1 })
-      street && onChange({ street })
+      address && onChange({ address })
       this.setState({ ...prop })
     }
-  }  
+  }
 
   render = () => {
     const { obtainingMethods, settlements } = this.state
@@ -56,18 +56,18 @@ class DeliveryAddress extends Component {
                     options={constants.SETTLEMENTS}
                   />
                 </div>
-                <div className={`field required${invalidFields.includes('street') ? ' error' : ''}`}>
+                <div className={`field required${invalidFields.includes('address') ? ' error' : ''}`}>
                   <label>Улица, дом/корпус/строение</label>
-                  <DaData 
-                    className="form-input" 
-                    settlement={settlements.value} 
-                    onChange={street => this.handleChange({ street })}
+                  <DaData
+                    className="form-input"
+                    settlement={settlements.value}
+                    onChange={address => this.handleChange({ address })}
                     placeholder="Начните вводить адрес"
                   />
                 </div>
               </div>
             </div>
-          : 
+          :
             <div className="field required">
               <label>Адрес получения</label>
               <input
@@ -78,7 +78,7 @@ class DeliveryAddress extends Component {
                 placeholder="г. Белореченск, ул. Гоголя, 61"
               />
             </div>
-        }      
+        }
       </div>
     )
   }

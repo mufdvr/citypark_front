@@ -15,6 +15,7 @@ export const actions = (method, api_path, actionType, body = {}) => dispatch => 
         case 200:
           response.json().then(json => resolve(json))
           break
+        case 400:
         case 401:
         case 418:
         case 422:

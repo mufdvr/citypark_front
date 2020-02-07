@@ -7,7 +7,9 @@ const order = {
   email: '',
   city: 'Белореченск',
   street: '',
+  house: '',
   comment: '',
+  street_kladr_id: '',
   delivery: true,
   dishes_orders_attributes: [],
 }
@@ -17,7 +19,7 @@ export const validOrder = order => {
   const attribs = order.delivery ? ['name', 'city'] : ['name']
   attribs.forEach(attr => order[attr] === '' && result.push(attr))
   !(order.phone && isValidNumber(order.phone, 'RU')) && result.push('phone')
-  order.delivery && !order.street.isValid && result.push('street')
+  order.delivery && !order.address.isValid && result.push('address')
   return result
 }
 

@@ -37,7 +37,9 @@ class DaData extends React.Component {
       case 1:
         this.setState({ query: suggestions[0].unrestricted_value })
         onChange({
-          value: suggestions[0].unrestricted_value,
+          street: suggestions[0].data.street,
+          house: suggestions[0].data.house,
+          street_kladr_id: suggestions[0].data.street_kladr_id,
           isValid: suggestions[0].data.fias_level >= 8
         })
         break
@@ -47,7 +49,9 @@ class DaData extends React.Component {
         } else {
           this.setState({ query: suggestions[0].unrestricted_value })
           onChange({
-            value: suggestions[0].unrestricted_value,
+            street: suggestions[0].data.street,
+            house: suggestions[0].data.house,
+            street_kladr_id: suggestions[0].data.street_kladr_id,
             isValid: suggestions[0].data.fias_level >= 8
           })
         }
@@ -136,7 +140,7 @@ class DaData extends React.Component {
             this.setState({
               suggestions: payload.suggestions.map(suggestion => ({
                 ...suggestion,
-                unrestricted_value: suggestion.unrestricted_value.replace(fullQueryPrefix, '')
+                unrestricted_value: suggestion.unrestricted_value.replace(fullQueryPrefix, '').replace(/\d{6}.{2}/, '')
               })),
               suggestionIndex: -1
             })
@@ -170,7 +174,9 @@ class DaData extends React.Component {
         })
       if (onChange) {
         onChange({
-          value: suggestions[index].unrestricted_value,
+          street: suggestions[index].data.street,
+          house: suggestions[index].data.house,
+          street_kladr_id: suggestions[index].data.street_kladr_id,
           isValid: suggestions[index].data.fias_level >= 8
         })
       }
@@ -216,7 +222,9 @@ class DaData extends React.Component {
       this.setState({
         query: ''
       }, onChange({
-        value: '',
+        street: '',
+        house: '',
+        street_kladr_id: '',
         isValid: false
       }))
     }
