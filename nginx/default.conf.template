@@ -126,7 +126,7 @@ server {
   }
 
   location /.well-known {
-    root /usr/share/nginx/acme;
+    root /usr/share/nginx/well-known;
   }
 
   location / {
