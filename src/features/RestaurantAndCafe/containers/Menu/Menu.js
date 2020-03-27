@@ -33,6 +33,7 @@ class Menu extends React.Component {
   }
 
   render = () => {
+    const { REACT_APP_DISCOUNT_TEXT } = process.env
     return (
       <div className="light restaraunt-menu">
         <Helmet title={TITLE_PREFIX + MENU.TITLE} />
@@ -44,7 +45,7 @@ class Menu extends React.Component {
           image={baseUrl() + images.menu}
         />
         <h2>
-          <span>&nbsp;При заказе на вынос скидка с чека 10%!</span></h2>
+        <span>{REACT_APP_DISCOUNT_TEXT}</span></h2>
         <h2>&nbsp;</h2>
         <h2>При заказе на сумму от 500 рублей доставка еды по Белореченску БЕСПЛАТНО.</h2>
         <h2>Заказы принимаются с 10:30 до 00:30 по телефону: <a href="tel:+79183119791">8-918-311-97-91</a>.<br/>&nbsp;</h2>
