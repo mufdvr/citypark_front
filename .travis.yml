@@ -5,7 +5,7 @@ node_js:
 services:
 - docker
 before_install:
-- openssl aes-256-cbc -K $encrypted_aeeb89b9390d_key -iv $encrypted_aeeb89b9390d_iv -in secrets.tar.enc -out secrets.tar -d
+- openssl aes-256-cbc -K $encrypted_06cc269aa5c5_key -iv $encrypted_06cc269aa5c5_iv -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
 - mv deploy_rsa /tmp/deploy_rsa
 - eval "$(ssh-agent -s)"
