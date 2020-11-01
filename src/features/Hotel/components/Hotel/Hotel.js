@@ -322,10 +322,10 @@ export default () =>
           <td>Samsa with cheese (110 g)</td><td>100rub</td>
         </tr>
         <tr>
-          <td>Самса с мясом (110гр)</td><td>100 руб</td>
+          <td>Самса с мясом (110гр)</td><td>200 руб</td>
         </tr>
         <tr>
-          <td>Samsa with meat (110 g)</td><td>100rub</td>
+          <td>Samsa with meat (110 g)</td><td>200rub</td>
         </tr>
         <tr>
           <td>Омлет (130гр)</td><td>80 руб</td>
@@ -714,7 +714,7 @@ export default () =>
     <p align="CENTER">&nbsp;</p>
     <ul>
       <li>
-        <p lang="ru-RU" align="LEFT"><span><span><span>Размещение Гостя осуществляется по предоставлению Администратору паспорта или водительское удостоверение и внесении 100% оплаты минимум за сутки проживания в гостинице</span></span>
+        <p lang="ru-RU" align="LEFT"><span><span><span>Размещение Гостя осуществляется по предоставлению Администратору паспорта и внесении 100% оплаты минимум за сутки проживания в гостинице</span></span>
         </span>
         </p>
       </li>
@@ -921,7 +921,7 @@ export default () =>
     </p>
     <p align="LEFT"><span><span>Пульт от кондиционера 1000руб</span></span>
     </p>
-    <p align="LEFT"><span><span>Пульт от телевизора 3000руб</span></span>
+    <p align="LEFT"><span><span>Пульт от телевизора 5000руб</span></span>
     </p>
     <p align="LEFT"><span><span>3Д очки 2000руб</span></span>
     </p>
