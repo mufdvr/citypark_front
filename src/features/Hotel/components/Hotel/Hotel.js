@@ -41,7 +41,7 @@ export default () =>
     <p>• заказ завтрака в номер (стоимость завтрака не входит в стоимость номера);<br />•&nbsp;заказ еды из ресторана City Park;<br />•&nbsp;детская кровать до 3-х лет.<br />•&nbsp;услуги прачечной и глажки (платно).</p>
     <p>&nbsp;</p>
     <h3>Правила размещения:</h3>
-    <p>Номер VIP – не более четырех гостей, в остальные номера – не более двух.<br />Заселение производится по паспорту или водительскому удостоверению. <br />Оплатить можно как наличными, так и банковской картой.<br />За бронирование плата не взимается.<br />
+    <p>Номер VIP – не более четырех гостей, в остальные номера – не более двух.<br />Заселение производится по паспорту. <br />Оплатить можно как наличными, так и банковской картой.<br />За бронирование плата не взимается.<br />
       <strong style={{ lineHeight: "1.5em" }}>Заезд с животными запрещен.<br /></strong><strong style={{ lineHeight: "1.5em" }}>Курение в помещениях РГК City Park запрещено, штраф 1000 руб. Место для курения есть на каждом этаже.</strong></p>
     <p>&nbsp;</p>
     <h4>Забронировать номер в гостинице City Park можно по телефонам: +7-918-311-97-10, 8-800-100-24-41 (звонок по России бесплатный) или на сайте РГК City Park&nbsp;
@@ -370,10 +370,10 @@ export default () =>
           <td>Couscous with vegetables (couscous, pumpkin, zucchini, onion, garlic, tomato)</td><td>200 rub</td>
         </tr>
         <tr>
-          <td>Ризотто с грибами (грибы, лук, черри, чеснок, зелень)</td><td>180 руб</td>
+          <td>Ризотто с грибами (грибы, лук, черри, чеснок, зелень)</td><td>200 руб</td>
         </tr>
         <tr>
-          <td>Risotto with mushrooms (mushrooms, onions, garlic, tomatoes, garlic, parsley)</td><td>180rub</td>
+          <td>Risotto with mushrooms (mushrooms, onions, garlic, tomatoes, garlic, parsley)</td><td>200 rub</td>
         </tr>
         <tr>
           <td>Блины с топпингом (100гр)</td><td>60 руб</td>
@@ -388,10 +388,10 @@ export default () =>
           <td>Blintz with Condensed Milk (100g)</td><td>60rub</td>
         </tr>
         <tr>
-          <td>Блины с медом (100гр)</td><td>80 руб</td>
+          <td>Блины с медом (100гр)</td><td>100 руб</td>
         </tr>
         <tr>
-          <td>Blintz with Honey (100g)</td><td>80rub</td>
+          <td>Blintz with Honey (100g)</td><td>100rub</td>
         </tr>
         <tr>
           <td>Блины фаршированные творогом (150гр)</td><td>120 руб</td>
@@ -406,16 +406,16 @@ export default () =>
           <td>Ratatouille (200g)</td><td>180rub</td>
         </tr>
         <tr>
-          <td>Штрудель (яблочный,ягодный,творожный )</td><td>220 руб</td>
+          <td>Штрудель (яблочный,ягодный,творожный )</td><td>250 руб</td>
         </tr>
         <tr>
-          <td>Strudel (apple, berry, cottage)</td><td>220rub</td>
+          <td>Strudel (apple, berry, cottage)</td><td>250rub</td>
         </tr>
         <tr>
-          <td>Чизкейк (ванильный, шоколадный, ягодный) 150гр</td><td>180руб</td>
+          <td>Чизкейк (ванильный, шоколадный, ягодный) 150гр</td><td>200руб</td>
         </tr>
         <tr>
-          <td>Cheesecake ( vanilla , chocolate , berry) 150g</td><td>180rub</td>
+          <td>Cheesecake ( vanilla , chocolate , berry) 150g</td><td>200rub</td>
         </tr>
         <tr>
           <td>Фрукты в ассортименте: виноград(100гр)</td><td>70 руб</td>
@@ -492,72 +492,72 @@ export default () =>
       <tbody>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нарзан 0,5 л.&quot;}">Нарзан 0,5 л.</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;100руб&quot;}">100руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120руб&quot;}">120руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Сок в ассортименте 0,3 л.&quot;}">Сок в ассортименте 0,3 л.</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;80 руб&quot;}">80 руб</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Mineral Water Narzan 0,5 L&quot;}">Mineral Water Narzan 0,5 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;100 rub&quot;}">100 rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120 rub&quot;}">120 rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Juice in assortment&quot;}">Juice in assortment</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;80 rub&quot;}">80 rub</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Лимонад 0,5 л.&quot;}">Лимонад 0,5 л.</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;80 руб&quot;}">80 руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;85 руб&quot;}">85 руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Пиво Балтика «0» 0,5 л.&quot;}">Пиво Балтика «0» 0,5 л.</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;100руб&quot;}">100руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;130руб&quot;}">130руб</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Lemonade 0,5 L&quot;}">Lemonade 0,5 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;80 rub&quot;}">80 rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;85 rub&quot;}">85 rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Beer Baltika non-alс 0,5 L&quot;}">Beer Baltika non-alс 0,5 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;100rub&quot;}">100rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;130rub&quot;}">130rub</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Швепс 0,25 л.&quot;}">Швепс 0,25 л.</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120руб&quot;}">120руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140руб&quot;}">140руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Пиво Хольстен 0,5 л.&quot;}">Пиво Хольстен 0,5 л.</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;160руб&quot;}">160руб</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Schweppes 0,25 L&quot;}">Schweppes 0,25 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120rub&quot;}">120rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140rub&quot;}">140rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Beer Holsten 0,5 L&quot;}">Beer Holsten 0,5 L</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;160rub&quot;}">160rub</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Спрайт 0,25 л. &quot;}">Спрайт 0,25 л.</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120руб&quot;}">120руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140руб&quot;}">140руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Пиво Туборг 0,5&quot;}">Пиво Туборг 0,5</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140руб&quot;}">140руб</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Sprite 0,25 L &quot;}">Sprite 0,25 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120rub&quot;}">120rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140rub&quot;}">140rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Beer Tuborg 0,5 L&quot;}">Beer Tuborg 0,5 L</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140rub&quot;}">140rub</td>
         </tr>
         <tr>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Кока — кола 0,25 л.&quot;}">Кока — кола 0,25 л.</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120руб&quot;}">120руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Кока — кола 0,33 л.&quot;}">Кока — кола 0,33 л.</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140руб&quot;}">140руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Виски Джек Дениэлс с Теннесси 0,05&quot;}">Виски Джек Дениэлс с Теннесси 0,05</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;380руб&quot;}">380руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;430руб&quot;}">430руб</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Coca — cola 0,25 L&quot;}">Coca — cola 0,25 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;120rub&quot;}">120rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;140rub&quot;}">140rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Whiskey Jack Daniels Tennessee 0,05 L&quot;}">Whiskey Jack Daniels Tennessee 0,05 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;380rub&quot;}">380rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;430rub&quot;}">430rub</td>
         </tr>
         <tr>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Бон — Аква 0,5 л.&quot;}">Бон — Аква 0,5 л.</td>
+          <td data-sheets-value={`{&quot;1&quot;:2,&quot;2&quot;:&quot;Мин. вода "Горячий ключ" 0,5л. &quot;}`}>Мин. вода "Горячий ключ" 0,5л.</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;80 руб&quot;}">80 руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Виски Джемесон 0,05&quot;}">Виски Джемесон 0,05</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;350руб&quot;}">350руб</td>
         </tr>
         <tr>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Bon Aqua 0,5 L&quot;}">Bon Aqua 0,5 L</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Bon Aqua 0,5 L&quot;}">Water Min "Hot Key" 0,5 L</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;80 rub&quot;}">80 rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Whiskey Jameson 0,05 L&quot;}">Whiskey Jameson 0,05 L</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;350rub&quot;}">350rub</td>
@@ -602,22 +602,22 @@ export default () =>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Кофе натуральный &quot;}">Кофе натуральный</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;60 руб&quot;}">60 руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Коньяк Старый Кенигсберг 0,1 л&quot;}">Коньяк Старый Кенигсберг 0,1 л</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;180руб&quot;}">180руб</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;180руб&quot;}">300руб</td>
         </tr>
         <tr>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Natural Coffe&quot;}">Natural Coffe</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;60 rub&quot;}">60 rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Brandy Old Keningsberg 0,1 L&quot;}">Brandy Old Keningsberg 0,1 L</td>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;180rub&quot;}">180rub</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;180rub&quot;}">300rub</td>
         </tr>
         <tr>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Кофе раств. со сливками&quot;}">Кофе раств. со сливками</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Кофе раств. со сливками&quot;}">Чай Азерчай в ассортименте</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;50 руб&quot;}">50 руб</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Ликер  Ягермайстер 0,04 л&quot;}">Ликер Ягермайстер 0,04 л</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;250руб&quot;}">250руб</td>
         </tr>
         <tr>
-          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Instant Coffe with cream&quot;}">Instant Coffe with cream</td>
+          <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Instant Coffe with cream&quot;}">Azercey tea in assortments</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;50 rub&quot;}">50 rub</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Liker Yagermayster 0,04 L&quot;}">Liker Yagermayster 0,04 L</td>
           <td data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;250rub&quot;}">250rub</td>
