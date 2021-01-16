@@ -50,12 +50,12 @@ export default () =>
           height="300"
         />
         &nbsp;
-        <img
+        {/* <img
           src={images.cityPark2}
           alt="City_Park"
           width="450"
           height="300"
-        />
+        /> */}
       </span>
     </p>
     <p className="justifyleft">
