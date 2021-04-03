@@ -74,9 +74,9 @@ export default () =>
       Уютное <Link to={CAFE.URL}>летнее кафе</Link>
       , где вы всегда&nbsp;можете укрыться от городского зноя в&nbsp;прохладной тени или уединиться в застекленной охлаждаемой террасе.
     </h3>
-    <p className="justifyleft">
+    <p style={{marginTop: 20}} className="justifyleft">
       <img
-        src={images.cafePanorama}
+        src={images.cafe2}
         alt="Letnee_kafe_panorama"
         width="771"
         height="300"

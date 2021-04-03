@@ -26,7 +26,7 @@ export default () =>
     </h2>
     <p className="justifyleft">
       <img
-        src={images.panoramaObrez}
+        src={images.cafe2}
         alt="Letnee_kafe_panorama"
         width="768"
         height="299"

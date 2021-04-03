@@ -29,19 +29,12 @@ export default () =>
     <h3 className="justifyleft">&nbsp;&nbsp;</h3>
     <p className="justifyleft">
       <img
-        src={images.photo1}
+        src={images.restaurant2}
         alt="12345"
         width="393"
         height="262"
       />
       &nbsp;
-      <img
-        src={images.photo2}
-        alt="45"
-        width="393"
-        height="262"
-      />
-      &nbsp;&nbsp;
     </p>
     <p className="justifyleft">
       <span>
